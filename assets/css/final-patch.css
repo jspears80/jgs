@@ -1,0 +1,5 @@
+/* ---- JGS patch: stabilize header alignment across pages ---- */
+:root{scrollbar-gutter:stable both-edges;}
+html{overflow-y:scroll;}
+*,*::before,*::after{box-sizing:border-box;}
+/* ---- end patch ---- */
