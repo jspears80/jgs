@@ -25,3 +25,28 @@ body{margin:0;color:var(--text);background:radial-gradient(1200px 600px at 50% -
 .founder{display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:center}.founder img{width:96px;height:96px;border-radius:10px;object-fit:cover}
 /* footer */
 .site-footer,.site-footer .wrap{text-align:center}.site-footer .wrap{padding:20px var(--pad) 28px;opacity:.9;font-size:.95rem}
+
+/* Fix founder card orientation */
+.founder--flip { display:grid; grid-template-columns: 1fr 96px; gap:16px; align-items:center; }
+.founder--flip img { justify-self:end; width:96px; height:96px; border-radius:10px; object-fit:cover; }
+
+/* Mobile nav fix */
+@media (max-width: 960px) {
+  .nav {
+    position: fixed;
+    inset: 64px 0 0 0;
+    background: rgba(7,11,14,0.98);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 16px 32px;
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease;
+    z-index: 999;
+  }
+  .nav.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  body.menu-open { overflow: hidden; }
+}
