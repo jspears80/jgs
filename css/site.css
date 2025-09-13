@@ -26,11 +26,11 @@ body{margin:0;color:var(--text);background:radial-gradient(1200px 600px at 50% -
 /* footer */
 .site-footer,.site-footer .wrap{text-align:center}.site-footer .wrap{padding:20px var(--pad) 28px;opacity:.9;font-size:.95rem}
 
-/* Fix founder card orientation */
+/* Founder card flip */
 .founder--flip { display:grid; grid-template-columns: 1fr 96px; gap:16px; align-items:center; }
 .founder--flip img { justify-self:end; width:96px; height:96px; border-radius:10px; object-fit:cover; }
 
-/* Mobile nav fix */
+/* Mobile nav background */
 @media (max-width: 960px) {
   .nav {
     position: fixed;
@@ -50,3 +50,106 @@ body{margin:0;color:var(--text);background:radial-gradient(1200px 600px at 50% -
   .nav.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
   body.menu-open { overflow: hidden; }
 }
+
+/* Consistent hero style */
+.page-hero, .hero {
+  text-align:center;
+  padding: clamp(64px,8vw,96px) 20px 40px;
+}
+.page-hero h1, .hero h1 {
+  font-size: clamp(28px,4vw,56px);
+  font-weight:800;
+  margin: 0 0 16px;
+}
+.page-hero .lead, .hero .lead {
+  color: var(--muted);
+  max-width: 880px;
+  margin: 0 auto 24px;
+}
+
+/* Center all site content */
+body, main, .container, .wrap, section, .hero, .page-hero {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.grid-2, .grid-3, .grid-4 {
+  justify-items: center;
+}
+.card { text-align: center; }
+
+/* Add max-width to cards for readability on wide screens */
+.card {
+  max-width: 420px;
+}
+.grid-2, .grid-3, .grid-4 {
+  justify-content: center;
+}
+
+/* Ensure hero titles, leads, and sections are consistently centered and limited */
+.hero h1, .page-hero h1, .hero-title {
+  text-align:center;
+  margin:0 auto 16px;
+  max-width: 980px;
+  line-height:1.15;
+}
+.hero .lead, .page-hero .lead, .hero-lead {
+  text-align:center;
+  margin:0 auto 24px;
+  max-width: 880px;
+}
+.section-title, section > h2 {
+  text-align:center;
+  margin: 48px auto 16px;
+}
+
+/* Grid fixes */
+.grid-2, .grid-3, .grid-4 {
+  display:grid;
+  gap:28px;
+  justify-content:center;
+  justify-items:center;
+}
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.card {
+  max-width:420px;
+  text-align:center;
+}
+
+/* Homepage fix: lock viewport, unify header height, center hero, equal cards */
+html, body { overflow-x: hidden; margin:0; padding:0; }
+
+.site-header { height:64px; }
+main.page { padding-top:64px; }
+
+.page-hero, .hero {
+  padding: 60px 20px 40px;
+  text-align: center;
+}
+.page-hero h1, .hero h1 {
+  max-width: 900px;
+  margin: 0 auto 16px;
+  line-height: 1.1;
+}
+.page-hero .lead, .hero .lead {
+  max-width: 880px;
+  margin: 0 auto 24px;
+  opacity: 0.85;
+}
+
+/* Force homepage to no scroll on desktop 1080p */
+.home main.page { min-height: calc(100vh - 64px - 60px); }
+
+.cards-row, .grid-3, .grid-4, .grid-2 {
+  display:grid;
+  gap:24px;
+  justify-content:center;
+  align-items:stretch;
+}
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); }
+.card { max-width:420px; height:100%; text-align:center; display:flex; flex-direction:column; }
+
+/* Footer consistent */
+.site-footer { padding:16px 0; text-align:center; }
