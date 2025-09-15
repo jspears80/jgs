@@ -1,2 +1,0 @@
-
-(function(){const b=document.querySelector('.burger');const n=document.querySelector('.nav');if(!b||!n)return;function t(){const o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));n.classList.toggle('open',!o);document.body.classList.toggle('menu-open',!o)}b.addEventListener('click',t);n.addEventListener('click',e=>{if(e.target.tagName==='A')t()});})();
