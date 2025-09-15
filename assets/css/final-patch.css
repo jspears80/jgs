@@ -41,7 +41,6 @@ html{overflow-y:scroll;}
     width: 128px; height: 128px; /* a consistent, tidy size */
   }
 }
-
 /* === Contact page mobile fix: align portrait === */
 @media (max-width: 768px) {
   .person {
@@ -54,3 +53,20 @@ html{overflow-y:scroll;}
     width: 128px; height: 128px; /* a consistent, tidy size */
   }
 }
+
+/* === Uniform card centering fix === */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical centering */
+  text-align: center;      /* horizontal centering for text/buttons */
+}
+/* === Uniform card alignment fix === */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* top aligned */
+  align-items: center;         /* keep content horizontally centered */
+  text-align: center;          /* center text/buttons */
+}
+
