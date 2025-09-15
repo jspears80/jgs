@@ -41,3 +41,16 @@ html{overflow-y:scroll;}
     width: 128px; height: 128px; /* a consistent, tidy size */
   }
 }
+
+/* === Contact page mobile fix: align portrait === */
+@media (max-width: 768px) {
+  .person {
+    flex-direction: column;      /* stack vertically on small screens */
+    align-items: center;         /* center image + text */
+    text-align: center;
+  }
+  .person img {
+    margin-bottom: 12px;         /* space between image and text */
+    width: 128px; height: 128px; /* a consistent, tidy size */
+  }
+}
