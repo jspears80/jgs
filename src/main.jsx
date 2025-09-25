@@ -1,12 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import JGSPrimer from './JGSPrimer.jsx'
+import './index.css'
 
-function Smoke() {
-  return (
-    <div style={{padding: 32, fontSize: 24}}>
-      ✅ React mounted (smoke test). If you see this, the issue is inside JGSPrimer.jsx.
-    </div>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<Smoke />);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <JGSPrimer />
+  </React.StrictMode>,
+)
