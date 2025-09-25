@@ -34,12 +34,12 @@ const PAGES = {
   "nav-contact":  { key: "nav-contact",  kind: "nav", title: "Contact",   body: "Get in touch — schedule a call or request support." },
   "nav-schedule": { key: "nav-schedule", kind: "nav", title: "Schedule",  body: "Book a quick discovery call for CPA or Law firm needs." },
   "nav-comm":     { key: "nav-comm",     kind: "nav", title: "Communication", body: "Direct Microsoft 365 support — same business day." },
-  "nav-intro":    { key: "nav-intro",    kind: "nav", title: "Home",          body: "Microsoft 365 that just works — for CPA and law firms." },
-  "nav-cpa":      { key: "nav-cpa",      kind: "nav", title: "CPA Firms",     body: "Tax season without tech stress." },
-  "nav-law":      { key: "nav-law",      kind: "nav", title: "Law Firms",     body: "Confidential collaboration, year-round." },
-  "nav-services": { key: "nav-services", kind: "nav", title: "Our Services",   body: "Flat‑fee projects + advisory retainers." },
+  "nav-intro":    { key: "nav-intro",    kind: "nav", title: "Home",          body: "Secure • Simple • Reliable — Microsoft 365 for CPA and law firms." },
+  "nav-cpa":      { key: "nav-cpa",      kind: "nav", title: "CPA Firms",     body: "CPA Firms — IRS safeguard compliance, peer review logging." },
+  "nav-law":      { key: "nav-law",      kind: "nav", title: "Law Firms",     body: "Law Firms — Confidential collaboration, SOC2/ABA safeguards." },
+  "nav-services": { key: "nav-services", kind: "nav", title: "Our Services",  body: "Flat-Fee Projects and Advisory Retainers." },
   "nav-support":  { key: "nav-support",  kind: "nav", title: "Support",       body: "Real Microsoft 365 support, same day." },
-  "nav-proof":    { key: "nav-proof",    kind: "nav", title: "Case Studies",  body: "CPA renewal saved; law spoofing blocked." },
+  "nav-proof":    { key: "nav-proof",    kind: "nav", title: "Case Studies",  body: "CPA renewal saved; Law firm spoofing blocked." },
   "nav-why":      { key: "nav-why",      kind: "nav", title: "Why JGS",       body: "Flat fees. Proof over promises. Not an MSP." },
   "nav-vision":   { key: "nav-vision",   kind: "nav", title: "Vision",        body: "Today: projects + retainers. Tomorrow: automated oversight." },
   "nav-cta":      { key: "nav-cta",      kind: "nav", title: "Get Started",   body: "Secure • Simple • Reliable. Start today." },
@@ -182,37 +182,12 @@ function SectionPage({ pageKey }) {
 }
 
 const SUBPAGES = {
-  op1: { key: "op1", title: "Operations article 1", section: "operations", body: "" },
-  op2: { key: "op2", title: "Operations article 2", section: "operations", body: "" },
-  op3: { key: "op3", title: "Operations article 3", section: "operations", body: "" },
-  sec1: { key: "sec1", title: "Security article 1", section: "security", body: "" },
-  sec2: { key: "sec2", title: "Security article 2", section: "security", body: "" },
-  sec3: { key: "sec3", title: "Security article 3", section: "security", body: "" },
-  em1: { key: "em1", title: "Email/DNS article 1", section: "emaildns", body: "" },
-  em2: { key: "em2", title: "Email/DNS article 2", section: "emaildns", body: "" },
-  em3: { key: "em3", title: "Email/DNS article 3", section: "emaildns", body: "" },
-  bk1: { key: "bk1", title: "Backup article 1", section: "backups", body: "" },
-  bk2: { key: "bk2", title: "Backup article 2", section: "backups", body: "" },
-  bk3: { key: "bk3", title: "Backup article 3", section: "backups", body: "" },
+  sec3: { key: "sec3", title: "Audit Logging & Retention", section: "security", body: "Default logs purge after 90 days if you don’t enable retention. JGS enables audit logging and applies sensible retention so evidence exists when needed." }
 };
 
 export default function JGSPrimer() {
   const [page, setPage] = useState("home");
   const go = (key) => setPage(key || "home");
-
-  useEffect(() => {
-    const applyHash = () => {
-      const h = (window.location.hash || "#home").replace("#", "");
-      if (h === "home") setPage("home");
-      else if (PAGES["nav-" + h]) setPage("nav-" + h);
-      else if (PAGES[h] || SUBPAGES[h]) setPage(h);
-      else setPage("home");
-    };
-    applyHash();
-    window.addEventListener("hashchange", applyHash);
-    return () => window.removeEventListener("hashchange", applyHash);
-  }, []);
-
   return (
     <main className="min-h-screen bg-[#0a0f2a] text-neutral-100">
       <GlobalCSS />
@@ -229,10 +204,3 @@ export default function JGSPrimer() {
     </main>
   );
 }
-
-// Sanity checks
-(function(){
-  try {
-    console.assert(Array.isArray(CHAPTERS) && CHAPTERS.length >= 6, "CHAPTERS length");
-  } catch(e) {}
-})();
