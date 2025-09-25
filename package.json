@@ -1,6 +1,6 @@
 {
-  "name": "jgs-site-stable-v2",
-  "version": "2.0.0",
+  "name": "jgs-cloud-compliance",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,12 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "framer-motion": "11.2.10",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-router-dom": "6.26.2"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "4.3.1",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.47",
+    "tailwindcss": "3.4.13",
     "vite": "5.4.8"
   }
 }
