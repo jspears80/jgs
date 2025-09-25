@@ -1,5 +1,7 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+
 
 function GlobalCSS() {
   return (
