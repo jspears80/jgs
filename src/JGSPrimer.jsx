@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 
 
+
 function GlobalCSS() {
   return (
     <style>{`
@@ -111,39 +112,75 @@ function Header({ go }) {
 }
 
 function KnowledgeGrid({ go }) {
+  const labelFor = (id) => SUBPAGES[id]?.title || `Article ${id} (placeholder)`;
+
   return (
     <section id="portal" className="relative z-10 py-16 border-t border-white/10">
-      <h2 className="text-center text-2xl font-semibold text-rose-200 mb-10">Knowledge Sections</h2>
+      <h2 className="text-center text-2xl font-semibold text-rose-200 mb-10">
+        Knowledge Sections
+      </h2>
       <div className="max-w-[1400px] mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-10 text-sm">
+
+        {/* Operations & Support */}
         <div>
-          <h3 className="display text-[22px] tracking-wide text-rose-200 mb-3">Operations & Support</h3>
+          <h3 className="display text-[22px] tracking-wide text-rose-200 mb-3">
+            Operations & Support
+          </h3>
           <ul className="space-y-2 text-left">
             {SECTIONS.operations.map((id) => (
-              <li key={id}><button onClick={()=>go(id)} className="hover:underline">Article {id} (placeholder)</button></li>
+              <li key={id}>
+                <button onClick={() => go(id)} className="hover:underline">
+                  {labelFor(id)}
+                </button>
+              </li>
             ))}
           </ul>
         </div>
+
+        {/* Security & Hardening */}
         <div>
-          <h3 className="display text-[22px] tracking-wide text-rose-200 mb-3">Security & Hardening</h3>
+          <h3 className="display text-[22px] tracking-wide text-rose-200 mb-3">
+            Security & Hardening
+          </h3>
           <ul className="space-y-2 text-left">
             {SECTIONS.security.map((id) => (
-              <li key={id}><button onClick={()=>go(id)} className="hover:underline">Article {id} (placeholder)</button></li>
+              <li key={id}>
+                <button onClick={() => go(id)} className="hover:underline">
+                  {labelFor(id)}
+                </button>
+              </li>
             ))}
           </ul>
         </div>
+
+        {/* Email & DNS */}
         <div>
-          <h3 className="display text-[22px] tracking-wide text-rose-200 mb-3">Email & DNS</h3>
+          <h3 className="display text-[22px] tracking-wide text-rose-200 mb-3">
+            Email & DNS
+          </h3>
           <ul className="space-y-2 text-left">
             {SECTIONS.emaildns.map((id) => (
-              <li key={id}><button onClick={()=>go(id)} className="hover:underline">Article {id} (placeholder)</button></li>
+              <li key={id}>
+                <button onClick={() => go(id)} className="hover:underline">
+                  {labelFor(id)}
+                </button>
+              </li>
             ))}
           </ul>
         </div>
+
+        {/* Backups & Recovery */}
         <div>
-          <h3 className="display text-[22px] tracking-wide text-rose-200 mb-3">Backups & Recovery</h3>
+          <h3 className="display text-[22px] tracking-wide text-rose-200 mb-3">
+            Backups & Recovery
+          </h3>
           <ul className="space-y-2 text-left">
             {SECTIONS.backups.map((id) => (
-              <li key={id}><button onClick={()=>go(id)} className="hover:underline">Article {id} (placeholder)</button></li>
+              <li key={id}>
+                <button onClick={() => go(id)} className="hover:underline">
+                  {labelFor(id)}
+                </button>
+              </li>
             ))}
           </ul>
         </div>
@@ -151,6 +188,7 @@ function KnowledgeGrid({ go }) {
     </section>
   );
 }
+
 
 function HomePage({ go }) {
   return (
