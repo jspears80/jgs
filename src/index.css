@@ -2,4 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: light; }
+/* Base text color */
+:root, body { color: #e5e7eb; }
