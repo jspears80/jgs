@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base text color */
+:root, body { color: #e5e7eb; }
