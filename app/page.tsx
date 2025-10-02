@@ -1,11 +1,3 @@
-You deployed a placeholder. Your `app/page.tsx` literally starts with:
-
-```tsx
-<REPLACE WITH CANVAS CODE>
-```
-
-Replace it with the actual Canvas code below (this is the **full** file). Save as **`app/page.tsx`** and redeploy.
-
 ```tsx
 'use client';
 
@@ -404,6 +396,3 @@ export default function JGSSite() {
     </main>
   );
 }
-```
-
-Then redeploy on Vercel. If you want, I can regenerate the ZIP with this exact file baked in so you can just upload it.
