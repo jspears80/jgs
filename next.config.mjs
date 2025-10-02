@@ -1,1 +1,1 @@
-export default { reactStrictMode: false };
+export default { reactStrictMode: true };

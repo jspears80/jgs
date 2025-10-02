@@ -11,14 +11,7 @@ export const metadata: Metadata = {
     images: [{ url: '/og.png', width: 1200, height: 630 }],
     siteName: 'JGS Cloud Compliance',
   },
-  icons: {
-    icon: ['/favicon-16.png','/favicon-32.png','/favicon-48.png','/favicon.ico'],
-    apple: ['/apple-touch-180.png']
-  },
-  robots: {
-    index: true,
-    follow: true
-  },
+  robots: { index: true, follow: true },
   metadataBase: new URL('https://www.cloudjgs.com')
 };
 
