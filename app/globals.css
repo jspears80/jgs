@@ -1,272 +1,126 @@
-'use client';
+/* ====== Base ====== */
+:root { --bg:#0b0b0b; --fg:#ffffff; --muted:rgba(255,255,255,.12); --muted-2:rgba(255,255,255,.2); }
+* { box-sizing:border-box; }
+html, body { height:100%; }
+body {
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+a { color:inherit; text-decoration:none; }
 
-import React, { useEffect, useState } from 'react';
+/* ====== Layout ====== */
+.container { max-width:72rem; margin:auto; padding:1rem; }
+.section   { padding:3rem 0; scroll-margin-top:4rem; }
 
-/** Sections we can open as soft pages */
-type Section = 'Home' | 'Services' | 'Advisory' | 'CPA' | 'Law' | 'Risks' | 'Why JGS' | 'Get Started';
-const navItems: Section[] = ['Home','Services','Advisory','CPA','Law','Risks','Why JGS','Get Started'];
+/* ====== Typography ====== */
+.title-xl { font-size:2rem; font-weight:800; margin:0 0 .75rem; }
+.title-lg { font-size:1.05rem; font-weight:700; margin:.25rem 0 .5rem; }
+.lead     { opacity:.92; margin:.25rem 0 1rem; }
 
-const BG = () => (
-  <div className="bg-wrap" aria-hidden>
-    <div className="bg-grad" />
-    <div className="bg-grid" />
-    <div className="bg-flare" style={{width:'46rem',height:'46rem',left:'-20rem',top:'-18rem',background:'radial-gradient(circle at 30% 30%, rgba(34,211,238,.55), rgba(139,92,246,.35) 55%, transparent 70%)',position:'absolute'}} />
-    <div className="bg-flare" style={{width:'40rem',height:'40rem',right:'-18rem',bottom:'-14rem',background:'radial-gradient(circle at 70% 70%, rgba(232,121,249,.45), rgba(56,189,248,.35) 50%, transparent 70%)',position:'absolute'}} />
-    <div className="bg-flow" />
-    <div className="bg-scan" />
-  </div>
-);
+/* ====== Soft Page / Card ====== */
+.page {
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:1rem;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(6px);
+  box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+  padding:1.25rem 1.5rem;
+}
+.card {
+  border:1px solid var(--muted);
+  border-radius:.6rem;
+  padding:1rem 1.25rem;
+  background:rgba(0,0,0,.6);
+  line-height:1.55;
+}
+.hr { height:1px; background:var(--muted); margin:1rem 0; }
 
-const SectionWrap = ({ id, title, subtitle, children }: any) => (
-  <section id={id} className="section container">
-    <div className="page">
-      <h2 className="title-xl">{title}</h2>
-      {subtitle && <p className="lead">{subtitle}</p>}
-      <div>{children}</div>
-    </div>
-  </section>
-);
+/* ====== Header / Nav ====== */
+header {
+  position:sticky; top:0; z-index:1000;
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--muted-2);
+}
+.header-row {
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1rem; padding:.8rem 1rem;
+}
+.logo { height:28px; margin-right:.6rem; vertical-align:middle; }
+.nav-links { display:flex; gap:1.25rem; flex-wrap:wrap; align-items:center; }
+.nav-links a { font-weight:600; color:#fff; }
 
-const Card = ({ title, children }: any) => (
-  <div className="card">
-    {title && <h3 className="title-lg">{title}</h3>}
-    {children}
-  </div>
-);
+/* CSS-only hamburger */
+#nav-toggle { display:none; }
+.burger { display:none; cursor:pointer; width:36px; height:28px; position:relative; }
+.burger span { position:absolute; left:0; right:0; height:2px; background:#fff; border-radius:2px; transition:transform .2s, opacity .2s, top .2s; }
+.burger span:nth-child(1){ top:4px;  }
+.burger span:nth-child(2){ top:13px; }
+.burger span:nth-child(3){ top:22px; }
 
-/** One overlay shell we reuse for every soft page */
-const SoftPage = ({ title, onClose, children }: { title: string; onClose: () => void; children: React.ReactNode }) => (
-  <section className="section overlay" role="dialog" aria-modal="true" aria-label={title}>
-    <div className="page" style={{ maxWidth: '72rem', margin: '0 auto' }}>
-      <button
-        onClick={onClose}
-        aria-label="Close"
-        style={{ float: 'right', background: 'none', border: '1px solid rgba(255,255,255,.3)', color: '#fff', padding: '0.3rem 0.6rem', borderRadius: 6, cursor: 'pointer' }}
-      >
-        ✕
-      </button>
-      <h2 className="title-xl">{title}</h2>
-      {children}
-    </div>
-  </section>
-);
+/* ====== Footer ====== */
+footer { border-top:1px solid var(--muted-2); padding:1rem; text-align:center; font-size:.9rem; opacity:.9; }
 
-export default function Page() {
-  const [section, setSection] = useState<Section>('Home');
-  const [isMobile, setIsMobile] = useState(false);
-  const [open, setOpen] = useState(false);
+/* ====== Background (grid + flares) ====== */
+.bg-wrap { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+.bg-grad { position:absolute; inset:0; background:radial-gradient(1200px 600px at 50% -10%, #0b0b0b 0%, transparent 60%); }
+.bg-grid { position:absolute; inset:0; background-image:
+  linear-gradient(to right, rgba(255,255,255,.1) 1px, transparent 1px),
+  linear-gradient(to bottom, rgba(255,255,255,.1) 1px, transparent 1px);
+  background-size:64px 64px; opacity:.30;
+}
+.bg-flare { position:absolute; filter:blur(90px); opacity:.55; mix-blend-mode:screen; }
+.flare-1 { width:46rem; height:46rem; left:-20rem; top:-18rem;
+  background:radial-gradient(circle at 30% 30%, rgba(34,211,238,.55), rgba(139,92,246,.35) 55%, transparent 70%);
+  animation:pulse 9s ease-in-out infinite;
+}
+.flare-2 { width:40rem; height:40rem; right:-18rem; bottom:-14rem;
+  background:radial-gradient(circle at 70% 70%, rgba(232,121,249,.45), rgba(56,189,248,.35) 50%, transparent 70%);
+  animation:pulse 12s ease-in-out infinite reverse;
+}
+.bg-flow { position:absolute; inset:0; pointer-events:none; background:
+  linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,.25) 10%, rgba(0,0,0,0) 20%),
+  repeating-linear-gradient(90deg, rgba(80,200,255,.35) 0 2px, transparent 2px 8px),
+  repeating-linear-gradient(0deg, rgba(160,120,255,.22) 0 2px, transparent 2px 10px);
+  -webkit-mask-image:radial-gradient(1200px 600px at 50% 0%, rgba(255,255,255,.9), transparent 70%);
+  mask-image:radial-gradient(1200px 600px at 50% 0%, rgba(255,255,255,.9), transparent 70%);
+  animation:flowX 18s linear infinite; opacity:.25;
+}
+.bg-scan { position:absolute; inset:-20%; background:repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 2px, transparent 2px 18px); animation:scan 22s linear infinite; opacity:.15; }
 
-  useEffect(() => {
-    const f = () => setIsMobile(window.innerWidth <= 900);
-    f(); window.addEventListener('resize', f);
-    return () => window.removeEventListener('resize', f);
-  }, []);
-  useEffect(() => { if (!isMobile && open) setOpen(false); }, [isMobile, open]);
+@keyframes pulse { 0%,100%{ transform:scale(1) } 50%{ transform:scale(1.06) } }
+@keyframes flowX { 0%{ background-position:0 0,0 0,0 0 } 100%{ background-position:800px 0,400px 0,0 300px } }
+@keyframes scan { 0%{ transform:translate3d(0,0,0) } 100%{ transform:translate3d(-10%,-10%,0) } }
 
-  return (
-    <main>
-      {/* Background */}
-      <BG />
+/* ====== Overlay (so grid shows) ====== */
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.60);   /* lets grid/flares show */
+  backdrop-filter: blur(8px);
+  z-index: 900;
+  overflow: auto;
+  padding: 5rem 1rem 2rem;
+}
+.overlay .page { max-width:72rem; margin:0 auto; }
 
-      {/* Header */}
-      <header>
-        <div className="container header-row">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '.6rem' }}>
-            <img src="/logo.svg" alt="JGS logo" className="logo" />
-            <a href="#home" onClick={(e)=>{e.preventDefault(); setSection('Home');}} style={{ fontWeight: 800, fontSize: '1.1rem' }}>
-              JGS Cloud Compliance
-            </a>
-          </div>
+/* ====== Tables & Lists ====== */
+table { width:100%; border-collapse:collapse; }
+thead th { border-bottom:1px solid #666; text-align:left; }
+tbody td { border-top:1px solid var(--muted); }
+ul { margin:.5rem 0 1rem 1.25rem; padding:0; list-style:disc; list-style-position:outside; }
+li { line-height:1.6; }
 
-          {/* CSS-only burger visual; we still capture clicks to open the dropdown */}
-          <input id="nav-toggle" type="checkbox" aria-label="Toggle navigation" checked={open} onChange={()=>setOpen(!open)} />
-          <label htmlFor="nav-toggle" className="burger" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </label>
-
-          {/* Desktop nav */}
-          <nav className="nav-links">
-            {navItems.map(k => (
-              <a
-                key={k}
-                href={`#${k === 'Home' ? 'home' : k.toLowerCase().replace(' ','')}`}
-                onClick={(e) => { e.preventDefault(); setSection(k === 'Home' ? 'Home' : k); }}
-              >
-                {k}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </header>
-
-      {/* HERO shows only when section === 'Home' */}
-      {section === 'Home' && (
-        <SectionWrap
-          id="home"
-          title="Protecting Clients. Preserving Trust."
-          subtitle="Your firm’s reputation rests on confidentiality. We secure Microsoft 365 so every client interaction is protected — and every safeguard is backed by proof."
-        >
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))', gap: '1rem' }}>
-            <Card>🛡️ Renewal Approved — Coverage Protected</Card>
-            <Card>💰 $75K Saved. Fraud Stopped Cold.</Card>
-            <Card>⚖️ Deadline Met. Case Delivered.</Card>
-            <Card>📈 Score Doubled. Risk Reduced.</Card>
-          </div>
-        </SectionWrap>
-      )}
-
-      {/* Overlays for every other section */}
-      {section === 'Services' && (
-        <SoftPage title="Core Services" onClose={() => setSection('Home')}>
-          <h3 className="title-lg">🔒 Security Hardening & Remediation</h3>
-          <p>Insurers raise premiums. Regulators raise standards. We align your Microsoft 365 so you can <strong>prove control, reduce exposure, and negotiate from strength.</strong></p>
-          <ul>
-            <li>Admin rights reduced; conditional access enforced</li>
-            <li>Legacy auth blocked; extended audit logging enabled</li>
-            <li>Controls mapped to insurer/regulator requirements</li>
-          </ul>
-          <div className="hr" />
-          <h3 className="title-lg">📧 Secure Email Delivery</h3>
-          <p>Email is your firm’s lifeline: invoices, filings, contracts. We ensure your domain is <strong>recognized, trusted, and protected</strong>.</p>
-          <ul>
-            <li>SPF, DKIM, DMARC (BIMI where applicable) enforced</li>
-            <li>Malicious rules/connectors detected and removed</li>
-            <li>End-to-end TLS validation; deliverability checks</li>
-          </ul>
-          <div className="hr" />
-          <h3 className="title-lg">🔁 Backup & Recovery Assurance</h3>
-          <p>A backup means nothing until recovery is proven — we make it a <strong>measured business advantage</strong>.</p>
-          <ul>
-            <li>Immutable backups with versioning & legal holds</li>
-            <li>Quarterly restore drills with signed evidence</li>
-            <li>Retention aligned to discovery and peer-review cycles</li>
-          </ul>
-        </SoftPage>
-      )}
-
-      {section === 'Advisory' && (
-        <SoftPage title="Advisory Retainers" onClose={() => setSection('Home')}>
-          <h3 className="title-lg">💧 Lite Advisory</h3>
-          <p>We keep your Microsoft 365 <strong>monitored, drift tracked, and evidence current.</strong></p>
-          <ul>
-            <li><strong>Support:</strong> Email only, business hours</li>
-            <li><strong>Commitment:</strong> Minimal — one admin account + a firm contact</li>
-            <li><strong>What You Get:</strong> Drift alerts, monitoring, binder evidence kept up to date</li>
-          </ul>
-          <p><em>Best for firms that want oversight without heavy involvement.</em></p>
-          <div className="hr" />
-
-          <h3 className="title-lg">📘 Plus Advisory</h3>
-          <p>We run <strong>regular drills, reviews, and checks</strong> so your systems stay aligned.</p>
-          <ul>
-            <li><strong>Support:</strong> Email + scheduled remote sessions</li>
-            <li><strong>Commitment:</strong> Moderate — quarterly reviews, occasional staff input</li>
-            <li><strong>What You Get:</strong> Recovery drills, deliverability checks, policy updates</li>
-          </ul>
-          <p><em>Best for firms that want tested, reliable systems year-round.</em></p>
-          <div className="hr" />
-
-          <h3 className="title-lg">🏛️ Enterprise Advisory</h3>
-          <p><strong>Priority support, board-level reporting, and regulator/insurer alignment.</strong></p>
-          <ul>
-            <li><strong>Support:</strong> Priority email + chat + on-demand remote sessions</li>
-            <li><strong>Commitment:</strong> High — monthly reviews, dedicated contact</li>
-            <li><strong>What You Get:</strong> Strategic reporting, insurer negotiation support, alignment maps</li>
-          </ul>
-        </SoftPage>
-      )}
-
-      {section === 'CPA' && (
-        <SoftPage title="CPA Firms" onClose={() => setSection('Home')}>
-          <p><strong>Tax season isn’t forgiving.</strong> We harden Microsoft 365 so you can <strong>work without disruption and show compliance on demand.</strong></p>
-          <ul>
-            <li>Controls aligned to IRS & AICPA standards</li>
-            <li>Retention mapped to peer review cycles</li>
-            <li>Evidence binders ready before auditors ask</li>
-          </ul>
-          <p><em>Outcome:</em> Even at peak season, your firm is compliant, covered, and client-ready.</p>
-        </SoftPage>
-      )}
-
-      {section === 'Law' && (
-        <SoftPage title="Law Firms" onClose={() => setSection('Home')}>
-          <p><strong>Confidentiality is everything.</strong> We secure Microsoft 365 so your firm can <strong>protect data, meet discovery demands, and stand up under scrutiny.</strong></p>
-          <ul>
-            <li>Email delivery that clients and courts can trust</li>
-            <li>Retention aligned to discovery and insurer mandates</li>
-            <li>Proof packages that show continuity and confidentiality controls</li>
-          </ul>
-          <p><em>Outcome:</em> Your firm answers with evidence — not promises.</p>
-        </SoftPage>
-      )}
-
-      {section === 'Risks' && (
-        <SoftPage title="The Risk / Our Response" onClose={() => setSection('Home')}>
-          <table>
-            <thead>
-              <tr>
-                <th style={{ width:'50%' }}>The Risk</th>
-                <th style={{ width:'50%' }}>Our Response</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><ul><li>Phishing</li><li>MFA fatigue</li><li>Legacy auth</li></ul></td>
-                <td><ul><li>Phish-resistant MFA</li><li>Legacy blocked</li><li>Session controls</li></ul></td>
-              </tr>
-              <tr>
-                <td><ul><li>Shadow admins</li><li>Stale consents</li><li>Weak break-glass</li></ul></td>
-                <td><ul><li>Shadow admins removed</li><li>PIM for elevation</li><li>Break-glass hardened</li></ul></td>
-              </tr>
-              <tr>
-                <td><ul><li>Mailbox rules</li><li>OAuth abuse</li><li>Workspace sprawl</li></ul></td>
-                <td><ul><li>Rules/connectors blocked</li><li>SPF/DKIM/DMARC</li><li>TLS validation</li></ul></td>
-              </tr>
-              <tr>
-                <td><ul><li>Malicious connectors</li><li>Auto-forwarding</li><li>Stale guests</li></ul></td>
-                <td><ul><li>Connectors locked</li><li>Forwarding disabled</li><li>Guest access governed</li></ul></td>
-              </tr>
-              <tr>
-                <td><ul><li>External over-sharing</li><li>Public links</li><li>Retention gaps</li></ul></td>
-                <td><ul><li>Regulator-aligned retention</li><li>Extended audit logs</li><li>Tamper-evident trails</li></ul></td>
-              </tr>
-              <tr>
-                <td><ul><li>Unproven restores</li><li>Unverified RTO/RPO</li><li>Misconfigurations</li></ul></td>
-                <td><ul><li>Quarterly restores witnessed</li><li>Playbooks signed</li><li>Evidence logged</li></ul></td>
-              </tr>
-            </tbody>
-          </table>
-        </SoftPage>
-      )}
-
-      {section === 'Why JGS' && (
-        <SoftPage title="Why JGS Cloud Compliance" onClose={() => setSection('Home')}>
-          <table>
-            <thead><tr><th>MSPs</th><th>JGS Cloud Compliance</th></tr></thead>
-            <tbody>
-              <tr><td>❌ Generic IT support across dozens of tools</td><td>✅ Microsoft 365 only — hardened, tested, proven</td></tr>
-              <tr><td>❌ Hourly creep, surprise bills</td><td>✅ Flat-fee clarity, scope locked before kickoff</td></tr>
-              <tr><td>❌ Promises of “we’ll handle it”</td><td>✅ Proof packages you can hand to insurers and auditors</td></tr>
-              <tr><td>❌ One-size-fits-all settings</td><td>✅ Controls mapped to IRS, AICPA, and ABA requirements</td></tr>
-              <tr><td>❌ Fixes without evidence</td><td>✅ Audit-ready binders with logs, screenshots, and reports</td></tr>
-            </tbody>
-          </table>
-        </SoftPage>
-      )}
-
-      {section === 'Get Started' && (
-        <SoftPage title="Get Started" onClose={() => setSection('Home')}>
-          <h3 className="title-lg">📦 Flat-Fee Projects</h3>
-          <ul><li>Security Hardening & Remediation</li><li>Secure Email Delivery</li><li>Backup & Recovery Assurance</li></ul>
-          <h3 className="title-lg">📊 Advisory Retainers</h3>
-          <ul><li>Lite — Oversight & posture proof</li><li>Plus — Continuous resilience</li><li>Enterprise — Full compliance cycle</li></ul>
-          <h3 className="title-lg">📅 Book Your Kickoff</h3>
-          <p>👉 <a href={CONFIG.bookingUrl} target="_blank" rel="noopener">Book a Call</a> | <a href={`mailto:${CONFIG.supportEmail}`}>Support</a></p>
-        </SoftPage>
-      )}
-
-      {/* Footer under hero only */}
-      {section === 'Home' && <footer>© {new Date().getFullYear()} JGS Cloud Compliance</footer>}
-    </main>
-  );
+/* ====== Responsive ====== */
+@media (max-width:900px){
+  .nav-links{
+    position:fixed; top:56px; left:0; right:0;
+    background:rgba(0,0,0,.92);
+    border-bottom:1px solid var(--muted-2);
+    transform:translateY(-120%); transition:transform .2s ease;
+    display:grid; gap:.5rem; padding:.75rem 1rem;
+  }
+  #nav-toggle:checked ~ .nav-links { transform:translateY(0); }
+  .burger{ display:block; }
+  .header-row{ padding:.6rem 1rem; }
+  .nav-links a{ padding:.5rem .75rem; border-radius:.5rem; }
 }
