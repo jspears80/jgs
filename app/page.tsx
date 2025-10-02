@@ -1,21 +1,24 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 
-/** Plain-JS version (no TS types) to avoid parser issues */
-const NAV = ['Home','Services','Advisory','CPA','Law','Risks','Why JGS','Get Started'];
+/** Sections for soft-page overlays */
+const NAV = ['Home','Services','Advisory','CPA','Law','Risks','Why JGS','Get Started'] as const;
+type Section = typeof NAV[number];
 
+/* Background grid + flares (styled in globals.css) */
 const BG = () => (
   <div className="bg-wrap" aria-hidden>
     <div className="bg-grad" />
     <div className="bg-grid" />
-    <div className="bg-flare" style={{position:'absolute',width:'46rem',height:'46rem',left:'-20rem',top:'-18rem',filter:'blur(90px)',opacity:.55,mixBlendMode:'screen',background:'radial-gradient(circle at 30% 30%, rgba(34,211,238,.55), rgba(139,92,246,.35) 55%, transparent 70%)'}}/>
-    <div className="bg-flare" style={{position:'absolute',width:'40rem',height:'40rem',right:'-18rem',bottom:'-14rem',filter:'blur(90px)',opacity:.55,mixBlendMode:'screen',background:'radial-gradient(circle at 70% 70%, rgba(232,121,249,.45), rgba(56,189,248,.35) 50%, transparent 70%)'}}/>
+    <div className="bg-flare flare-1" />
+    <div className="bg-flare flare-2" />
     <div className="bg-flow" />
     <div className="bg-scan" />
   </div>
 );
 
-const SoftPage = ({ title, onClose, children }) => (
+/* Reusable soft-page shell */
+const SoftPage: React.FC<{title:string; onClose:()=>void; children:React.ReactNode}> = ({title,onClose,children}) => (
   <section className="section overlay" role="dialog" aria-modal="true" aria-label={title}>
     <div className="page" style={{maxWidth:'72rem', margin:'0 auto', position:'relative'}}>
       <button
@@ -31,12 +34,12 @@ const SoftPage = ({ title, onClose, children }) => (
   </section>
 );
 
-const Card = ({ title, children }) => (
+const Card: React.FC<{title?:string; children:React.ReactNode}> = ({title, children}) => (
   <div className="card">{title && <h3 className="title-lg">{title}</h3>}{children}</div>
 );
 
-export default function Page(){
-  const [section, setSection] = useState('Home');
+export default function Page() {
+  const [section, setSection] = useState<Section>('Home');
   const [isMobile, setIsMobile] = useState(false);
   const [open, setOpen]       = useState(false);
 
@@ -47,12 +50,12 @@ export default function Page(){
     <main>
       <BG />
 
-      {/* Header */}
+      {/* Header (NO real anchors — preventDefault so it won't scroll) */}
       <header>
         <div className="container header-row">
           <div style={{display:'flex',alignItems:'center',gap:'.6rem'}}>
             <img src="/logo.svg" alt="JGS logo" className="logo" />
-            <a href="#home" onClick={(e)=>{e.preventDefault(); setSection('Home');}} style={{fontWeight:800,fontSize:'1.1rem'}}>
+            <a href="#" onClick={(e)=>{e.preventDefault(); setSection('Home'); setOpen(false);}} style={{fontWeight:800,fontSize:'1.1rem'}}>
               JGS Cloud Compliance
             </a>
           </div>
@@ -63,15 +66,22 @@ export default function Page(){
 
           <nav className="nav-links">
             {NAV.map(k => (
-              <a key={k} href="#" onClick={(e)=>{ e.preventDefault(); setSection(k); setOpen(false); }}>{k}</a>
+              <a
+                key={k}
+                href="#"
+                onClick={(e)=>{ e.preventDefault(); setSection(k); setOpen(false); }}
+                role="button"
+              >
+                {k}
+              </a>
             ))}
           </nav>
         </div>
       </header>
 
-      {/* HERO (only on Home) */}
+      {/* ===== HERO ONLY (no other sections inline) ===== */}
       {section==='Home' && (
-        <section id="home" className="section container">
+        <section className="section container">
           <div className="page">
             <h2 className="title-xl">Protecting Clients. Preserving Trust.</h2>
             <p className="lead">Your firm’s reputation rests on confidentiality. We secure Microsoft 365 so every client interaction is protected — and every safeguard is backed by proof.</p>
@@ -85,11 +95,11 @@ export default function Page(){
         </section>
       )}
 
-      {/* === Soft pages (full content) === */}
+      {/* ===== SOFT-PAGE OVERLAYS (only render when active) ===== */}
       {section==='Services' && (
         <SoftPage title="Core Services" onClose={()=>setSection('Home')}>
           <Card title="🔒 Security Hardening & Remediation">
-            <p>Insurers raise premiums. Regulators raise standards. We align your Microsoft 365 so you can <strong>prove control, reduce exposure, and negotiate from strength.</strong></p>
+            <p>Insurers raise premiums. Regulators raise standards. We align your Microsoft 365 so you can <strong>prove control, reduce exposure, and negotiate from strength.</strong> This isn’t about passwords — it’s about showing you already meet the bar they set.</p>
             <ul><li>Admin rights reduced; conditional access enforced</li><li>Legacy/basic auth blocked; extended audit logging</li><li>Controls mapped to insurer/regulator requirements</li></ul>
           </Card>
           <div className="hr"/>
@@ -178,8 +188,6 @@ export default function Page(){
         </SoftPage>
       )}
 
-      {section==='Get Started' & (  /* <-- NOTE: make sure this is '&&' in your file! */ }
-      /* If your editor accidentally converted to a single &, change to && */
       {section==='Get Started' && (
         <SoftPage title="Get Started" onClose={()=>setSection('Home')}>
           <h3 className="title-lg">📦 Flat-Fee Projects</h3>
@@ -190,9 +198,6 @@ export default function Page(){
           <p>👉 <a href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled" target="_blank" rel="noopener">Book a Call</a> | <a href="mailto:support@cloudjgs.com">Support</a></p>
         </SoftPage>
       )}
-
-      {/* Footer under hero only */}
-      {section==='Home' && <footer>© {new Date().getFullYear()} JGS Cloud Compliance</footer>}
     </main>
   );
 }
