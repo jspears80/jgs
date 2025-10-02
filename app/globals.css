@@ -174,9 +174,36 @@ footer{border-top:1px solid var(--muted-2);padding:1rem;text-align:center;font-s
 @keyframes flowX{0%{background-position:0 0}100%{background-position:800px 0}}
 @keyframes scan{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-10%,-10%,0)}}
 
-/* ===== Overlay (single hero-style card) ===== */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.60);backdrop-filter:blur(8px);z-index:900;overflow:auto;display:flex;justify-content:center;align-items:flex-start;padding:5rem 1rem 2rem}
-.overlay .page{max-width:72rem;margin:0 auto;background:var(--soft);border-radius:1rem;border:1px solid rgba(255,255,255,.14);box-shadow:0 10px 30px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06);padding:1.25rem 1.5rem}
+/* Overlay (modal page) — show grid behind */
+.overlay{
+  position:fixed; inset:0;
+  background: rgba(0,0,0,.45);        /* was .60 or darker → lighten */
+  backdrop-filter: blur(8px);
+  z-index:900;
+  overflow:auto;
+  padding:5rem 1rem 2rem;
+
+  /* Center content; leave margins so grid shows around the cards */
+  display:flex; justify-content:center; align-items:flex-start;
+}
+
+/* Keep the outer page frame very light so it doesn't look like one giant card */
+.overlay .page{
+  max-width:72rem; margin:0 auto;
+  background: transparent;            /* remove big black panel */
+  border: 0;                          /* no outer border panel */
+  box-shadow: none;
+  padding: 0;                         /* cards provide their own padding */
+}
+
+/* Each part uses its own card */
+.overlay .card{
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.55);
+  border-radius:.8rem;
+  padding:1rem 1.25rem;
+  margin-bottom:1rem;                 /* spacing between cards */
+}
 
 /* ===== Tables & Lists ===== */
 table{width:100%;border-collapse:collapse;margin-top:1rem}
