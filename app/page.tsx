@@ -54,7 +54,7 @@ export default function Page() {
       <header>
         <div className="container header-row">
           <div style={{display:'flex',alignItems:'center',gap:'.6rem'}}>
-            <img src="/logo.svg" alt="JGS logo" className="logo" />
+            <img src="/logo.png" alt="JGS logo" className="logo" />
             <a href="#" onClick={(e)=>{e.preventDefault(); setSection('Home'); setOpen(false);}} style={{fontWeight:800,fontSize:'1.1rem'}}>
               JGS Cloud Compliance
             </a>
