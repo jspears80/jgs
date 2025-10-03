@@ -15,11 +15,19 @@ export default function Page() {
 
       {/* Header */}
       <header>
-        <div className="container header-row">
-          <div style={{ display:'flex', alignItems:'center', gap:'.6rem' }}>
-            <img src="/Logo.png" alt="JGS logo" className="logo" />
-            <span style={{ fontWeight:700 }}>JGS Cloud Compliance</span>
-          </div>
+{/* Brand (left) */}
+<a href="/" className="flex items-center gap-3">
+  {/* Double the size vs typical 24–28px marks */}
+  <img
+    src="/logo.svg"             // <-- your round JGS mark path
+    alt="JGS"
+    className="h-12 w-12 md:h-14 md:w-14 rounded-full"
+  />
+  <span className="text-lg md:text-xl font-semibold tracking-tight">
+    Cloud Compliance
+  </span>
+</a>
+
 
           {/* Burger (checkbox) */}
           <input id="nav-toggle" type="checkbox" aria-label="Toggle navigation"/>
