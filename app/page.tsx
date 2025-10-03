@@ -1,120 +1,151 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './globals.css';
 
+/* Sections you can open as overlays */
+const NAV = ['Home','Services','Advisory','CPA','Law','Risks','Why JGS','Get Started'] as const;
+type Section = typeof NAV[number];
+
+/** Reusable overlay shell (cards go inside this) */
+const SoftPage: React.FC<{title:string; onClose:()=>void; children:React.ReactNode}> = ({ title, onClose, children }) => (
+  <section className="section overlay" role="dialog" aria-modal="true" aria-label={title}>
+    <div className="page" style={{ position:'relative' }}>
+      <button
+        onClick={onClose}
+        aria-label="Close"
+        style={{
+          position:'absolute', right:'1rem', top:'1rem',
+          background:'none', border:'1px solid rgba(255,255,255,.3)',
+          color:'#fff', padding:'.3rem .6rem', borderRadius:6, cursor:'pointer'
+        }}
+      >✕</button>
+      <h2 className="title-xl">{title}</h2>
+      {children}
+    </div>
+  </section>
+);
+
+/** Card = hero-style glass panel for each item */
+const Card: React.FC<{title?:string; children:React.ReactNode}> = ({title, children}) => (
+  <div className="card">{title && <h3 className="title-lg">{title}</h3>}{children}</div>
+);
+
 export default function Page() {
+  const [section, setSection] = useState<Section>('Home');   // which overlay (or Home)
+  const [isMobile, setIsMobile] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const f = () => setIsMobile(window.innerWidth <= 900);
+    f();
+    window.addEventListener('resize', f);
+    return () => window.removeEventListener('resize', f);
+  }, []);
+
+  // Close the mobile dropdown when switching to desktop
+  useEffect(() => { if (!isMobile && menuOpen) setMenuOpen(false); }, [isMobile, menuOpen]);
+
+  const go = (target: Section) => {
+    if (target === 'Home') setSection('Home'); // hero only
+    else setSection(target);                   // open overlay
+    setMenuOpen(false);
+  };
+
   return (
     <main>
-      {/* Global background grid + flares */}
-      <div className="bg-wrap" aria-hidden>
-        <div className="bg-grad" />
-        <div className="bg-grid" />
-        <div className="bg-flare flare-1" />
-        <div className="bg-flare flare-2" />
-      </div>
-
-      {/* Header */}
+      {/* Sticky header */}
       <header>
         <div className="container header-row">
           <div style={{ display:'flex', alignItems:'center', gap:'.6rem' }}>
             <img src="/Logo.png" alt="JGS logo" className="logo" />
-            <span style={{ fontWeight:700 }}>JGS Cloud Compliance</span>
+            <a href="#" onClick={(e)=>{ e.preventDefault(); go('Home'); }} style={{ fontWeight:700 }}>
+              JGS Cloud Compliance
+            </a>
           </div>
 
-          {/* Burger (checkbox) */}
-          <input id="nav-toggle" type="checkbox" aria-label="Toggle navigation"/>
+          {/* Controlled burger + CSS dropdown */}
+          <input
+            id="nav-toggle"
+            type="checkbox"
+            aria-label="Toggle navigation"
+            checked={menuOpen}
+            onChange={()=>setMenuOpen(!menuOpen)}
+          />
           <label htmlFor="nav-toggle" className="burger" aria-hidden="true">
             <span></span><span></span><span></span>
           </label>
 
           <nav className="nav-links">
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#advisory">Advisory</a>
-            <a href="#cpa">CPA</a>
-            <a href="#law">Law</a>
-            <a href="#risks">Risks</a>
-            <a href="#why">Why JGS</a>
-            <a href="#get-started">Get Started</a>
+            {NAV.map(k => (
+              <a key={k} href="#" role="button" onClick={(e)=>{ e.preventDefault(); go(k); }}>
+                {k}
+              </a>
+            ))}
           </nav>
         </div>
       </header>
 
-      {/* ===== HOME / HERO ===== */}
-      <section id="home" className="section container">
-        <div className="page">
-          <h2 className="title-xl">Protecting Clients. Preserving Trust.</h2>
-          <p className="lead">
-            Your firm’s reputation rests on confidentiality. We secure Microsoft 365 so every client interaction
-            is protected — and every safeguard is backed by proof.
-          </p>
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))', gap:'1rem' }}>
-            <div className="card">🛡️ Renewal Approved — Coverage Protected</div>
-            <div className="card">💰 $75K Saved. Fraud Stopped Cold.</div>
-            <div className="card">⚖️ Deadline Met. Case Delivered.</div>
-            <div className="card">📈 Score Doubled. Risk Reduced.</div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== SERVICES ===== */}
-      <section id="services" className="section container">
-        <div className="page">
-          <h2 className="title-xl">Core Services</h2>
-
-          <div className="card">
-            <h3 className="title-lg">🔒 Security Hardening & Remediation</h3>
-            <p>
-              Insurers raise premiums. Regulators raise standards. We align your Microsoft 365 so you can
-              <strong> prove control, reduce exposure, and negotiate from strength.</strong> This isn’t about
-              passwords — it’s about showing you already meet the bar they set.
+      {/* ===== HERO (shows only when section === 'Home') ===== */}
+      {section === 'Home' && (
+        <section className="section container">
+          <div className="page">
+            <h2 className="title-xl">Protecting Clients. Preserving Trust.</h2>
+            <p className="lead">
+              Your firm’s reputation rests on confidentiality. We secure Microsoft 365 so every client interaction
+              is protected — and every safeguard is backed by proof.
             </p>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:'1rem'}}>
+              <Card>🛡️ Renewal Approved — Coverage Protected</Card>
+              <Card>💰 $75K Saved. Fraud Stopped Cold.</Card>
+              <Card>⚖️ Deadline Met. Case Delivered.</Card>
+              <Card>📈 Score Doubled. Risk Reduced.</Card>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ===== SOFT OVERLAYS ===== */}
+
+      {/* Services */}
+      {section === 'Services' && (
+        <SoftPage title="Core Services" onClose={()=>setSection('Home')}>
+          <Card title="🔒 Security Hardening & Remediation">
+            <p>Insurers raise premiums. Regulators raise standards. We align your Microsoft 365 so you can
+              <strong> prove control, reduce exposure, and negotiate from strength.</strong> This isn’t about
+              passwords — it’s about showing you already meet the bar they set.</p>
             <ul>
               <li>Admin rights reduced; conditional access enforced</li>
               <li>Legacy/basic auth blocked; extended audit logging enabled</li>
               <li>Controls mapped to insurer/regulator requirements</li>
             </ul>
-          </div>
+          </Card>
 
-          <div className="hr"/>
-
-          <div className="card">
-            <h3 className="title-lg">📧 Secure Email Delivery</h3>
-            <p>
-              Email is your firm’s lifeline. We ensure your domain is
-              <strong> recognized, trusted, and protected</strong>.
-            </p>
+          <Card title="📧 Secure Email Delivery">
+            <p>Email is your firm’s lifeline. We ensure your domain is
+              <strong> recognized, trusted, and protected</strong>.</p>
             <ul>
               <li>SPF, DKIM, DMARC (BIMI where applicable) enforced</li>
               <li>Malicious rules/connectors removed</li>
               <li>End-to-end TLS; deliverability checks</li>
             </ul>
-          </div>
+          </Card>
 
-          <div className="hr"/>
-
-          <div className="card">
-            <h3 className="title-lg">🔁 Backup & Recovery Assurance</h3>
-            <p>
-              A backup means nothing until recovery is proven — we make it a
-              <strong> measured business advantage</strong>.
-            </p>
+          <Card title="🔁 Backup & Recovery Assurance">
+            <p>A backup means nothing until recovery is proven — we make it a
+              <strong> measured business advantage</strong>.</p>
             <ul>
               <li>Immutable backups with versioning & legal holds</li>
               <li>Quarterly restore drills with signed evidence</li>
               <li>Retention aligned to discovery / peer-review cycles</li>
             </ul>
-          </div>
-        </div>
-      </section>
+          </Card>
+        </SoftPage>
+      )}
 
-      {/* ===== ADVISORY ===== */}
-      <section id="advisory" className="section container">
-        <div className="page">
-          <h2 className="title-xl">Advisory Retainers</h2>
-
-          <div className="card">
-            <h3 className="title-lg">💧 Lite Advisory</h3>
+      {/* Advisory */}
+      {section === 'Advisory' && (
+        <SoftPage title="Advisory Retainers" onClose={()=>setSection('Home')}>
+          <Card title="💧 Lite Advisory">
             <p>We keep your Microsoft 365 <strong>monitored, drift tracked, and evidence current.</strong></p>
             <ul>
               <li><strong>Support:</strong> Email only, business hours</li>
@@ -122,12 +153,9 @@ export default function Page() {
               <li><strong>What You Get:</strong> Drift alerts, monitoring, binder evidence kept up to date</li>
             </ul>
             <p><em>Best for firms that want oversight without heavy involvement.</em></p>
-          </div>
+          </Card>
 
-          <div className="hr"/>
-
-          <div className="card">
-            <h3 className="title-lg">📘 Plus Advisory</h3>
+          <Card title="📘 Plus Advisory">
             <p>We run <strong>regular drills, reviews, and checks</strong> to keep alignment year-round.</p>
             <ul>
               <li><strong>Support:</strong> Email + scheduled remote sessions</li>
@@ -135,27 +163,23 @@ export default function Page() {
               <li><strong>What You Get:</strong> Recovery drills, deliverability checks, policy updates</li>
             </ul>
             <p><em>Best for firms that want tested, reliable systems year-round.</em></p>
-          </div>
+          </Card>
 
-          <div className="hr"/>
-
-          <div className="card">
-            <h3 className="title-lg">🏛️ Enterprise Advisory</h3>
+          <Card title="🏛️ Enterprise Advisory">
             <p><strong>Priority support, board-level reporting, and regulator/insurer alignment.</strong></p>
             <ul>
               <li><strong>Support:</strong> Priority email + chat + on-demand remote sessions</li>
               <li><strong>Commitment:</strong> High — monthly reviews, dedicated contact</li>
               <li><strong>What You Get:</strong> Strategic reporting, insurer negotiation support, alignment maps</li>
             </ul>
-          </div>
-        </div>
-      </section>
+          </Card>
+        </SoftPage>
+      )}
 
-      {/* ===== CPA ===== */}
-      <section id="cpa" className="section container">
-        <div className="page">
-          <h2 className="title-xl">CPA Firms</h2>
-          <div className="card">
+      {/* CPA */}
+      {section === 'CPA' && (
+        <SoftPage title="CPA Firms" onClose={()=>setSection('Home')}>
+          <Card>
             <p><strong>Tax season isn’t forgiving.</strong> We harden Microsoft 365 so you can
               <strong> work without disruption and show compliance on demand.</strong></p>
             <ul>
@@ -163,16 +187,15 @@ export default function Page() {
               <li>Retention mapped to peer review cycles</li>
               <li>Evidence binders ready before auditors ask</li>
             </ul>
-            <p><em>Outcome:</em> Even at peak season, your firm is compliant, covered, and client-ready.</p>
-          </div>
-        </div>
-      </section>
+            <p><em>Outcome:</em> Even at peak season, your firm is compliant, covered, and client-ready.</em></p>
+          </Card>
+        </SoftPage>
+      )}
 
-      {/* ===== LAW ===== */}
-      <section id="law" className="section container">
-        <div className="page">
-          <h2 className="title-xl">Law Firms</h2>
-          <div className="card">
+      {/* Law */}
+      {section === 'Law' && (
+        <SoftPage title="Law Firms" onClose={()=>setSection('Home')}>
+          <Card>
             <p><strong>Confidentiality is everything.</strong> We secure Microsoft 365 so your firm can
               <strong> protect data, meet discovery demands, and stand up under scrutiny.</strong></p>
             <ul>
@@ -181,15 +204,14 @@ export default function Page() {
               <li>Proof packages that show continuity and confidentiality controls</li>
             </ul>
             <p><em>Outcome:</em> Your firm answers with evidence — not promises.</p>
-          </div>
-        </div>
-      </section>
+          </Card>
+        </SoftPage>
+      )}
 
-      {/* ===== RISKS ===== */}
-      <section id="risks" className="section container">
-        <div className="page">
-          <h2 className="title-xl">The Risk / Our Response</h2>
-          <div className="card">
+      {/* Risks */}
+      {section === 'Risks' && (
+        <SoftPage title="The Risk / Our Response" onClose={()=>setSection('Home')}>
+          <Card>
             <table>
               <thead><tr><th style={{width:'50%'}}>The Risk</th><th style={{width:'50%'}}>Our Response</th></tr></thead>
               <tbody>
@@ -207,15 +229,14 @@ export default function Page() {
                     <td><ul><li>Quarterly restores witnessed</li><li>Playbooks signed</li><li>Evidence logged</li></ul></td></tr>
               </tbody>
             </table>
-          </div>
-        </div>
-      </section>
+          </Card>
+        </SoftPage>
+      )}
 
-      {/* ===== WHY JGS ===== */}
-      <section id="why" className="section container">
-        <div className="page">
-          <h2 className="title-xl">Why JGS Cloud Compliance</h2>
-          <div className="card">
+      {/* Why JGS */}
+      {section === 'Why JGS' && (
+        <SoftPage title="Why JGS Cloud Compliance" onClose={()=>setSection('Home')}>
+          <Card>
             <table>
               <thead><tr><th>MSPs</th><th>JGS Cloud Compliance</th></tr></thead>
               <tbody>
@@ -226,45 +247,26 @@ export default function Page() {
                 <tr><td>❌ Fixes without evidence</td><td>✅ Audit-ready binders with logs, screenshots, and reports</td></tr>
               </tbody>
             </table>
-          </div>
-        </div>
-      </section>
+          </Card>
+        </SoftPage>
+      )}
 
-      {/* ===== GET STARTED ===== */}
-      <section id="get-started" className="section container">
-        <div className="page">
-          <h2 className="title-xl">Get Started</h2>
-
-          <div className="card">
-            <h3 className="title-lg">📦 Flat-Fee Projects</h3>
-            <ul>
-              <li>Security Hardening & Remediation</li>
-              <li>Secure Email Delivery</li>
-              <li>Backup & Recovery Assurance</li>
-            </ul>
-          </div>
-
-          <div className="card">
-            <h3 className="title-lg">📊 Advisory Retainers</h3>
-            <ul>
-              <li>Lite — Oversight & posture proof</li>
-              <li>Plus — Continuous resilience</li>
-              <li>Enterprise — Full compliance cycle</li>
-            </ul>
-          </div>
-
-          <div className="card">
-            <h3 className="title-lg">📅 Book Your Kickoff</h3>
-            <p>
-              👉 <a href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled" target="_blank" rel="noopener">Book a Call</a>
-              {' '}|{' '}
-              <a href="mailto:support@cloudjgs.com">Support</a>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <footer>© {new Date().getFullYear()} JGS Cloud Compliance</footer>
+      {/* Get Started */}
+      {section === 'Get Started' && (
+        <SoftPage title="Get Started" onClose={()=>setSection('Home')}>
+          <Card title="📦 Flat-Fee Projects">
+            <ul><li>Security Hardening & Remediation</li><li>Secure Email Delivery</li><li>Backup & Recovery Assurance</li></ul>
+          </Card>
+          <Card title="📊 Advisory Retainers">
+            <ul><li>Lite — Oversight & posture proof</li><li>Plus — Continuous resilience</li><li>Enterprise — Full compliance cycle</li></ul>
+          </Card>
+          <Card title="📅 Book Your Kickoff">
+            <p>👉 <a href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled" target="_blank" rel="noopener">Book a Call</a>
+               {' '}|{' '}
+               <a href="mailto:support@cloudjgs.com">Support</a></p>
+          </Card>
+        </SoftPage>
+      )}
     </main>
   );
 }
