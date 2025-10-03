@@ -65,6 +65,25 @@ header{ position:sticky; top:0; z-index:1000; background:rgba(0,0,0,.72); backdr
   .nav-links a{padding:.25rem .35rem; border-radius:.4rem; font-size:.85rem}
 }
 @media (max-width:360px){ .logo{height:40px} .nav-links{gap:.4rem} .nav-links a{font-size:.8rem; padding:.2rem .3rem} }
+
+/* ===== Hero specific bits ===== */
+.badge{display:inline-flex; align-items:center; gap:.4rem; font-size:.8rem; padding:.25rem .5rem; border:1px solid var(--muted); border-radius:999px; background:rgba(0,0,0,.45)}
+.hero{font-size:3rem; line-height:1.05; font-weight:800; margin:.25rem 0 .75rem 0}
+@media (max-width:900px){ .hero{font-size:2.2rem} }
+.proofgrid{display:grid; gap:.6rem; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); opacity:.92}
+
+/* Founder card */
+.founder{border:1px solid var(--muted); background:rgba(0,0,0,.45); border-radius:1rem; box-shadow:0 8px 20px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.06); padding:1rem; display:flex; flex-direction:column; align-items:center; gap:1rem}
+.founder-img{width:100%; height:260px; border-radius:.8rem; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12)}
+.founder-meta{text-align:center}
+.founder-name{font-weight:800; margin:.25rem 0 .1rem}
+.founder-title{opacity:.9; font-size:.95rem; margin-bottom:.6rem}
+.founder-actions{display:flex; gap:.5rem; justify-content:center}
+
+/* Buttons */
+.btn{display:inline-flex; align-items:center; justify-content:center; padding:.6rem 1rem; border:1px solid var(--muted); border-radius:.75rem; background:rgba(0,0,0,.5); text-decoration:none}
+.btn.primary{background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.3)}
+.btn.sm{padding:.4rem .7rem; font-size:.9rem}
 `;
 
 const NAV = ['Services','Advisory','CPA','Law','Risks','Why JGS','Get Started'] as const;
@@ -95,17 +114,50 @@ export default function Page(){
         {/* ===== HOME ===== */}
         {section === 'Home' && (
           <section className="section container">
-            <div className="page">
-              <h2 className="title-xl">Protecting Clients. Preserving Trust.</h2>
-              <p className="lead">Your firm’s reputation rests on confidentiality. We secure Microsoft 365 so every client interaction is protected — and every safeguard is backed by proof.</p>
-              <Card>
-                <ul>
-                  <li>Renewal Approved — Coverage Protected</li>
-                  <li>$75K Saved. Fraud Stopped Cold.</li>
-                  <li>⚖️ Deadline Met. Case Delivered.</li>
-                  <li>Score Doubled. Risk Reduced.</li>
-                </ul>
-              </Card>
+            <div className="page" style={{display:'grid', gridTemplateColumns:'1.2fr .9fr', gap:'1.25rem'}}>
+              {/* Left Column: badges, headline, lead, CTAs, proof rows */}
+              <div>
+                {/* Badges */}
+                <div style={{display:'flex', gap:'.5rem', flexWrap:'wrap', marginBottom:'.75rem'}}>
+                  <span className="badge">CPA & Law Focus</span>
+                  <span className="badge">Microsoft 365</span>
+                </div>
+
+                {/* Headline */}
+                <h1 className="hero">JGS Cloud Compliance — Microsoft 365 Secured for CPA and Law.</h1>
+
+                {/* Lead */}
+                <p className="lead">Tax deadlines don’t move. Court orders don’t wait. Insurers don’t forgive weak controls. We harden tenants, deliver clean mailflow, and prove recoverability so your firm keeps working under pressure.</p>
+
+                {/* CTAs */}
+                <div style={{display:'flex', gap:'.75rem', margin:'.75rem 0 1.25rem 0', flexWrap:'wrap'}}>
+                  <a className="btn primary" href="#" onClick={(e)=>{e.preventDefault(); go('Services');}}>See Services →</a>
+                  <a className="btn" href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled" target="_blank" rel="noopener">Book a Consult</a>
+                </div>
+
+                {/* Proof rows */}
+                <div className="proofgrid">
+                  <div>CPA renewal saved → coverage cleared after tenant hardening</div>
+                  <div>$75k fraud blocked → spoofed partner emails stopped in 48 hours</div>
+                  <div>Discovery deadline met → case files restored within 24 hours</div>
+                  <div>Secure Score: 43% → 81% (admins cleaned, logging extended)</div>
+                </div>
+              </div>
+
+              {/* Right Column: Founder card */}
+              <div>
+                <div className="founder">
+                  <div className="founder-img" aria-label="Founder headshot"></div>
+                  <div className="founder-meta">
+                    <div className="founder-name">Jeremiah Spears</div>
+                    <div className="founder-title">Founder, JGS Cloud Compliance</div>
+                    <div className="founder-actions">
+                      <a className="btn sm" href="mailto:support@cloudjgs.com">Email</a>
+                      <a className="btn sm" href="https://www.linkedin.com/in/jspears80" target="_blank" rel="noopener">LinkedIn</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         )}
@@ -117,27 +169,12 @@ export default function Page(){
               <h2 className="title-xl">Core Services</h2>
               <Card title="🔒 Security Hardening & Remediation">
                 <p>Insurers raise premiums. Regulators raise standards. We align your Microsoft 365 so you can <strong>prove control, reduce exposure, and negotiate from strength.</strong> This isn’t about passwords — it’s about showing you already meet the bar they set.</p>
-                <ul>
-                  <li>Admin rights reduced; conditional access enforced</li>
-                  <li>Legacy/basic auth blocked; extended audit logging enabled</li>
-                  <li>Controls mapped to insurer/regulator requirements</li>
-                </ul>
               </Card>
               <Card title="📧 Secure Email Delivery">
-                <p>Email is your firm’s lifeline. We ensure your domain is <strong>recognized, trusted, and protected.</strong></p>
-                <ul>
-                  <li>SPF, DKIM, DMARC (BIMI where applicable) enforced</li>
-                  <li>Malicious rules/connectors removed</li>
-                  <li>End-to-end TLS; deliverability checks</li>
-                </ul>
+                <p>Email is your firm’s lifeline: invoices, filings, contracts. If they don’t land, business stops. We ensure your domain is <strong>recognized, trusted, and protected</strong> — so every message carries weight with clients, courts, and counterparties alike.</p>
               </Card>
               <Card title="🔁 Backup & Recovery Assurance">
-                <p>A backup means nothing until recovery is proven — we make it a <strong>measured business advantage.</strong></p>
-                <ul>
-                  <li>Immutable backups with versioning & legal holds</li>
-                  <li>Quarterly restore drills with signed evidence</li>
-                  <li>Retention aligned to discovery / peer-review cycles</li>
-                </ul>
+                <p>A backup means nothing until recovery is proven. We make it a <strong>measured business advantage:</strong> rapid restores, aligned retention, logged tests. When an insurer or regulator asks, you don’t explain — you show them.</p>
               </Card>
             </div>
           </section>
@@ -149,7 +186,7 @@ export default function Page(){
             <div className="page">
               <h2 className="title-xl">Advisory Retainers</h2>
               <Card title="💧 Lite Advisory">
-                <p>We keep your Microsoft 365 <strong>monitored, drift tracked, and evidence current.</strong></p>
+                <p>Insurance forms ask. Regulators check. We keep your Microsoft 365 <strong>monitored, drift tracked, and evidence current.</strong></p>
                 <ul>
                   <li><strong>Support:</strong> Email only, business hours</li>
                   <li><strong>Commitment:</strong> Minimal — one admin account + a firm contact</li>
@@ -158,21 +195,22 @@ export default function Page(){
                 <p><em>Best for firms that want oversight without heavy involvement.</em></p>
               </Card>
               <Card title="📘 Plus Advisory">
-                <p>We run <strong>regular drills, reviews, and checks</strong> to keep alignment year-round.</p>
+                <p>Security isn’t “set and forget.” We run <strong>regular drills, reviews, and checks</strong> so your systems stay aligned as your firm evolves.</p>
                 <ul>
                   <li><strong>Support:</strong> Email + scheduled remote sessions</li>
-                  <li><strong>Commitment:</strong> Moderate — quarterly reviews</li>
+                  <li><strong>Commitment:</strong> Moderate — quarterly reviews, occasional staff input</li>
                   <li><strong>What You Get:</strong> Recovery drills, deliverability checks, policy updates</li>
                 </ul>
                 <p><em>Best for firms that want tested, reliable systems year-round.</em></p>
               </Card>
               <Card title="🏛️ Enterprise Advisory">
-                <p><strong>Priority support, board-level reporting, and regulator/insurer alignment.</strong></p>
+                <p>High-stakes clients, insurers, and regulators demand more. We deliver <strong>priority support, board-level reporting, and regulator/insurer alignment.</strong></p>
                 <ul>
                   <li><strong>Support:</strong> Priority email + chat + on-demand remote sessions</li>
-                  <li><strong>Commitment:</strong> High — monthly reviews, dedicated contact</li>
+                  <li><strong>Commitment:</strong> High — monthly reviews, dedicated contact, regulator coordination</li>
                   <li><strong>What You Get:</strong> Strategic reporting, insurer negotiation support, alignment maps</li>
                 </ul>
+                <p><em>Best for firms facing high scrutiny and higher risk.</em></p>
               </Card>
             </div>
           </section>
@@ -219,19 +257,25 @@ export default function Page(){
           <section className="section container">
             <div className="page">
               <h2 className="title-xl">⚠️ The Risk / Our Response</h2>
-              <Card>
-                <table>
-                  <thead><tr><th style={{width:'50%'}}>The Risk</th><th style={{width:'50%'}}>Our Response</th></tr></thead>
-                  <tbody>
-                    <tr><td><ul><li>Phishing</li><li>MFA fatigue</li><li>Legacy auth</li></ul></td><td><ul><li>Phish-resistant MFA</li><li>Legacy blocked</li><li>Session controls</li></ul></td></tr>
-                    <tr><td><ul><li>Shadow admins</li><li>Stale consents</li><li>Weak break-glass</li></ul></td><td><ul><li>Shadow admins removed</li><li>PIM for elevation</li><li>Break-glass hardened</li></ul></td></tr>
-                    <tr><td><ul><li>Mailbox rules</li><li>OAuth abuse</li><li>Workspace sprawl</li></ul></td><td><ul><li>Rules/connectors blocked</li><li>SPF/DKIM/DMARC</li><li>TLS validation</li></ul></td></tr>
-                    <tr><td><ul><li>Malicious connectors</li><li>Auto-forwarding</li><li>Stale guests</li></ul></td><td><ul><li>Connectors locked</li><li>Forwarding disabled</li><li>Guest access governed</li></ul></td></tr>
-                    <tr><td><ul><li>External over-sharing</li><li>Public links</li><li>Retention gaps</li></ul></td><td><ul><li>Regulator-aligned retention</li><li>Extended audit logs</li><li>Tamper-evident trails</li></ul></td></tr>
-                    <tr><td><ul><li>Unproven restores</li><li>Unverified RTO/RPO</li><li>Misconfigurations</li></ul></td><td><ul><li>Quarterly restores witnessed</li><li>Playbooks signed</li><li>Evidence logged</li></ul></td></tr>
-                  </tbody>
-                </table>
+              <Card title="🔑 Initial Access">
+                <p><strong>The Risk:</strong> Phishing, MFA fatigue, and old authentication methods.<br/><strong>Our Response:</strong> Modern MFA + Conditional Access everywhere. Legacy auth blocked. Sessions controlled.</p>
               </Card>
+              <Card title="🛡️ Privilege Escalation">
+                <p><strong>The Risk:</strong> Hidden admins, stale app consents, and unsecured break-glass accounts.<br/><strong>Our Response:</strong> Admin rights stripped to minimum. PIM required for elevation. Break-glass hardened and logged.</p>
+              </Card>
+              <Card title="🔄 Lateral Movement">
+                <p><strong>The Risk:</strong> Attackers spread via mailbox rules, OAuth abuse, and sprawling Teams/SharePoint access.<br/><strong>Our Response:</strong> Mailflow monitored, malicious rules nuked, and access trimmed to least-privilege.</p>
+              </Card>
+              <Card title="📌 Persistence">
+                <p><strong>The Risk:</strong> Malicious connectors, forwarding loopholes, and dormant guest accounts.<br/><strong>Our Response:</strong> Connectors locked down. Forwarding blocked. Guest access reviewed and hardened.</p>
+              </Card>
+              <Card title="📤 Exfiltration">
+                <p><strong>The Risk:</strong> Data leaks through weak sharing, ungovened links, and retention gaps.<br/><strong>Our Response:</strong> Sharing controlled, retention aligned to regulators, and eDiscovery trails kept tamper-evident.</p>
+              </Card>
+              <Card title="💾 Recovery & Assurance">
+                <p><strong>The Risk:</strong> Backups that exist but can’t be proven.<br/><strong>Our Response:</strong> Immutable backups. Quarterly restore drills witnessed by leadership. Playbooks signed and logged.</p>
+              </Card>
+              <p><em>Bottom Line:</em> We don’t just close gaps. We document every control so you can prove it — to insurers, auditors, and clients.</p>
             </div>
           </section>
         )}
@@ -262,9 +306,17 @@ export default function Page(){
           <section className="section container">
             <div className="page">
               <h2 className="title-xl">Get Started</h2>
-              <Card title="📦 Flat-Fee Projects"><ul><li>Security Hardening & Remediation</li><li>Secure Email Delivery</li><li>Backup & Recovery Assurance</li></ul></Card>
-              <Card title="📊 Advisory Retainers"><ul><li>Lite — Oversight & posture proof</li><li>Plus — Continuous resilience</li><li>Enterprise — Full compliance cycle</li></ul></Card>
-              <Card title="📅 Book Your Kickoff"><p><a href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled" target="_blank" rel="noopener">Book a Call</a> {' '}|{' '} <a href="mailto:support@cloudjgs.com">Support</a></p></Card>
+              <div style={{marginBottom:'1.5rem'}}>
+                <span className="badge">Get Started</span>
+                <h1 className="hero" style={{marginTop:'.5rem'}}>Ready to Secure Your Firm?</h1>
+                <p className="lead">Don’t wait for an audit or breach — prove it now.</p>
+                <div style={{display:'flex', gap:'.75rem', flexWrap:'wrap', marginTop:'1rem'}}>
+                  <a className="btn primary" href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled" target="_blank" rel="noopener">Book a Consultation</a>
+                  <a className="btn" href="#" onClick={(e)=>{e.preventDefault(); go('Services')}}>Explore Services</a>
+                  <a className="btn" href="mailto:support@cloudjgs.com">Email Support</a>
+                </div>
+              </div>
+              
             </div>
           </section>
         )}
