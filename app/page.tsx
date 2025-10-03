@@ -2,39 +2,51 @@
 import React, { useEffect, useState } from 'react';
 import './globals.css';
 
-/* Sections you can open as overlays */
+/* Sections available in the nav/overlay */
 const NAV = ['Home','Services','Advisory','CPA','Law','Risks','Why JGS','Get Started'] as const;
 type Section = typeof NAV[number];
 
-/** Reusable overlay shell (cards go inside this) */
-const SoftPage: React.FC<{title:string; onClose:()=>void; children:React.ReactNode}> = ({ title, onClose, children }) => (
-  <section className="section overlay" role="dialog" aria-modal="true" aria-label={title}>
-    <div className="page" style={{ position:'relative' }}>
-      <button
-        onClick={onClose}
-        aria-label="Close"
-        style={{
-          position:'absolute', right:'1rem', top:'1rem',
-          background:'none', border:'1px solid rgba(255,255,255,.3)',
-          color:'#fff', padding:'.3rem .6rem', borderRadius:6, cursor:'pointer'
-        }}
-      >✕</button>
-      <h2 className="title-xl">{title}</h2>
+/* Reusable overlay shell */
+function SoftPage({ title, onClose, children }:{
+  title: string; onClose: () => void; children: React.ReactNode;
+}) {
+  return (
+    <section className="section overlay" role="dialog" aria-modal="true" aria-label={title}>
+      <div className="page" style={{ position:'relative' }}>
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          style={{
+            position:'absolute', right:'1rem', top:'1rem',
+            background:'none', border:'1px solid rgba(255,255,255,.3)',
+            color:'#fff', padding:'.3rem .6rem', borderRadius:6, cursor:'pointer'
+          }}
+        >
+          ✕
+        </button>
+        <h2 className="title-xl">{title}</h2>
+        {children}
+      </div>
+    </section>
+  );
+}
+
+/* Card = hero-style glass panel */
+function Card({ title, children }:{ title?: string; children: React.ReactNode }) {
+  return (
+    <div className="card">
+      {title ? <h3 className="title-lg">{title}</h3> : null}
       {children}
     </div>
-  </section>
-);
-
-/** Card = hero-style glass panel for each item */
-const Card: React.FC<{title?:string; children:React.ReactNode}> = ({title, children}) => (
-  <div className="card">{title && <h3 className="title-lg">{title}</h3>}{children}</div>
-);
+  );
+}
 
 export default function Page() {
-  const [section, setSection] = useState<Section>('Home');   // which overlay (or Home)
+  const [section, setSection] = useState<Section>('Home');     // which overlay (or Home)
   const [isMobile, setIsMobile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // detect mobile
   useEffect(() => {
     const f = () => setIsMobile(window.innerWidth <= 900);
     f();
@@ -42,42 +54,54 @@ export default function Page() {
     return () => window.removeEventListener('resize', f);
   }, []);
 
-  // Close the mobile dropdown when switching to desktop
-  useEffect(() => { if (!isMobile && menuOpen) setMenuOpen(false); }, [isMobile, menuOpen]);
+  // close dropdown when switching to desktop
+  useEffect(() => {
+    if (!isMobile && menuOpen) setMenuOpen(false);
+  }, [isMobile, menuOpen]);
 
   const go = (target: Section) => {
-    if (target === 'Home') setSection('Home'); // hero only
-    else setSection(target);                   // open overlay
+    setSection(target);
     setMenuOpen(false);
   };
 
   return (
     <main>
-      {/* Sticky header */}
+      {/* Header */}
       <header>
         <div className="container header-row">
           <div style={{ display:'flex', alignItems:'center', gap:'.6rem' }}>
+            {/* Ensure /public/Logo.png exists (case-sensitive) */}
             <img src="/Logo.png" alt="JGS logo" className="logo" />
-            <a href="#" onClick={(e)=>{ e.preventDefault(); go('Home'); }} style={{ fontWeight:700 }}>
+            <a
+              href="#"
+              onClick={(e) => { e.preventDefault(); go('Home'); }}
+              style={{ fontWeight:700 }}
+            >
               JGS Cloud Compliance
             </a>
           </div>
 
-          {/* Controlled burger + CSS dropdown */}
+          {/* Burger (checkbox) */}
           <input
             id="nav-toggle"
             type="checkbox"
             aria-label="Toggle navigation"
             checked={menuOpen}
-            onChange={()=>setMenuOpen(!menuOpen)}
+            onChange={() => setMenuOpen(!menuOpen)}
           />
           <label htmlFor="nav-toggle" className="burger" aria-hidden="true">
             <span></span><span></span><span></span>
           </label>
 
+          {/* Desktop nav */}
           <nav className="nav-links">
             {NAV.map(k => (
-              <a key={k} href="#" role="button" onClick={(e)=>{ e.preventDefault(); go(k); }}>
+              <a
+                key={k}
+                href="#"
+                role="button"
+                onClick={(e)=>{ e.preventDefault(); go(k); }}
+              >
                 {k}
               </a>
             ))}
@@ -85,7 +109,7 @@ export default function Page() {
         </div>
       </header>
 
-      {/* ===== HERO (shows only when section === 'Home') ===== */}
+      {/* ===== HERO (only when Home) ===== */}
       {section === 'Home' && (
         <section className="section container">
           <div className="page">
@@ -94,7 +118,7 @@ export default function Page() {
               Your firm’s reputation rests on confidentiality. We secure Microsoft 365 so every client interaction
               is protected — and every safeguard is backed by proof.
             </p>
-            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:'1rem'}}>
+            <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))', gap:'1rem' }}>
               <Card>🛡️ Renewal Approved — Coverage Protected</Card>
               <Card>💰 $75K Saved. Fraud Stopped Cold.</Card>
               <Card>⚖️ Deadline Met. Case Delivered.</Card>
@@ -104,15 +128,16 @@ export default function Page() {
         </section>
       )}
 
-      {/* ===== SOFT OVERLAYS ===== */}
+      {/* ===== SOFT OVERLAYS (each section as independent cards) ===== */}
 
-      {/* Services */}
       {section === 'Services' && (
         <SoftPage title="Core Services" onClose={()=>setSection('Home')}>
           <Card title="🔒 Security Hardening & Remediation">
-            <p>Insurers raise premiums. Regulators raise standards. We align your Microsoft 365 so you can
+            <p>
+              Insurers raise premiums. Regulators raise standards. We align your Microsoft 365 so you can
               <strong> prove control, reduce exposure, and negotiate from strength.</strong> This isn’t about
-              passwords — it’s about showing you already meet the bar they set.</p>
+              passwords — it’s about showing you already meet the bar they set.
+            </p>
             <ul>
               <li>Admin rights reduced; conditional access enforced</li>
               <li>Legacy/basic auth blocked; extended audit logging enabled</li>
@@ -142,7 +167,6 @@ export default function Page() {
         </SoftPage>
       )}
 
-      {/* Advisory */}
       {section === 'Advisory' && (
         <SoftPage title="Advisory Retainers" onClose={()=>setSection('Home')}>
           <Card title="💧 Lite Advisory">
@@ -176,7 +200,6 @@ export default function Page() {
         </SoftPage>
       )}
 
-      {/* CPA */}
       {section === 'CPA' && (
         <SoftPage title="CPA Firms" onClose={()=>setSection('Home')}>
           <Card>
@@ -187,12 +210,11 @@ export default function Page() {
               <li>Retention mapped to peer review cycles</li>
               <li>Evidence binders ready before auditors ask</li>
             </ul>
-            <p><em>Outcome:</em> Even at peak season, your firm is compliant, covered, and client-ready.</em></p>
+            <p><em>Outcome:</em> Even at peak season, your firm is compliant, covered, and client-ready.</p>
           </Card>
         </SoftPage>
       )}
 
-      {/* Law */}
       {section === 'Law' && (
         <SoftPage title="Law Firms" onClose={()=>setSection('Home')}>
           <Card>
@@ -208,7 +230,6 @@ export default function Page() {
         </SoftPage>
       )}
 
-      {/* Risks */}
       {section === 'Risks' && (
         <SoftPage title="The Risk / Our Response" onClose={()=>setSection('Home')}>
           <Card>
@@ -233,7 +254,6 @@ export default function Page() {
         </SoftPage>
       )}
 
-      {/* Why JGS */}
       {section === 'Why JGS' && (
         <SoftPage title="Why JGS Cloud Compliance" onClose={()=>setSection('Home')}>
           <Card>
@@ -251,7 +271,6 @@ export default function Page() {
         </SoftPage>
       )}
 
-      {/* Get Started */}
       {section === 'Get Started' && (
         <SoftPage title="Get Started" onClose={()=>setSection('Home')}>
           <Card title="📦 Flat-Fee Projects">
