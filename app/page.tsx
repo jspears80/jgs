@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 /* Top nav sections (no anchors – we preventDefault and open overlays) */
 const NAV = ['Home','Services','Advisory','CPA','Law','Risks','Why JGS','Get Started'] as const;
 
+/* Background grid + flares (styled in globals.css) */
 const BG = () => (
   <div className="bg-wrap" aria-hidden>
     <div className="bg-grad" />
@@ -34,7 +35,7 @@ const SoftPage: React.FC<{ title:string; onClose:()=>void; children:React.ReactN
   </section>
 );
 
-const Card: React.FC<{ title?:string; children:React.ReactNode }> = ({ title, children }) => (
+const Card: React.FC<{title?:string; children:React.ReactNode}> = ({title, children}) => (
   <div className="card">{title && <h3 className="title-lg">{title}</h3>}{children}</div>
 );
 
@@ -65,6 +66,7 @@ export default function Page() {
           <input id="nav-toggle" type="checkbox" aria-label="Toggle navigation" checked={open} onChange={()=>setOpen(!open)} />
           <label htmlFor="nav-toggle" className="burger" aria-hidden="true"><span></span><span></span><span></span></label>
 
+          {/* Desktop nav (no real anchors; prevent scroll) */}
           <nav className="nav-links">
             {NAV.map(k => (
               <a
@@ -80,7 +82,7 @@ export default function Page() {
         </div>
       </header>
 
-      {/* HERO — visible only when Home */}
+      {/* ===== HERO ONLY (no other sections inline) ===== */}
       {section==='Home' && (
         <section className="section container">
           <div className="page">
@@ -106,8 +108,8 @@ export default function Page() {
         <SoftPage title="Core Services" onClose={()=>setSection('Home')}>
           <Card title="🔒 Security Hardening & Remediation">
             <p>Insurers raise premiums. Regulators raise standards. We align your Microsoft 365 so you can
-              <strong> prove control, reduce exposure, and negotiate from strength.</strong> This isn’t about passwords —
-              it’s about showing you already meet the bar they set.
+              <strong> prove control, reduce exposure, and negotiate from strength.</strong> This isn’t about
+              passwords — it’s about showing you already meet the bar they set.
             </p>
             <ul>
               <li>Admin rights reduced; conditional access enforced</li>
