@@ -252,7 +252,7 @@ export default function Page(){
         {section === 'Risks' && (
           <section className="section container">
             <div className="page">
-              <h2 className="title-xl">Stopping Hackers: Risks & Our Response</h2>
+              <h2 className="title-xl">Stopping Hackers</h2>
               <Card title="🔑 Initial Access">
                 <p><strong>The Risk:</strong> Phishing, MFA fatigue, and old authentication methods.<br/><strong>Our Response:</strong> Modern MFA + Conditional Access everywhere. Legacy auth blocked. Sessions controlled.</p>
               </Card>
