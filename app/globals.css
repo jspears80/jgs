@@ -47,27 +47,27 @@ body::after{
 .lead{opacity:.92; margin:.25rem 0 1rem}
 .page p,.page li{font-size:1rem; font-weight:400; line-height:1.55}
 
-/* CRITICAL: the overlay "page" must be TRANSPARENT (no giant black panel) */
-.overlay .page{
-  max-width:72rem; width:100%;
-  margin:0 auto;
-  padding:0;
-  background:transparent !important;   /* <- force transparent */
-  border:0 !important;
-  box-shadow:none !important;
-}
-
-/* Each section gets its own card (hero-style) */
-.overlay .card{
-  width:100%;
+/* ---- Soft Page & Cards (hero-style) ---- */
+.page{
+  max-width:72rem; margin:0 auto; position:relative; z-index:1;
   border:1px solid rgba(255,255,255,.14);
-  background:rgba(0,0,0,.55);
+  border-radius:1rem;
+  background:var(--soft);
+  backdrop-filter:blur(6px);
+  box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+  padding:1.25rem 1.5rem;
+}
+.card{
+  border:1px solid var(--muted);
   border-radius:.9rem;
+  background:rgba(0,0,0,.55);
   box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
   padding:1.1rem 1.25rem;
-  margin:0 auto 1rem auto;
+  margin:0 0 1rem 0;
+  line-height:1.55;
 }
-
+.hr{height:1px; background:var(--muted); margin:1rem 0}
+.divider{height:1px; background:rgba(255,255,255,.14); margin:1rem 0}
 
 /* ---- Header / Nav ---- */
 header{
@@ -90,17 +90,11 @@ header{
 /* ---- Footer ---- */
 footer{border-top:1px solid var(--muted-2); padding:1rem; text-align:center; font-size:.9rem; opacity:.9}
 
-/* ---- Overlay (modal) — identical look to hero; grid/glow shows around cards ---- */
+/* ---- Overlay (modal) — flat backdrop + transparent wrapper) ---- */
 .overlay{
   position:fixed; inset:0;
-  background:
-    radial-gradient(1200px 520px at 50% -6%,
-      rgba(0,0,0,.40) 0%,
-      rgba(0,0,0,.26) 60%,
-      rgba(0,0,0,.18) 100%
-    ),
-    transparent;
-  backdrop-filter:blur(10px);
+  background: rgba(0,0,0,.42);      /* flat translucency so grid/glow match hero */
+  backdrop-filter: blur(10px);
   z-index:900;
   overflow:auto;
   display:flex; justify-content:center; align-items:flex-start;
