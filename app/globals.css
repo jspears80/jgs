@@ -47,24 +47,25 @@ body::after{
 .lead{opacity:.92; margin:.25rem 0 1rem}
 .page p,.page li{font-size:1rem; font-weight:400; line-height:1.55}
 
-/* ---- Soft Page & Cards (hero-style) ---- */
-.page{
-  max-width:72rem; margin:0 auto; position:relative; z-index:1;
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:1rem;
-  background:var(--soft);
-  backdrop-filter:blur(6px);
-  box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
-  padding:1.25rem 1.5rem;
+/* CRITICAL: the overlay "page" must be TRANSPARENT (no giant black panel) */
+.overlay .page{
+  max-width:72rem; width:100%;
+  margin:0 auto;
+  padding:0;
+  background:transparent !important;   /* <- force transparent */
+  border:0 !important;
+  box-shadow:none !important;
 }
-.card{
-  border:1px solid var(--muted);
-  border-radius:.9rem;
+
+/* Each section gets its own card (hero-style) */
+.overlay .card{
+  width:100%;
+  border:1px solid rgba(255,255,255,.14);
   background:rgba(0,0,0,.55);
+  border-radius:.9rem;
   box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
   padding:1.1rem 1.25rem;
-  margin:0 0 1rem 0;
-  line-height:1.55;
+  margin:0 auto 1rem auto;
 }
 .hr{height:1px; background:var(--muted); margin:1rem 0}
 .divider{height:1px; background:rgba(255,255,255,.14); margin:1rem 0}
