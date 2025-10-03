@@ -216,7 +216,7 @@ export default function Page(){
         {section === 'CPA' && (
           <section className="section container">
             <div className="page">
-              <h2 className="title-xl">📊 CPA Firms</h2>
+              <h2 className="title-xl">CPA Firms</h2>
               <Card>
                 <p><strong>Tax season isn’t forgiving.</strong> We harden Microsoft 365 so you can <strong>work without disruption and show compliance on demand.</strong></p>
                 <ul>
@@ -234,7 +234,7 @@ export default function Page(){
         {section === 'Law' && (
           <section className="section container">
             <div className="page">
-              <h2 className="title-xl">⚖️ Law Firms</h2>
+              <h2 className="title-xl">Law Firms</h2>
               <Card>
                 <p><strong>Confidentiality is everything.</strong> We secure Microsoft 365 so your firm can <strong>protect data, meet discovery demands, and stand up under scrutiny.</strong></p>
                 <ul>
@@ -252,7 +252,7 @@ export default function Page(){
         {section === 'Risks' && (
           <section className="section container">
             <div className="page">
-              <h2 className="title-xl">⚠️ The Risk / Our Response</h2>
+              <h2 className="title-xl">Stopping Hackers: Risks & Our Response</h2>
               <Card title="🔑 Initial Access">
                 <p><strong>The Risk:</strong> Phishing, MFA fatigue, and old authentication methods.<br/><strong>Our Response:</strong> Modern MFA + Conditional Access everywhere. Legacy auth blocked. Sessions controlled.</p>
               </Card>
