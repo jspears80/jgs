@@ -93,9 +93,23 @@ header{ position:sticky; top:0; z-index:1000; background:rgba(0,0,0,.72); backdr
 
 /* Mobile: keep nav inline & visible */
 @media (max-width:900px){
-  .header-row{padding:.5rem .75rem; gap:.5rem; flex-wrap:wrap}
-  .nav-links{ position:static; display:flex; gap:.6rem; padding:0; border:0; transform:none; background:transparent; overflow-x:auto; -webkit-overflow-scrolling:touch }
-  .nav-links a{padding:.3rem .4rem; border-radius:.4rem; font-size:.9rem}
+  /* Keep header on a single line with horizontal scroll if needed */
+  .header-row{padding:.5rem .75rem; gap:.4rem; flex-wrap:nowrap; overflow:hidden}
+  .logo{height:44px; margin-right:.35rem}
+  .nav-links{
+    position:static; display:flex; flex-wrap:nowrap; gap:.5rem; margin-left:.2rem;
+    white-space:nowrap; overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{padding:.25rem .35rem; border-radius:.4rem; font-size:.85rem}
+}
+
+/* ultra-narrow phones: tighten a touch more */
+@media (max-width:360px){
+  .logo{height:40px}
+  .nav-links{gap:.4rem}
+  .nav-links a{font-size:.8rem; padding:.2rem .3rem}
 }
 `;
 
