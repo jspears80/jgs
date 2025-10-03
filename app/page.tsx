@@ -1,11 +1,18 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 
-/* Sitewide polish: keep structure/colors; improve bullet spacing only */
+/*
+  Full site in Canvas — no omissions.
+  - Logo doubles as Home; 'Home' removed from NAV.
+  - Header wiggle fixed with html{overflow-y:scroll}.
+  - Icons added for CPA, Law, Risks; consistent bullets/table styles.
+*/
+
 const styles = `
 :root{ --bg:#0b0b0b; --fg:#ffffff; --muted:rgba(255,255,255,.2); --muted-2:rgba(255,255,255,.25); --soft:rgba(0,0,0,.55); }
 *{box-sizing:border-box}
 html,body,#root{height:100%}
+html{overflow-y:scroll}
 body{ margin:0; background:var(--bg); color:var(--fg); font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
 a{color:inherit; text-decoration:none}
 
@@ -29,7 +36,7 @@ body::after{ content:""; position:fixed; inset:0; z-index:0; pointer-events:none
 .card{ border:1px solid var(--muted); border-radius:.9rem; background:rgba(0,0,0,.55); box-shadow:0 8px 20px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.06); padding:1rem 1.25rem; margin:0 0 1rem 0; line-height:1.55; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
 .card:hover{ transform:translateY(-4px); box-shadow:0 12px 24px rgba(0,0,0,.4); border-color:rgba(255,255,255,.35); }
 
-/* Bullets (polish) */
+/* Bullets */
 ul{margin:0 0 1rem 1.25rem; padding:0; list-style:disc}
 li{margin:0.5rem 0; line-height:1.6}
 
@@ -40,13 +47,13 @@ tbody td{border-top:1px solid var(--muted); padding:.5rem; vertical-align:top}
 
 /* Header / Nav */
 header{ position:sticky; top:0; z-index:1000; background:rgba(0,0,0,.72); backdrop-filter:blur(8px); border-bottom:1px solid var(--muted-2); }
-.header-row{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.8rem 1rem}
-.logo{height:28px; margin-right:.6rem; vertical-align:middle}
-.nav-links{display:flex; gap:1.1rem; align-items:center; flex-wrap:wrap}
-.nav-links a{font-weight:500; font-size:.95rem; color:#fff}
+.header-row{display:flex; align-items:center; justify-content:flex-start; gap:1rem; padding:.8rem 1rem}
+.brand{display:flex; align-items:center; gap:.6rem; cursor:pointer}
+.nav-links{display:flex; gap:1.1rem; align-items:center; flex-wrap:wrap; margin-left:1rem}
+.logo{height:56px; margin-right:.6rem; vertical-align:middle}
 
 #nav-toggle{display:none}
-.burger{display:none; cursor:pointer; width:36px; height:28px; position:relative}
+.burger{display:none; cursor:pointer; width:36px; height:28px; position:relative; margin-left:auto}
 .burger span{position:absolute; left:0; right:0; height:2px; background:#fff; border-radius:2px}
 .burger span:nth-child(1){top:4px} .burger span:nth-child(2){top:13px} .burger span:nth-child(3){top:22px}
 
@@ -59,8 +66,8 @@ header{ position:sticky; top:0; z-index:1000; background:rgba(0,0,0,.72); backdr
 }
 `;
 
-const NAV = ['Home','Services','Advisory','CPA','Law','Risks','Why JGS','Get Started'] as const;
-type Section = typeof NAV[number];
+const NAV = ['Services','Advisory','CPA','Law','Risks','Why JGS','Get Started'] as const;
+type Section = 'Home' | typeof NAV[number];
 
 function Card({ title, children }:{ title?: string; children: React.ReactNode }) {
   return (<div className="card">{title ? <h3 className="title-lg">{title}</h3> : null}{children}</div>);
@@ -75,11 +82,10 @@ export default function App(){
   useEffect(() => { if (!isMobile && menuOpen) setMenuOpen(false); }, [isMobile, menuOpen]);
   const go = (target: Section) => { setSection(target); setMenuOpen(false); };
 
-  // Smoke checks (dev): make sure critical nav items exist
+  // Dev smoke tests
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      console.assert(NAV.includes('Risks') && NAV.includes('Why JGS'), 'NAV must include Risks & Why JGS');
-    }
+    console.assert(Array.isArray(NAV) && NAV.length > 0, 'NAV must be non-empty');
+    console.assert(!NAV.includes('Home'), 'NAV excludes Home (logo is Home)');
   }, []);
 
   return (<>
@@ -87,10 +93,9 @@ export default function App(){
     <main>
       <header>
         <div className="container header-row">
-          <div style={{ display:'flex', alignItems:'center', gap:'.6rem' }}>
-            <img src="/Logo.png" onError={(e)=>{(e.currentTarget as HTMLImageElement).style.display='none'; (e.currentTarget.nextElementSibling as HTMLElement).style.display='inline-block';}} alt="JGS logo" className="logo" />
-            <span style={{ display:'none', width:28, height:28, borderRadius:6, background:'linear-gradient(135deg, #22d3ee, #8b5cf6)' }} />
-            <a href="#" onClick={(e) => { e.preventDefault(); go('Home'); }} style={{ fontWeight:700 }}>JGS Cloud Compliance</a>
+          <div className="brand" role="button" tabIndex={0} onClick={() => go('Home')} onKeyDown={(e)=>{ if(e.key==='Enter' || e.key===' ') go('Home'); }}>
+            <img src="/Logo.png" onError={(e)=>{(e.currentTarget as HTMLImageElement).style.display='none'; (e.currentTarget.nextElementSibling as HTMLElement).style.display='inline-block';}} alt="JGS logo (Home)" className="logo" />
+            <span style={{ display:'none', width:56, height:56, borderRadius:12, background:'linear-gradient(135deg, #22d3ee, #8b5cf6)' }} />
           </div>
           <input id="nav-toggle" type="checkbox" aria-label="Toggle navigation" checked={menuOpen} onChange={() => setMenuOpen(!menuOpen)} />
           <label htmlFor="nav-toggle" className="burger" aria-hidden="true"><span></span><span></span><span></span></label>
@@ -190,7 +195,7 @@ export default function App(){
       {section === 'CPA' && (
         <section className="section container">
           <div className="page">
-            <h2 className="title-xl">CPA Firms</h2>
+            <h2 className="title-xl">📊 CPA Firms</h2>
             <Card>
               <p><strong>Tax season isn’t forgiving.</strong> We harden Microsoft 365 so you can <strong>work without disruption and show compliance on demand.</strong></p>
               <ul>
@@ -208,7 +213,7 @@ export default function App(){
       {section === 'Law' && (
         <section className="section container">
           <div className="page">
-            <h2 className="title-xl">Law Firms</h2>
+            <h2 className="title-xl">⚖️ Law Firms</h2>
             <Card>
               <p><strong>Confidentiality is everything.</strong> We secure Microsoft 365 so your firm can <strong>protect data, meet discovery demands, and stand up under scrutiny.</strong></p>
               <ul>
@@ -222,11 +227,11 @@ export default function App(){
         </section>
       )}
 
-      {/* ===== RISKS (TABLE) ===== */}
+      {/* ===== RISKS (full table) ===== */}
       {section === 'Risks' && (
         <section className="section container">
           <div className="page">
-            <h2 className="title-xl">The Risk / Our Response</h2>
+            <h2 className="title-xl">⚠️ The Risk / Our Response</h2>
             <Card>
               <table>
                 <thead>
@@ -262,9 +267,9 @@ export default function App(){
                     </td>
                     <td>
                       <ul>
-                        <li>Removed</li>
-                        <li>PIM elevation</li>
-                        <li>Hardened access</li>
+                        <li>Shadow admins removed</li>
+                        <li>PIM for elevation</li>
+                        <li>Break-glass hardened</li>
                       </ul>
                     </td>
                   </tr>
@@ -278,7 +283,7 @@ export default function App(){
                     </td>
                     <td>
                       <ul>
-                        <li>Blocked</li>
+                        <li>Rules/connectors blocked</li>
                         <li>SPF/DKIM/DMARC</li>
                         <li>TLS validation</li>
                       </ul>
@@ -294,23 +299,23 @@ export default function App(){
                     </td>
                     <td>
                       <ul>
-                        <li>Locked</li>
-                        <li>Disabled</li>
-                        <li>Governed</li>
+                        <li>Connectors locked</li>
+                        <li>Forwarding disabled</li>
+                        <li>Guest access governed</li>
                       </ul>
                     </td>
                   </tr>
                   <tr>
                     <td>
                       <ul>
-                        <li>Oversharing</li>
+                        <li>External over-sharing</li>
                         <li>Public links</li>
                         <li>Retention gaps</li>
                       </ul>
                     </td>
                     <td>
                       <ul>
-                        <li>Aligned retention</li>
+                        <li>Regulator-aligned retention</li>
                         <li>Extended audit logs</li>
                         <li>Tamper-evident trails</li>
                       </ul>
@@ -320,13 +325,14 @@ export default function App(){
                     <td>
                       <ul>
                         <li>Unproven restores</li>
-                        <li>Misconfigs</li>
+                        <li>Unverified RTO/RPO</li>
+                        <li>Misconfigurations</li>
                       </ul>
                     </td>
                     <td>
                       <ul>
-                        <li>Quarterly restores</li>
-                        <li>Playbooks</li>
+                        <li>Quarterly restores witnessed</li>
+                        <li>Playbooks signed</li>
                         <li>Evidence logged</li>
                       </ul>
                     </td>
@@ -338,7 +344,7 @@ export default function App(){
         </section>
       )}
 
-      {/* ===== WHY JGS (TABLE) ===== */}
+      {/* ===== WHY JGS (table) ===== */}
       {section === 'Why JGS' && (
         <section className="section container">
           <div className="page">
@@ -352,26 +358,11 @@ export default function App(){
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>❌ Generic IT support across dozens of tools</td>
-                    <td>✅ Microsoft 365 only — hardened, tested, proven</td>
-                  </tr>
-                  <tr>
-                    <td>❌ Hourly creep, surprise bills</td>
-                    <td>✅ Flat-fee clarity, scope locked before kickoff</td>
-                  </tr>
-                  <tr>
-                    <td>❌ Promises of “we’ll handle it”</td>
-                    <td>✅ Proof packages you can hand to insurers and auditors</td>
-                  </tr>
-                  <tr>
-                    <td>❌ One-size-fits-all settings</td>
-                    <td>✅ Controls mapped to IRS, AICPA, and ABA requirements</td>
-                  </tr>
-                  <tr>
-                    <td>❌ Fixes without evidence</td>
-                    <td>✅ Audit-ready binders with logs, screenshots, and reports</td>
-                  </tr>
+                  <tr><td>❌ Generic IT support across dozens of tools</td><td>✅ Microsoft 365 only — hardened, tested, proven</td></tr>
+                  <tr><td>❌ Hourly creep, surprise bills</td><td>✅ Flat-fee clarity, scope locked before kickoff</td></tr>
+                  <tr><td>❌ Promises of “we’ll handle it”</td><td>✅ Proof packages you can hand to insurers and auditors</td></tr>
+                  <tr><td>❌ One-size-fits-all settings</td><td>✅ Controls mapped to IRS, AICPA, and ABA requirements</td></tr>
+                  <tr><td>❌ Fixes without evidence</td><td>✅ Audit-ready binders with logs, screenshots, and reports</td></tr>
                 </tbody>
               </table>
             </Card>
