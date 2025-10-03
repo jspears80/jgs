@@ -43,20 +43,20 @@ footer{border-top:1px solid var(--muted-2);padding:1rem;text-align:center;font-s
 /* Background Grid/Flares */
 .bg-wrap{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
 .bg-grad{position:absolute;inset:0;background:radial-gradient(1200px 600px at 50% -10%, #0b0b0b 0%, transparent 60%)}
-.bg-grid{position:absolute;inset:0;background-image:linear-gradient(to right, rgba(255,255,255,.1) 1px, transparent 1px),linear-gradient(to bottom, rgba(255,255,255,.1) 1px, transparent 1px);background-size:64px 64px;opacity:.30}
+.bg-grid{position:absolute;inset:0;background-image:linear-gradient(to right, rgba(255,255,255,.12) 1px, transparent 1px),linear-gradient(to bottom, rgba(255,255,255,.12) 1px, transparent 1px);background-size:64px 64px;opacity:.25}
 .bg-flare{position:absolute;filter:blur(90px);opacity:.55;mix-blend-mode:screen}
-.flare-1{width:46rem;height:46rem;left:-20rem;top:-18rem;background:radial-gradient(circle at 30% 30%, rgba(34,211,238,.55), rgba(139,92,246,.35) 55%, transparent 70%);animation:pulse 9s ease-in-out infinite}
-.flare-2{width:40rem;height:40rem;right:-18rem;bottom:-14rem;background:radial-gradient(circle at 70% 70%, rgba(232,121,249,.45), rgba(56,189,248,.35) 50%, transparent 70%);animation:pulse 12s ease-in-out infinite reverse}
-.bg-flow{position:absolute;inset:0;opacity:.25;background:linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,.25) 10%, rgba(0,0,0,0) 20%),repeating-linear-gradient(90deg, rgba(80,200,255,.35) 0 2px, transparent 2px 8px),repeating-linear-gradient(0deg, rgba(160,120,255,.22) 0 2px, transparent 2px 10px);animation:flowX 18s linear infinite}
-.bg-scan{position:absolute;inset:-20%;background:repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 2px, transparent 2px 18px);animation:scan 22s linear infinite;opacity:.15}
+.flare-1{width:46rem;height:46rem;left:-20rem;top:-18rem;background:radial-gradient(circle at 30% 30%, rgba(34,211,238,.55), rgba(139,92,246,.35) 55%, transparent 70%);animation:pulse 10s ease-in-out infinite}
+.flare-2{width:40rem;height:40rem;right:-18rem;bottom:-14rem;background:radial-gradient(circle at 70% 70%, rgba(232,121,249,.45), rgba(56,189,248,.35) 50%, transparent 70%);animation:pulse 13s ease-in-out infinite reverse}
+.bg-flow{position:absolute;inset:0;opacity:.22;background:linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,.25) 10%, rgba(0,0,0,0) 20%),repeating-linear-gradient(90deg, rgba(80,200,255,.35) 0 2px, transparent 2px 8px),repeating-linear-gradient(0deg, rgba(160,120,255,.22) 0 2px, transparent 2px 10px);-webkit-mask-image:radial-gradient(1200px 600px at 50% 0%, rgba(255,255,255,.9), transparent 70%);mask-image:radial-gradient(1200px 600px at 50% 0%, rgba(255,255,255,.9), transparent 70%);animation:flowX 18s linear infinite}
+.bg-scan{position:absolute;inset:-20%;background:repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 2px, transparent 2px 18px);animation:scan 22s linear infinite;opacity:.12}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
 @keyframes flowX{0%{background-position:0 0,0 0,0 0}100%{background-position:800px 0,400px 0,0 300px}}
 @keyframes scan{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-10%,-10%,0)}}
 
-/* Overlay (modal) */
+/* Overlay (modal) — show grid around cards */
 .overlay{
   position:fixed; inset:0;
-  background: rgba(0,0,0,.45);     /* translucent so grid shows */
+  background: rgba(0,0,0,.45);
   backdrop-filter: blur(10px);
   z-index:900;
   overflow:auto;
@@ -66,7 +66,7 @@ footer{border-top:1px solid var(--muted-2);padding:1rem;text-align:center;font-s
 .overlay .page{
   max-width:72rem; width:100%;
   margin:0 auto;
-  background: transparent;         /* NOT a giant card */
+  background: transparent;  /* NOT a giant card */
   border: 0; box-shadow: none; padding:0;
 }
 .overlay .card{
