@@ -90,32 +90,44 @@ header{
 /* ---- Footer ---- */
 footer{border-top:1px solid var(--muted-2); padding:1rem; text-align:center; font-size:.9rem; opacity:.9}
 
-/* ---- Overlay (modal) — flat backdrop + transparent wrapper) ---- */
+/* Overlay (modal) — wrapper must be transparent and flat */
 .overlay{
-  position:fixed; inset:0;
-  background: rgba(0,0,0,.42);      /* flat translucency so grid/glow match hero */
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.42);       /* flat translucency so grid/glow match hero */
   backdrop-filter: blur(10px);
-  z-index:900;
-  overflow:auto;
-  display:flex; justify-content:center; align-items:flex-start;
-  padding:5rem 1rem 3rem;
+  z-index: 900;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5rem 1rem 3rem;
 }
+
 .overlay .page{
-  max-width:72rem; width:100%;
-  margin:0 auto; padding:0;
-  background:transparent !important; border:0 !important; box-shadow:none !important; /* NOT a giant panel */
+  max-width: 72rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+
+  /* kill the “big panel” entirely */
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;   /* <-- this removes the rounded edge you’re seeing */
 }
+
+/* cards keep the hero glass look */
 .overlay .card{
-  width:100%;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(0,0,0,.55);
-  border-radius:.9rem;
-  box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
-  padding:1.1rem 1.25rem;
-  margin:0 auto 1rem auto;
+  width: 100%;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.55);
+  border-radius: .9rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+  padding: 1.1rem 1.25rem;
+  margin: 0 auto 1rem auto;
 }
-.overlay .title-lg{margin:.25rem 0 .4rem; font-weight:700}
-.overlay p,.overlay li{font-size:1rem; line-height:1.55; font-weight:400}
+
 
 /* ---- Tables & Lists ---- */
 table{width:100%; border-collapse:collapse; margin-top:1rem}
