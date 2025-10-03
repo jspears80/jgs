@@ -1,10 +1,10 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 
-/* Top nav sections (no anchors – we preventDefault and open overlays) */
+/* Soft-page navigation (no anchor scroll) */
 const NAV = ['Home','Services','Advisory','CPA','Law','Risks','Why JGS','Get Started'] as const;
 
-/** Reusable soft overlay page */
+/** Reusable overlay page shell */
 const SoftPage: React.FC<{ title:string; onClose:()=>void; children:React.ReactNode }> = ({ title, onClose, children }) => (
   <section className="section overlay" role="dialog" aria-modal="true" aria-label={title}>
     <div className="page" style={{ position:'relative' }}>
@@ -23,6 +23,7 @@ const SoftPage: React.FC<{ title:string; onClose:()=>void; children:React.ReactN
   </section>
 );
 
+/** Hero/overlay content cards */
 const Card: React.FC<{title?:string; children:React.ReactNode}> = ({title, children}) => (
   <div className="card">{title && <h3 className="title-lg">{title}</h3>}{children}</div>
 );
@@ -41,6 +42,7 @@ export default function Page() {
       <header>
         <div className="container header-row">
           <div style={{display:'flex',alignItems:'center',gap:'.6rem'}}>
+            {/* Ensure /public/Logo.png exists (case-sensitive) */}
             <img src="/Logo.png" alt="JGS logo" className="logo" />
             <a href="#" onClick={(e)=>{e.preventDefault(); setSection('Home'); setOpen(false);}} style={{fontWeight:800,fontSize:'1.1rem'}}>
               JGS Cloud Compliance
@@ -51,15 +53,10 @@ export default function Page() {
           <input id="nav-toggle" type="checkbox" aria-label="Toggle navigation" checked={open} onChange={()=>setOpen(!open)} />
           <label htmlFor="nav-toggle" className="burger" aria-hidden="true"><span></span><span></span><span></span></label>
 
-          {/* Desktop nav (no hash anchors) */}
+          {/* Desktop nav (prevent scroll) */}
           <nav className="nav-links">
             {NAV.map(k => (
-              <a
-                key={k}
-                href="#"
-                onClick={(e)=>{ e.preventDefault(); setSection(k); setOpen(false); }}
-                role="button"
-              >
+              <a key={k} href="#" role="button" onClick={(e)=>{ e.preventDefault(); setSection(k); setOpen(false); }}>
                 {k}
               </a>
             ))}
@@ -86,16 +83,15 @@ export default function Page() {
         </section>
       )}
 
-      {/* ===== SOFT-PAGE OVERLAYS (each with its own cards) ===== */}
+      {/* ===== SOFT-PAGE OVERLAYS (separate cards per part) ===== */}
 
       {/* Services */}
       {section==='Services' && (
         <SoftPage title="Core Services" onClose={()=>setSection('Home')}>
           <Card title="🔒 Security Hardening & Remediation">
             <p>Insurers raise premiums. Regulators raise standards. We align your Microsoft 365 so you can
-              <strong> prove control, reduce exposure, and negotiate from strength.</strong> This isn’t about
-              passwords — it’s about showing you already meet the bar they set.
-            </p>
+              <strong> prove control, reduce exposure, and negotiate from strength.</strong> This isn’t about passwords —
+              it’s about showing you already meet the bar they set.</p>
             <ul>
               <li>Admin rights reduced; conditional access enforced</li>
               <li>Legacy/basic auth blocked; extended audit logging enabled</li>
@@ -105,8 +101,7 @@ export default function Page() {
 
           <Card title="📧 Secure Email Delivery">
             <p>Email is your firm’s lifeline. We ensure your domain is
-              <strong> recognized, trusted, and protected</strong>.
-            </p>
+              <strong> recognized, trusted, and protected</strong>.</p>
             <ul>
               <li>SPF, DKIM, DMARC (BIMI where applicable) enforced</li>
               <li>Malicious rules/connectors removed</li>
@@ -116,8 +111,7 @@ export default function Page() {
 
           <Card title="🔁 Backup & Recovery Assurance">
             <p>A backup means nothing until recovery is proven — we make it a
-              <strong> measured business advantage</strong>.
-            </p>
+              <strong> measured business advantage</strong>.</p>
             <ul>
               <li>Immutable backups with versioning & legal holds</li>
               <li>Quarterly restore drills with signed evidence</li>
@@ -166,8 +160,7 @@ export default function Page() {
         <SoftPage title="CPA Firms" onClose={()=>setSection('Home')}>
           <Card>
             <p><strong>Tax season isn’t forgiving.</strong> We harden Microsoft 365 so you can
-              <strong> work without disruption and show compliance on demand.</strong>
-            </p>
+              <strong> work without disruption and show compliance on demand.</strong></p>
             <ul>
               <li>Controls aligned to IRS & AICPA standards</li>
               <li>Retention mapped to peer review cycles</li>
@@ -183,8 +176,7 @@ export default function Page() {
         <SoftPage title="Law Firms" onClose={()=>setSection('Home')}>
           <Card>
             <p><strong>Confidentiality is everything.</strong> We secure Microsoft 365 so your firm can
-              <strong> protect data, meet discovery demands, and stand up under scrutiny.</strong>
-            </p>
+              <strong> protect data, meet discovery demands, and stand up under scrutiny.</strong></p>
             <ul>
               <li>Email delivery that clients and courts can trust</li>
               <li>Retention aligned to discovery and insurer mandates</li>
