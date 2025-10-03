@@ -2,52 +2,27 @@
 import React, { useState } from 'react';
 
 /**
- * JGS SoftPage — optimized for direct paste into app/page.tsx
- * - Header: large logo = Home, nav inline next to logo, no hamburger
- * - Background grid/glow via body pseudo-elements
- * - Transparent page wrapper; cards have glass look
- * - Mobile: nav always visible, wraps or scrolls horizontally
- * - TypeScript-safe (no union "includes" assertions)
+ * JGS SoftPage — full content restored + mobile scroll nav fixed
+ * - Header: logo = Home, nav inline; mobile scrollable without hamburger
+ * - Background grid/glow
+ * - Transparent page wrapper; glass cards
+ * - Clean CSS (fixed duplicate @media blocks)
  */
 
 const styles = `
-:root{
-  --bg:#0b0b0b; --fg:#ffffff;
-  --muted:rgba(255,255,255,.20);
-  --muted-2:rgba(255,255,255,.25);
-  --soft:rgba(0,0,0,.55);
-}
+:root{ --bg:#0b0b0b; --fg:#ffffff; --muted:rgba(255,255,255,.20); --muted-2:rgba(255,255,255,.25); --soft:rgba(0,0,0,.55); }
 *{box-sizing:border-box}
 html,body,#root{height:100%}
 html{overflow-y:scroll}
-body{
-  margin:0; min-height:100%;
-  background:var(--bg); color:var(--fg);
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-}
+body{ margin:0; min-height:100%; background:var(--bg); color:var(--fg); font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
 a{color:inherit; text-decoration:none}
 
-/* Always-on background */
-body::before{
-  content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
-  background:
-    radial-gradient(1200px 500px at 50% -6%, #0b0b0b 0%, transparent 62%),
-    linear-gradient(to right, rgba(255,255,255,.14) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,.14) 1px, transparent 1px);
-  background-size:auto, 56px 56px, 56px 56px;
-  opacity:.30;
-}
-body::after{
-  content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
-  background:
-    radial-gradient(44rem 44rem at 10% 2%, rgba(34,211,238,.60), rgba(139,92,246,.38) 55%, transparent 70%),
-    radial-gradient(38rem 38rem at 90% 100%, rgba(232,121,249,.50), rgba(56,189,248,.38) 50%, transparent 70%);
-  filter:blur(88px); mix-blend-mode:screen; animation:flarePulse 12s ease-in-out infinite alternate;
-}
+/* Background */
+body::before{ content:""; position:fixed; inset:0; z-index:0; pointer-events:none; background: radial-gradient(1200px 500px at 50% -6%, #0b0b0b 0%, transparent 62%), linear-gradient(to right, rgba(255,255,255,.14) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.14) 1px, transparent 1px); background-size:auto, 56px 56px, 56px 56px; opacity:.30; }
+body::after{ content:""; position:fixed; inset:0; z-index:0; pointer-events:none; background: radial-gradient(44rem 44rem at 10% 2%, rgba(34,211,238,.60), rgba(139,92,246,.38) 55%, transparent 70%), radial-gradient(38rem 38rem at 90% 100%, rgba(232,121,249,.50), rgba(56,189,248,.38) 50%, transparent 70%); filter:blur(88px); mix-blend-mode:screen; animation:flarePulse 12s ease-in-out infinite alternate; }
 @keyframes flarePulse{from{transform:scale(1)} to{transform:scale(1.05)}}
 
-/* Layout & type */
+/* Layout */
 .container{max-width:72rem; margin:0 auto; padding:1rem}
 .section{padding:2.5rem 0; scroll-margin-top:4rem}
 .title-xl{font-size:2rem; font-weight:800; margin:0 0 .75rem}
@@ -55,23 +30,14 @@ body::after{
 .lead{opacity:.92; margin:.25rem 0 1rem}
 .page p,.page li{font-size:1rem; font-weight:400; line-height:1.55}
 
-/* Page wrapper: transparent (cards carry glass) */
-.page{
-  max-width:72rem; margin:0 auto; position:relative; z-index:1;
-  background:transparent; border:0; border-radius:0; box-shadow:none;
-  padding:1.25rem 1.5rem;
-}
+/* Page wrapper (transparent) */
+.page{ max-width:72rem; margin:0 auto; position:relative; z-index:1; background:transparent; border:0; border-radius:0; box-shadow:none; padding:1.25rem 1.5rem; }
 
 /* Cards */
-.card{
-  border:1px solid var(--muted); border-radius:.9rem; background:rgba(0,0,0,.55);
-  box-shadow:0 8px 20px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.06);
-  padding:1rem 1.25rem; margin:0 0 1rem 0; line-height:1.55;
-  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-}
+.card{ border:1px solid var(--muted); border-radius:.9rem; background:rgba(0,0,0,.55); box-shadow:0 8px 20px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.06); padding:1rem 1.25rem; margin:0 0 1rem 0; line-height:1.55; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
 .card:hover{ transform:translateY(-4px); box-shadow:0 12px 24px rgba(0,0,0,.4); border-color:rgba(255,255,255,.35); }
 
-/* Bullets */
+/* Lists */
 ul{margin:0 0 1rem 1.25rem; padding:0; list-style:disc}
 li{margin:.5rem 0; line-height:1.6}
 
@@ -80,47 +46,32 @@ table{width:100%; border-collapse:collapse; margin-top:.25rem}
 thead th{border-bottom:1px solid #666; text-align:left; padding:.5rem}
 tbody td{border-top:1px solid var(--muted); padding:.5rem; vertical-align:top}
 
-/* Header / Nav */
+/* Header */
 header{ position:sticky; top:0; z-index:1000; background:rgba(0,0,0,.72); backdrop-filter:blur(8px); border-bottom:1px solid var(--muted-2); }
 .header-row{display:flex; align-items:center; justify-content:flex-start; gap:.6rem; padding:.8rem 1rem}
 .brand{display:flex; align-items:center; gap:.4rem; cursor:pointer}
-.nav-links{display:flex; gap:.8rem; align-items:center; flex-wrap:wrap; margin-left:.25rem}
+.nav-links{display:flex; gap:.8rem; align-items:center; flex-wrap:wrap; margin-left:.25rem; position:relative}
 .logo{height:56px; margin-right:.4rem; vertical-align:middle}
 
-/* No burger (all breakpoints) */
-#nav-toggle{display:none}
-.burger{display:none}
-
-/* Mobile: keep nav inline & visible */
+/* Mobile: inline scrollable nav (no burger) */
 @media (max-width:900px){
-  /* Keep header on a single line with horizontal scroll if needed */
-  .header-row{padding:.5rem .75rem; gap:.4rem; flex-wrap:nowrap; overflow:hidden}
+  .header-row{padding:.5rem .75rem; gap:.4rem; flex-wrap:nowrap}
   .logo{height:44px; margin-right:.35rem}
-  .nav-links{
-    position:static; display:flex; flex-wrap:nowrap; gap:.5rem; margin-left:.2rem;
-    white-space:nowrap; overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-  }
+  .nav-links{ position:relative; display:flex; flex-wrap:nowrap; gap:.5rem; margin-left:.2rem; flex:1; min-width:0; white-space:nowrap; overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
   .nav-links::-webkit-scrollbar{display:none}
+  .nav-links::before,.nav-links::after{content:''; position:absolute; top:0; bottom:0; width:20px; pointer-events:none}
+  .nav-links::before{left:0; background:linear-gradient(to right, rgba(0,0,0,.6), transparent)}
+  .nav-links::after{right:0; background:linear-gradient(to left, rgba(0,0,0,.6), transparent)}
   .nav-links a{padding:.25rem .35rem; border-radius:.4rem; font-size:.85rem}
 }
-
-/* ultra-narrow phones: tighten a touch more */
-@media (max-width:360px){
-  .logo{height:40px}
-  .nav-links{gap:.4rem}
-  .nav-links a{font-size:.8rem; padding:.2rem .3rem}
-}
+@media (max-width:360px){ .logo{height:40px} .nav-links{gap:.4rem} .nav-links a{font-size:.8rem; padding:.2rem .3rem} }
 `;
 
 const NAV = ['Services','Advisory','CPA','Law','Risks','Why JGS','Get Started'] as const;
 type Section = 'Home' | typeof NAV[number];
 
 const Card: React.FC<{ title?: string; children: React.ReactNode }> = ({ title, children }) => (
-  <div className="card">
-    {title ? <h3 className="title-lg">{title}</h3> : null}
-    {children}
-  </div>
+  <div className="card">{title ? <h3 className="title-lg">{title}</h3> : null}{children}</div>
 );
 
 export default function Page(){
@@ -137,11 +88,7 @@ export default function Page(){
               <img src="/Logo.png" onError={(e)=>{(e.currentTarget as HTMLImageElement).style.display='none'; (e.currentTarget.nextElementSibling as HTMLElement).style.display='inline-block';}} alt="JGS logo (Home)" className="logo" />
               <span style={{ display:'none', width:56, height:56, borderRadius:12, background:'linear-gradient(135deg, #22d3ee, #8b5cf6)' }} />
             </div>
-            <nav className="nav-links">
-              {NAV.map(k => (
-                <a key={k} href="#" role="button" onClick={(e)=>{ e.preventDefault(); go(k); }}>{k}</a>
-              ))}
-            </nav>
+            <nav className="nav-links">{NAV.map(k => (<a key={k} href="#" role="button" onClick={(e)=>{ e.preventDefault(); go(k); }}>{k}</a>))}</nav>
           </div>
         </header>
 
@@ -188,8 +135,8 @@ export default function Page(){
                 <p>A backup means nothing until recovery is proven — we make it a <strong>measured business advantage.</strong></p>
                 <ul>
                   <li>Immutable backups with versioning & legal holds</li>
-                <li>Quarterly restore drills with signed evidence</li>
-                <li>Retention aligned to discovery / peer-review cycles</li>
+                  <li>Quarterly restore drills with signed evidence</li>
+                  <li>Retention aligned to discovery / peer-review cycles</li>
                 </ul>
               </Card>
             </div>
@@ -267,116 +214,21 @@ export default function Page(){
           </section>
         )}
 
-        {/* ===== RISKS (TABLE) ===== */}
+        {/* ===== RISKS ===== */}
         {section === 'Risks' && (
           <section className="section container">
             <div className="page">
               <h2 className="title-xl">⚠️ The Risk / Our Response</h2>
               <Card>
                 <table>
-                  <thead>
-                    <tr>
-                      <th style={{width:'50%'}}>The Risk</th>
-                      <th style={{width:'50%'}}>Our Response</th>
-                    </tr>
-                  </thead>
+                  <thead><tr><th style={{width:'50%'}}>The Risk</th><th style={{width:'50%'}}>Our Response</th></tr></thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        <ul>
-                          <li>Phishing</li>
-                          <li>MFA fatigue</li>
-                          <li>Legacy auth</li>
-                        </ul>
-                      </td>
-                      <td>
-                        <ul>
-                          <li>Phish-resistant MFA</li>
-                          <li>Legacy blocked</li>
-                          <li>Session controls</li>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <ul>
-                          <li>Shadow admins</li>
-                          <li>Stale consents</li>
-                          <li>Weak break-glass</li>
-                        </ul>
-                      </td>
-                      <td>
-                        <ul>
-                          <li>Shadow admins removed</li>
-                          <li>PIM for elevation</li>
-                          <li>Break-glass hardened</li>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <ul>
-                          <li>Mailbox rules</li>
-                          <li>OAuth abuse</li>
-                          <li>Workspace sprawl</li>
-                        </ul>
-                      </td>
-                      <td>
-                        <ul>
-                          <li>Rules/connectors blocked</li>
-                          <li>SPF/DKIM/DMARC</li>
-                          <li>TLS validation</li>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <ul>
-                          <li>Malicious connectors</li>
-                          <li>Auto-forwarding</li>
-                          <li>Stale guests</li>
-                        </ul>
-                      </td>
-                      <td>
-                        <ul>
-                          <li>Connectors locked</li>
-                          <li>Forwarding disabled</li>
-                          <li>Guest access governed</li>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <ul>
-                          <li>External over-sharing</li>
-                          <li>Public links</li>
-                          <li>Retention gaps</li>
-                        </ul>
-                      </td>
-                      <td>
-                        <ul>
-                          <li>Regulator-aligned retention</li>
-                          <li>Extended audit logs</li>
-                          <li>Tamper-evident trails</li>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <ul>
-                          <li>Unproven restores</li>
-                          <li>Unverified RTO/RPO</li>
-                          <li>Misconfigurations</li>
-                        </ul>
-                      </td>
-                      <td>
-                        <ul>
-                          <li>Quarterly restores witnessed</li>
-                          <li>Playbooks signed</li>
-                          <li>Evidence logged</li>
-                        </ul>
-                      </td>
-                    </tr>
+                    <tr><td><ul><li>Phishing</li><li>MFA fatigue</li><li>Legacy auth</li></ul></td><td><ul><li>Phish-resistant MFA</li><li>Legacy blocked</li><li>Session controls</li></ul></td></tr>
+                    <tr><td><ul><li>Shadow admins</li><li>Stale consents</li><li>Weak break-glass</li></ul></td><td><ul><li>Shadow admins removed</li><li>PIM for elevation</li><li>Break-glass hardened</li></ul></td></tr>
+                    <tr><td><ul><li>Mailbox rules</li><li>OAuth abuse</li><li>Workspace sprawl</li></ul></td><td><ul><li>Rules/connectors blocked</li><li>SPF/DKIM/DMARC</li><li>TLS validation</li></ul></td></tr>
+                    <tr><td><ul><li>Malicious connectors</li><li>Auto-forwarding</li><li>Stale guests</li></ul></td><td><ul><li>Connectors locked</li><li>Forwarding disabled</li><li>Guest access governed</li></ul></td></tr>
+                    <tr><td><ul><li>External over-sharing</li><li>Public links</li><li>Retention gaps</li></ul></td><td><ul><li>Regulator-aligned retention</li><li>Extended audit logs</li><li>Tamper-evident trails</li></ul></td></tr>
+                    <tr><td><ul><li>Unproven restores</li><li>Unverified RTO/RPO</li><li>Misconfigurations</li></ul></td><td><ul><li>Quarterly restores witnessed</li><li>Playbooks signed</li><li>Evidence logged</li></ul></td></tr>
                   </tbody>
                 </table>
               </Card>
@@ -384,19 +236,14 @@ export default function Page(){
           </section>
         )}
 
-        {/* ===== WHY JGS (TABLE) ===== */}
+        {/* ===== WHY JGS ===== */}
         {section === 'Why JGS' && (
           <section className="section container">
             <div className="page">
               <h2 className="title-xl">Why JGS Cloud Compliance</h2>
               <Card>
                 <table>
-                  <thead>
-                    <tr>
-                      <th>MSPs</th>
-                      <th>JGS Cloud Compliance</th>
-                    </tr>
-                  </thead>
+                  <thead><tr><th>MSPs</th><th>JGS Cloud Compliance</th></tr></thead>
                   <tbody>
                     <tr><td>❌ Generic IT support across dozens of tools</td><td>✅ Microsoft 365 only — hardened, tested, proven</td></tr>
                     <tr><td>❌ Hourly creep, surprise bills</td><td>✅ Flat-fee clarity, scope locked before kickoff</td></tr>
@@ -415,27 +262,9 @@ export default function Page(){
           <section className="section container">
             <div className="page">
               <h2 className="title-xl">Get Started</h2>
-              <Card title="📦 Flat-Fee Projects">
-                <ul>
-                  <li>Security Hardening & Remediation</li>
-                  <li>Secure Email Delivery</li>
-                  <li>Backup & Recovery Assurance</li>
-                </ul>
-              </Card>
-              <Card title="📊 Advisory Retainers">
-                <ul>
-                  <li>Lite — Oversight & posture proof</li>
-                  <li>Plus — Continuous resilience</li>
-                  <li>Enterprise — Full compliance cycle</li>
-                </ul>
-              </Card>
-              <Card title="📅 Book Your Kickoff">
-                <p>
-                  <a href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled" target="_blank" rel="noopener">Book a Call</a>
-                  {' '}|{' '}
-                  <a href="mailto:support@cloudjgs.com">Support</a>
-                </p>
-              </Card>
+              <Card title="📦 Flat-Fee Projects"><ul><li>Security Hardening & Remediation</li><li>Secure Email Delivery</li><li>Backup & Recovery Assurance</li></ul></Card>
+              <Card title="📊 Advisory Retainers"><ul><li>Lite — Oversight & posture proof</li><li>Plus — Continuous resilience</li><li>Enterprise — Full compliance cycle</li></ul></Card>
+              <Card title="📅 Book Your Kickoff"><p><a href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled" target="_blank" rel="noopener">Book a Call</a> {' '}|{' '} <a href="mailto:support@cloudjgs.com">Support</a></p></Card>
             </div>
           </section>
         )}
