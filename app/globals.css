@@ -1,114 +1,141 @@
 /* ======================
    JGS Cloud Compliance
-   globals.css  (hero/grid/flaring everywhere + soft-page overlays)
+   globals.css
    ====================== */
 
 /* ---- Base ---- */
-:root{
-  --bg:#0b0b0b; --fg:#ffffff;
-  --muted:rgba(255,255,255,.12);
-  --muted-2:rgba(255,255,255,.20);
-  --soft:rgba(0,0,0,.55);
+:root {
+  --bg: #0b0b0b;
+  --fg: #ffffff;
+  --muted: rgba(255,255,255,.12);
+  --muted-2: rgba(255,255,255,.20);
+  --soft: rgba(0,0,0,.55);
 }
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0; background:var(--bg); color:var(--fg);
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-}
-a{color:inherit; text-decoration:none}
 
-/* ---- Always-on background (no component needed) ---- */
-body::before{
+* { box-sizing: border-box; }
+html, body { height:100%; }
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color:inherit; text-decoration:none; }
+
+/* ---- Global animated background ---- */
+body::before {
   content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
   background:
-    radial-gradient(1200px 600px at 50% -10%, #0b0b0b 0%, transparent 60%),
-    linear-gradient(to right, rgba(255,255,255,.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,.12) 1px, transparent 1px);
-  background-size:auto,64px 64px,64px 64px;
-  opacity:.28;
+    radial-gradient(1200px 500px at 50% -6%, #0b0b0b 0%, transparent 62%),
+    linear-gradient(to right, rgba(255,255,255,.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.14) 1px, transparent 1px);
+  background-size:auto, 56px 56px, 56px 56px;
+  opacity:.30;
 }
-body::after{
+body::after {
   content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
   background:
-    radial-gradient(46rem 46rem at 10% 0%, rgba(34,211,238,.55), rgba(139,92,246,.35) 55%, transparent 70%),
-    radial-gradient(40rem 40rem at 90% 100%, rgba(232,121,249,.45), rgba(56,189,248,.35) 50%, transparent 70%);
-  filter:blur(90px); mix-blend-mode:screen;
-  animation:flarePulse 12s ease-in-out infinite alternate;
+    radial-gradient(44rem 44rem at 10% 2%, rgba(34,211,238,.60), rgba(139,92,246,.38) 55%, transparent 70%),
+    radial-gradient(38rem 38rem at 90% 100%, rgba(232,121,249,.50), rgba(56,189,248,.38) 50%, transparent 70%);
+  filter: blur(88px);
+  mix-blend-mode: screen;
+  animation: flarePulse 12s ease-in-out infinite alternate;
 }
-@keyframes flarePulse{from{transform:scale(1)} to{transform:scale(1.05)}}
+@keyframes flarePulse {
+  from { transform:scale(1); }
+  to   { transform:scale(1.05); }
+}
 
-/* ---- Layout & Type ---- */
-.container{max-width:72rem; margin:0 auto; padding:1rem}
-.section{padding:3rem 0; scroll-margin-top:4rem}
-.title-xl{font-size:2rem; font-weight:800; margin:0 0 .75rem}
-.title-lg{font-size:1.05rem; font-weight:700; margin:.25rem 0 .5rem}
-.lead{opacity:.92; margin:.25rem 0 1rem}
-.page p,.page li{font-size:1rem; font-weight:400; line-height:1.55}
+/* ---- Layout & Typography ---- */
+.container { max-width:72rem; margin:0 auto; padding:1rem; }
+.section { padding:3rem 0; scroll-margin-top:4rem; }
+.title-xl { font-size:2rem; font-weight:800; margin:0 0 .75rem; }
+.title-lg { font-size:1.05rem; font-weight:700; margin:.25rem 0 .5rem; }
+.lead     { opacity:.92; margin:.25rem 0 1rem; }
+.page p, .page li { font-size:1rem; font-weight:400; line-height:1.55; }
 
-/* ---- Hero/Soft page & Cards ---- */
-.page{
-  max-width:72rem; margin:0 auto; position:relative; z-index:1;
+/* ---- Soft Page & Cards ---- */
+.page {
+  max-width:72rem;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
   border:1px solid rgba(255,255,255,.14);
   border-radius:1rem;
-  background:var(--soft);                /* translucent glass */
+  background:var(--soft);
   backdrop-filter:blur(6px);
   box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
   padding:1.25rem 1.5rem;
 }
-.card{
+.card {
   border:1px solid var(--muted);
-  border-radius:.6rem;
-  background:rgba(0,0,0,.6);
-  padding:1rem 1.25rem;
+  border-radius:.9rem;
+  background:rgba(0,0,0,.55);
+  box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+  padding:1.1rem 1.25rem;
+  margin:0 0 1rem 0;
   line-height:1.55;
 }
-.hr{height:1px; background:var(--muted); margin:1rem 0}
-.divider{height:1px; background:rgba(255,255,255,.14); margin:1rem 0}
+.hr { height:1px; background:var(--muted); margin:1rem 0; }
 
-/* ---- Header / Nav ---- */
-header{
+/* ---- Header/Nav ---- */
+header {
   position:sticky; top:0; z-index:1000;
   background:rgba(0,0,0,.72);
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--muted-2);
 }
-.header-row{
+.header-row {
   display:flex; align-items:center; justify-content:space-between;
   gap:1rem; padding:.8rem 1rem;
 }
-.logo{height:28px; margin-right:.6rem; vertical-align:middle}
-.nav-links{display:flex; gap:1.1rem; align-items:center; flex-wrap:wrap}
-.nav-links a{font-weight:500; font-size:.95rem; color:#fff}
+.logo { height:28px; margin-right:.6rem; vertical-align:middle; }
+.nav-links { display:flex; gap:1.1rem; align-items:center; flex-wrap:wrap; }
+.nav-links a { font-weight:500; font-size:.95rem; color:#fff; }
 
-/* ---- Burger (CSS-only visuals; checkbox controlled in JS) ---- */
-#nav-toggle{display:none}
-.burger{display:none; cursor:pointer; width:36px; height:28px; position:relative}
-.burger span{position:absolute; left:0; right:0; height:2px; background:#fff; border-radius:2px}
-.burger span:nth-child(1){top:4px} .burger span:nth-child(2){top:13px} .burger span:nth-child(3){top:22px}
+/* ---- Burger Menu ---- */
+#nav-toggle { display:none; }
+.burger { display:none; cursor:pointer; width:36px; height:28px; position:relative; }
+.burger span { position:absolute; left:0; right:0; height:2px; background:#fff; border-radius:2px; }
+.burger span:nth-child(1){ top:4px; }
+.burger span:nth-child(2){ top:13px; }
+.burger span:nth-child(3){ top:22px; }
 
 /* ---- Footer ---- */
-footer{
+footer {
   border-top:1px solid var(--muted-2);
-  padding:1rem; text-align:center; font-size:.9rem; opacity:.9
+  padding:1rem;
+  text-align:center;
+  font-size:.9rem;
+  opacity:.9;
 }
 
-/* ---- Overlay (modal) – show grid all around cards) ---- */
-.overlay{
+/* ---- Overlay ---- */
+.overlay {
   position:fixed; inset:0;
-  background:rgba(0,0,0,.45);           /* translucent so grid/flaring shows */
+  background:
+    radial-gradient(1200px 520px at 50% -6%, rgba(0,0,0,.48) 0%, rgba(0,0,0,.30) 60%, rgba(0,0,0,.20) 100%),
+    rgba(0,0,0,.20);
   backdrop-filter:blur(10px);
-  z-index:900; overflow:auto;
-  display:flex; justify-content:center; align-items:flex-start;
+  z-index:900;
+  overflow:auto;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
   padding:5rem 1rem 3rem;
 }
-.overlay .page{
-  max-width:72rem; width:100%;
-  margin:0 auto; padding:0;
-  background:transparent; border:0; box-shadow:none; /* NOT a giant block */
+.overlay .page {
+  max-width:72rem;
+  width:100%;
+  margin:0 auto;
+  padding:0;
+  background:transparent;
+  border:0;
+  box-shadow:none;
 }
-.overlay .card{
+.overlay .card {
   width:100%;
   border:1px solid rgba(255,255,255,.14);
   background:rgba(0,0,0,.55);
@@ -117,27 +144,27 @@ footer{
   padding:1.1rem 1.25rem;
   margin:0 auto 1rem auto;
 }
-.overlay .title-lg{margin:.25rem 0 .4rem; font-weight:700}
-.overlay p,.overlay li{font-size:1rem; line-height:1.55; font-weight:400}
 
 /* ---- Tables & Lists ---- */
-table{width:100%; border-collapse:collapse; margin-top:1rem}
-thead th{border-bottom:1px solid #666; text-align:left}
-tbody td{border-top:1px solid var(--muted)}
-ul{margin:.5rem 0 1rem 1.25rem; list-style:disc}
-li{line-height:1.6}
+table { width:100%; border-collapse:collapse; margin-top:1rem; }
+thead th { border-bottom:1px solid #666; text-align:left; }
+tbody td { border-top:1px solid var(--muted); }
+ul { margin:.5rem 0 1rem 1.25rem; list-style:disc; }
+li { line-height:1.6; }
 
-/* ---- Responsive (burger dropdown) ---- */
+/* ---- Responsive ---- */
 @media (max-width:900px){
   .nav-links{
-    position:fixed; top:56px; left:0; right:0;
+    position:fixed;
+    top:56px; left:0; right:0;
     background:rgba(0,0,0,.92);
     border-bottom:1px solid var(--muted-2);
-    transform:translateY(-120%); transition:transform .2s ease;
+    transform:translateY(-120%);
+    transition:transform .2s ease;
     display:grid; gap:.5rem; padding:.75rem 1rem;
   }
-  #nav-toggle:checked ~ .nav-links{transform:translateY(0)}
-  .burger{display:block}
-  .header-row{padding:.6rem 1rem}
-  .nav-links a{padding:.5rem .75rem; border-radius:.5rem}
+  #nav-toggle:checked ~ .nav-links{ transform:translateY(0); }
+  .burger{ display:block; }
+  .header-row{ padding:.6rem 1rem; }
+  .nav-links a{ padding:.5rem .75rem; border-radius:.5rem; }
 }
