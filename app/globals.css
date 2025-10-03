@@ -67,8 +67,7 @@ body::after{
   padding:1.1rem 1.25rem;
   margin:0 auto 1rem auto;
 }
-.hr{height:1px; background:var(--muted); margin:1rem 0}
-.divider{height:1px; background:rgba(255,255,255,.14); margin:1rem 0}
+
 
 /* ---- Header / Nav ---- */
 header{
