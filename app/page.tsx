@@ -115,13 +115,9 @@ export default function Page(){
         {section === 'Home' && (
           <section className="section container">
             <div className="page" style={{display:'grid', gridTemplateColumns:'1.2fr .9fr', gap:'1.25rem'}}>
-              {/* Left Column: badges, headline, lead, CTAs, proof rows */}
+              {/* Left Column: headline, lead, CTAs, proof rows */}
               <div>
-                {/* Badges */}
-                <div style={{display:'flex', gap:'.5rem', flexWrap:'wrap', marginBottom:'.75rem'}}>
-                  <span className="badge">CPA & Law Focus</span>
-                  <span className="badge">Microsoft 365</span>
-                </div>
+               
 
                 {/* Headline */}
                 <h1 className="hero">JGS Cloud Compliance — Microsoft 365 Secured for CPA and Law.</h1>
@@ -307,7 +303,7 @@ export default function Page(){
             <div className="page">
               <h2 className="title-xl">Get Started</h2>
               <div style={{marginBottom:'1.5rem'}}>
-                <span className="badge">Get Started</span>
+                
                 <h1 className="hero" style={{marginTop:'.5rem'}}>Ready to Secure Your Firm?</h1>
                 <p className="lead">Don’t wait for an audit or breach — prove it now.</p>
                 <div style={{display:'flex', gap:'.75rem', flexWrap:'wrap', marginTop:'1rem'}}>
