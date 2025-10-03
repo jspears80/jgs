@@ -4,18 +4,6 @@ import React, { useEffect, useState } from 'react';
 /* Top nav sections (no anchors – we preventDefault and open overlays) */
 const NAV = ['Home','Services','Advisory','CPA','Law','Risks','Why JGS','Get Started'] as const;
 
-/* Background grid + flares (styled in globals.css) */
-const BG = () => (
-  <div className="bg-wrap" aria-hidden>
-    <div className="bg-grad" />
-    <div className="bg-grid" />
-    <div className="bg-flare flare-1" />
-    <div className="bg-flare flare-2" />
-    <div className="bg-flow" />
-    <div className="bg-scan" />
-  </div>
-);
-
 /** Reusable soft overlay page */
 const SoftPage: React.FC<{ title:string; onClose:()=>void; children:React.ReactNode }> = ({ title, onClose, children }) => (
   <section className="section overlay" role="dialog" aria-modal="true" aria-label={title}>
@@ -49,13 +37,10 @@ export default function Page() {
 
   return (
     <main>
-      <BG />
-
       {/* Header */}
       <header>
         <div className="container header-row">
           <div style={{display:'flex',alignItems:'center',gap:'.6rem'}}>
-            {/* Put /public/Logo.png (case-sensitive) */}
             <img src="/Logo.png" alt="JGS logo" className="logo" />
             <a href="#" onClick={(e)=>{e.preventDefault(); setSection('Home'); setOpen(false);}} style={{fontWeight:800,fontSize:'1.1rem'}}>
               JGS Cloud Compliance
@@ -66,7 +51,7 @@ export default function Page() {
           <input id="nav-toggle" type="checkbox" aria-label="Toggle navigation" checked={open} onChange={()=>setOpen(!open)} />
           <label htmlFor="nav-toggle" className="burger" aria-hidden="true"><span></span><span></span><span></span></label>
 
-          {/* Desktop nav (no real anchors; prevent scroll) */}
+          {/* Desktop nav (no hash anchors) */}
           <nav className="nav-links">
             {NAV.map(k => (
               <a
@@ -82,7 +67,7 @@ export default function Page() {
         </div>
       </header>
 
-      {/* ===== HERO ONLY (no other sections inline) ===== */}
+      {/* ===== HERO ONLY ===== */}
       {section==='Home' && (
         <section className="section container">
           <div className="page">
