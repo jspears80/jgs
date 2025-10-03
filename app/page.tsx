@@ -85,7 +85,8 @@ export default function App(){
   // Dev smoke tests
   useEffect(() => {
     console.assert(Array.isArray(NAV) && NAV.length > 0, 'NAV must be non-empty');
-    console.assert(!NAV.includes('Home'), 'NAV excludes Home (logo is Home)');
+    const NAV_STR: string[] = [...NAV];
+    console.assert(!NAV_STR.includes('Home'), 'NAV excludes Home (logo is Home)');
   }, []);
 
   return (<>
