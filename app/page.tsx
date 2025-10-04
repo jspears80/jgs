@@ -423,55 +423,89 @@ export default function Page(){
   <section className="section container">
     <div className="page">
       <h2 className="title-xl">Get Started</h2>
+      <p className="lead">Choose your path. Defined scope. Clear outcomes.</p>
 
-      <Card title="💧 Lite Retainer – Escalation Safety Net">
-        <p>For firms that want certainty the hard problems won’t linger.</p>
-        <p><strong>Role:</strong> Your Principal Consultant on standby when your MSP hits a wall.</p>
-        <p><strong>Scope:</strong> High-severity issues only — outages, performance failures, broken integrations.</p>
-        <p><strong>Support:</strong> Escalation via email, during business hours.</p>
-        <h4 className="title-lg">What You Get:</h4>
+      {/* Flat-Fee Retrofits */}
+      <Card title="🛠 Flat-Fee Retrofits">
+        <p>One-time projects that close gaps and give leadership confidence.</p>
+
+        <h4 className="title-lg" style={{marginTop:'.75rem'}}>Microsoft 365 Security Retrofit — <strong>$1,995</strong></h4>
         <ul>
-          <li>Resolution of problems your MSP can’t close.</li>
-          <li>Direct line to me — no call centers, no queues.</li>
-          <li>A short incident wrap-up in plain English for leadership.</li>
+          <li>Seals old accounts and forgotten logins</li>
+          <li>Removes hidden backdoors and silent footholds</li>
+          <li>Controls access so only the right people get in</li>
+          <li>Gives leadership certainty about who has access and why</li>
         </ul>
-        <p><strong>Outcome:</strong> Problems stop dragging. Your staff and partners get back to work.</p>
-        <p><em>Best For:</em> Firms that want a simple safety net without ongoing involvement.</p>
+
+        <h4 className="title-lg" style={{marginTop:'.75rem'}}>Microsoft 365 Email Security Retrofit — <strong>$995</strong></h4>
+        <ul>
+          <li>Ensures invoices and filings are delivered on the first send</li>
+          <li>Blocks impostor emails and fake invoices</li>
+          <li>Builds trust with clients, courts, and counterparties</li>
+          <li>Eliminates billing disputes and “we never got it” calls</li>
+        </ul>
+
+        <h4 className="title-lg" style={{marginTop:'.75rem'}}>Microsoft 365 Backup &amp; Recovery Retrofit — <strong>$995</strong></h4>
+        <ul>
+          <li>Tests and times real recovery drills</li>
+          <li>Alerts leadership on destructive actions</li>
+          <li>Ensures case files and records can’t vanish without restoration</li>
+          <li>Provides continuity evidence insurers and auditors accept</li>
+        </ul>
       </Card>
 
-      <Card title="📘 Plus Retainer – Escalation + Leadership Assurance">
-        <p>For firms that want tough issues fixed and leadership kept in the loop.</p>
-        <p><strong>Role:</strong> Principal Consultant for escalations, plus quarterly advisor for leadership.</p>
-        <p><strong>Scope:</strong> Escalation coverage + quarterly business reviews.</p>
-        <p><strong>Support:</strong> Priority email + scheduled remote sessions.</p>
-        <h4 className="title-lg">What You Get:</h4>
+      {/* Advisory Retainers */}
+      <Card title="📘 Advisory Retainers">
+        <p>Ongoing consulting when leadership needs a Principal Consultant on call.</p>
+
+        <h4 className="title-lg" style={{marginTop:'.75rem'}}>Lite Retainer — <strong>$495/month</strong></h4>
         <ul>
-          <li>Guaranteed resolution of complex IT problems.</li>
-          <li>Quarterly leadership briefings: what happened, what improved, what still needs attention.</li>
-          <li>Reviews of continuity and reliability — invoices delivered, data recoverable, firm resilient.</li>
+          <li>Escalation safety net for outages, failures, and integrations</li>
+          <li>Direct line to Principal Consultant, no call centers</li>
+          <li>Plain-English incident wrap-ups for leadership</li>
         </ul>
-        <p><strong>Outcome:</strong> Issues are closed, and leadership stays informed and confident.</p>
-        <p><em>Best For:</em> Firms that want fewer emergencies and no surprises.</p>
+        <p><em>Best for:</em> firms wanting a simple safety net</p>
+
+        <h4 className="title-lg" style={{marginTop:'.75rem'}}>Plus Retainer — <strong>$995/month</strong></h4>
+        <ul>
+          <li>Escalation coverage + quarterly leadership briefings</li>
+          <li>Continuity and reliability reviewed every quarter</li>
+          <li>Guaranteed resolution of complex IT problems</li>
+        </ul>
+        <p><em>Best for:</em> firms that want fewer emergencies and no surprises</p>
+
+        <h4 className="title-lg" style={{marginTop:'.75rem'}}>Enterprise Retainer — <strong>$1,995/month</strong></h4>
+        <ul>
+          <li>Principal Consultant at the table monthly</li>
+          <li>Escalations closed + monthly leadership reporting</li>
+          <li>Prep for insurers and regulators with board-level insights</li>
+        </ul>
+        <p><em>Best for:</em> firms under heavy scrutiny or high-stakes pressure</p>
       </Card>
 
-      <Card title="🏛 Enterprise Retainer – Principal Consultant at the Table">
-        <p>For firms under heavy scrutiny from insurers, regulators, or high-stakes clients.</p>
-        <p><strong>Role:</strong> Your fractional CIO/CISO — solving problems, advising partners, and preparing you for outside eyes.</p>
-        <p><strong>Scope:</strong> Escalation resolution + monthly leadership sessions + insurer/regulator advocacy.</p>
-        <p><strong>Support:</strong> Priority email, chat, and on-demand remote sessions.</p>
-        <h4 className="title-lg">What You Get:</h4>
+      {/* Book Your Consultation */}
+      <Card title="📅 Book Your Consultation">
         <ul>
-          <li>Fast closure on critical technical issues.</li>
-          <li>Monthly board-level reporting: issues resolved, risks emerging, readiness status.</li>
-          <li>Talking points and prep for insurer renewals and regulatory reviews.</li>
-          <li>Coordination with your MSP so you’re not caught in the middle.</li>
+          <li>30-minute consultation with Jeremiah Spears, Principal Consultant</li>
+          <li>Review your firm’s risks and priorities</li>
+          <li>Define scope: Retrofit or Retainer</li>
+          <li>Walk away with a clear path forward</li>
         </ul>
-        <p><strong>Outcome:</strong> Your firm is seen as resilient, responsible, and professionally advised — by clients, insurers, and regulators alike.</p>
-        <p><em>Best For:</em> Firms where failure isn’t an option: high-dollar matters, regulator attention, premium renewals on the line.</p>
+        <p><strong>👉 </strong>
+          <a
+            className="btn primary"
+            href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
+            target="_blank"
+            rel="noopener"
+          >
+            Book a 30-Minute Consultation
+          </a>
+        </p>
       </Card>
     </div>
   </section>
 )}
+
 
       </main>
     </>
