@@ -116,27 +116,55 @@ export default function Page(){
           </div>
         </header>
 
-        {/* ===== HOME ===== */}
-        {section === 'Home' && (
-          <section className="section container">
-            <div className="page" style={{display:'grid', gridTemplateColumns:'1fr', gap:'1.25rem'}}>
-              <div>
-                <h1 className="hero">JGS Cloud Compliance — Microsoft 365 Secured for CPA and Law.</h1>
-                <p className="lead">Tax deadlines don’t move. Court orders don’t wait. Insurers don’t forgive weak controls. We harden tenants, deliver clean mailflow, and prove recoverability so your firm keeps working under pressure.</p>
-                <div style={{display:'flex', gap:'.75rem', margin:'.75rem 0 1.25rem 0', flexWrap:'wrap'}}>
-                  <a className="btn primary" href="#" onClick={(e)=>{e.preventDefault(); go('Services');}}>See Services →</a>
-                  <a className="btn" href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled" target="_blank" rel="noopener">Book a Consult</a>
-                </div>
-                <div className="proofgrid">
-                  <div>CPA renewal saved → coverage cleared after tenant hardening</div>
-                  <div>$75k fraud blocked → spoofed partner emails stopped in 48 hours</div>
-                  <div>Discovery deadline met → case files restored within 24 hours</div>
-                  <div>Secure Score: 43% → 81% (admins cleaned, logging extended)</div>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
+<div className="page" style={{display:'grid', gridTemplateColumns:'1.2fr .9fr', gap:'1.25rem'}}>
+  {/* Left: Headline, Subheadline, CTAs, Bullets */}
+  <div>
+    <h1 className="hero">👉 Secure. Reliable. Ready.</h1>
+    <p className="lead">
+      Advisory and project services for law firms and CPA practices.<br/>
+      Fix the issues MSPs can’t, keep leadership prepared, and keep your firm moving under pressure.
+    </p>
+
+    <div style={{display:'flex', gap:'.75rem', margin:'.75rem 0 1.25rem 0', flexWrap:'wrap'}}>
+      <a
+        className="btn primary"
+        href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
+        target="_blank"
+        rel="noopener"
+      >
+        🔒 Book a 30-Minute Consultation
+      </a>
+      <a
+        className="btn"
+        href="#"
+        onClick={(e)=>{ e.preventDefault(); go('Services'); }}
+      >
+        📘 View Services
+      </a>
+    </div>
+
+    <div className="proofgrid">
+      <div>🛠 <strong>Access Secured</strong> – Only the right people get in. Forgotten accounts and hidden doors are closed.</div>
+      <div>📧 <strong>Email Trusted</strong> – Invoices, filings, and contracts deliver on the first send. Impostors are blocked.</div>
+      <div>🔁 <strong>Continuity Proven</strong> – Case files recover, deadlines are met, and insurers accept your readiness.</div>
+    </div>
+  </div>
+
+  {/* Right: Photo + Title */}
+  <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+    <img
+      src="/founder.jpg"
+      alt="Jeremiah Spears headshot"
+      className="founder-img"
+      style={{maxWidth:'260px', objectFit:'cover'}}
+    />
+    <div className="founder-meta">
+      <div className="founder-name">Jeremiah Spears</div>
+      <div className="founder-title">Founder &amp; Principal Consultant</div>
+    </div>
+  </div>
+</div>
+
 
        {/* ===== SERVICES ===== */}
 {section === 'Services' && (
