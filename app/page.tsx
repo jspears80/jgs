@@ -140,7 +140,7 @@ export default function Page(){
             <div className="page" style={{display:'grid', gridTemplateColumns:'1.2fr .9fr', gap:'1.25rem'}}>
               {/* Left: Hero */}
               <div>
-                <h1 className="hero">👉 Secure. Reliable. Ready.</h1>
+                <h1 className="hero">Secure. Reliable. Ready.</h1>
                 <p className="lead">
                   Advisory and project services for law firms and CPA practices.<br />
                   Fix the issues MSPs can’t, keep leadership prepared, and keep your firm moving under pressure.
