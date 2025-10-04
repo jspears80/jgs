@@ -562,7 +562,7 @@ export default function Page(){
                 </ul>
                 <p><em>Best for:</em> firms that want fewer emergencies and no surprises</p>
 
-                <h4 className="title-lg" style={{marginTop:'.75rem'}}>Enterprise Retainer — <strong>$1,995/month</strong></h4>
+                <h4 className="title-lg" style={{marginTop:'.75rem'}}>Enterprise Retainer — <strong>$1,495/month</strong></h4>
                 <ul>
                   <li>Principal Consultant at the table monthly</li>
                   <li>Escalations closed + monthly leadership reporting</li>
