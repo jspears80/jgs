@@ -2,11 +2,10 @@
 import React, { useState, useEffect } from 'react';
 
 /**
- * JGS SoftPage — FULL SITE RESTORE
- * - All sections: Home, Services, Advisory, CPA, Law, Risks, Why JGS, Get Started
- * - Founder card only in Get Started (left aligned, max-width)
- * - Get Started CTAs: Book a Consultation + Email Support (no Explore Services)
- * - Fixed JSX tag balance across all sections
+ * JGS SoftPage — FULL SITE RESTORE (black screen fix)
+ * - Renders all sections; default = Home
+ * - Founder card only in Get Started (card content centered; CTAs left)
+ * - Headshot uses object-fit:contain to avoid cropping
  */
 
 const styles = `
@@ -74,11 +73,11 @@ header{ position:sticky; top:0; z-index:1000; background:rgba(0,0,0,.72); backdr
 
 /* Founder card (Get Started only) */
 .founder{border:1px solid var(--muted); background:rgba(0,0,0,.45); border-radius:1rem; box-shadow:0 8px 20px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.06); padding:1rem; display:flex; flex-direction:column; align-items:flex-start; gap:1rem; max-width:340px;}
-.founder-img{width:100%; height:260px; border-radius:.8rem; object-fit:cover}
-.founder-meta{text-align:left; width:100%}
+.founder-img{width:100%; height:260px; border-radius:.8rem; object-fit:contain}
+.founder-meta{text-align:center; width:100%}
 .founder-name{font-weight:800; margin:.25rem 0 .1rem}
 .founder-title{opacity:.9; font-size:.95rem; margin-bottom:.6rem}
-.founder-actions{display:flex; gap:.5rem}
+.founder-actions{display:flex; gap:.5rem; justify-content:center}
 
 /* Buttons */
 .btn{display:inline-flex; align-items:center; justify-content:center; padding:.6rem 1rem; border:1px solid var(--muted); border-radius:.75rem; background:rgba(0,0,0,.5); text-decoration:none}
