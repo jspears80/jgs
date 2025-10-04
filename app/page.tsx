@@ -87,14 +87,14 @@ header{ position:sticky; top:0; z-index:1000; background:rgba(0,0,0,.72); backdr
 `;
 
 const NAV = ['Services','Advisory','CPA','Law','Risks','Why JGS','Get Started'] as const;
-type Section = 'Home' | typeof NAV[number] | 'ServiceRetrofit' | 'ServiceWhy' | 'ServiceWhat' | 'ServiceOutcome';
+type Section = 'Home' | typeof NAV[number];
 
 const Card: React.FC<{ title?: string; children: React.ReactNode }> = ({ title, children }) => (
   <div className="card">{title ? <h3 className="title-lg">{title}</h3> : null}{children}</div>
 );
 
 export default function Page(){
-  const [section, setSection] = useState<Section>('CPA');
+  const [section, setSection] = useState<Section>('Home');
   const go = (target: Section) => setSection(target);
 
   useEffect(() => {
@@ -116,54 +116,41 @@ export default function Page(){
           </div>
         </header>
 
-<div className="page" style={{display:'grid', gridTemplateColumns:'1.2fr .9fr', gap:'1.25rem'}}>
-  {/* Left: Headline, Subheadline, CTAs, Bullets */}
-  <div>
-    <h1 className="hero">👉 Secure. Reliable. Ready.</h1>
-    <p className="lead">
-      Advisory and project services for law firms and CPA practices.<br/>
-      Fix the issues MSPs can’t, keep leadership prepared, and keep your firm moving under pressure.
-    </p>
+        {/* ===== HOME ===== */}
+        {section === 'Home' && (
+          <section className="section container">
+            <div className="page" style={{display:'grid', gridTemplateColumns:'1.2fr .9fr', gap:'1.25rem'}}>
+              {/* Left: Headline, Subheadline, CTAs, Bullets */}
+              <div>
+                <h1 className="hero">👉 Secure. Reliable. Ready.</h1>
+                <p className="lead">
+                  Advisory and project services for law firms and CPA practices.<br/>
+                  Fix the issues MSPs can’t, keep leadership prepared, and keep your firm moving under pressure.
+                </p>
 
-    <div style={{display:'flex', gap:'.75rem', margin:'.75rem 0 1.25rem 0', flexWrap:'wrap'}}>
-      <a
-        className="btn primary"
-        href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
-        target="_blank"
-        rel="noopener"
-      >
-        🔒 Book a 30-Minute Consultation
-      </a>
-      <a
-        className="btn"
-        href="#"
-        onClick={(e)=>{ e.preventDefault(); go('Services'); }}
-      >
-        📘 View Services
-      </a>
-    </div>
+                <div style={{display:'flex', gap:'.75rem', margin:'.75rem 0 1.25rem 0', flexWrap:'wrap'}}>
+                  <a className="btn primary" href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled" target="_blank" rel="noopener">🔒 Book a 30-Minute Consultation</a>
+                  <a className="btn" href="#" onClick={(e)=>{ e.preventDefault(); go('Services'); }}>📘 View Services</a>
+                </div>
 
-    <div className="proofgrid">
-      <div>🛠 <strong>Access Secured</strong> – Only the right people get in. Forgotten accounts and hidden doors are closed.</div>
-      <div>📧 <strong>Email Trusted</strong> – Invoices, filings, and contracts deliver on the first send. Impostors are blocked.</div>
-      <div>🔁 <strong>Continuity Proven</strong> – Case files recover, deadlines are met, and insurers accept your readiness.</div>
-    </div>
-  </div>
+                <div className="proofgrid">
+                  <div>🛠 <strong>Access Secured</strong> – Only the right people get in. Forgotten accounts and hidden doors are closed.</div>
+                  <div>📧 <strong>Email Trusted</strong> – Invoices, filings, and contracts deliver on the first send. Impostors are blocked.</div>
+                  <div>🔁 <strong>Continuity Proven</strong> – Case files recover, deadlines are met, and insurers accept your readiness.</div>
+                </div>
+              </div>
 
-  {/* Right: Photo + Title */}
-  <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
-    <img
-      src="/founder.jpg"
-      alt="Jeremiah Spears headshot"
-      className="founder-img"
-      style={{maxWidth:'260px', objectFit:'cover'}}
-    />
-    <div className="founder-meta">
-      <div className="founder-name">Jeremiah Spears</div>
-      <div className="founder-title">Founder &amp; Principal Consultant</div>
-    </div>
-  </div>
-</div>
+              {/* Right: Photo + Title */}
+              <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+                <img src="/founder.jpg" alt="Jeremiah Spears headshot" className="founder-img" style={{maxWidth:'260px', objectFit:'cover'}} />
+                <div className="founder-meta">
+                  <div className="founder-name">Jeremiah Spears</div>
+                  <div className="founder-title">Founder &amp; Principal Consultant</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
 
        {/* ===== SERVICES ===== */}
