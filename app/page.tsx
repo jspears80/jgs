@@ -280,7 +280,7 @@ export default function Page(){
         {section === 'Get Started' && (
           <section className="section container">
             <div className="page">
-              <h2 className="title-xl">Get Started</h2>
+             
               <div style={{marginBottom:'1.5rem'}}>
                 <h1 className="hero" style={{marginTop:'.5rem'}}>Ready to Secure Your Firm?</h1>
                 <p className="lead">Don’t wait for an audit or breach — prove it now.</p>
