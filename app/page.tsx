@@ -98,7 +98,7 @@ header{ padding-top: env(safe-area-inset-top); }
 .founder{border:1px solid var(--muted); background:rgba(0,0,0,.45); border-radius:1rem;
   box-shadow:0 8px 20px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.06);
   padding:1rem; display:flex; flex-direction:column; align-items:flex-start; gap:1rem; max-width:340px;}
-.founder-img{width:100%; height:260px; border-radius:.8rem; object-fit:cover}
+.founder-img{width:100%; height:auto; max-height:320px; border-radius:.8rem; object-fit:contain; background:rgba(0,0,0,.25)}
 .founder-meta{text-align:center; width:100%}
 .founder-name{font-weight:800; margin:.25rem 0 .1rem}
 .founder-title{opacity:.9; font-size:.95rem; margin-bottom:.6rem}
