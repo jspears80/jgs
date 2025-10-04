@@ -1,3 +1,4 @@
+
 'use client';
 import React, { useState, useEffect } from 'react';
 
@@ -71,6 +72,23 @@ header{ position:sticky; top:0; z-index:1000; background:rgba(0,0,0,.72); backdr
   .nav-links a{padding:.25rem .35rem; border-radius:.4rem; font-size:.85rem}
 }
 
+/* Mobile Home Grid & Safe Tweaks */
+.home-grid{display:grid; grid-template-columns:1.2fr .9fr; gap:1.25rem}
+@media (max-width:900px){
+  .home-grid{grid-template-columns:1fr}
+  .btn{width:100%}
+  .founder{max-width:260px; margin:0 auto}
+}
+@media (max-width:480px){
+  .hero{font-size:1.9rem}
+}
+header{ padding-top: env(safe-area-inset-top); }
+
+/* Section grids for Services & Get Started */
+.cards-grid{display:grid; gap:1rem; grid-template-columns:repeat(2,minmax(0,1fr))}
+.cards-grid > .title-xl, .cards-grid > .lead{grid-column:1/-1}
+@media (max-width:900px){ .cards-grid{grid-template-columns:1fr} }
+
 /* Hero */
 .hero{font-size:3rem; line-height:1.05; font-weight:800; margin:.25rem 0 .75rem 0}
 @media (max-width:900px){ .hero{font-size:2.2rem} }
@@ -137,7 +155,7 @@ export default function Page(){
         {/* ===== HOME ===== */}
         {section === 'Home' && (
           <section className="section container">
-            <div className="page" style={{display:'grid', gridTemplateColumns:'1.2fr .9fr', gap:'1.25rem'}}>
+            <div className="page home-grid">
               {/* Left: Hero */}
               <div>
                 <h1 className="hero">Secure. Reliable. Ready.</h1>
@@ -164,7 +182,7 @@ export default function Page(){
               </div>
               {/* Right: Photo + title */}
               <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
-                <img src="/founder.jpg" alt="Jeremiah Spears headshot" className="founder-img" style={{maxWidth:'260px'}} />
+                <img src="/founder.jpg" alt="Jeremiah Spears headshot" className="founder-img" />
                 <div className="founder-meta">
                   <div className="founder-name">Jeremiah Spears</div>
                   <div className="founder-title">Founder &amp; Principal Consultant</div>
@@ -177,7 +195,7 @@ export default function Page(){
         {/* ===== SERVICES ===== */}
         {section === 'Services' && (
           <section className="section container">
-            <div className="page">
+            <div className="page cards-grid">
               <h2 className="title-xl">🛠 Core Services</h2>
 
               <Card title="🛠 Microsoft 365 Security Retrofit">
@@ -491,7 +509,7 @@ export default function Page(){
         {/* ===== GET STARTED ===== */}
         {section === 'Get Started' && (
           <section className="section container">
-            <div className="page">
+            <div className="page cards-grid">
               <h2 className="title-xl">Get Started</h2>
               <p className="lead">Choose your path. Defined scope. Clear outcomes.</p>
 
