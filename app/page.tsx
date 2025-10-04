@@ -1,10 +1,15 @@
-
 'use client';
 import React, { useState, useEffect } from 'react';
 
 /**
- * JGS SoftPage — Clean, deployable page.tsx
+ * JGS SoftPage — Fix unclosed <section> / closing tags + keep responsive grids
+ * - Correctly closes all <section> and <div> wrappers (Services, Advisory, CPA, Law)
+ * - Preserves masonry for CPA/Law to avoid tall-card gaps
+ * - Keeps animated glow on Book CTA
+ * - Adds dev-time assertions ("tests") for styles and key elements
  */
+
+const BOOK_URL = 'https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled';
 
 const styles = `
 :root{ --bg:#0b0b0b; --fg:#ffffff; --muted:rgba(255,255,255,.20); --muted-2:rgba(255,255,255,.25); --soft:rgba(0,0,0,.55); }
@@ -43,6 +48,10 @@ body::after{ content:""; position:fixed; inset:0; z-index:0; pointer-events:none
   padding:1rem 1.25rem; margin:0 0 1rem 0; line-height:1.55;
   transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
 .card:hover{ transform:translateY(-4px); box-shadow:0 12px 24px rgba(0,0,0,.4); border-color:rgba(255,255,255,.35); }
+
+/* Highlight Book Card */
+@keyframes bookPulse{0%{box-shadow:0 0 18px rgba(139,92,246,.35), 0 0 6px rgba(56,189,248,.25)} 50%{box-shadow:0 0 28px rgba(139,92,246,.55), 0 0 12px rgba(56,189,248,.38)} 100%{box-shadow:0 0 18px rgba(139,92,246,.35), 0 0 6px rgba(56,189,248,.25)}}
+.card.full.book-cta{border:2px solid rgba(139,92,246,.7); background:rgba(139,92,246,.15); animation:bookPulse 3.6s ease-in-out infinite}
 
 /* Lists */
 ul{margin:0 0 1rem 1.25rem; padding:0; list-style:disc}
@@ -84,10 +93,15 @@ header{ position:sticky; top:0; z-index:1000; background:rgba(0,0,0,.72); backdr
 }
 header{ padding-top: env(safe-area-inset-top); }
 
-/* Section grids for Services & Get Started */
+/* Section grids for Services, Why, Risks & Get Started */
 .cards-grid{display:grid; gap:1rem; grid-template-columns:repeat(2,minmax(0,1fr))}
-.cards-grid > .title-xl, .cards-grid > .lead{grid-column:1/-1}
+.cards-grid > .title-xl, .cards-grid > .lead, .cards-grid .card.full{grid-column:1/-1}
 @media (max-width:900px){ .cards-grid{grid-template-columns:1fr} }
+
+/* Masonry for uneven card heights (CPA & Law) */
+.masonry{column-count:2; column-gap:1rem}
+.masonry .card{display:inline-block; width:100%; break-inside:avoid; -webkit-column-break-inside:avoid; margin:0 0 1rem}
+@media (max-width:900px){ .masonry{column-count:1} }
 
 /* Hero */
 .hero{font-size:3rem; line-height:1.05; font-weight:800; margin:.25rem 0 .75rem 0}
@@ -113,17 +127,20 @@ header{ padding-top: env(safe-area-inset-top); }
 const NAV = ['Services','Advisory','CPA','Law','Risks','Why JGS','Get Started'] as const;
 type Section = 'Home' | typeof NAV[number];
 
-const Card: React.FC<{ title?: string; children: React.ReactNode }> = ({ title, children }) => (
-  <div className="card">{title ? <h3 className="title-lg">{title}</h3> : null}{children}</div>
+const Card: React.FC<{ title?: string; className?: string; children: React.ReactNode }> = ({ title, className, children }) => (
+  <div className={`card ${className||''}`}>{title ? <h3 className="title-lg">{title}</h3> : null}{children}</div>
 );
 
 export default function Page(){
   const [section, setSection] = useState<Section>('Home');
   const go = (target: Section) => setSection(target);
 
+  // Dev-only sanity checks (simple "tests")
   useEffect(() => {
     if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
       console.assert(NAV[0] === 'Services' && NAV.at(-1) === 'Get Started', 'NAV order unexpected');
+      console.assert(/^https:\/\/outlook\.office\.com\/book\//.test(BOOK_URL), 'Booking URL malformed');
+      console.assert(/\.cards-grid/.test(styles) && /\.masonry/.test(styles), 'Expected responsive grid styles present');
     }
   }, []);
 
@@ -166,7 +183,7 @@ export default function Page(){
                 <div style={{display:'flex', gap:'.75rem', margin:'.75rem 0 1.25rem 0', flexWrap:'wrap'}}>
                   <a
                     className="btn primary"
-                    href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
+                    href={BOOK_URL}
                     target="_blank"
                     rel="noopener"
                   >🔒 Book a 30-Minute Consultation</a>
@@ -250,7 +267,7 @@ export default function Page(){
         {/* ===== ADVISORY ===== */}
         {section === 'Advisory' && (
           <section className="section container">
-            <div className="page">
+            <div className="page cards-grid">
               <h2 className="title-xl">📘 Advisory Retainers</h2>
 
               <Card title="💧 Lite Retainer – Escalation Safety Net">
@@ -308,54 +325,56 @@ export default function Page(){
             <div className="page">
               <h2 className="title-xl">💼 CPA Firms</h2>
 
-              <Card title="Why CPAs Are Targeted">
-                <ul>
-                  <li>Invoices &amp; money flows make you attractive for payment fraud.</li>
-                  <li>Tax records &amp; payroll data are gold for identity theft and extortion.</li>
-                  <li>Seasonal deadlines mean ransomware or outages hit hardest during crunch time.</li>
-                  <li>Client trust means your email is the perfect disguise for scams.</li>
-                </ul>
-                <p>One incident can cost a client relationship, spike your premiums, or stall your entire practice.</p>
-              </Card>
+              <div className="masonry">
+                <Card title="Why CPAs Are Targeted">
+                  <ul>
+                    <li>Invoices &amp; money flows make you attractive for payment fraud.</li>
+                    <li>Tax records &amp; payroll data are gold for identity theft and extortion.</li>
+                    <li>Seasonal deadlines mean ransomware or outages hit hardest during crunch time.</li>
+                    <li>Client trust means your email is the perfect disguise for scams.</li>
+                  </ul>
+                  <p>One incident can cost a client relationship, spike your premiums, or stall your entire practice.</p>
+                </Card>
 
-              <Card title="What We Do for CPA Firms">
-                <p>As your Principal Consultant, I close the cracks attackers exploit and give leadership clear assurance your firm can keep running under pressure.</p>
-                <p>We focus on three essentials:</p>
-                <ul>
-                  <li><strong>Access Defensibility (Inside the Firm)</strong>
-                    <ul>
-                      <li>Only the right people can reach your systems.</li>
-                      <li>Old accounts, forgotten outsiders, and unnecessary “keys to the kingdom” are removed.</li>
-                      <li>Partners know the firm won’t be blindsided by silent intrusions.</li>
-                    </ul>
-                  </li>
-                  <li><strong>Communications Defensibility (Outside the Firm)</strong>
-                    <ul>
-                      <li>Every invoice, filing, and client message is recognized as genuine.</li>
-                      <li>Impostor emails and spoofed domains fail before they reach your clients.</li>
-                      <li>Your billing and submissions aren’t stuck in junk folders or lost in transit.</li>
-                    </ul>
-                  </li>
-                  <li><strong>Continuity Defensibility (Survival)</strong>
-                    <ul>
-                      <li>Even if data is deleted or held for ransom, you can recover.</li>
-                      <li>Recovery is tested, timed, and documented.</li>
-                      <li>Leadership knows exactly how long it takes to get back online and how much data is at risk.</li>
-                    </ul>
-                  </li>
-                </ul>
-              </Card>
+                <Card title="What We Do for CPA Firms">
+                  <p>As your Principal Consultant, I close the cracks attackers exploit and give leadership clear assurance your firm can keep running under pressure.</p>
+                  <p>We focus on three essentials:</p>
+                  <ul>
+                    <li><strong>Access Defensibility (Inside the Firm)</strong>
+                      <ul>
+                        <li>Only the right people can reach your systems.</li>
+                        <li>Old accounts, forgotten outsiders, and unnecessary “keys to the kingdom” are removed.</li>
+                        <li>Partners know the firm won’t be blindsided by silent intrusions.</li>
+                      </ul>
+                    </li>
+                    <li><strong>Communications Defensibility (Outside the Firm)</strong>
+                      <ul>
+                        <li>Every invoice, filing, and client message is recognized as genuine.</li>
+                        <li>Impostor emails and spoofed domains fail before they reach your clients.</li>
+                        <li>Your billing and submissions aren’t stuck in junk folders or lost in transit.</li>
+                      </ul>
+                    </li>
+                    <li><strong>Continuity Defensibility (Survival)</strong>
+                      <ul>
+                        <li>Even if data is deleted or held for ransom, you can recover.</li>
+                        <li>Recovery is tested, timed, and documented.</li>
+                        <li>Leadership knows exactly how long it takes to get back online and how much data is at risk.</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </Card>
 
-              <Card title="Business Outcomes for CPA Firms">
-                <ul>
-                  <li>Cash comes in on time — invoices deliver and disputes drop.</li>
-                  <li>Deadlines are met — filings accepted on the first try, no rework.</li>
-                  <li>Clients stay confident — impostor invoices don’t poison relationships.</li>
-                  <li>Insurers say yes — renewals are smoother, premiums more stable.</li>
-                  <li>Bad days cost less — recoveries are faster, write-offs smaller.</li>
-                  <li>Reputation holds — your firm stays credible with clients, regulators, and referral partners.</li>
-                </ul>
-              </Card>
+                <Card title="Business Outcomes for CPA Firms">
+                  <ul>
+                    <li>Cash comes in on time — invoices deliver and disputes drop.</li>
+                    <li>Deadlines are met — filings accepted on the first try, no rework.</li>
+                    <li>Clients stay confident — impostor invoices don’t poison relationships.</li>
+                    <li>Insurers say yes — renewals are smoother, premiums more stable.</li>
+                    <li>Bad days cost less — recoveries are faster, write-offs smaller.</li>
+                    <li>Reputation holds — your firm stays credible with clients, regulators, and referral partners.</li>
+                  </ul>
+                </Card>
+              </div>
             </div>
           </section>
         )}
@@ -366,56 +385,58 @@ export default function Page(){
             <div className="page">
               <h2 className="title-xl">⚖️ Law Firms</h2>
 
-              <Card title="Why Law Firms Are Targeted">
-                <p>Hackers know attorneys are high-value targets because:</p>
-                <ul>
-                  <li>Case files, contracts, and settlements are extortion gold.</li>
-                  <li>Court and regulatory deadlines create pressure — ransomware timed before a filing is devastating.</li>
-                  <li>Attorney email carries natural authority — if it looks like it came from counsel, people act.</li>
-                  <li>Escrow and settlement funds are tempting for redirection scams.</li>
-                  <li>Bar associations and insurers require responsibility — and penalize firms that can’t prove it.</li>
-                </ul>
-              </Card>
+              <div className="masonry">
+                <Card title="Why Law Firms Are Targeted">
+                  <p>Hackers know attorneys are high-value targets because:</p>
+                  <ul>
+                    <li>Case files, contracts, and settlements are extortion gold.</li>
+                    <li>Court and regulatory deadlines create pressure — ransomware timed before a filing is devastating.</li>
+                    <li>Attorney email carries natural authority — if it looks like it came from counsel, people act.</li>
+                    <li>Escrow and settlement funds are tempting for redirection scams.</li>
+                    <li>Bar associations and insurers require responsibility — and penalize firms that can’t prove it.</li>
+                  </ul>
+                </Card>
 
-              <Card title="What We Do for Law Firms">
-                <p>As your Principal Consultant, I close the cracks attackers exploit and give leadership confidence your practice can survive pressure from clients, regulators, and adversaries.</p>
-                <p>We focus on three essentials:</p>
-                <ul>
-                  <li><strong>Access Defensibility (Inside the Firm)</strong>
-                    <ul>
-                      <li>Only the right people can reach your systems.</li>
-                      <li>Dormant accounts, forgotten vendors, and excessive privileges are shut down.</li>
-                      <li>Partners know there aren’t silent intruders moving inside the firm’s files.</li>
-                    </ul>
-                  </li>
-                  <li><strong>Communications Defensibility (Outside the Firm)</strong>
-                    <ul>
-                      <li>Every client update, settlement instruction, and filing is recognized as authentic.</li>
-                      <li>Impostor emails and lookalike domains fail before they reach your clients or opposing counsel.</li>
-                      <li>Your reputation as “the trusted voice” is preserved.</li>
-                    </ul>
-                  </li>
-                  <li><strong>Continuity Defensibility (Survival)</strong>
-                    <ul>
-                      <li>Even if case files are deleted or held for ransom, you can recover.</li>
-                      <li>Recovery is tested and timed, so partners know exactly how long it takes to get back online.</li>
-                      <li>Your practice keeps operating under court and client deadlines.</li>
-                    </ul>
-                  </li>
-                </ul>
-              </Card>
+                <Card title="What We Do for Law Firms">
+                  <p>As your Principal Consultant, I close the cracks attackers exploit and give leadership confidence your practice can survive pressure from clients, regulators, and adversaries.</p>
+                  <p>We focus on three essentials:</p>
+                  <ul>
+                    <li><strong>Access Defensibility (Inside the Firm)</strong>
+                      <ul>
+                        <li>Only the right people can reach your systems.</li>
+                        <li>Dormant accounts, forgotten vendors, and excessive privileges are shut down.</li>
+                        <li>Partners know there aren’t silent intruders moving inside the firm’s files.</li>
+                      </ul>
+                    </li>
+                    <li><strong>Communications Defensibility (Outside the Firm)</strong>
+                      <ul>
+                        <li>Every client update, settlement instruction, and filing is recognized as authentic.</li>
+                        <li>Impostor emails and lookalike domains fail before they reach your clients or opposing counsel.</li>
+                        <li>Your reputation as “the trusted voice” is preserved.</li>
+                      </ul>
+                    </li>
+                    <li><strong>Continuity Defensibility (Survival)</strong>
+                      <ul>
+                        <li>Even if case files are deleted or held for ransom, you can recover.</li>
+                        <li>Recovery is tested and timed, so partners know exactly how long it takes to get back online.</li>
+                        <li>Your practice keeps operating under court and client deadlines.</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </Card>
 
-              <Card title="Business Outcomes for Law Firms">
-                <p>Working with JGS means leadership confidence, not IT jargon:</p>
-                <ul>
-                  <li>Deadlines are met — filings and submissions are accepted the first time.</li>
-                  <li>Confidentiality is preserved — case files and contracts aren’t quietly siphoned or leaked.</li>
-                  <li>Clients stay confident — impostor emails don’t trick them, and trust in your firm holds.</li>
-                  <li>Insurers renew smoothly — fewer questions, more stable premiums, no last-minute scramble.</li>
-                  <li>Bad days cost less — faster recovery, smaller blast radius, fewer malpractice risks.</li>
-                  <li>Your reputation endures — peers, clients, and referral partners see you as responsible and reliable.</li>
-                </ul>
-              </Card>
+                <Card title="Business Outcomes for Law Firms">
+                  <p>Working with JGS means leadership confidence, not IT jargon:</p>
+                  <ul>
+                    <li>Deadlines are met — filings and submissions are accepted the first time.</li>
+                    <li>Confidentiality is preserved — case files and contracts aren’t quietly siphoned or leaked.</li>
+                    <li>Clients stay confident — impostor emails don’t trick them, and trust in your firm holds.</li>
+                    <li>Insurers renew smoothly — fewer questions, more stable premiums, no last-minute scramble.</li>
+                    <li>Bad days cost less — faster recovery, smaller blast radius, fewer malpractice risks.</li>
+                    <li>Your reputation endures — peers, clients, and referral partners see you as responsible and reliable.</li>
+                  </ul>
+                </Card>
+              </div>
             </div>
           </section>
         )}
@@ -423,7 +444,7 @@ export default function Page(){
         {/* ===== RISKS ===== */}
         {section === 'Risks' && (
           <section className="section container">
-            <div className="page">
+            <div className="page cards-grid">
               <h2 className="title-xl">🛡️ Stopping Hackers</h2>
 
               <Card title="🔑 Stage 1: Getting In">
@@ -468,7 +489,7 @@ export default function Page(){
         {/* ===== WHY JGS ===== */}
         {section === 'Why JGS' && (
           <section className="section container">
-            <div className="page">
+            <div className="page cards-grid">
               <h2 className="title-xl">✨ Why JGS Cloud Compliance</h2>
 
               <Card title="Because uptime isn’t enough.">
@@ -512,6 +533,23 @@ export default function Page(){
             <div className="page cards-grid">
               <h2 className="title-xl">Get Started</h2>
               <p className="lead">Choose your path. Defined scope. Clear outcomes.</p>
+
+              <Card title="📅 Book Your Consultation" className="full book-cta">
+                <ul>
+                  <li>30-minute consultation with Jeremiah Spears, Principal Consultant</li>
+                  <li>Review your firm’s risks and priorities</li>
+                  <li>Define scope: Retrofit or Retainer</li>
+                  <li>Walk away with a clear path forward</li>
+                </ul>
+                <p>
+                  <a
+                    className="btn primary"
+                    href={BOOK_URL}
+                    target="_blank"
+                    rel="noopener"
+                  >Book a 30-Minute Consultation</a>
+                </p>
+              </Card>
 
               {/* Flat-Fee Retrofits */}
               <Card title="🛠 Flat-Fee Retrofits">
@@ -569,24 +607,6 @@ export default function Page(){
                   <li>Prep for insurers and regulators with board-level insights</li>
                 </ul>
                 <p><em>Best for:</em> firms under heavy scrutiny or high-stakes pressure</p>
-              </Card>
-
-              {/* Book Your Consultation */}
-              <Card title="📅 Book Your Consultation">
-                <ul>
-                  <li>30-minute consultation with Jeremiah Spears, Principal Consultant</li>
-                  <li>Review your firm’s risks and priorities</li>
-                  <li>Define scope: Retrofit or Retainer</li>
-                  <li>Walk away with a clear path forward</li>
-                </ul>
-                <p>
-                  <a
-                    className="btn primary"
-                    href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
-                    target="_blank"
-                    rel="noopener"
-                  >Book a 30-Minute Consultation</a>
-                </p>
               </Card>
             </div>
           </section>
