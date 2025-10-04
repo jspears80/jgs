@@ -1,12 +1,12 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 /**
- * JGS SoftPage — full content restored + mobile scroll nav fixed
- * - Header: logo = Home, nav inline; mobile scrollable without hamburger
- * - Background grid/glow
- * - Transparent page wrapper; glass cards
- * - Clean CSS (fixed duplicate @media blocks)
+ * JGS SoftPage — FULL SITE RESTORE
+ * - All sections: Home, Services, Advisory, CPA, Law, Risks, Why JGS, Get Started
+ * - Founder card only in Get Started (left aligned, max-width)
+ * - Get Started CTAs: Book a Consultation + Email Support (no Explore Services)
+ * - Fixed JSX tag balance across all sections
  */
 
 const styles = `
@@ -72,13 +72,13 @@ header{ position:sticky; top:0; z-index:1000; background:rgba(0,0,0,.72); backdr
 @media (max-width:900px){ .hero{font-size:2.2rem} }
 .proofgrid{display:grid; gap:.6rem; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); opacity:.92}
 
-/* Founder card */
-.founder{border:1px solid var(--muted); background:rgba(0,0,0,.45); border-radius:1rem; box-shadow:0 8px 20px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.06); padding:1rem; display:flex; flex-direction:column; align-items:center; gap:1rem}
-.founder-img{width:100%; height:260px; border-radius:.8rem; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12)}
-.founder-meta{text-align:center}
+/* Founder card (Get Started only) */
+.founder{border:1px solid var(--muted); background:rgba(0,0,0,.45); border-radius:1rem; box-shadow:0 8px 20px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.06); padding:1rem; display:flex; flex-direction:column; align-items:flex-start; gap:1rem; max-width:340px;}
+.founder-img{width:100%; height:260px; border-radius:.8rem; object-fit:cover}
+.founder-meta{text-align:left; width:100%}
 .founder-name{font-weight:800; margin:.25rem 0 .1rem}
 .founder-title{opacity:.9; font-size:.95rem; margin-bottom:.6rem}
-.founder-actions{display:flex; gap:.5rem; justify-content:center}
+.founder-actions{display:flex; gap:.5rem}
 
 /* Buttons */
 .btn{display:inline-flex; align-items:center; justify-content:center; padding:.6rem 1rem; border:1px solid var(--muted); border-radius:.75rem; background:rgba(0,0,0,.5); text-decoration:none}
@@ -97,6 +97,12 @@ export default function Page(){
   const [section, setSection] = useState<Section>('Home');
   const go = (target: Section) => setSection(target);
 
+  useEffect(() => {
+    if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
+      console.assert(NAV[0] === 'Services' && NAV.at(-1) === 'Get Started', 'NAV order unexpected');
+    }
+  }, []);
+
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: styles }} />
@@ -104,8 +110,7 @@ export default function Page(){
         <header>
           <div className="container header-row">
             <div className="brand" role="button" tabIndex={0} onClick={() => go('Home')} onKeyDown={(e)=>{ if(e.key==='Enter' || e.key===' ') go('Home'); }}>
-              <img src="/Logo.png" onError={(e)=>{(e.currentTarget as HTMLImageElement).style.display='none'; (e.currentTarget.nextElementSibling as HTMLElement).style.display='inline-block';}} alt="JGS logo (Home)" className="logo" />
-              <span style={{ display:'none', width:56, height:56, borderRadius:12, background:'linear-gradient(135deg, #22d3ee, #8b5cf6)' }} />
+              <img src="/Logo.png" alt="JGS logo (Home)" className="logo" />
             </div>
             <nav className="nav-links">{NAV.map(k => (<a key={k} href="#" role="button" onClick={(e)=>{ e.preventDefault(); go(k); }}>{k}</a>))}</nav>
           </div>
@@ -114,44 +119,19 @@ export default function Page(){
         {/* ===== HOME ===== */}
         {section === 'Home' && (
           <section className="section container">
-            <div className="page" style={{display:'grid', gridTemplateColumns:'1.2fr .9fr', gap:'1.25rem'}}>
-              {/* Left Column: headline, lead, CTAs, proof rows */}
+            <div className="page" style={{display:'grid', gridTemplateColumns:'1fr', gap:'1.25rem'}}>
               <div>
-               
-
-                {/* Headline */}
                 <h1 className="hero">JGS Cloud Compliance — Microsoft 365 Secured for CPA and Law.</h1>
-
-                {/* Lead */}
                 <p className="lead">Tax deadlines don’t move. Court orders don’t wait. Insurers don’t forgive weak controls. We harden tenants, deliver clean mailflow, and prove recoverability so your firm keeps working under pressure.</p>
-
-                {/* CTAs */}
                 <div style={{display:'flex', gap:'.75rem', margin:'.75rem 0 1.25rem 0', flexWrap:'wrap'}}>
                   <a className="btn primary" href="#" onClick={(e)=>{e.preventDefault(); go('Services');}}>See Services →</a>
                   <a className="btn" href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled" target="_blank" rel="noopener">Book a Consult</a>
                 </div>
-
-                {/* Proof rows */}
                 <div className="proofgrid">
                   <div>CPA renewal saved → coverage cleared after tenant hardening</div>
                   <div>$75k fraud blocked → spoofed partner emails stopped in 48 hours</div>
                   <div>Discovery deadline met → case files restored within 24 hours</div>
                   <div>Secure Score: 43% → 81% (admins cleaned, logging extended)</div>
-                </div>
-              </div>
-
-              {/* Right Column: Founder card */}
-              <div>
-                <div className="founder">
-                  <div className="founder-img" aria-label="Founder headshot"></div>
-                  <div className="founder-meta">
-                    <div className="founder-name">Jeremiah Spears</div>
-                    <div className="founder-title">Founder, JGS Cloud Compliance</div>
-                    <div className="founder-actions">
-                      <a className="btn sm" href="mailto:support@cloudjgs.com">Email</a>
-                      <a className="btn sm" href="https://www.linkedin.com/in/jspears80" target="_blank" rel="noopener">LinkedIn</a>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -303,16 +283,23 @@ export default function Page(){
             <div className="page">
               <h2 className="title-xl">Get Started</h2>
               <div style={{marginBottom:'1.5rem'}}>
-                
                 <h1 className="hero" style={{marginTop:'.5rem'}}>Ready to Secure Your Firm?</h1>
                 <p className="lead">Don’t wait for an audit or breach — prove it now.</p>
                 <div style={{display:'flex', gap:'.75rem', flexWrap:'wrap', marginTop:'1rem'}}>
                   <a className="btn primary" href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled" target="_blank" rel="noopener">Book a Consultation</a>
-                  <a className="btn" href="#" onClick={(e)=>{e.preventDefault(); go('Services')}}>Explore Services</a>
                   <a className="btn" href="mailto:support@cloudjgs.com">Email Support</a>
                 </div>
               </div>
-              
+              <div className="founder" style={{marginTop:'1rem'}}>
+                <img src="/founder.jpg" alt="Jeremiah Spears headshot" className="founder-img" />
+                <div className="founder-meta">
+                  <div className="founder-name">Jeremiah Spears</div>
+                  <div className="founder-title">Founder & Principal Consultant<br/>JGS Cloud Compliance, LLC</div>
+                  <div className="founder-actions">
+                    <a className="btn sm" href="https://www.linkedin.com/in/jspears80" target="_blank" rel="noopener">LinkedIn</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         )}
