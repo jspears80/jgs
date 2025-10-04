@@ -418,32 +418,60 @@ export default function Page(){
           </section>
         )}
 
-        {/* ===== GET STARTED ===== */}
-        {section === 'Get Started' && (
-          <section className="section container">
-            <div className="page">
-              <h2 className="title-xl">Get Started</h2>
-              <div style={{marginBottom:'1.5rem'}}>
-                <h1 className="hero" style={{marginTop:'.5rem'}}>Ready to Secure Your Firm?</h1>
-                <p className="lead">Don’t wait for an audit or breach — prove it now.</p>
-                <div style={{display:'flex', gap:'.75rem', flexWrap:'wrap', marginTop:'1rem'}}>
-                  <a className="btn primary" href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled" target="_blank" rel="noopener">Book a Consultation</a>
-                  <a className="btn" href="mailto:support@cloudjgs.com">Email Support</a>
-                </div>
-              </div>
-              <div className="founder" style={{marginTop:'1rem'}}>
-                <img src="/founder.jpg" alt="Jeremiah Spears headshot" className="founder-img" />
-                <div className="founder-meta">
-                  <div className="founder-name">Jeremiah Spears</div>
-                  <div className="founder-title">Founder & Principal Consultant<br/>JGS Cloud Compliance, LLC</div>
-                  <div className="founder-actions">
-                    <a className="btn sm" href="https://www.linkedin.com/in/jspears80" target="_blank" rel="noopener">LinkedIn</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
+{/* ===== GET STARTED ===== */}
+{section === 'Get Started' && (
+  <section className="section container">
+    <div className="page">
+      <h2 className="title-xl">Get Started</h2>
+
+      <Card title="💧 Lite Retainer – Escalation Safety Net">
+        <p>For firms that want certainty the hard problems won’t linger.</p>
+        <p><strong>Role:</strong> Your Principal Consultant on standby when your MSP hits a wall.</p>
+        <p><strong>Scope:</strong> High-severity issues only — outages, performance failures, broken integrations.</p>
+        <p><strong>Support:</strong> Escalation via email, during business hours.</p>
+        <h4 className="title-lg">What You Get:</h4>
+        <ul>
+          <li>Resolution of problems your MSP can’t close.</li>
+          <li>Direct line to me — no call centers, no queues.</li>
+          <li>A short incident wrap-up in plain English for leadership.</li>
+        </ul>
+        <p><strong>Outcome:</strong> Problems stop dragging. Your staff and partners get back to work.</p>
+        <p><em>Best For:</em> Firms that want a simple safety net without ongoing involvement.</p>
+      </Card>
+
+      <Card title="📘 Plus Retainer – Escalation + Leadership Assurance">
+        <p>For firms that want tough issues fixed and leadership kept in the loop.</p>
+        <p><strong>Role:</strong> Principal Consultant for escalations, plus quarterly advisor for leadership.</p>
+        <p><strong>Scope:</strong> Escalation coverage + quarterly business reviews.</p>
+        <p><strong>Support:</strong> Priority email + scheduled remote sessions.</p>
+        <h4 className="title-lg">What You Get:</h4>
+        <ul>
+          <li>Guaranteed resolution of complex IT problems.</li>
+          <li>Quarterly leadership briefings: what happened, what improved, what still needs attention.</li>
+          <li>Reviews of continuity and reliability — invoices delivered, data recoverable, firm resilient.</li>
+        </ul>
+        <p><strong>Outcome:</strong> Issues are closed, and leadership stays informed and confident.</p>
+        <p><em>Best For:</em> Firms that want fewer emergencies and no surprises.</p>
+      </Card>
+
+      <Card title="🏛 Enterprise Retainer – Principal Consultant at the Table">
+        <p>For firms under heavy scrutiny from insurers, regulators, or high-stakes clients.</p>
+        <p><strong>Role:</strong> Your fractional CIO/CISO — solving problems, advising partners, and preparing you for outside eyes.</p>
+        <p><strong>Scope:</strong> Escalation resolution + monthly leadership sessions + insurer/regulator advocacy.</p>
+        <p><strong>Support:</strong> Priority email, chat, and on-demand remote sessions.</p>
+        <h4 className="title-lg">What You Get:</h4>
+        <ul>
+          <li>Fast closure on critical technical issues.</li>
+          <li>Monthly board-level reporting: issues resolved, risks emerging, readiness status.</li>
+          <li>Talking points and prep for insurer renewals and regulatory reviews.</li>
+          <li>Coordination with your MSP so you’re not caught in the middle.</li>
+        </ul>
+        <p><strong>Outcome:</strong> Your firm is seen as resilient, responsible, and professionally advised — by clients, insurers, and regulators alike.</p>
+        <p><em>Best For:</em> Firms where failure isn’t an option: high-dollar matters, regulator attention, premium renewals on the line.</p>
+      </Card>
+    </div>
+  </section>
+)}
 
       </main>
     </>
