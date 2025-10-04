@@ -498,25 +498,25 @@ export default function Page(){
         <p><em>Best for:</em> firms under heavy scrutiny or high-stakes pressure</p>
       </Card>
 
-      {/* Book Your Consultation */}
-      <Card title="📅 Book Your Consultation">
-        <ul>
-          <li>30-minute consultation with Jeremiah Spears, Principal Consultant</li>
-          <li>Review your firm’s risks and priorities</li>
-          <li>Define scope: Retrofit or Retainer</li>
-          <li>Walk away with a clear path forward</li>
-        </ul>
-        
-          <a
-            className="btn primary"
-            href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
-            target="_blank"
-            rel="noopener"
-          >
-            Book a 30-Minute Consultation
-          </a>
-        </p>
-      </Card>
+     <Card title="📅 Book Your Consultation">
+  <ul>
+    <li>30-minute consultation with Jeremiah Spears, Principal Consultant</li>
+    <li>Review your firm’s risks and priorities</li>
+    <li>Define scope: Retrofit or Retainer</li>
+    <li>Walk away with a clear path forward</li>
+  </ul>
+  
+    <a
+      className="btn primary"
+      href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
+      target="_blank"
+      rel="noopener"
+    >
+      Book a 30-Minute Consultation
+    </a>
+  </p>
+</Card>
+
     </div>
   </section>
 )}
