@@ -2,10 +2,11 @@
 import React, { useState, useEffect } from 'react';
 
 /**
- * JGS SoftPage — FULL SITE RESTORE (black screen fix)
- * - Renders all sections; default = Home
- * - Founder card only in Get Started (card content centered; CTAs left)
- * - Headshot uses object-fit:contain to avoid cropping
+ * JGS SoftPage — FULL SITE RESTORE
+ * - All sections: Home, Services, Advisory, CPA, Law, Risks, Why JGS, Get Started
+ * - Founder card only in Get Started (left aligned, max-width)
+ * - Get Started CTAs: Book a Consultation + Email Support (no Explore Services)
+ * - Fixed JSX tag balance across all sections
  */
 
 const styles = `
@@ -73,11 +74,11 @@ header{ position:sticky; top:0; z-index:1000; background:rgba(0,0,0,.72); backdr
 
 /* Founder card (Get Started only) */
 .founder{border:1px solid var(--muted); background:rgba(0,0,0,.45); border-radius:1rem; box-shadow:0 8px 20px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.06); padding:1rem; display:flex; flex-direction:column; align-items:flex-start; gap:1rem; max-width:340px;}
-.founder-img{width:100%; height:260px; border-radius:.8rem; object-fit:contain}
+.founder-img{width:100%; height:260px; border-radius:.8rem; object-fit:cover}
 .founder-meta{text-align:center; width:100%}
 .founder-name{font-weight:800; margin:.25rem 0 .1rem}
 .founder-title{opacity:.9; font-size:.95rem; margin-bottom:.6rem}
-.founder-actions{display:flex; gap:.5rem; justify-content:center}
+.founder-actions{display:flex; gap:.5rem}
 
 /* Buttons */
 .btn{display:inline-flex; align-items:center; justify-content:center; padding:.6rem 1rem; border:1px solid var(--muted); border-radius:.75rem; background:rgba(0,0,0,.5); text-decoration:none}
@@ -86,14 +87,14 @@ header{ position:sticky; top:0; z-index:1000; background:rgba(0,0,0,.72); backdr
 `;
 
 const NAV = ['Services','Advisory','CPA','Law','Risks','Why JGS','Get Started'] as const;
-type Section = 'Home' | typeof NAV[number];
+type Section = 'Home' | typeof NAV[number] | 'ServiceRetrofit' | 'ServiceWhy' | 'ServiceWhat' | 'ServiceOutcome';
 
 const Card: React.FC<{ title?: string; children: React.ReactNode }> = ({ title, children }) => (
   <div className="card">{title ? <h3 className="title-lg">{title}</h3> : null}{children}</div>
 );
 
 export default function Page(){
-  const [section, setSection] = useState<Section>('Home');
+  const [section, setSection] = useState<Section>('CPA');
   const go = (target: Section) => setSection(target);
 
   useEffect(() => {
@@ -137,55 +138,96 @@ export default function Page(){
           </section>
         )}
 
-        {/* ===== SERVICES ===== */}
-        {section === 'Services' && (
-          <section className="section container">
-            <div className="page">
-              <h2 className="title-xl">Core Services</h2>
-              <Card title="🔒 Security Hardening & Remediation">
-                <p>Insurers raise premiums. Regulators raise standards. We align your Microsoft 365 so you can <strong>prove control, reduce exposure, and negotiate from strength.</strong> This isn’t about passwords — it’s about showing you already meet the bar they set.</p>
-              </Card>
-              <Card title="📧 Secure Email Delivery">
-                <p>Email is your firm’s lifeline: invoices, filings, contracts. If they don’t land, business stops. We ensure your domain is <strong>recognized, trusted, and protected</strong> — so every message carries weight with clients, courts, and counterparties alike.</p>
-              </Card>
-              <Card title="🔁 Backup & Recovery Assurance">
-                <p>A backup means nothing until recovery is proven. We make it a <strong>measured business advantage:</strong> rapid restores, aligned retention, logged tests. When an insurer or regulator asks, you don’t explain — you show them.</p>
-              </Card>
-            </div>
-          </section>
-        )}
+       {/* ===== SERVICES ===== */}
+{section === 'Services' && (
+  <section className="section container">
+    <div className="page">
+      <h2 className="title-xl">🛠 Core Services</h2>
+
+      {/* Card 1 — Intro */}
+      <Card title="🛠 Microsoft 365 Security Retrofit">
+        <p>Close the cracks attackers exploit inside your firm.<br/>Small professional firms are often left with too many doors open — old accounts, forgotten logins, or staff holding unchecked “keys to the kingdom.” That’s where intruders slip in. We retrofit your Microsoft 365 environment so access is controlled, intruders are stopped, and leadership has certainty about who can get in and why.</p>
+        <h4 className="title-lg" style={{marginTop:'0.75rem'}}>What changes for your firm:</h4>
+        <ul>
+          <li>Only the right people have access — and only to what they need.</li>
+          <li>Forgotten accounts and entry points are sealed.</li>
+          <li>Hidden backdoors and silent footholds are removed.</li>
+          <li>Leadership can show outsiders that access is responsibly run.</li>
+        </ul>
+      </Card>
+
+      <Card title="📧 Microsoft 365 Email Security Retrofit">
+        <p>Make your firm’s communications trusted and reliable.<br/>Your entire business runs on email: invoices, filings, contracts, and client communications. If clients can’t trust your emails — or if important messages don’t land — business stops. We secure your Microsoft 365 email so every message is recognized, impostors are blocked, and revenue-critical mail is delivered the first time.</p>
+        <h4 className="title-lg" style={{marginTop:'0.75rem'}}>What changes for your firm:</h4>
+        <ul>
+          <li>Invoices and filings arrive and are acknowledged on first send.</li>
+          <li>Clients, courts, and counterparties know your emails are genuine.</li>
+          <li>Fake invoices and impostor messages fail before they reach staff or clients.</li>
+          <li>Billing disputes and “we never got it” calls disappear.</li>
+        </ul>
+      </Card>
+
+      <Card title="🔁 Microsoft 365 Backup & Recovery Retrofit">
+        <p>Prove your firm can survive disruption.<br/>Most small firms assume Microsoft “backs everything up” — until a file is wiped, a case folder vanishes, or ransomware hits. We test, time, and harden your recovery so you know exactly how long restoration takes and how much could be lost — and so outsiders accept you can continue working after an incident.</p>
+        <h4 className="title-lg" style={{marginTop:'0.75rem'}}>What changes for your firm:</h4>
+        <ul>
+          <li>Case files and client records can’t vanish without recovery.</li>
+          <li>Recovery drills are rehearsed, timed, and documented.</li>
+          <li>Destructive actions trigger same-day alarms.</li>
+          <li>Auditors, regulators, and insurers accept your continuity posture.</li>
+        </ul>
+      </Card>
+    </div>
+  </section>
+)}
 
         {/* ===== ADVISORY ===== */}
         {section === 'Advisory' && (
           <section className="section container">
             <div className="page">
-              <h2 className="title-xl">Advisory Retainers</h2>
-              <Card title="💧 Lite Advisory">
-                <p>Insurance forms ask. Regulators check. We keep your Microsoft 365 <strong>monitored, drift tracked, and evidence current.</strong></p>
+              <h2 className="title-xl">📘 Advisory Retainers</h2>
+              <Card title="💧 Lite Retainer – Escalation Safety Net">
+                <p>For firms that want certainty the hard problems won’t linger.</p>
+                <p><strong>Role:</strong> Your Principal Consultant on standby when your MSP hits a wall.</p>
+                <p><strong>Scope:</strong> High-severity issues only — outages, performance failures, broken integrations.</p>
+                <p><strong>Support:</strong> Escalation via email, during business hours.</p>
+                <h4 className="title-lg" style={{marginTop:'0.75rem'}}>What You Get:</h4>
                 <ul>
-                  <li><strong>Support:</strong> Email only, business hours</li>
-                  <li><strong>Commitment:</strong> Minimal — one admin account + a firm contact</li>
-                  <li><strong>What You Get:</strong> Drift alerts, monitoring, binder evidence kept up to date</li>
+                  <li>Resolution of problems your MSP can’t close.</li>
+                  <li>Direct line to me — no call centers, no queues.</li>
+                  <li>A short incident wrap-up in plain English for leadership.</li>
                 </ul>
-                <p><em>Best for firms that want oversight without heavy involvement.</em></p>
+                <p><strong>Outcome:</strong> Problems stop dragging. Your staff and partners get back to work.</p>
+                <p><em>Best For:</em> Firms that want a simple safety net without ongoing involvement.</p>
               </Card>
-              <Card title="📘 Plus Advisory">
-                <p>Security isn’t “set and forget.” We run <strong>regular drills, reviews, and checks</strong> so your systems stay aligned as your firm evolves.</p>
+              <Card title="📘 Plus Retainer – Escalation + Leadership Assurance">
+                <p>For firms that want tough issues fixed and leadership kept in the loop.</p>
+                <p><strong>Role:</strong> Principal Consultant for escalations, plus quarterly advisor for leadership.</p>
+                <p><strong>Scope:</strong> Escalation coverage + quarterly business reviews.</p>
+                <p><strong>Support:</strong> Priority email + scheduled remote sessions.</p>
+                <h4 className="title-lg" style={{marginTop:'0.75rem'}}>What You Get:</h4>
                 <ul>
-                  <li><strong>Support:</strong> Email + scheduled remote sessions</li>
-                  <li><strong>Commitment:</strong> Moderate — quarterly reviews, occasional staff input</li>
-                  <li><strong>What You Get:</strong> Recovery drills, deliverability checks, policy updates</li>
+                  <li>Guaranteed resolution of complex IT problems.</li>
+                  <li>Quarterly leadership briefings: what happened, what improved, what still needs attention.</li>
+                  <li>Reviews of continuity and reliability — invoices delivered, data recoverable, firm resilient.</li>
                 </ul>
-                <p><em>Best for firms that want tested, reliable systems year-round.</em></p>
+                <p><strong>Outcome:</strong> Issues are closed, and leadership stays informed and confident.</p>
+                <p><em>Best For:</em> Firms that want fewer emergencies and no surprises.</p>
               </Card>
-              <Card title="🏛️ Enterprise Advisory">
-                <p>High-stakes clients, insurers, and regulators demand more. We deliver <strong>priority support, board-level reporting, and regulator/insurer alignment.</strong></p>
+              <Card title="🏛 Enterprise Retainer – Principal Consultant at the Table">
+                <p>For firms under heavy scrutiny from insurers, regulators, or high-stakes clients.</p>
+                <p><strong>Role:</strong> Your fractional CIO/CISO — solving problems, advising partners, and preparing you for outside eyes.</p>
+                <p><strong>Scope:</strong> Escalation resolution + monthly leadership sessions + insurer/regulator advocacy.</p>
+                <p><strong>Support:</strong> Priority email, chat, and on-demand remote sessions.</p>
+                <h4 className="title-lg" style={{marginTop:'0.75rem'}}>What You Get:</h4>
                 <ul>
-                  <li><strong>Support:</strong> Priority email + chat + on-demand remote sessions</li>
-                  <li><strong>Commitment:</strong> High — monthly reviews, dedicated contact, regulator coordination</li>
-                  <li><strong>What You Get:</strong> Strategic reporting, insurer negotiation support, alignment maps</li>
+                  <li>Fast closure on critical technical issues.</li>
+                  <li>Monthly board-level reporting: issues resolved, risks emerging, readiness status.</li>
+                  <li>Talking points and prep for insurer renewals and regulatory reviews.</li>
+                  <li>Coordination with your MSP so you’re not caught in the middle.</li>
                 </ul>
-                <p><em>Best for firms facing high scrutiny and higher risk.</em></p>
+                <p><strong>Outcome:</strong> Your firm is seen as resilient, responsible, and professionally advised — by clients, insurers, and regulators alike.</p>
+                <p><em>Best For:</em> Firms where failure isn’t an option: high-dollar matters, regulator attention, premium renewals on the line.</p>
               </Card>
             </div>
           </section>
@@ -195,15 +237,56 @@ export default function Page(){
         {section === 'CPA' && (
           <section className="section container">
             <div className="page">
-              <h2 className="title-xl">CPA Firms</h2>
-              <Card>
-                <p><strong>Tax season isn’t forgiving.</strong> We harden Microsoft 365 so you can <strong>work without disruption and show compliance on demand.</strong></p>
+              <h2 className="title-xl">💼 CPA Firms</h2>
+              
+
+              <Card title="Why CPAs Are Targeted">
                 <ul>
-                  <li>Controls aligned to IRS & AICPA standards</li>
-                  <li>Retention mapped to peer review cycles</li>
-                  <li>Evidence binders ready before auditors ask</li>
+                  <li>Invoices & money flows make you attractive for payment fraud.</li>
+                  <li>Tax records & payroll data are gold for identity theft and extortion.</li>
+                  <li>Seasonal deadlines mean ransomware or outages hit hardest during crunch time.</li>
+                  <li>Client trust means your email is the perfect disguise for scams.</li>
                 </ul>
-                <p><em>Outcome:</em> Even at peak season, your firm is compliant, covered, and client-ready.</p>
+                <p>One incident can cost a client relationship, spike your premiums, or stall your entire practice.</p>
+              </Card>
+
+              <Card title="What We Do for CPA Firms">
+                <p>As your Principal Consultant, I close the cracks attackers exploit and give leadership clear assurance your firm can keep running under pressure.</p>
+                <p>We focus on three essentials:</p>
+                <ul>
+                  <li><strong>Access Defensibility (Inside the Firm)</strong>
+                    <ul>
+                      <li>Only the right people can reach your systems.</li>
+                      <li>Old accounts, forgotten outsiders, and unnecessary “keys to the kingdom” are removed.</li>
+                      <li>Partners know the firm won’t be blindsided by silent intrusions.</li>
+                    </ul>
+                  </li>
+                  <li><strong>Communications Defensibility (Outside the Firm)</strong>
+                    <ul>
+                      <li>Every invoice, filing, and client message is recognized as genuine.</li>
+                      <li>Impostor emails and spoofed domains fail before they reach your clients.</li>
+                      <li>Your billing and submissions aren’t stuck in junk folders or lost in transit.</li>
+                    </ul>
+                  </li>
+                  <li><strong>Continuity Defensibility (Survival)</strong>
+                    <ul>
+                      <li>Even if data is deleted or held for ransom, you can recover.</li>
+                      <li>Recovery is tested, timed, and documented.</li>
+                      <li>Leadership knows exactly how long it takes to get back online and how much data is at risk.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </Card>
+
+              <Card title="Business Outcomes for CPA Firms">
+                <ul>
+                  <li>Cash comes in on time — invoices deliver and disputes drop.</li>
+                  <li>Deadlines are met — filings accepted on the first try, no rework.</li>
+                  <li>Clients stay confident — impostor invoices don’t poison relationships.</li>
+                  <li>Insurers say yes — renewals are smoother, premiums more stable.</li>
+                  <li>Bad days cost less — recoveries are faster, write-offs smaller.</li>
+                  <li>Reputation holds — your firm stays credible with clients, regulators, and referral partners.</li>
+                </ul>
               </Card>
             </div>
           </section>
@@ -213,15 +296,58 @@ export default function Page(){
         {section === 'Law' && (
           <section className="section container">
             <div className="page">
-              <h2 className="title-xl">Law Firms</h2>
-              <Card>
-                <p><strong>Confidentiality is everything.</strong> We secure Microsoft 365 so your firm can <strong>protect data, meet discovery demands, and stand up under scrutiny.</strong></p>
+              <h2 className="title-xl">⚖️ Law Firms</h2>
+              
+
+              <Card title="Why Law Firms Are Targeted">
+                <p>Hackers know attorneys are high-value targets because:</p>
                 <ul>
-                  <li>Email delivery that clients and courts can trust</li>
-                  <li>Retention aligned to discovery and insurer mandates</li>
-                  <li>Proof packages that show continuity and confidentiality controls</li>
+                  <li>Case files, contracts, and settlements are extortion gold.</li>
+                  <li>Court and regulatory deadlines create pressure — ransomware timed before a filing is devastating.</li>
+                  <li>Attorney email carries natural authority — if it looks like it came from counsel, people act.</li>
+                  <li>Escrow and settlement funds are tempting for redirection scams.</li>
+                  <li>Bar associations and insurers require responsibility — and penalize firms that can’t prove it.</li>
                 </ul>
-                <p><em>Outcome:</em> Your firm answers with evidence — not promises.</p>
+              </Card>
+
+              <Card title="What We Do for Law Firms">
+                <p>As your Principal Consultant, I close the cracks attackers exploit and give leadership confidence your practice can survive pressure from clients, regulators, and adversaries.</p>
+                <p>We focus on three essentials:</p>
+                <ul>
+                  <li><strong>Access Defensibility (Inside the Firm)</strong>
+                    <ul>
+                      <li>Only the right people can reach your systems.</li>
+                      <li>Dormant accounts, forgotten vendors, and excessive privileges are shut down.</li>
+                      <li>Partners know there aren’t silent intruders moving inside the firm’s files.</li>
+                    </ul>
+                  </li>
+                  <li><strong>Communications Defensibility (Outside the Firm)</strong>
+                    <ul>
+                      <li>Every client update, settlement instruction, and filing is recognized as authentic.</li>
+                      <li>Impostor emails and lookalike domains fail before they reach your clients or opposing counsel.</li>
+                      <li>Your reputation as “the trusted voice” is preserved.</li>
+                    </ul>
+                  </li>
+                  <li><strong>Continuity Defensibility (Survival)</strong>
+                    <ul>
+                      <li>Even if case files are deleted or held for ransom, you can recover.</li>
+                      <li>Recovery is tested and timed, so partners know exactly how long it takes to get back online.</li>
+                      <li>Your practice keeps operating under court and client deadlines.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </Card>
+
+              <Card title="Business Outcomes for Law Firms">
+                <p>Working with JGS means leadership confidence, not IT jargon:</p>
+                <ul>
+                  <li>Deadlines are met — filings and submissions are accepted the first time.</li>
+                  <li>Confidentiality is preserved — case files and contracts aren’t quietly siphoned or leaked.</li>
+                  <li>Clients stay confident — impostor emails don’t trick them, and trust in your firm holds.</li>
+                  <li>Insurers renew smoothly — fewer questions, more stable premiums, no last-minute scramble.</li>
+                  <li>Bad days cost less — faster recovery, smaller blast radius, fewer malpractice risks.</li>
+                  <li>Your reputation endures — peers, clients, and referral partners see you as responsible and reliable.</li>
+                </ul>
               </Card>
             </div>
           </section>
@@ -231,26 +357,26 @@ export default function Page(){
         {section === 'Risks' && (
           <section className="section container">
             <div className="page">
-              <h2 className="title-xl">Stopping Hackers</h2>
-              <Card title="🔑 Initial Access">
-                <p><strong>The Risk:</strong> Phishing, MFA fatigue, and old authentication methods.<br/><strong>Our Response:</strong> Modern MFA + Conditional Access everywhere. Legacy auth blocked. Sessions controlled.</p>
+              <h2 className="title-xl">🛡️ Stopping Hackers</h2>
+              
+              <Card title="🔑 Stage 1: Getting In">
+                <p><strong>The Risk:</strong> Fake emails, spoofed logins, and forgotten old accounts.<br/><strong>Response:</strong> Unused doors are sealed, phishing attempts are blocked, and weak entry points eliminated.<br/><strong>Outcome:</strong> Attorneys and staff work without interruption. Intruders are stopped before deadlines are put at risk.</p>
               </Card>
-              <Card title="🛡️ Privilege Escalation">
-                <p><strong>The Risk:</strong> Hidden admins, stale app consents, and unsecured break-glass accounts.<br/><strong>Our Response:</strong> Admin rights stripped to minimum. PIM required for elevation. Break-glass hardened and logged.</p>
+              <Card title="🛡️ Stage 2: Grabbing Control">
+                <p><strong>The Risk:</strong> Hidden admin rights, old integrations, and unsecured “emergency” accounts.<br/><strong>Response:</strong> Access is cut to the minimum, emergency logins hardened, and every change tracked.<br/><strong>Outcome:</strong> No one holds the “keys to the kingdom” they shouldn’t. Control stays with the firm, not an attacker.</p>
               </Card>
-              <Card title="🔄 Lateral Movement">
-                <p><strong>The Risk:</strong> Attackers spread via mailbox rules, OAuth abuse, and sprawling Teams/SharePoint access.<br/><strong>Our Response:</strong> Mailflow monitored, malicious rules nuked, and access trimmed to least-privilege.</p>
+              <Card title="🔄 Stage 3: Spreading Out">
+                <p><strong>The Risk:</strong> Once inside, hackers roam through mailboxes, client folders, or shared drives.<br/><strong>Response:</strong> Suspicious mailbox rules are removed, silent forwarding shut down, and access trimmed across shared systems.<br/><strong>Outcome:</strong> Even if an intruder gets in, they can’t wander into sensitive case files or client tax records.</p>
               </Card>
-              <Card title="📌 Persistence">
-                <p><strong>The Risk:</strong> Malicious connectors, forwarding loopholes, and dormant guest accounts.<br/><strong>Our Response:</strong> Connectors locked down. Forwarding blocked. Guest access reviewed and hardened.</p>
+              <Card title="📌 Stage 4: Sneaking Back In">
+                <p><strong>The Risk:</strong> Attackers plant hidden backdoors — guest accounts, forwarding loops, or expired integrations left open.<br/><strong>Response:</strong> Dormant outsiders are removed, loopholes closed, and silent backdoors disabled.<br/><strong>Outcome:</strong> Once kicked out, they stay out. No lingering footholds waiting to be exploited later.</p>
               </Card>
-              <Card title="📤 Exfiltration">
-                <p><strong>The Risk:</strong> Data leaks through weak sharing, ungovened links, and retention gaps.<br/><strong>Our Response:</strong> Sharing controlled, retention aligned to regulators, and eDiscovery trails kept tamper-evident.</p>
+              <Card title="📤 Stage 5: Stealing Data">
+                <p><strong>The Risk:</strong> Confidential contracts, tax returns, or settlement files leaked through oversharing or unsecured links.<br/><strong>Response:</strong> File sharing is tightened, retention aligned with professional standards, and audit trails kept tamper-proof.<br/><strong>Outcome:</strong> Sensitive documents don’t walk out the back door. Client trust and confidentiality remain intact.</p>
               </Card>
-              <Card title="💾 Recovery & Assurance">
-                <p><strong>The Risk:</strong> Backups that exist but can’t be proven.<br/><strong>Our Response:</strong> Immutable backups. Quarterly restore drills witnessed by leadership. Playbooks signed and logged.</p>
+              <Card title="💾 Stage 6: Holding You Hostage">
+                <p><strong>The Risk:</strong> Backups that look fine on paper but fail when they’re needed most.<br/><strong>Response:</strong> Live recovery drills run with leadership present, so restoration is proven under pressure.<br/><strong>Outcome:</strong> Even if files are wiped or ransomed, operations recover on schedule. Court and tax deadlines are met without compromise.</p>
               </Card>
-              <p><em>Bottom Line:</em> We don’t just close gaps. We document every control so you can prove it — to insurers, auditors, and clients.</p>
             </div>
           </section>
         )}
@@ -259,18 +385,34 @@ export default function Page(){
         {section === 'Why JGS' && (
           <section className="section container">
             <div className="page">
-              <h2 className="title-xl">Why JGS Cloud Compliance</h2>
-              <Card>
-                <table>
-                  <thead><tr><th>MSPs</th><th>JGS Cloud Compliance</th></tr></thead>
-                  <tbody>
-                    <tr><td>❌ Generic IT support across dozens of tools</td><td>✅ Microsoft 365 only — hardened, tested, proven</td></tr>
-                    <tr><td>❌ Hourly creep, surprise bills</td><td>✅ Flat-fee clarity, scope locked before kickoff</td></tr>
-                    <tr><td>❌ Promises of “we’ll handle it”</td><td>✅ Proof packages you can hand to insurers and auditors</td></tr>
-                    <tr><td>❌ One-size-fits-all settings</td><td>✅ Controls mapped to IRS, AICPA, and ABA requirements</td></tr>
-                    <tr><td>❌ Fixes without evidence</td><td>✅ Audit-ready binders with logs, screenshots, and reports</td></tr>
-                  </tbody>
-                </table>
+              <h2 className="title-xl">✨ Why JGS Cloud Compliance</h2>
+              <Card title="Because uptime isn’t enough.">
+                <p>For law and CPA firms, it’s not just about keeping systems online — it’s about making sure invoices are paid, filings go through, clients trust communications, and deadlines aren’t missed.</p>
+              </Card>
+              <Card title="The Problem with Others">
+                <ul>
+                  <li><strong>MSPs</strong> keep the lights on, but stall when issues get complex.</li>
+                  <li><strong>Microsoft</strong> provides templates, but not tailored answers for your practice.</li>
+                  <li><strong>Auditors</strong> hand out checklists, but don’t fix what actually puts you at risk.</li>
+                </ul>
+              </Card>
+              <Card title="Why JGS is Different">
+                <p>I was the senior engineer MSPs escalated to when they were out of options. Today, as your Principal Consultant, I work directly with firm leadership to:</p>
+                <ul>
+                  <li>Resolve the hard problems your MSP can’t close.</li>
+                  <li>Keep partners ahead of new risks and scams before they hit.</li>
+                  <li>Prepare you with clear, plain-English answers for clients, insurers, and regulators.</li>
+                </ul>
+              </Card>
+              <Card title="The Results in Business Terms">
+                <ul>
+                  <li>Cash flow is steady — invoices deliver and disputes drop.</li>
+                  <li>Deadlines are met — filings are accepted the first time.</li>
+                  <li>Clients stay confident — impostor emails don’t undermine trust.</li>
+                  <li>Renewals are smoother — insurers and auditors see a responsible practice.</li>
+                  <li>Disruptions end quickly — problems get closed, not dragged out.</li>
+                </ul>
+                <p><strong>👉 Why JGS?</strong><br/>Because when your firm is under pressure, you need more than tickets and templates. You need senior expertise that keeps your practice moving and your reputation intact.</p>
               </Card>
             </div>
           </section>
@@ -280,7 +422,7 @@ export default function Page(){
         {section === 'Get Started' && (
           <section className="section container">
             <div className="page">
-             
+              <h2 className="title-xl">Get Started</h2>
               <div style={{marginBottom:'1.5rem'}}>
                 <h1 className="hero" style={{marginTop:'.5rem'}}>Ready to Secure Your Firm?</h1>
                 <p className="lead">Don’t wait for an audit or breach — prove it now.</p>
