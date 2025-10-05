@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "outputDirectory": ".vercel/output",
+  "routes": [
+    { "src": "/(.*)", "dest": "/" }
+  ]
+}
