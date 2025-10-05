@@ -4,16 +4,18 @@ import React from 'react';
 export default function ServicesPage() {
   return (
     <section className="section container">
-      {/* ===== Page Header ===== */}
-      <div className="card full">
-        <span className="eyebrow">Secure = Projects</span>
-        <h1 className="hero">Secure — Microsoft 365 Projects</h1>
-        <p className="lead" style={{ maxWidth: '70ch' }}>
-          Flat-fee projects that remove specific risks inside Microsoft 365 and replace uncertainty with proof.
-          Each engagement protects client data, restores trust in communication, and demonstrates continuity that
-          insurers and auditors can verify.
-        </p>
-      </div>
+    {/* ===== Page Header ===== */}
+<div className="card full">
+  <span className="eyebrow">Secure = Projects</span>
+  <h1 className="hero">Secure — Microsoft 365 Projects</h1>
+  <p className="lead" style={{ maxWidth: '70ch' }}>
+    Every breach starts the same way — an unchecked account, a forgotten rule, or a setting no one realized mattered. 
+    These projects close those gaps and replace assumption with evidence. 
+    Each engagement rebuilds Microsoft 365 for control, resilience, and proof — protecting client data, restoring trust in communication, 
+    and demonstrating continuity your leadership, clients, and insurers can all verify.
+  </p>
+</div>
+
 
       {/* ===== Service: Security Retrofit ===== */}
       <div className="card">
