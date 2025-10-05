@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {/* Brand */}
             <Link href="/" className="brand">
               <img src="/Logo.png" alt="JGS Cloud Compliance logo" className="logo" />
-              <span className="tagline">Secure and Support</span>
+              <span className="tagline">Cloud Compliance</span>
             </Link>
 
             {/* Nav */}
@@ -91,3 +91,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
