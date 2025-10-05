@@ -4,15 +4,14 @@ import React from 'react';
 export default function ServicesPage() {
   return (
     <section className="section container">
-      {/* ===== Page Header ===== */}
+      {/* ===== Page Header (context, not a pitch) ===== */}
       <div className="card full">
         <span className="eyebrow">Secure = Projects</span>
         <h1 className="hero">Secure — Microsoft 365 Projects</h1>
         <p className="lead" style={{ maxWidth: '70ch' }}>
-          Every breach starts the same way — an unchecked account, a forgotten rule, or a setting no one realized mattered.
-          These projects close those gaps and replace assumption with evidence.
-          Each engagement rebuilds Microsoft 365 for control, resilience, and proof — protecting client data, restoring trust in
-          communication, and demonstrating continuity your leadership, clients, and insurers can all verify.
+          Microsoft 365 is where your firm’s entire operation lives — client files, correspondence, deadlines, and trust.
+          Over time, access drifts, policies weaken, and proof disappears. The Secure phase fixes that.
+          These flat-fee projects close the quiet gaps that cause breaches and rebuild your environment so it’s not just working — it’s defensible.
         </p>
       </div>
 
@@ -44,10 +43,10 @@ export default function ServicesPage() {
         </div>
 
         <p>
-          <strong>Why it matters:</strong> Microsoft 365 holds everything your firm depends on—client data, correspondence,
-          financials, and internal records. Most breaches don’t come from hackers kicking down the door; they come from open access,
-          forgotten settings, and missing visibility. The Security Retrofit rebuilds Microsoft 365 to close those quiet entry
-          points and replace uncertainty with proof.
+          <strong>Why it matters:</strong> Microsoft 365 holds everything your firm depends on — client data,
+          correspondence, financials, and internal records. Most breaches don’t come from hackers kicking down the door;
+          they come from open access, forgotten settings, and missing visibility. The Security Retrofit rebuilds
+          Microsoft 365 to close those quiet entry points and replace uncertainty with proof.
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
@@ -196,10 +195,10 @@ export default function ServicesPage() {
       <div className="card full cta-band">
         <h2 className="title-xl">Ready to Eliminate Risk?</h2>
         <p className="lead" style={{ marginBottom: '.9rem' }}>
-          Every breach begins the same way — an overlooked account, a missed policy, an assumption that Microsoft 365 was already secure.
-          The difference between exposure and assurance is proof. In one 30-minute consultation, we’ll trace the weak points that could
-          compromise your firm’s data or credibility and map a direct path to control. You’ll walk away with clarity, next steps, and
-          the confidence to show leadership, clients, and insurers that your firm is defended — and can prove it.
+          Most firms discover their weakest point only after an incident.
+          In a 30-minute consultation, we’ll pinpoint the blind spots inside Microsoft 365 that could cost your firm
+          clients, coverage, or credibility — and outline a direct path to close them.
+          You’ll leave with clarity, evidence, and a plan that leadership, insurers, and auditors will all recognize as proof of control.
         </p>
         <a
           className="btn primary"
