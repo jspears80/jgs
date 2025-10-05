@@ -73,7 +73,7 @@ export default function ServicesPage() {
 </div>
 
 
-     {/* ===== Service: Email Security Retrofit ===== */}
+{/* ===== Service: Email Security Retrofit ===== */}
 <div className="card">
   <div
     style={{
@@ -102,37 +102,40 @@ export default function ServicesPage() {
 
   <p>
     <strong>Why it matters:</strong> Your firm’s reputation depends on messages that are genuine,
-    private, and delivered. When an email is spoofed or lost to spam, it isn’t just technical noise —
-    it’s a business problem. The Email Security Retrofit ensures every message you send is recognized,
-    protected, and proven.
+    private, and delivered. When an email is hijacked, spoofed, or quietly redirected, it’s not a
+    technical failure — it’s a breach of trust. The Email Security Retrofit closes those invisible
+    gaps so every message your firm sends is authentic, protected, and defensible.
   </p>
 
   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
     <div>
       <p style={{ fontWeight: 700, marginBottom: '.35rem' }}>What we deliver</p>
       <ul>
-        <li>Authentic communication — messages verified as real and reaching inboxes first time.</li>
-        <li>Protection from impostors — attackers can’t fake your address or domain identity.</li>
-        <li>Clean, reliable delivery — important mail stops landing in junk or disappearing.</li>
-        <li>Secure transmission — email traffic encrypted end-to-end to meet insurer standards.</li>
-        <li>Continuous oversight — delivery and reputation monitored so issues can’t return quietly.</li>
-        <li>Evidence package — plain-English report showing measurable trust and compliance.</li>
+        <li>Authentic communication — every message verified as real and reaching inboxes the first time.</li>
+        <li>Protection from impostors — attackers can’t mimic your domain, redirect mail, or fake internal users.</li>
+        <li>Hidden rule cleanup — malicious forwarding and auto-redirects discovered and disabled.</li>
+        <li>Encrypted transmission — all mail traffic secured to insurer-approved standards.</li>
+        <li>Continuous monitoring — inbox reputation and delivery trends tracked for drift or tampering.</li>
+        <li>Evidence package — plain-English report showing your firm’s email environment is secure, compliant, and verifiable.</li>
       </ul>
     </div>
+
     <div>
       <p style={{ fontWeight: 700, marginBottom: '.35rem' }}>The business outcome</p>
       <ul>
-        <li>Fewer client delays and no “we never got it” disputes.</li>
-        <li>Zero impersonation or invoice-fraud risk.</li>
-        <li>Partners and insurers see proof your communication channel is credible.</li>
-        <li>Leadership holds written evidence that your firm meets modern security expectations.</li>
+        <li>No more “fake invoice” or “wire-change” attacks — impostor messages are stopped before they reach staff or clients.</li>
+        <li>Silent forwarding and exfiltration rules eliminated; nothing leaves the firm unnoticed.</li>
+        <li>Partners and clients see communications that are consistently delivered, recognized, and trusted.</li>
+        <li>Auditors and insurers receive clear evidence that email risks are contained and documented.</li>
+        <li>Leadership can prove the firm’s inboxes are secure, compliant, and under continuous watch.</li>
       </ul>
     </div>
   </div>
 </div>
 
 
-    {/* ===== Service: Backup & Recovery Retrofit ===== */}
+
+  {/* ===== Service: Backup & Recovery Retrofit ===== */}
 <div className="card">
   <div
     style={{
@@ -160,34 +163,38 @@ export default function ServicesPage() {
   </div>
 
   <p>
-    <strong>Why it matters:</strong> Backups are meaningless until they’re tested. When data loss or
-    ransomware strikes, firms without proof of recovery lose more than files — they lose time,
-    trust, and compliance standing. The Backup &amp; Recovery Retrofit turns “we think it’s safe”
-    into a timed, documented recovery you can prove.
+    <strong>Why it matters:</strong> Data loss isn’t just inconvenient — it can stop your business,
+    violate retention obligations, and trigger insurance disputes. The Backup &amp; Recovery Retrofit
+    proves your firm can recover quickly, completely, and with evidence. It replaces assumptions with
+    documentation and shows insurers, auditors, and clients that continuity is under control.
   </p>
 
   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
     <div>
       <p style={{ fontWeight: 700, marginBottom: '.35rem' }}>What we deliver</p>
       <ul>
-        <li>Live restoration drill showing how fast full recovery actually takes.</li>
-        <li>Verified coverage across files, email, and shared data — no blind spots.</li>
-        <li>Protection from tampering — ransomware-resilient recovery paths locked down.</li>
-        <li>Continuity report — timing, retention, and data-loss metrics in plain English.</li>
-        <li>Audit-ready documentation — screenshots, logs, and leadership summary for insurers.</li>
+        <li>Live restoration exercise — a supervised drill proving data can be recovered on demand.</li>
+        <li>Coverage verification — every file, mailbox, and record checked for backup consistency.</li>
+        <li>Ransomware resilience — backup integrity tested against tampering or deletion attempts.</li>
+        <li>Retention &amp; compliance audit — confirm regulatory and insurer retention requirements are met.</li>
+        <li>Continuity report — recovery timelines, loss windows, and success metrics in plain English.</li>
+        <li>Evidence package — screenshots, timing logs, and executive summary ready for audit or claim.</li>
       </ul>
     </div>
+
     <div>
       <p style={{ fontWeight: 700, marginBottom: '.35rem' }}>The business outcome</p>
       <ul>
-        <li>Leadership knows exactly how recovery works — and how long it takes.</li>
-        <li>Clients and carriers see evidence your firm can survive disruption.</li>
-        <li>Deadlines and filings stay on schedule even after an incident.</li>
-        <li>Continuity becomes measurable — not a promise, but proof.</li>
+        <li>Ransomware or accidental deletions can’t paralyze your firm — recovery is proven, not promised.</li>
+        <li>Leadership knows exactly how long restoration takes and what data could be lost.</li>
+        <li>Insurance renewals move faster with documented proof of tested continuity controls.</li>
+        <li>Auditors and regulators see clear evidence of compliance with retention and recovery standards.</li>
+        <li>Clients trust that critical records are safeguarded and retrievable even under pressure.</li>
       </ul>
     </div>
   </div>
 </div>
+
 
 
       {/* ===== CTA (Premium Band) ===== */}
