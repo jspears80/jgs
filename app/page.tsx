@@ -11,9 +11,8 @@ export default function HomePage() {
           <h1 className="hero">Secure and Support — Microsoft 365 for Law &amp; CPA Firms</h1>
 
           <p className="lead" style={{ maxWidth: '72ch' }}>
-            JGS Cloud Compliance helps professional firms work without uncertainty. We remove the risks that interrupt
-            revenue and trust, then stay engaged so leadership always knows systems are controlled, communications are
-            trusted, and recovery is proven.
+            JGS Cloud Compliance protects client data, delivers trusted communication, and preserves business
+            continuity — all with audit-ready proof and senior expertise that keeps firms confident year-round.
           </p>
 
           <div
@@ -56,8 +55,8 @@ export default function HomePage() {
           {/* ===== CTA BAND (Value framing) ===== */}
           <div className="cta-band" style={{ marginTop: '1.25rem' }}>
             <p className="lead" style={{ margin: 0 }}>
-              Projects eliminate specific risks. Retainers keep the gains. That’s Secure → Support — a simple model
-              that gives partners clarity, credibility, and continuity.
+              Projects secure it. Retainers support it. That’s Secure → Support — the JGS model that gives professional
+              firms proof, continuity, and senior expertise on demand.
             </p>
           </div>
         </div>
@@ -85,8 +84,8 @@ export default function HomePage() {
             </div>
 
             <p style={{ fontSize: '.95rem', opacity: 0.9, marginTop: '.25rem', maxWidth: '60ch' }}>
-              “I built JGS for firms that can’t afford half-solutions — they need technology that proves it’s working,
-              not just promises it is.”
+              “I’ve seen too many firms run on bare-bones Microsoft 365, told they’re secure when they’re not.
+              I built JGS to fix that — to deliver security you can prove, not just assume.”
             </p>
 
             <div className="founder-actions" style={{ justifyContent: 'center', marginTop: '.5rem' }}>
