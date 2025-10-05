@@ -83,11 +83,14 @@ export default function HomePage() {
               <div className="founder-name">Jeremiah Spears</div>
               <div className="founder-title">Founder &amp; Principal Consultant</div>
             </div>
-            <p style={{ fontSize: '.95rem', opacity: 0.9, maxWidth: '60ch' }}>
+
+            {/* Moved quote directly beneath title */}
+            <p style={{ fontSize: '.95rem', opacity: 0.9, marginTop: '.25rem', maxWidth: '60ch' }}>
               “I built JGS for firms that can’t afford half-solutions — they need technology that proves it’s working,
               not just promises it is.”
             </p>
-            <div className="founder-actions" style={{ justifyContent: 'center' }}>
+
+            <div className="founder-actions" style={{ justifyContent: 'center', marginTop: '.5rem' }}>
               <a
                 className="btn sm"
                 href="https://www.linkedin.com/in/jspears80/"
