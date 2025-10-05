@@ -2,6 +2,7 @@
   "name": "jgs-cloud-compliance",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -15,6 +16,8 @@
   },
   "devDependencies": {
     "eslint": "8.57.0",
-    "eslint-config-next": "14.2.3"
+    "eslint-config-next": "14.2.3",
+    "@types/react": "18.3.3",
+    "@types/node": "20.12.7"
   }
 }
