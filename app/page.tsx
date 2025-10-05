@@ -11,9 +11,9 @@ export default function HomePage() {
           <h1 className="hero">Secure and Support — Microsoft 365 for Law &amp; CPA Firms</h1>
 
           <p className="lead" style={{ maxWidth: '72ch' }}>
-            JGS Cloud Compliance helps law and accounting firms operate securely, confidently, and without
-            interruption on Microsoft 365. Projects fix risks. Retainers keep systems supported — so trust,
-            deadlines, and compliance are never in question.
+            JGS Cloud Compliance helps professional firms work without uncertainty. We remove the risks that interrupt
+            revenue and trust, then stay engaged so leadership always knows systems are controlled, communications are
+            trusted, and recovery is proven.
           </p>
 
           <div
@@ -37,23 +37,24 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* ===== PROOF BADGES ===== */}
+          {/* ===== PROOF BADGES (Business Outcomes) ===== */}
           <div className="badge-list">
             <div className="badge">
-              🛠 <strong>Access Secured</strong> — Old accounts and hidden doors closed; only the right people get in.
+              🛠 <strong>Access Under Control</strong> — Leadership can state who holds access and why; insider risk drops.
             </div>
             <div className="badge">
-              📧 <strong>Email Trusted</strong> — Invoices, filings, and client correspondence deliver on first send; impostors are blocked.
+              📧 <strong>Emails That Count, Delivered</strong> — Invoices, filings, and engagement letters land on first send.
             </div>
             <div className="badge">
-              🔁 <strong>Continuity Proven</strong> — Files recover, deadlines are met, and insurers accept your readiness.
+              🔁 <strong>Continuity You Can Prove</strong> — Recovery is rehearsed and documented; insurers accept readiness.
             </div>
           </div>
 
-          {/* ===== CTA BAND ===== */}
+          {/* ===== CTA BAND (Value framing) ===== */}
           <div className="cta-band" style={{ marginTop: '1.25rem' }}>
             <p className="lead" style={{ margin: 0 }}>
-              Most MSPs keep systems online. JGS secures and supports them so your firm can work safely every day.
+              Projects eliminate specific risks. Retainers keep the gains. That’s Secure → Support — a simple model
+              that gives partners clarity, credibility, and continuity.
             </p>
           </div>
         </div>
