@@ -48,6 +48,9 @@ export default function HomePage() {
             <div className="badge">
               🔁 <strong>Continuity You Can Prove</strong> — Recovery is rehearsed and documented; insurers accept readiness.
             </div>
+            <div className="badge">
+              📄 <strong>Evidence Delivered</strong> — Every engagement ends with plain-English proof leadership can show to clients, insurers, or regulators.
+            </div>
           </div>
 
           {/* ===== CTA BAND (Value framing) ===== */}
@@ -68,7 +71,7 @@ export default function HomePage() {
             justifyContent: 'center',
           }}
         >
-          <div className="founder">
+          <div className="founder" style={{ textAlign: 'center', alignItems: 'center' }}>
             <img
               src="/founder.jpg"
               alt="Founder headshot"
@@ -80,10 +83,11 @@ export default function HomePage() {
               <div className="founder-name">Jeremiah Spears</div>
               <div className="founder-title">Founder &amp; Principal Consultant</div>
             </div>
-            <p style={{ fontSize: '.95rem', opacity: 0.9 }}>
-              “I built JGS for firms that can’t afford half-solutions.”
+            <p style={{ fontSize: '.95rem', opacity: 0.9, maxWidth: '60ch' }}>
+              “I built JGS for firms that can’t afford half-solutions — they need technology that proves it’s working,
+              not just promises it is.”
             </p>
-            <div className="founder-actions">
+            <div className="founder-actions" style={{ justifyContent: 'center' }}>
               <a
                 className="btn sm"
                 href="https://www.linkedin.com/in/jspears80/"
