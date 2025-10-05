@@ -2,12 +2,14 @@
 import React from 'react';
 import Link from 'next/link';
 import Seo from './Seo';
+import Nav from './Nav';
 import './globals.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        {/* Base defaults (Seo will override per-route) */}
         <title>JGS Cloud Compliance — Secure and Support</title>
         <meta
           name="description"
@@ -25,13 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <img src="/Logo.png" alt="JGS Cloud Compliance logo" className="logo" />
               <span className="tagline">Secure and Support</span>
             </Link>
-            <nav className="nav-links">
-              <Link href="/">Home</Link>
-              <Link href="/services">Services</Link>
-              <Link href="/advisory">Advisory</Link>
-              <Link href="/about">About</Link>
-              <Link href="/contact">Contact</Link>
-            </nav>
+            <Nav />
           </div>
         </header>
 
