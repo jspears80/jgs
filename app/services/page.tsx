@@ -73,72 +73,122 @@ export default function ServicesPage() {
 </div>
 
 
-      {/* ===== Service: Email Security Retrofit ===== */}
-      <div className="card">
-        <div style={{ display:'flex', alignItems:'baseline', justifyContent:'space-between', gap:'.75rem', flexWrap:'wrap' }}>
-          <h2 className="title-xl" style={{ marginBottom: '.25rem' }}>📧 Email Security Retrofit</h2>
-          <span style={{ border:'1px solid rgba(255,255,255,.25)', borderRadius:'.6rem', padding:'.25rem .55rem', fontWeight:700, whiteSpace:'nowrap' }}>$995</span>
-        </div>
+     {/* ===== Service: Email Security Retrofit ===== */}
+<div className="card">
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'baseline',
+      justifyContent: 'space-between',
+      gap: '.75rem',
+      flexWrap: 'wrap',
+    }}
+  >
+    <h2 className="title-xl" style={{ marginBottom: '.25rem' }}>
+      📧 Email Security Retrofit
+    </h2>
+    <span
+      style={{
+        border: '1px solid rgba(255,255,255,.25)',
+        borderRadius: '.6rem',
+        padding: '.25rem .55rem',
+        fontWeight: 700,
+        whiteSpace: 'nowrap',
+      }}
+    >
+      $995
+    </span>
+  </div>
 
-        <p><strong>Why it matters:</strong> Your business depends on email that works and can be trusted.
-        When messages don’t arrive—or when someone pretends to be you—it costs money, reputation, and time.
-        The Email Security Retrofit ensures your firm’s messages are verifiable, deliverable, and protected.</p>
+  <p>
+    <strong>Why it matters:</strong> Your firm’s reputation depends on messages that are genuine,
+    private, and delivered. When an email is spoofed or lost to spam, it isn’t just technical noise —
+    it’s a business problem. The Email Security Retrofit ensures every message you send is recognized,
+    protected, and proven.
+  </p>
 
-        <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem' }}>
-          <div>
-            <p style={{ fontWeight:700, marginBottom:'.35rem' }}>What we deliver</p>
-            <ul>
-              <li>Authentic, trusted communication that reaches inboxes on the first send.</li>
-              <li>Protection from impostors and fake invoices that target clients and staff.</li>
-              <li>Encrypted, compliant message flow that meets insurer and privacy expectations.</li>
-              <li>Continuous oversight to prevent drift or reputation loss.</li>
-              <li>Plain-English summary showing exactly how your firm’s communication is now defensible.</li>
-            </ul>
-          </div>
-          <div>
-            <p style={{ fontWeight:700, marginBottom:'.35rem' }}>The business outcome</p>
-            <ul>
-              <li>Faster client responses and fewer disputes.</li>
-              <li>No impersonation risk or spoofed email threats.</li>
-              <li>Trusted correspondence your partners and carriers can verify.</li>
-              <li>Written proof that your firm meets modern communication security standards.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+    <div>
+      <p style={{ fontWeight: 700, marginBottom: '.35rem' }}>What we deliver</p>
+      <ul>
+        <li>Authentic communication — messages verified as real and reaching inboxes first time.</li>
+        <li>Protection from impostors — attackers can’t fake your address or domain identity.</li>
+        <li>Clean, reliable delivery — important mail stops landing in junk or disappearing.</li>
+        <li>Secure transmission — email traffic encrypted end-to-end to meet insurer standards.</li>
+        <li>Continuous oversight — delivery and reputation monitored so issues can’t return quietly.</li>
+        <li>Evidence package — plain-English report showing measurable trust and compliance.</li>
+      </ul>
+    </div>
+    <div>
+      <p style={{ fontWeight: 700, marginBottom: '.35rem' }}>The business outcome</p>
+      <ul>
+        <li>Fewer client delays and no “we never got it” disputes.</li>
+        <li>Zero impersonation or invoice-fraud risk.</li>
+        <li>Partners and insurers see proof your communication channel is credible.</li>
+        <li>Leadership holds written evidence that your firm meets modern security expectations.</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-      {/* ===== Service: Backup & Recovery Retrofit ===== */}
-      <div className="card">
-        <div style={{ display:'flex', alignItems:'baseline', justifyContent:'space-between', gap:'.75rem', flexWrap:'wrap' }}>
-          <h2 className="title-xl" style={{ marginBottom: '.25rem' }}>🔁 Backup &amp; Recovery Retrofit</h2>
-          <span style={{ border:'1px solid rgba(255,255,255,.25)', borderRadius:'.6rem', padding:'.25rem .55rem', fontWeight:700, whiteSpace:'nowrap' }}>$995</span>
-        </div>
 
-        <p><strong>Why it matters:</strong> Backups are only as good as the last time they were tested.
-        The Backup & Recovery Retrofit turns assumptions into proof—demonstrating that your firm’s data can be recovered quickly, completely, and without guesswork.</p>
+    {/* ===== Service: Backup & Recovery Retrofit ===== */}
+<div className="card">
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'baseline',
+      justifyContent: 'space-between',
+      gap: '.75rem',
+      flexWrap: 'wrap',
+    }}
+  >
+    <h2 className="title-xl" style={{ marginBottom: '.25rem' }}>
+      🔁 Backup &amp; Recovery Retrofit
+    </h2>
+    <span
+      style={{
+        border: '1px solid rgba(255,255,255,.25)',
+        borderRadius: '.6rem',
+        padding: '.25rem .55rem',
+        fontWeight: 700,
+        whiteSpace: 'nowrap',
+      }}
+    >
+      $995
+    </span>
+  </div>
 
-        <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem' }}>
-          <div>
-            <p style={{ fontWeight:700, marginBottom:'.35rem' }}>What we deliver</p>
-            <ul>
-              <li>Live restoration drill proving how fast your firm can recover.</li>
-              <li>Verified coverage for files, email, and shared data.</li>
-              <li>Ransomware-resistant recovery paths protected from tampering.</li>
-              <li>Continuity report showing recovery times, retention, and business impact.</li>
-              <li>Audit-ready documentation that satisfies insurers and regulators.</li>
-            </ul>
-          </div>
-          <div>
-            <p style={{ fontWeight:700, marginBottom:'.35rem' }}>The business outcome</p>
-            <ul>
-              <li>Leadership knows exactly how recovery works—and how long it takes.</li>
-              <li>Clients and carriers trust your ability to survive a disruption.</li>
-              <li>Deadlines and filings stay on track, even under pressure.</li>
-              <li>Continuity becomes measurable—not theoretical.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+  <p>
+    <strong>Why it matters:</strong> Backups are meaningless until they’re tested. When data loss or
+    ransomware strikes, firms without proof of recovery lose more than files — they lose time,
+    trust, and compliance standing. The Backup &amp; Recovery Retrofit turns “we think it’s safe”
+    into a timed, documented recovery you can prove.
+  </p>
+
+  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+    <div>
+      <p style={{ fontWeight: 700, marginBottom: '.35rem' }}>What we deliver</p>
+      <ul>
+        <li>Live restoration drill showing how fast full recovery actually takes.</li>
+        <li>Verified coverage across files, email, and shared data — no blind spots.</li>
+        <li>Protection from tampering — ransomware-resilient recovery paths locked down.</li>
+        <li>Continuity report — timing, retention, and data-loss metrics in plain English.</li>
+        <li>Audit-ready documentation — screenshots, logs, and leadership summary for insurers.</li>
+      </ul>
+    </div>
+    <div>
+      <p style={{ fontWeight: 700, marginBottom: '.35rem' }}>The business outcome</p>
+      <ul>
+        <li>Leadership knows exactly how recovery works — and how long it takes.</li>
+        <li>Clients and carriers see evidence your firm can survive disruption.</li>
+        <li>Deadlines and filings stay on schedule even after an incident.</li>
+        <li>Continuity becomes measurable — not a promise, but proof.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 
       {/* ===== CTA (Premium Band) ===== */}
       <div className="card full cta-band">
