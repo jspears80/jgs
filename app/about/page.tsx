@@ -7,7 +7,7 @@ export default function AboutPage() {
       {/* ===== Page Header ===== */}
       <div className="card full" id="about">
         <span className="eyebrow">Firm Overview</span>
-        <h1 className="hero">JGS Cloud Compliance, LLC — Firm Overview (2025 Edition)</h1>
+        <h1 className="hero">JGS Cloud Compliance, LLC — Firm Overview</h1>
         <p className="lead">Secure and Support — Microsoft 365 for Law &amp; CPA Firms</p>
       </div>
 
@@ -232,3 +232,4 @@ export default function AboutPage() {
     </section>
   );
 }
+
