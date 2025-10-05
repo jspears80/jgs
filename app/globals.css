@@ -131,19 +131,23 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
 
 /* Premium CTA band */
 .cta-band{
-  border-radius:var(--radius); padding:1.6rem;
+  border-radius:var(--radius); padding:1.8rem;     /* +padding */
   border:1px solid rgba(255,255,255,.16);
   background:
     linear-gradient(180deg, rgba(20,20,20,.7), rgba(12,12,12,.7)),
     radial-gradient(60% 120% at 0% 0%, var(--ring) 0%, transparent 60%),
     radial-gradient(80% 120% at 100% 100%, var(--ring2) 0%, transparent 60%);
   box-shadow:var(--shadow);
+  margin-top:1.75rem;                              /* +breathing room */
 }
+.cta-band p{text-align:center}                     /* center the line */
 
 /* =========  PROOF GRID (mini-cards) ========= */
 .proofgrid{
-  display:grid; gap:1.1rem; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  margin-top:1.5rem;
+  display:grid;
+  gap:1.1rem;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  margin-top:1.75rem;                              /* +space above grid */
 }
 .proofgrid div{
   background:rgba(0,0,0,.45);
@@ -152,12 +156,13 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
   padding:.85rem 1rem;
   line-height:1.6;
   box-shadow:0 3px 6px rgba(0,0,0,.25);
-  transition:background .2s ease, border-color .2s ease, transform .15s ease;
+  transition:background .2s ease, border-color .2s ease, transform .15s ease, box-shadow .2s ease;
 }
 .proofgrid div:hover{
   background:rgba(255,255,255,.06);
   border-color:rgba(255,255,255,.3);
   transform:translateY(-2px);
+  box-shadow:0 6px 14px rgba(0,0,0,.35), 0 0 8px rgba(139,92,246,.25); /* subtle glow */
 }
 .proofgrid strong{display:inline-block; margin-bottom:.2rem}
 
