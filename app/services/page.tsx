@@ -4,82 +4,126 @@ import React from 'react';
 export default function ServicesPage() {
   return (
     <section className="section container">
-      {/* ===== Page Header ===== */}
+      {/* ===== Header ===== */}
       <div className="card full">
         <span className="eyebrow">Secure = Projects</span>
         <h1 className="hero">Secure — Microsoft 365 Projects</h1>
         <p className="lead" style={{ maxWidth: '70ch' }}>
-          Each JGS project removes a specific point of business risk inside Microsoft 365.
-          These flat-fee engagements are designed for results that leadership can see and prove —
-          safer access, trusted communication, and documented continuity.
+          Flat-fee projects that remove specific business risks inside Microsoft 365. 
+          Each engagement produces visible results you can prove — safer access, trusted communication, 
+          and documented continuity.
         </p>
+
+        {/* quick legend / badges */}
+        <div style={{ display:'flex', gap:'.5rem', flexWrap:'wrap', marginTop:'.25rem' }}>
+          <span style={{ opacity:.9 }}>🛠 Security</span>
+          <span style={{ opacity:.9 }}>📧 Email</span>
+          <span style={{ opacity:.9 }}>🔁 Continuity</span>
+          <span style={{ opacity:.9 }}>📄 Audit-ready proof</span>
+        </div>
       </div>
 
-      {/* ===== Service: Security Hardening ===== */}
-      <div className="card">
-        <h2 className="title-xl">🛠 Microsoft 365 Security Hardening — $1,995</h2>
-        <p>
-          <strong>Purpose:</strong> Restore confidence in who can access firm systems and data.
-          We close the silent vulnerabilities that accumulate over time — unused accounts, broad
-          permissions, and unclear ownership.
-        </p>
-        <p>
-          <strong>What We Do:</strong> Review and tighten account access, disable dormant identities,
-          and implement Microsoft 365 security baselines that match insurer expectations.
-        </p>
-        <p style={{ fontWeight: 700 }}>
-          <strong>Business Outcome:</strong> Leadership knows exactly who holds access and why.
-          Insider risk and credential abuse are reduced, and insurers view the firm as controlled and responsible.
-        </p>
-      </div>
+      {/* ===== Services Grid ===== */}
+      <div style={{ display:'grid', gridTemplateColumns:'1fr', gap:'1rem' }}>
+        {/* --- Security Hardening --- */}
+        <div className="card">
+          <div style={{ display:'flex', alignItems:'baseline', justifyContent:'space-between', gap:'.75rem', flexWrap:'wrap' }}>
+            <h2 className="title-xl" style={{ marginBottom: '.25rem' }}>🛠 Microsoft 365 Security Hardening</h2>
+            <span style={{ border:'1px solid rgba(255,255,255,.25)', borderRadius:'.6rem', padding:'.25rem .55rem', fontWeight:700, whiteSpace:'nowrap' }}>$1,995</span>
+          </div>
 
-      {/* ===== Service: Email Authentication ===== */}
-      <div className="card">
-        <h2 className="title-xl">📧 Email Authentication &amp; Delivery — $995</h2>
-        <p>
-          <strong>Purpose:</strong> Protect revenue and reputation by ensuring every outgoing
-          message is recognized as legitimate and delivered the first time.
-        </p>
-        <p>
-          <strong>What We Do:</strong> Align your Microsoft 365 mail with global trust standards so
-          clients, courts, and counterparties can verify authenticity. JGS configures and validates
-          modern email-security controls and tests real-world deliverability.
-        </p>
-        <p style={{ fontWeight: 700 }}>
-          <strong>Business Outcome:</strong> Invoices, filings, and engagement letters reach their
-          destination without dispute. Clients and insurers trust your domain as a verified source of communication.
-        </p>
-      </div>
+          <p><strong>Purpose:</strong> Restore confidence in who can access systems and data.</p>
 
-      {/* ===== Service: Backup & Recovery ===== */}
-      <div className="card">
-        <h2 className="title-xl">🔁 Backup &amp; Recovery Validation — $995</h2>
-        <p>
-          <strong>Purpose:</strong> Turn “we think it’s backed up” into documented proof of recovery.
-          Data loss isn’t just a technology failure — it’s a business disruption.
-        </p>
-        <p>
-          <strong>What We Do:</strong> JGS performs a live restore test across Microsoft 365 data
-          sources, verifies retention coverage, and documents the exact recovery time and scope.
-        </p>
-        <p style={{ fontWeight: 700 }}>
-          <strong>Business Outcome:</strong> Partners can demonstrate continuity with real evidence.
-          In an outage or ransomware claim, the firm can show exactly how quickly operations would resume.
-        </p>
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem' }}>
+            <div>
+              <p style={{ fontWeight:700, marginBottom:'.35rem' }}>What We Do</p>
+              <ul>
+                <li>Remove dormant/guest accounts and right-size privileged roles.</li>
+                <li>Enforce MFA and Conditional Access; disable legacy auth.</li>
+                <li>Apply Microsoft 365 baselines aligned with insurer expectations.</li>
+              </ul>
+            </div>
+            <div>
+              <p style={{ fontWeight:700, marginBottom:'.35rem' }}>Business Outcome</p>
+              <ul>
+                <li>Leadership can name exactly who holds access and why.</li>
+                <li>Insider risk and credential abuse drop sharply.</li>
+                <li>Insurers view the firm as controlled and responsible.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* --- Email Authentication & Delivery --- */}
+        <div className="card">
+          <div style={{ display:'flex', alignItems:'baseline', justifyContent:'space-between', gap:'.75rem', flexWrap:'wrap' }}>
+            <h2 className="title-xl" style={{ marginBottom: '.25rem' }}>📧 Email Authentication &amp; Delivery</h2>
+            <span style={{ border:'1px solid rgba(255,255,255,.25)', borderRadius:'.6rem', padding:'.25rem .55rem', fontWeight:700, whiteSpace:'nowrap' }}>$995</span>
+          </div>
+
+          <p><strong>Purpose:</strong> Ensure every outbound message is authentic and accepted on the first send.</p>
+
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem' }}>
+            <div>
+              <p style={{ fontWeight:700, marginBottom:'.35rem' }}>What We Do</p>
+              <ul>
+                <li>Configure and validate SPF, DKIM, and DMARC to global trust standards.</li>
+                <li>Harden Exchange Online policies; test true deliverability.</li>
+                <li>Map sender integrity documentation in plain English.</li>
+              </ul>
+            </div>
+            <div>
+              <p style={{ fontWeight:700, marginBottom:'.35rem' }}>Business Outcome</p>
+              <ul>
+                <li>Invoices, filings, and engagement letters arrive without dispute.</li>
+                <li>Clients and courts trust your domain; impostors fail.</li>
+                <li>Fewer “we never got it” loops and billing delays.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* --- Backup & Recovery Validation --- */}
+        <div className="card">
+          <div style={{ display:'flex', alignItems:'baseline', justifyContent:'space-between', gap:'.75rem', flexWrap:'wrap' }}>
+            <h2 className="title-xl" style={{ marginBottom: '.25rem' }}>🔁 Backup &amp; Recovery Validation</h2>
+            <span style={{ border:'1px solid rgba(255,255,255,.25)', borderRadius:'.6rem', padding:'.25rem .55rem', fontWeight:700, whiteSpace:'nowrap' }}>$995</span>
+          </div>
+
+          <p><strong>Purpose:</strong> Turn “we think it’s backed up” into measured proof of recovery.</p>
+
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem' }}>
+            <div>
+              <p style={{ fontWeight:700, marginBottom:'.35rem' }}>What We Do</p>
+              <ul>
+                <li>Run a timed live restore across SharePoint, OneDrive, and Exchange.</li>
+                <li>Verify retention coverage and destructive-action alerts.</li>
+                <li>Document RPO/RTO clearly for leadership and insurers.</li>
+              </ul>
+            </div>
+            <div>
+              <p style={{ fontWeight:700, marginBottom:'.35rem' }}>Business Outcome</p>
+              <ul>
+                <li>Continuity you can demonstrate with real evidence.</li>
+                <li>Clear expectations in an outage or ransomware claim.</li>
+                <li>Confidence that operations can resume on a clock.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* ===== Process Summary ===== */}
       <div className="card">
         <h2 className="title-xl">How Projects Deliver Value</h2>
         <ol>
-          <li><strong>Discovery:</strong> Identify exposures that impact daily operations and insurer compliance.</li>
-          <li><strong>Implementation:</strong> Apply targeted remediations that correct configuration risk without disrupting work.</li>
-          <li><strong>Verification:</strong> Demonstrate results directly to firm leadership.</li>
-          <li><strong>Documentation:</strong> Deliver a concise, plain-English summary suitable for insurers, auditors, and partners.</li>
+          <li><strong>Discovery</strong> — Identify exposures affecting operations and insurer compliance.</li>
+          <li><strong>Implementation</strong> — Correct configuration risk without disrupting work.</li>
+          <li><strong>Verification</strong> — Demonstrate results directly to leadership.</li>
+          <li><strong>Documentation</strong> — Deliver a plain-English summary suitable for insurers, auditors, and partners.</li>
         </ol>
         <p>
-          Every project concludes with measurable outcomes — reduced exposure, improved insurer alignment,
-          and evidence the firm can keep on file.
+          Every project ends with measurable outcomes — reduced exposure, improved insurer alignment, and evidence your firm can keep on file.
         </p>
       </div>
 
@@ -87,8 +131,7 @@ export default function ServicesPage() {
       <div className="card full cta-band">
         <h2 className="title-xl">Ready to Eliminate Risk?</h2>
         <p className="lead" style={{ marginBottom: '.9rem' }}>
-          Start with a 30-minute consultation to pinpoint where Microsoft 365 gaps may
-          expose your firm and outline the simplest path to closure.
+          Start with a 30-minute consultation to pinpoint where Microsoft 365 gaps may expose your firm and outline the fastest path to closure.
         </p>
         <a
           className="btn primary"
