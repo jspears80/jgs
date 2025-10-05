@@ -4,7 +4,7 @@
   --muted:rgba(255,255,255,.20); --muted-2:rgba(255,255,255,.25);
   --accent-purple:rgba(139,92,246,.60); --accent-blue:rgba(56,189,248,.55);
   --soft:rgba(0,0,0,.55);
-  --radius:1.1rem;                /* premium corners */
+  --radius:1.1rem;
   --ring:rgba(139,92,246,.35); --ring2:rgba(56,189,248,.25);
   --shadow:0 10px 30px rgba(0,0,0,.35);
 }
@@ -20,7 +20,7 @@ body{
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
 a{color:inherit; text-decoration:none}
-a:focus,.btn:focus{outline:none} /* use :focus-visible */
+a:focus,.btn:focus{outline:none}
 
 /* =========  BACKGROUND EFFECTS  ========= */
 body::before{
@@ -56,12 +56,8 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
 .container{max-width:76rem; margin:0 auto; padding:1rem; position:relative; z-index:1}
 .section{padding:3.5rem 0; scroll-margin-top:4rem}
 .main{min-height:calc(100vh - 160px)}
-
-/* Home two-column hero */
 .home-grid{display:grid; grid-template-columns:1.2fr .9fr; gap:1.25rem}
 @media (max-width:900px){.home-grid{grid-template-columns:1fr}}
-
-/* Mobile spacing tweaks */
 @media (max-width:900px){
   .section{padding:2.5rem 0}
   .container{padding:.85rem}
@@ -81,8 +77,6 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
 .nav-links{display:flex; gap:1rem; flex-wrap:wrap}
 .nav-links a{font-weight:500; opacity:.9; transition:opacity .2s ease; position:relative}
 .nav-links a:hover{opacity:1}
-
-/* Active link underline + hover cue */
 .nav-links a.nav-active::after,
 .nav-links a:hover::after{
   content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px;
@@ -94,7 +88,7 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
   .logo{height:44px}
 }
 
-/* =========  FOCUS VISIBILITY (A11y) ========= */
+/* =========  FOCUS VISIBILITY ========= */
 .btn:focus-visible, .nav-links a:focus-visible, a:focus-visible{
   outline:2px solid rgba(139,92,246,.9); outline-offset:2px; border-radius:.4rem;
 }
@@ -118,8 +112,6 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
 }
 .card.full{padding:1.6rem}
 .card:hover{transform:translateY(-3px); border-color:rgba(255,255,255,.35)}
-
-/* CTA highlight cards */
 .book-cta{
   border:1px solid transparent;
   background:
@@ -131,23 +123,23 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
 
 /* Premium CTA band */
 .cta-band{
-  border-radius:var(--radius); padding:1.8rem;     /* +padding */
+  border-radius:var(--radius); padding:1.8rem;
   border:1px solid rgba(255,255,255,.16);
   background:
     linear-gradient(180deg, rgba(20,20,20,.7), rgba(12,12,12,.7)),
     radial-gradient(60% 120% at 0% 0%, var(--ring) 0%, transparent 60%),
     radial-gradient(80% 120% at 100% 100%, var(--ring2) 0%, transparent 60%);
   box-shadow:var(--shadow);
-  margin-top:1.75rem;                              /* +breathing room */
+  margin-top:1.75rem;
 }
-.cta-band p{text-align:center}                     /* center the line */
+.cta-band p{text-align:center}
 
 /* =========  PROOF GRID (mini-cards) ========= */
 .proofgrid{
   display:grid;
   gap:1.1rem;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  margin-top:1.75rem;                              /* +space above grid */
+  margin-top:1.75rem;
 }
 .proofgrid div{
   background:rgba(0,0,0,.45);
@@ -162,11 +154,11 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
   background:rgba(255,255,255,.06);
   border-color:rgba(255,255,255,.3);
   transform:translateY(-2px);
-  box-shadow:0 6px 14px rgba(0,0,0,.35), 0 0 8px rgba(139,92,246,.25); /* subtle glow */
+  box-shadow:0 6px 14px rgba(0,0,0,.35), 0 0 8px rgba(139,92,246,.25);
 }
 .proofgrid strong{display:inline-block; margin-bottom:.2rem}
 
-/* (Legacy) Keep old badge styles unused but harmless */
+/* (Legacy badges kept harmless) */
 .badge-list{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:.6rem}
 .badge{border:1px solid rgba(255,255,255,.18); border-radius:.6rem; padding:.55rem .65rem; background:rgba(0,0,0,.45)}
 
@@ -186,8 +178,6 @@ table{width:100%; border-collapse:collapse; margin:.75rem 0 0}
 thead th{border-bottom:1px solid var(--muted-2); text-align:left; padding:.6rem .5rem; font-weight:700}
 tbody td{border-top:1px solid var(--muted); padding:.6rem .5rem; vertical-align:top; font-size:.95rem}
 tbody tr:nth-child(2n){background:rgba(255,255,255,.02)}
-
-/* Mobile table → stacked cards */
 @media (max-width:760px){
   table, thead, tbody, th, td, tr{display:block}
   thead{display:none}
