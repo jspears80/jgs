@@ -38,13 +38,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className={`header ${scrolled ? 'scrolled' : ''}`}>
           <div className="header-row container">
             {/* Brand */}
-            <Link href="/" className="brand">
+            <Link href="/" className="brand" aria-label="JGS Cloud Compliance Home">
               <img src="/Logo.png" alt="JGS Cloud Compliance logo" className="logo" />
               <span className="tagline">Cloud Compliance</span>
             </Link>
 
             {/* Nav */}
-            <nav className="nav-links">
+            <nav className="nav-links" aria-label="Primary">
               {links.map(({ href, label }) => (
                 <Link
                   key={href}
@@ -70,20 +70,61 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </header>
 
-        {/* Page content */}
+        {/* ===== Page content ===== */}
         <main className="main">{children}</main>
 
-        {/* Footer */}
+        {/* ===== Footer (grid + subfooter) ===== */}
         <footer className="footer">
-          <div className="container footer-inner">
-            <div><img src="/Logo.png" alt="JGS logo small" className="footer-logo" /></div>
-            <div className="footer-text">
-              <p>© {new Date().getFullYear()} JGS Cloud Compliance, LLC · Secure and Support</p>
-              <p>
-                <a href="mailto:support@cloudjgs.com">support@cloudjgs.com</a> |
-                <a href="https://www.linkedin.com/in/jspears80/" target="_blank" rel="noopener"> LinkedIn</a> |
-                <a href="https://www.cloudjgs.com" target="_blank" rel="noopener"> www.cloudjgs.com</a>
-              </p>
+          <div className="container footer-grid">
+            {/* Brand */}
+            <div className="footer-brand">
+              <img src="/Logo.png" alt="JGS logo" className="footer-logo" />
+              <div className="footer-brand-text">
+                <div className="footer-title">JGS Cloud Compliance</div>
+                <div className="footer-tagline">
+                  Secure and Support — Microsoft 365 for Law &amp; CPA Firms
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <nav className="footer-links" aria-label="Footer">
+              <a href="/">Home</a>
+              <a href="/services">Services</a>
+              <a href="/advisory">Advisory</a>
+              <a href="/about">About</a>
+              <a href="/contact">Contact</a>
+            </nav>
+
+            {/* Contact / CTA */}
+            <div className="footer-cta">
+              <a href="mailto:support@cloudjgs.com" className="footer-link">support@cloudjgs.com</a>
+              <div className="footer-actions">
+                <a
+                  className="btn sm"
+                  href="https://www.linkedin.com/in/jspears80/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  🔗 LinkedIn
+                </a>
+                <a
+                  className="btn sm footer-book"
+                  href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  🔒 Book Consultation
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="subfooter">
+            <div className="container subfooter-row">
+              <span>© {new Date().getFullYear()} JGS Cloud Compliance, LLC</span>
+              <span className="dot">•</span>
+              <span>Secure • Support • Prove</span>
             </div>
           </div>
         </footer>
@@ -91,4 +132,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-
