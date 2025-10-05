@@ -14,37 +14,64 @@ export default function ServicesPage() {
         </p>
       </div>
 
-      {/* ===== Service: Security Retrofit ===== */}
-      <div className="card">
-        <div style={{ display:'flex', alignItems:'baseline', justifyContent:'space-between', gap:'.75rem', flexWrap:'wrap' }}>
-          <h2 className="title-xl" style={{ marginBottom: '.25rem' }}>🛠 Security Retrofit</h2>
-          <span style={{ border:'1px solid rgba(255,255,255,.25)', borderRadius:'.6rem', padding:'.25rem .55rem', fontWeight:700, whiteSpace:'nowrap' }}>$1,995</span>
-        </div>
+{/* ===== Service: Security Retrofit ===== */}
+<div className="card">
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'baseline',
+      justifyContent: 'space-between',
+      gap: '.75rem',
+      flexWrap: 'wrap',
+    }}
+  >
+    <h2 className="title-xl" style={{ marginBottom: '.25rem' }}>
+      🛠 Security Retrofit
+    </h2>
+    <span
+      style={{
+        border: '1px solid rgba(255,255,255,.25)',
+        borderRadius: '.6rem',
+        padding: '.25rem .55rem',
+        fontWeight: 700,
+        whiteSpace: 'nowrap',
+      }}
+    >
+      $1,995
+    </span>
+  </div>
 
-        <p><strong>Why it matters:</strong> When too many people have access—or no one knows exactly who controls what—it’s not just an IT issue, it’s a liability. 
-        The Security Retrofit closes those cracks and gives your firm a verifiable foundation where every login, permission, and control has an owner and a reason.</p>
+  <p>
+    <strong>Why it matters:</strong> Microsoft 365 holds everything your firm relies on —
+    client data, correspondence, and internal records. Most firms assume it’s safe because
+    it works. The Security Retrofit rebuilds that foundation so leadership can say,
+    “We know who has access, what’s protected, and how we can prove it.”
+  </p>
 
-        <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem' }}>
-          <div>
-            <p style={{ fontWeight:700, marginBottom:'.35rem' }}>What we deliver</p>
-            <ul>
-              <li>Only the right people can access systems, and leadership can prove it.</li>
-              <li>Old accounts, open permissions, and forgotten access points are sealed.</li>
-              <li>Built-in guardrails prevent internal misuse or accidental exposure.</li>
-              <li>Clear, plain-English report showing measurable risk reduction and insurer-ready evidence.</li>
-            </ul>
-          </div>
-          <div>
-            <p style={{ fontWeight:700, marginBottom:'.35rem' }}>The business outcome</p>
-            <ul>
-              <li>Leadership knows who can get in, what they can do, and why.</li>
-              <li>Operations stay secure without slowing work.</li>
-              <li>Auditors and insurers see proof of responsible control.</li>
-              <li>Your firm runs on trust—and can prove it.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+    <div>
+      <p style={{ fontWeight: 700, marginBottom: '.35rem' }}>What we deliver</p>
+      <ul>
+        <li>Access under control — every account and privilege verified and right-sized.</li>
+        <li>Configuration hardened — sharing, device, and sync settings aligned to policy.</li>
+        <li>Identity protected — multifactor enforced and external access gated.</li>
+        <li>Data safeguarded — sensitive content labeled, encrypted, and retained properly.</li>
+        <li>Visibility restored — audit logging, alerts, and leadership reports expanded.</li>
+        <li>Evidence provided — before/after summary showing measurable risk reduction.</li>
+      </ul>
+    </div>
+    <div>
+      <p style={{ fontWeight: 700, marginBottom: '.35rem' }}>The business outcome</p>
+      <ul>
+        <li>Your Microsoft 365 environment moves from “assumed safe” to demonstrably secure.</li>
+        <li>Staff keep working normally while security strengthens behind the scenes.</li>
+        <li>Auditors, clients, and insurers see proof of responsible control.</li>
+        <li>Leadership gains confidence built on evidence, not reassurance.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 
       {/* ===== Service: Email Security Retrofit ===== */}
       <div className="card">
