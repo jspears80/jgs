@@ -4,18 +4,17 @@ import React from 'react';
 export default function ServicesPage() {
   return (
     <section className="section container">
-    {/* ===== Page Header ===== */}
-<div className="card full">
-  <span className="eyebrow">Secure = Projects</span>
-  <h1 className="hero">Secure — Microsoft 365 Projects</h1>
-  <p className="lead" style={{ maxWidth: '70ch' }}>
-    Every breach starts the same way — an unchecked account, a forgotten rule, or a setting no one realized mattered. 
-    These projects close those gaps and replace assumption with evidence. 
-    Each engagement rebuilds Microsoft 365 for control, resilience, and proof — protecting client data, restoring trust in communication, 
-    and demonstrating continuity your leadership, clients, and insurers can all verify.
-  </p>
-</div>
-
+      {/* ===== Page Header ===== */}
+      <div className="card full">
+        <span className="eyebrow">Secure = Projects</span>
+        <h1 className="hero">Secure — Microsoft 365 Projects</h1>
+        <p className="lead" style={{ maxWidth: '70ch' }}>
+          Every breach starts the same way — an unchecked account, a forgotten rule, or a setting no one realized mattered.
+          These projects close those gaps and replace assumption with evidence.
+          Each engagement rebuilds Microsoft 365 for control, resilience, and proof — protecting client data, restoring trust in
+          communication, and demonstrating continuity your leadership, clients, and insurers can all verify.
+        </p>
+      </div>
 
       {/* ===== Service: Security Retrofit ===== */}
       <div className="card">
@@ -45,10 +44,10 @@ export default function ServicesPage() {
         </div>
 
         <p>
-          <strong>Why it matters:</strong> Microsoft 365 holds everything your firm depends on—client data,
-          correspondence, financials, and internal records. Most breaches don’t come from hackers kicking down the door;
-          they come from open access, forgotten settings, and missing visibility. The Security Retrofit rebuilds
-          Microsoft 365 to close those quiet entry points and replace uncertainty with proof.
+          <strong>Why it matters:</strong> Microsoft 365 holds everything your firm depends on—client data, correspondence,
+          financials, and internal records. Most breaches don’t come from hackers kicking down the door; they come from open access,
+          forgotten settings, and missing visibility. The Security Retrofit rebuilds Microsoft 365 to close those quiet entry
+          points and replace uncertainty with proof.
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
@@ -104,10 +103,9 @@ export default function ServicesPage() {
         </div>
 
         <p>
-          <strong>Why it matters:</strong> Your firm’s reputation depends on messages that are genuine, private, and
-          delivered. When an email is hijacked, spoofed, or quietly redirected, it isn’t a technical glitch — it’s a
-          breach of trust. The Email Security Retrofit closes those invisible gaps so every message your firm sends is
-          authentic, protected, and defensible.
+          <strong>Why it matters:</strong> Your firm’s reputation depends on messages that are genuine, private, and delivered.
+          When an email is hijacked, spoofed, or quietly redirected, it isn’t a technical glitch — it’s a breach of trust.
+          The Email Security Retrofit closes those invisible gaps so every message your firm sends is authentic, protected, and defensible.
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
@@ -163,10 +161,10 @@ export default function ServicesPage() {
         </div>
 
         <p>
-          <strong>Why it matters:</strong> Data loss isn’t just inconvenient — it can stop your business, violate
-          retention obligations, and trigger insurance disputes. The Backup &amp; Recovery Retrofit proves your firm can
-          recover quickly, completely, and with evidence. It replaces assumptions with documentation and shows insurers,
-          auditors, and clients that continuity is under control.
+          <strong>Why it matters:</strong> Data loss isn’t just inconvenient — it can stop your business, violate retention
+          obligations, and trigger insurance disputes. The Backup &amp; Recovery Retrofit proves your firm can recover quickly,
+          completely, and with evidence. It replaces assumptions with documentation and shows insurers, auditors, and clients that
+          continuity is under control.
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
@@ -199,9 +197,9 @@ export default function ServicesPage() {
         <h2 className="title-xl">Ready to Eliminate Risk?</h2>
         <p className="lead" style={{ marginBottom: '.9rem' }}>
           Every breach begins the same way — an overlooked account, a missed policy, an assumption that Microsoft 365 was already secure.
-          The difference between exposure and assurance is proof.
-          In one 30-minute consultation, we’ll trace the weak points that could compromise your firm’s data or credibility and map a direct path to control.
-          You’ll walk away with clarity, next steps, and the confidence to show leadership, clients, and insurers that your firm is defended — and can prove it.
+          The difference between exposure and assurance is proof. In one 30-minute consultation, we’ll trace the weak points that could
+          compromise your firm’s data or credibility and map a direct path to control. You’ll walk away with clarity, next steps, and
+          the confidence to show leadership, clients, and insurers that your firm is defended — and can prove it.
         </p>
         <a
           className="btn primary"
