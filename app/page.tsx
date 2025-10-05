@@ -10,7 +10,7 @@ export default function HomePage() {
           <span className="eyebrow">Consulting • Microsoft 365</span>
           <h1 className="hero">Secure and Support — Microsoft 365 for Law &amp; CPA Firms</h1>
 
-          <p className="lead" style={{ maxWidth: '72ch' }}>
+          <p className="lead" style={{ maxWidth: '68ch' }}>
             JGS Cloud Compliance protects client data, delivers trusted communication, and preserves business
             continuity — all with audit-ready proof and senior expertise that keeps firms confident year-round.
           </p>
@@ -52,9 +52,9 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* ===== CTA BAND (Value framing) ===== */}
-          <div className="cta-band" style={{ marginTop: '1.25rem' }}>
-            <p className="lead" style={{ margin: 0 }}>
+          {/* ===== CTA BAND ===== */}
+          <div className="cta-band" style={{ marginTop: '1.75rem' }}>
+            <p className="lead" style={{ margin: 0, textAlign: 'center' }}>
               Projects secure it. Retainers support it. That’s Secure → Support — the JGS model that gives professional
               firms proof, continuity, and senior expertise on demand.
             </p>
