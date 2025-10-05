@@ -69,23 +69,46 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
   position:sticky; top:0; z-index:1000;
   background:rgba(0,0,0,.75); backdrop-filter:blur(8px);
   border-bottom:1px solid var(--muted-2); padding-top:env(safe-area-inset-top);
+  transition: box-shadow .2s ease, border-color .2s ease, background .2s ease;
 }
-.header-row{display:flex; align-items:center; justify-content:space-between; padding:.8rem 1rem}
-.brand{display:flex; align-items:center; gap:.5rem; font-weight:700; font-size:1rem; color:var(--fg)}
-.logo{height:56px; vertical-align:middle}
-.tagline{font-size:.9rem; opacity:.8}
-.nav-links{display:flex; gap:1rem; flex-wrap:wrap}
-.nav-links a{font-weight:500; opacity:.9; transition:opacity .2s ease; position:relative}
+/* shadow when scrolling */
+.header.scrolled{ box-shadow:0 8px 22px rgba(0,0,0,.35); border-color:rgba(255,255,255,.18); background:rgba(0,0,0,.82) }
+
+/* turn header row into a neat grid: brand | nav | CTA */
+.header-row{
+  display:grid; align-items:center; gap:1rem; padding:.8rem 1rem;
+  grid-template-columns:auto 1fr auto;
+}
+
+.brand{display:flex; align-items:center; gap:.65rem; font-weight:700; color:var(--fg)}
+.logo{height:58px; width:auto; display:block; vertical-align:middle}
+.tagline{font-size:1rem; font-weight:600; opacity:.85; line-height:1.2}
+
+.nav-links{display:flex; gap:1rem; flex-wrap:wrap; justify-content:center}
+.nav-links a{font-weight:500; opacity:.9; transition:opacity .2s ease; position:relative; white-space:nowrap}
 .nav-links a:hover{opacity:1}
 .nav-links a.nav-active::after,
 .nav-links a:hover::after{
   content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px;
   background:linear-gradient(90deg,var(--accent-purple),var(--accent-blue)); opacity:.95;
 }
+
+/* right-side header CTA */
+.nav-right{display:flex; align-items:center; gap:.5rem}
+.btn-cta{
+  border:1px solid rgba(255,255,255,.32);
+  background:rgba(255,255,255,.10);
+  font-weight:600; border-radius:.7rem;
+  transition:all .25s ease;
+}
+.btn-cta:hover{ background:rgba(255,255,255,.16); border-color:rgba(255,255,255,.5); transform:translateY(-1px) }
+
 @media (max-width:900px){
-  .nav-links{overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
+  .nav-links{overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; justify-content:flex-start}
   .nav-links::-webkit-scrollbar{display:none}
   .logo{height:44px}
+  .tagline{font-size:.9rem}
+  .nav-right{display:none} /* hide CTA on small screens to preserve space */
 }
 
 /* =========  FOCUS VISIBILITY ========= */
