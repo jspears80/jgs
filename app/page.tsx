@@ -37,19 +37,19 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* ===== PROOF BADGES (Business Outcomes) ===== */}
-          <div className="badge-list">
-            <div className="badge">
-              🛠 <strong>Access Under Control</strong> — Leadership can state who holds access and why; insider risk drops.
+          {/* ===== PROOF GRID (Four-Card) ===== */}
+          <div className="proofgrid">
+            <div>
+              🛠 <strong>Security Retrofit</strong> — Protect client data, keep operations moving, and hold audit-ready proof of control.
             </div>
-            <div className="badge">
-              📧 <strong>Emails That Count, Delivered</strong> — Invoices, filings, and engagement letters land on first send.
+            <div>
+              📧 <strong>Email Security Retrofit</strong> — Deliver trust with every message: verified, protected, and accepted the first time.
             </div>
-            <div className="badge">
-              🔁 <strong>Continuity You Can Prove</strong> — Recovery is rehearsed and documented; insurers accept readiness.
+            <div>
+              🔁 <strong>Backup &amp; Recovery Retrofit</strong> — Preserve every file, rehearse recovery, and stay in business no matter what happens.
             </div>
-            <div className="badge">
-              📄 <strong>Evidence Delivered</strong> — Every engagement ends with plain-English proof leadership can show to clients, insurers, or regulators.
+            <div>
+              📄 <strong>Senior Expertise &amp; Support</strong> — Direct access to your Principal Consultant, continuous oversight, and confidence your firm stays secure year-round.
             </div>
           </div>
 
@@ -84,7 +84,6 @@ export default function HomePage() {
               <div className="founder-title">Founder &amp; Principal Consultant</div>
             </div>
 
-            {/* Moved quote directly beneath title */}
             <p style={{ fontSize: '.95rem', opacity: 0.9, marginTop: '.25rem', maxWidth: '60ch' }}>
               “I built JGS for firms that can’t afford half-solutions — they need technology that proves it’s working,
               not just promises it is.”
