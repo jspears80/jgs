@@ -8,7 +8,7 @@ export default function AboutPage() {
         {/* ===== Page Header ===== */}
         <div className="card" id="about">
           <h1 className="hero" style={{ marginBottom: '.5rem' }}>
-            JGS Cloud Compliance, LLC — Firm Overview (2025 Edition)
+            JGS Cloud Compliance, LLC — Firm Overview
           </h1>
           <p className="lead" style={{ maxWidth: '72ch' }}>
             Secure and Support — Microsoft 365 for Law &amp; CPA Firms
@@ -348,3 +348,4 @@ export default function AboutPage() {
     </section>
   );
 }
+
