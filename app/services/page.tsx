@@ -42,35 +42,39 @@ export default function ServicesPage() {
   </div>
 
   <p>
-    <strong>Why it matters:</strong> Microsoft 365 holds everything your firm relies on —
-    client data, correspondence, and internal records. Most firms assume it’s safe because
-    it works. The Security Retrofit rebuilds that foundation so leadership can say,
-    “We know who has access, what’s protected, and how we can prove it.”
+    <strong>Why it matters:</strong> Microsoft 365 holds everything your firm depends on—client data,
+    correspondence, financials, and internal records. Most breaches don’t come from hackers kicking
+    down the door; they come from open access, forgotten settings, and missing visibility. The
+    Security Retrofit rebuilds Microsoft 365 to close those quiet entry points and replace
+    uncertainty with proof.
   </p>
 
   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
     <div>
       <p style={{ fontWeight: 700, marginBottom: '.35rem' }}>What we deliver</p>
       <ul>
-        <li>Access under control — every account and privilege verified and right-sized.</li>
-        <li>Configuration hardened — sharing, device, and sync settings aligned to policy.</li>
-        <li>Identity protected — multifactor enforced and external access gated.</li>
-        <li>Data safeguarded — sensitive content labeled, encrypted, and retained properly.</li>
-        <li>Visibility restored — audit logging, alerts, and leadership reports expanded.</li>
-        <li>Evidence provided — before/after summary showing measurable risk reduction.</li>
+        <li><strong>Access under control</strong> — every account and admin role reviewed, right-sized, and verified against business need.</li>
+        <li><strong>Configuration hardened</strong> — sharing, device, and sync policies rebuilt to stop silent data exposure and lateral movement.</li>
+        <li><strong>Identity protection</strong> — multifactor enforced, risky sign-ins blocked, and legacy authentication shut off.</li>
+        <li><strong>Data safeguards</strong> — confidential work encrypted, retained correctly, and shielded from accidental sharing.</li>
+        <li><strong>Detection and alerting</strong> — audit logs, anomaly alerts, and access reviews tuned so leadership sees issues before attackers do.</li>
+        <li><strong>Evidence pack</strong> — a before-and-after summary showing measurable risk reduction and insurer-recognized proof of compliance.</li>
       </ul>
     </div>
+
     <div>
       <p style={{ fontWeight: 700, marginBottom: '.35rem' }}>The business outcome</p>
       <ul>
-        <li>Your Microsoft 365 environment moves from “assumed safe” to demonstrably secure.</li>
-        <li>Staff keep working normally while security strengthens behind the scenes.</li>
-        <li>Auditors, clients, and insurers see proof of responsible control.</li>
-        <li>Leadership gains confidence built on evidence, not reassurance.</li>
+        <li>Internal compromise and unauthorized access attempts are stopped before they become incidents.</li>
+        <li>Hidden misconfigurations, stale accounts, and blind spots are eliminated and documented.</li>
+        <li>Leadership gains clear visibility into who controls what—and written proof it’s defensible.</li>
+        <li>Auditors and insurers receive concrete evidence that controls exist and are being maintained.</li>
+        <li>Clients see a professional firm that treats security not as luck, but as governance.</li>
       </ul>
     </div>
   </div>
 </div>
+
 
 
 {/* ===== Service: Email Security Retrofit ===== */}
