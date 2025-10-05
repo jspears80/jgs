@@ -201,22 +201,21 @@ export default function ServicesPage() {
 
 
 
-      {/* ===== CTA (Premium Band) ===== */}
-      <div className="card full cta-band">
-        <h2 className="title-xl">Ready to Eliminate Risk?</h2>
-        <p className="lead" style={{ marginBottom: '.9rem' }}>
-          Start with a 30-minute consultation to identify where Microsoft 365 gaps may expose your firm and
-          receive a clear plan to close them—with results your leadership, clients, and insurers can all verify.
-        </p>
-        <a
-          className="btn primary"
-          href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
-          target="_blank"
-          rel="noopener"
-        >
-          🔒 Book Consultation
-        </a>
-      </div>
-    </section>
-  );
-}
+     <div className="card full cta-band">
+  <h2 className="title-xl">Ready to Eliminate Risk?</h2>
+  <p className="lead" style={{ marginBottom: '.9rem' }}>
+    Every breach begins the same way — an overlooked account, a missed policy, an assumption that Microsoft 365 was already secure.
+    The difference between exposure and assurance is proof.
+    In one 30-minute consultation, we’ll trace the weak points that could compromise your firm’s data or credibility and map a direct path to control.
+    You’ll walk away with clarity, next steps, and the confidence to show leadership, clients, and insurers that your firm is defended — and can prove it.
+  </p>
+  <a
+    className="btn primary"
+    href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
+    target="_blank"
+    rel="noopener"
+  >
+    🔒 Book Consultation
+  </a>
+</div>
+
