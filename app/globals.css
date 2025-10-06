@@ -78,7 +78,7 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
 }
 .brand{display:flex; align-items:center; gap:.65rem; font-weight:700; color:var(--fg)}
 .logo{height:58px; width:auto; display:block; vertical-align:middle}
-.tagline{display:none !important;} /* hide legacy tagline */
+.tagline{display:none !important;} /* hide legacy text */
 .nav-links{display:flex; gap:1rem; flex-wrap:wrap; justify-content:center}
 .nav-links a{font-weight:500; opacity:.9; transition:opacity .2s ease; position:relative; white-space:nowrap}
 .nav-links a:hover{opacity:1}
@@ -162,7 +162,7 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
   box-shadow:0 0 0 1px rgba(255,255,255,.08) inset, 0 8px 26px rgba(0,0,0,.45);
 }
 
-/* Premium CTA band */
+/* Premium CTA band (left-aligned site-wide) */
 .cta-band{
   border-radius:var(--radius); padding:1.8rem;
   border:1px solid rgba(255,255,255,.16);
@@ -172,7 +172,7 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
     radial-gradient(80% 120% at 100% 100%, var(--ring2) 0%, transparent 60%);
   box-shadow:var(--shadow); margin-top:1.75rem;
 }
-.cta-band p{text-align:left} /* left align site-wide */
+.cta-band p{ text-align:left; }
 
 /* =========  PROOF GRID (mini-cards) ========= */
 .proofgrid{
@@ -264,7 +264,6 @@ li{margin:.5rem 0; line-height:1.6}
 .page-services .two-col { gap: 1.25rem; }
 .page-services .subhead { margin: .05rem 0 .4rem; }
 .page-services .list-tight li { margin: .42rem 0; line-height: 1.58; }
-.page-services .price-pill { transform: translateY(1px); }
 
 /* =========  Optional: soft fade-in for proof cards ========= */
 .proofgrid div{opacity:0; animation:fadeIn .6s ease forwards}
@@ -278,7 +277,7 @@ li{margin:.5rem 0; line-height:1.6}
   position:fixed; inset:0; z-index:2000;
   background:rgba(0,0,0,.65);
   display:flex; align-items:flex-start; justify-content:center;
-  padding:2rem 1rem; /* push content below sticky header */
+  padding:2rem 1rem; /* push below sticky header */
   overflow-y:auto;
 }
 .modal-card{
@@ -299,15 +298,10 @@ li{margin:.5rem 0; line-height:1.6}
   .modal-card{ margin-top:5.5rem; width:94vw; max-height:88vh; }
 }
 
-/* ===== Advisory Page Spacing Fix (Match Services Rhythm) ===== */
-.page-advisory .card { margin-bottom: 1.25rem; }
-.page-advisory .card.full { margin-bottom: 1.4rem; }
-.page-advisory .service-card + .service-card { margin-top: 0; }
-.page-advisory .legend-row { margin-top: 1rem; margin-bottom: 0.75rem; }
-.page-advisory .two-col { gap: 1.25rem; }
-.page-advisory .subhead { margin: 0.15rem 0 0.45rem; }
-.page-advisory .list-tight li { margin: 0.45rem 0; line-height: 1.58; }
-.page-advisory .price-pill { transform: translateY(1px); }
+/* ===== Page Spacing Fixes (match site rhythm) ===== */
+.page-advisory .card, .page-about .card, .page-contact .card { margin-bottom:1.25rem; }
+.page-advisory .card.full, .page-about .card.full, .page-contact .card.full { margin-bottom:1.4rem; }
+.page-advisory .card + .card, .page-about .card + .card, .page-contact .card + .card { margin-top:0; }
 
 /* ========= ABOUT (refined, minimal & spacing sync) ========= */
 .page-about .about-card{
@@ -335,20 +329,9 @@ li{margin:.5rem 0; line-height:1.6}
 .page-about .credo-list{ margin-top:.35rem; }
 .page-about .credo-list li{ margin:.45rem 0; line-height:1.6; opacity:.95; }
 .page-about .credo-foot{ margin-top:1rem; font-size:.97rem; opacity:.85; border-top:1px solid rgba(255,255,255,.08); padding-top:.85rem; }
-.page-about .card{ margin-bottom: 1.25rem; }
-.page-about .card.full{ margin-bottom: 1.4rem; }
-.page-about .card + .card{ margin-top:0; }
 .page-about .card p{ line-height:1.65; opacity:.92; }
 
-/* Responsive tweaks for About */
-@media (max-width:900px){
-  .page-about .about-card{ padding:1.9rem 1.4rem 2.2rem; }
-  .page-about .about-title{ font-size:1.6rem; }
-  .page-about .about-text{ font-size:1.02rem; }
-  .page-about .about-credo{ padding:1.25rem 1.35rem 1.5rem; }
-}
-
-/* ===== BUSINESS LINE POLISH (Header + Footer) ===== */
+/* ========= BUSINESS LINE POLISH (Header + Footer) ========= */
 .header .nav-right span{
   color:rgba(255,255,255,.85); font-size:.95rem; letter-spacing:.01em; margin-right:.75rem; white-space:nowrap;
 }
