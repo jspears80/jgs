@@ -278,3 +278,29 @@ li{margin:.5rem 0; line-height:1.6}
 .proofgrid div:nth-child(3){animation-delay:.1s}
 .proofgrid div:nth-child(4){animation-delay:.15s}
 @keyframes fadeIn{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:translateY(0)}}
+
+/* ===== Modal (Scope popup) ===== */
+.modal-backdrop{
+  position:fixed; inset:0; z-index:2000;
+  background:rgba(0,0,0,.65);
+  display:flex; align-items:center; justify-content:center;
+  padding:1rem;
+}
+.modal-card{
+  background:linear-gradient(180deg, rgba(12,12,12,.95), rgba(10,10,10,.92));
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:1rem;
+  width: min(900px, 95vw);
+  max-height: 85vh;
+  overflow:auto;
+  box-shadow: var(--shadow), 0 0 0 1px rgba(255,255,255,.06) inset;
+}
+.modal-head{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1rem 1.25rem; border-bottom:1px solid rgba(255,255,255,.12);
+}
+.modal-body{
+  padding:1rem 1.25rem 1.25rem 1.25rem;
+}
+
+
