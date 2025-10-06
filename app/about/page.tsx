@@ -1,61 +1,42 @@
-/* ========= ABOUT (refined, minimal) ========= */
-.page-about .about-card{
-  text-align:left;
-  padding:2.5rem 2.25rem 2.75rem;
-  max-width:72ch;
-  margin:0 auto 1.25rem auto;
-  background:linear-gradient(180deg, rgba(14,14,14,.92), rgba(10,10,10,.88));
-  border:1px solid rgba(255,255,255,.10);
-  border-radius:1.1rem;
-  box-shadow:0 10px 22px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.04);
-}
+'use client';
+import React from 'react';
 
-.page-about .about-title{
-  font-size:1.95rem;
-  line-height:1.25;
-  font-weight:800;
-  margin-bottom:1.25rem;
-  background:linear-gradient(90deg, rgba(255,255,255,.96), rgba(195,195,255,.90));
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-}
+export default function AboutPage() {
+  return (
+    <section className="section container page-about">
+      {/* Manifesto */}
+      <div className="card full about-card">
+        <span className="eyebrow">About</span>
+        <h1 className="hero about-title">What We Protect Isn’t Just Data — It’s Trust.</h1>
 
-.page-about .about-text{
-  font-size:1.08rem;
-  line-height:1.72;
-  opacity:.92;
-  margin:1rem 0;
-}
+        <p className="about-text">
+          Every document in your system represents something irreplaceable — a client’s identity,
+          a legal defense, a financial record, a promise of confidentiality.
+        </p>
+        <p className="about-text">
+          When that trust is broken, it’s not just a breach — it’s a betrayal.
+        </p>
+        <p className="about-text">
+          At JGS, we treat that trust as sacred. Every control we implement, every configuration we verify,
+          every piece of evidence we document — it isn’t to satisfy an audit. It’s to protect the relationships
+          that keep your firm alive.
+        </p>
+      </div>
 
-/* Slim credo card */
-.page-about .about-credo{
-  padding:1.6rem 1.8rem 1.9rem;
-  max-width:72ch;
-  margin:0 auto;
-  background:linear-gradient(180deg, rgba(12,12,12,.9), rgba(9,9,9,.86));
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:1rem;
-  box-shadow:0 8px 18px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.035);
-}
+      {/* Credo (single slim card) */}
+      <div className="card about-credo">
+        <h2 className="title-xl">Our Credo</h2>
+        <ul className="list-tight credo-list">
+          <li><strong>Purpose:</strong> We deliver assurance — systems that work correctly, securely, and defensibly.</li>
+          <li><strong>Proof-first:</strong> Every engagement ends with evidence you can hand to a client, insurer, or regulator.</li>
+          <li><strong>Aligned to professionals:</strong> Built for law and accounting firms — governed, precise, accountable.</li>
+          <li><strong>Always available:</strong> When something feels off, you reach an expert — not a ticket queue.</li>
+        </ul>
 
-.page-about .credo-list{ margin-top:.35rem; }
-.page-about .credo-list li{
-  margin:.45rem 0;
-  line-height:1.6;
-  opacity:.95;
-}
-
-.page-about .credo-foot{
-  margin-top:1rem;
-  font-size:.97rem;
-  opacity:.85;
-  border-top:1px solid rgba(255,255,255,.08);
-  padding-top:.85rem;
-}
-
-/* Responsive */
-@media (max-width:900px){
-  .page-about .about-card{ padding:1.9rem 1.4rem 2.2rem; }
-  .page-about .about-title{ font-size:1.6rem; }
-  .page-about .about-text{ font-size:1.02rem; }
-  .page-about .about-credo{ padding:1.25rem 1.35rem 1.5rem; }
+        <p className="credo-foot">
+          “Security isn’t a product — it’s a professional obligation.” — <strong>Jeremiah Spears</strong>, Founder &amp; Principal Consultant
+        </p>
+      </div>
+    </section>
+  );
 }
