@@ -398,4 +398,20 @@ li{margin:.5rem 0; line-height:1.6}
   white-space: nowrap;
   border: 0;
 }
+/* ===== CTA Alignment Fix ===== */
+.cta-band {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.cta-band p,
+.cta-band h2 {
+  text-align: left;
+  margin-left: 0;
+}
+
+.cta-band .btn {
+  margin-top: 0.75rem;
+}
+
 
