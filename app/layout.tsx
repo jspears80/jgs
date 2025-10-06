@@ -37,10 +37,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* ===== Header ===== */}
         <header className={`header ${scrolled ? 'scrolled' : ''}`}>
           <div className="header-row container">
-            {/* Brand */}
-            <Link href="/" className="brand" aria-label="JGS Cloud Compliance Home">
-              <img src="/Logo.png" alt="JGS Cloud Compliance logo" className="logo" />
-              <span className="tagline">Cloud Compliance</span>
+            {/* Brand (logo only) */}
+            <Link href="/" className="brand" aria-label="JGS Cloud Compliance — Home">
+              <img src="/Logo.png" alt="JGS logo" className="logo" />
             </Link>
 
             {/* Nav */}
@@ -76,15 +75,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* ===== Footer (grid + subfooter) ===== */}
         <footer className="footer">
           <div className="container footer-grid">
-            {/* Brand */}
+            {/* Brand (logo only) */}
             <div className="footer-brand">
               <img src="/Logo.png" alt="JGS logo" className="footer-logo" />
-              <div className="footer-brand-text">
-                <div className="footer-title">JGS Cloud Compliance</div>
-                <div className="footer-tagline">
-                  Secure and Support — Microsoft 365 for Law &amp; CPA Firms
-                </div>
-              </div>
+              {/* Optional accessibility label (hidden visually if you add an .sr-only class in CSS) */}
+              <span className="sr-only">JGS Cloud Compliance</span>
             </div>
 
             {/* Quick Links */}
