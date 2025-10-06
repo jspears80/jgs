@@ -55,8 +55,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               ))}
             </nav>
 
-            {/* Right CTA */}
+            {/* Right CTA + Office line */}
             <div className="nav-right">
+              <span style={{ color: 'rgba(255,255,255,.85)', fontSize: '.95rem', whiteSpace: 'nowrap', marginRight: '.75rem' }}>
+                Office:&nbsp;
+                <a href="tel:+16192021105" style={{ color: '#9b8df2', textDecoration: 'none' }}>
+                  (619) 202-1105
+                </a>
+              </span>
               <a
                 className="btn btn-cta"
                 href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
@@ -94,6 +100,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {/* Contact / CTA */}
             <div className="footer-cta">
               <a href="mailto:support@cloudjgs.com" className="footer-link">support@cloudjgs.com</a>
+              <span style={{ opacity: '.9' }}>
+                Office:&nbsp;
+                <a href="tel:+16192021105" style={{ color: '#9b8df2', textDecoration: 'none' }}>
+                  (619) 202-1105
+                </a>
+              </span>
               <div className="footer-actions">
                 <a
                   className="btn sm"
