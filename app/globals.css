@@ -374,3 +374,28 @@ li{margin:.5rem 0; line-height:1.6}
   .page-about .about-text{ font-size:1.02rem; }
   .page-about .about-credo{ padding:1.25rem 1.35rem 1.5rem; }
 }
+.footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.footer-logo {
+  height: 56px;
+  width: auto;
+}
+
+/* Accessibility helper (optional) */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
