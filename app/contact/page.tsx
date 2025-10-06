@@ -14,24 +14,6 @@ export default function ContactPage() {
         </p>
       </div>
 
-      {/* ===== Primary Booking CTA ===== */}
-      <div className="card full cta-band">
-        <h2 className="title-xl">🔒 Book a 30-Minute Consultation</h2>
-        <p className="lead" style={{ marginBottom: '.9rem' }}>
-          Speak directly with <strong>Jeremiah Spears</strong>, Principal Consultant, about securing and supporting
-          your firm’s Microsoft 365 environment — anytime, day or night.
-        </p>
-        <a
-          className="btn primary"
-          href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
-          target="_blank"
-          rel="noopener"
-          aria-label="Book a 30-minute consultation"
-        >
-          📅 Book Consultation
-        </a>
-      </div>
-
       {/* ===== What to Expect ===== */}
       <div className="card">
         <h2 className="title-xl">What to Expect</h2>
@@ -93,7 +75,7 @@ export default function ContactPage() {
           rel="noopener"
           aria-label="Schedule a consultation"
         >
-          🔒 Schedule Now
+          📅 Schedule Now
         </a>
       </div>
     </section>
