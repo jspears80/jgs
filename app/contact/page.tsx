@@ -4,13 +4,13 @@ import React from 'react';
 export default function ContactPage() {
   return (
     <section className="section container page-contact">
-      {/* ===== Header ===== */}
+      {/* ===== Page Header ===== */}
       <div className="card full">
         <span className="eyebrow">Book • Contact</span>
         <h1 className="hero">Get in Touch</h1>
         <p className="lead" style={{ maxWidth: '70ch' }}>
           Every engagement begins with a focused conversation about your firm’s goals, insurer requirements,
-          and current Microsoft 365 posture.
+          and Microsoft 365 environment. Whether it’s a planned consultation or an active incident, JGS is always available to respond.
         </p>
       </div>
 
@@ -19,7 +19,7 @@ export default function ContactPage() {
         <h2 className="title-xl">🔒 Book a 30-Minute Consultation</h2>
         <p className="lead" style={{ marginBottom: '.9rem' }}>
           Speak directly with <strong>Jeremiah Spears</strong>, Principal Consultant, about securing and supporting
-          your firm’s Microsoft 365 environment—no forms, no queue, just a practical discussion.
+          your firm’s Microsoft 365 environment — anytime, day or night.
         </p>
         <a
           className="btn primary"
@@ -34,15 +34,16 @@ export default function ContactPage() {
 
       {/* ===== What to Expect ===== */}
       <div className="card">
-        <h2 className="title-xl">What to Expect in 30 Minutes</h2>
+        <h2 className="title-xl">What to Expect</h2>
         <ul className="list-tight" style={{ marginTop: '.25rem' }}>
-          <li><strong>Context:</strong> Your client work, deadlines, insurer posture, and current Microsoft 365 state.</li>
-          <li><strong>Clarity:</strong> Immediate risks that matter to continuity, reputation, or compliance.</li>
-          <li><strong>Next steps:</strong> A straightforward plan—what to secure now, and how proof will be delivered.</li>
+          <li><strong>Clarity:</strong> A quick but detailed review of your environment and immediate goals.</li>
+          <li><strong>Assessment:</strong> Identification of gaps in security, compliance, and recoverability.</li>
+          <li><strong>Next steps:</strong> A simple, prioritized plan to secure what matters first — no jargon, no delay.</li>
         </ul>
-        <p style={{ marginTop: '.75rem', opacity: .9 }}>
-          <strong>If this is urgent</strong> (auth failures, mail delivery issues, suspected compromise), book the earliest slot
-          and email <a href="mailto:support@cloudjgs.com">support@cloudjgs.com</a> with “URGENT” in the subject. We’ll triage immediately.
+        <p style={{ marginTop: '.9rem', opacity: .9 }}>
+          <strong>Urgent issue?</strong> JGS operates <strong>24/7</strong> for clients experiencing outages,
+          account compromise, or mail disruption.  
+          Email <a href="mailto:support@cloudjgs.com">support@cloudjgs.com</a> with “URGENT” in the subject line, and you’ll receive a direct response from Jeremiah within minutes.
         </p>
       </div>
 
@@ -62,8 +63,8 @@ export default function ContactPage() {
           </a>
         </p>
         <p>
-          <strong>Hours:</strong> Monday–Friday, 9 AM – 5 PM (Pacific)<br />
-          Remote consulting nationwide.
+          <strong>Availability:</strong> 24 hours a day, 7 days a week.<br />
+          <strong>Coverage:</strong> Remote consulting for law and accounting firms nationwide.
         </p>
       </div>
 
@@ -72,7 +73,7 @@ export default function ContactPage() {
         <h2 className="title-xl">A Note from the Founder</h2>
         <p style={{ fontStyle: 'italic', opacity: .92 }}>
           “I built JGS Cloud Compliance so small professional firms could access senior Microsoft 365 expertise without
-          layers of tickets or guesswork. If your firm needs systems that are secure, supported, and defensible—let’s talk.”
+          layers of tickets or delay. Whether it’s 2 PM or 2 AM, if something breaks or feels off — you should have someone you trust to call.”
         </p>
         <p style={{ fontWeight: 600, marginTop: '.5rem' }}>
           — Jeremiah Spears, Founder &amp; Principal Consultant
@@ -83,7 +84,7 @@ export default function ContactPage() {
       <div className="card full book-cta">
         <h2 className="title-xl">Let’s Secure and Support Your Firm</h2>
         <p className="lead" style={{ marginBottom: '.9rem' }}>
-          Book your consultation and take the first step toward Microsoft 365 that’s <strong>secure, documented, and trusted</strong>.
+          Book your consultation and take the first step toward Microsoft 365 that’s <strong>secure, documented, and trusted — day or night</strong>.
         </p>
         <a
           className="btn primary"
