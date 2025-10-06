@@ -313,41 +313,45 @@ li{margin:.5rem 0; line-height:1.6}
 .page-advisory .list-tight li { margin: 0.45rem 0; line-height: 1.58; }
 .page-advisory .price-pill { transform: translateY(1px); }
 
-/* ========= ABOUT PAGE STYLE ========= */
+/* ========= ABOUT PAGE STYLE (left-aligned, matches site rhythm) ========= */
 .page-about .about-card {
-  text-align: center;
-  padding: 3.5rem 2.5rem;
-  max-width: 68ch;
-  margin: 0 auto;
-  background: linear-gradient(180deg, rgba(10,10,10,.85), rgba(8,8,8,.8));
-  box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+  text-align: left;                          /* was center */
+  padding: 2.5rem 2.5rem 3rem 2.5rem;        /* same rhythm as other full cards */
+  max-width: 75ch;                            /* a bit wider than 68ch for left layout */
+  margin: 0 auto;                             /* keep centered in container */
+  background: linear-gradient(180deg, rgba(10,10,10,.88), rgba(8,8,8,.82));
+  box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05);
   border: 1px solid rgba(255,255,255,.12);
   border-radius: 1.1rem;
 }
 
+.page-about .eyebrow {
+  margin-bottom: .6rem;
+  opacity: .75;
+}
+
 .page-about .about-title {
-  font-size: 2.1rem;
+  font-size: 2rem;                            /* reduced from 2.1rem for calmer presence */
   line-height: 1.25;
-  font-weight: 700;
-  margin-bottom: 1.75rem;
-  background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(180,180,255,0.9));
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, rgba(255,255,255,.96), rgba(200,200,255,.92));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .page-about .about-text {
-  font-size: 1.15rem;
-  line-height: 1.75;
-  opacity: 0.9;
-  margin: 1.25rem 0;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: .9;
+  margin: 1rem 0;                              /* tighter for left-flow paragraphs */
 }
 
-@media (max-width: 600px) {
-  .page-about .about-title {
-    font-size: 1.7rem;
+@media (max-width: 900px) {
+  .page-about .about-card {
+    padding: 1.8rem 1.4rem 2.4rem 1.4rem;
+    max-width: 100%;
   }
-  .page-about .about-text {
-    font-size: 1.05rem;
-  }
+  .page-about .about-title { font-size: 1.65rem; }
+  .page-about .about-text  { font-size: 1.05rem; }
 }
-
