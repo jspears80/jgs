@@ -78,7 +78,7 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
 }
 .brand{display:flex; align-items:center; gap:.65rem; font-weight:700; color:var(--fg)}
 .logo{height:58px; width:auto; display:block; vertical-align:middle}
-.tagline{font-size:1rem; font-weight:600; opacity:.85; line-height:1.2}
+.tagline{display:none !important;} /* hide legacy tagline */
 .nav-links{display:flex; gap:1rem; flex-wrap:wrap; justify-content:center}
 .nav-links a{font-weight:500; opacity:.9; transition:opacity .2s ease; position:relative; white-space:nowrap}
 .nav-links a:hover{opacity:1}
@@ -98,7 +98,6 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
   .nav-links{overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; justify-content:flex-start}
   .nav-links::-webkit-scrollbar{display:none}
   .logo{height:44px}
-  .tagline{font-size:.9rem}
   .nav-right{display:none}
 }
 
@@ -123,11 +122,9 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
   .footer-grid{ grid-template-columns:1fr; gap:1rem; text-align:center; }
   .footer-cta{ align-items:center; }
 }
-.footer-brand{ display:flex; align-items:center; gap:.8rem; }
-.footer-brand .footer-logo{ height:48px; width:auto; opacity:.95; }
-.footer-brand-text{ display:flex; flex-direction:column; gap:.15rem; }
-.footer-title{ font-weight:800; font-size:1rem; letter-spacing:.01em; }
-.footer-tagline{ font-size:.9rem; opacity:.8; }
+.footer-brand{ display:flex; align-items:center; justify-content:center; gap:.6rem; }
+.footer-brand .footer-logo{ height:56px; width:auto; opacity:.95; }
+@media (max-width:900px){ .footer-brand .footer-logo{ height:44px; } }
 .footer-links{ display:flex; flex-wrap:wrap; gap:.75rem 1rem; justify-content:center; }
 .footer-links a{ opacity:.9; position:relative; white-space:nowrap; }
 .footer-links a:hover{ opacity:1; }
@@ -175,7 +172,7 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
     radial-gradient(80% 120% at 100% 100%, var(--ring2) 0%, transparent 60%);
   box-shadow:var(--shadow); margin-top:1.75rem;
 }
-.cta-band p{text-align:center}
+.cta-band p{text-align:left} /* left align site-wide */
 
 /* =========  PROOF GRID (mini-cards) ========= */
 .proofgrid{
@@ -250,20 +247,17 @@ li{margin:.5rem 0; line-height:1.6}
 /* =========  SERVICES POLISH ========= */
 .legend-row{display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.75rem}
 .legend{border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.05); border-radius:.6rem; padding:.28rem .55rem; font-size:.9rem; opacity:.9}
-
 .service-card{padding-top:1.2rem}
 .service-head{display:flex; align-items:baseline; justify-content:space-between; gap:.75rem; flex-wrap:wrap; margin-bottom:.35rem}
 .price-pill{border:1px solid rgba(255,255,255,.25); border-radius:.6rem; padding:.25rem .55rem; font-weight:700; white-space:nowrap; background:rgba(255,255,255,.06)}
-
 .two-col{display:grid; grid-template-columns:1fr 1fr; gap:1rem}
 @media (max-width:900px){ .two-col{ grid-template-columns:1fr } }
-
 .subhead{font-weight:700; margin:.1rem 0 .35rem}
 .list-tight{margin:.2rem 0 0 1.25rem}
 .list-tight li{margin:.4rem 0; line-height:1.55}
 
 /* ======= Services page spacing polish (match Home rhythm) ======= */
-.page-services .card.full { margin-bottom: 1.25rem; }             /* space after header card */
+.page-services .card.full { margin-bottom: 1.25rem; }
 .page-services .service-card { padding-top: 1.35rem; margin-bottom: 1.1rem; }
 .page-services .service-card + .service-card { margin-top: 0.2rem; }
 .page-services .legend-row { margin-top: .85rem; margin-bottom: .25rem; }
@@ -279,28 +273,30 @@ li{margin:.5rem 0; line-height:1.6}
 .proofgrid div:nth-child(4){animation-delay:.15s}
 @keyframes fadeIn{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:translateY(0)}}
 
-/* ===== Modal (Scope popup) ===== */
+/* ===== Modal (Scope popup) — fixed for header overlap ===== */
 .modal-backdrop{
   position:fixed; inset:0; z-index:2000;
   background:rgba(0,0,0,.65);
-  display:flex; align-items:center; justify-content:center;
-  padding:1rem;
+  display:flex; align-items:flex-start; justify-content:center;
+  padding:2rem 1rem; /* push content below sticky header */
+  overflow-y:auto;
 }
 .modal-card{
   background:linear-gradient(180deg, rgba(12,12,12,.95), rgba(10,10,10,.92));
   border:1px solid rgba(255,255,255,.18);
   border-radius:1rem;
-  width: min(900px, 95vw);
-  max-height: 85vh;
+  width:min(900px,95vw);
+  max-height:85vh;
   overflow:auto;
-  box-shadow: var(--shadow), 0 0 0 1px rgba(255,255,255,.06) inset;
+  margin-top:4.5rem; /* clear header */
+  box-shadow:var(--shadow), 0 0 0 1px rgba(255,255,255,.06) inset;
+  animation:modalFadeIn .25s ease-out;
 }
-.modal-head{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:1rem 1.25rem; border-bottom:1px solid rgba(255,255,255,.12);
-}
-.modal-body{
-  padding:1rem 1.25rem 1.25rem 1.25rem;
+@keyframes modalFadeIn{from{opacity:0; transform:translateY(-10px)} to{opacity:1; transform:translateY(0)}}
+.modal-head{ display:flex; align-items:center; justify-content:space-between; padding:1rem 1.25rem; border-bottom:1px solid rgba(255,255,255,.12); }
+.modal-body{ padding:1rem 1.25rem 1.25rem 1.25rem; }
+@media (max-width:600px){
+  .modal-card{ margin-top:5.5rem; width:94vw; max-height:88vh; }
 }
 
 /* ===== Advisory Page Spacing Fix (Match Services Rhythm) ===== */
@@ -313,186 +309,55 @@ li{margin:.5rem 0; line-height:1.6}
 .page-advisory .list-tight li { margin: 0.45rem 0; line-height: 1.58; }
 .page-advisory .price-pill { transform: translateY(1px); }
 
-/* ========= ABOUT (refined, minimal) ========= */
+/* ========= ABOUT (refined, minimal & spacing sync) ========= */
 .page-about .about-card{
   text-align:left;
   padding:2.5rem 2.25rem 2.75rem;
   max-width:72ch;
-  margin:0 auto 1.25rem auto;
+  margin:0 auto 1.4rem auto;
   background:linear-gradient(180deg, rgba(14,14,14,.92), rgba(10,10,10,.88));
   border:1px solid rgba(255,255,255,.10);
   border-radius:1.1rem;
   box-shadow:0 10px 22px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.04);
 }
-
 .page-about .about-title{
-  font-size:1.95rem;
-  line-height:1.25;
-  font-weight:800;
-  margin-bottom:1.25rem;
+  font-size:1.95rem; line-height:1.25; font-weight:800; margin-bottom:1.25rem;
   background:linear-gradient(90deg, rgba(255,255,255,.96), rgba(195,195,255,.90));
   -webkit-background-clip:text; -webkit-text-fill-color:transparent;
 }
-
-.page-about .about-text{
-  font-size:1.08rem;
-  line-height:1.72;
-  opacity:.92;
-  margin:1rem 0;
-}
-
-/* Slim credo card */
+.page-about .about-text{ font-size:1.08rem; line-height:1.72; opacity:.92; margin:1rem 0; }
 .page-about .about-credo{
-  padding:1.6rem 1.8rem 1.9rem;
-  max-width:72ch;
-  margin:0 auto;
+  padding:1.6rem 1.8rem 1.9rem; max-width:72ch; margin:0 auto;
   background:linear-gradient(180deg, rgba(12,12,12,.9), rgba(9,9,9,.86));
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:1rem;
+  border:1px solid rgba(255,255,255,.08); border-radius:1rem;
   box-shadow:0 8px 18px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.035);
 }
-
 .page-about .credo-list{ margin-top:.35rem; }
-.page-about .credo-list li{
-  margin:.45rem 0;
-  line-height:1.6;
-  opacity:.95;
-}
+.page-about .credo-list li{ margin:.45rem 0; line-height:1.6; opacity:.95; }
+.page-about .credo-foot{ margin-top:1rem; font-size:.97rem; opacity:.85; border-top:1px solid rgba(255,255,255,.08); padding-top:.85rem; }
+.page-about .card{ margin-bottom: 1.25rem; }
+.page-about .card.full{ margin-bottom: 1.4rem; }
+.page-about .card + .card{ margin-top:0; }
+.page-about .card p{ line-height:1.65; opacity:.92; }
 
-.page-about .credo-foot{
-  margin-top:1rem;
-  font-size:.97rem;
-  opacity:.85;
-  border-top:1px solid rgba(255,255,255,.08);
-  padding-top:.85rem;
-}
-
-/* Responsive */
+/* Responsive tweaks for About */
 @media (max-width:900px){
   .page-about .about-card{ padding:1.9rem 1.4rem 2.2rem; }
   .page-about .about-title{ font-size:1.6rem; }
   .page-about .about-text{ font-size:1.02rem; }
   .page-about .about-credo{ padding:1.25rem 1.35rem 1.5rem; }
 }
-.footer-brand {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-}
 
-.footer-logo {
-  height: 56px;
-  width: auto;
-}
-
-/* Accessibility helper (optional) */
-.sr-only {
-  position: absolute !important;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-/* ===== CTA Alignment Fix ===== */
-.cta-band {
-  text-align: left;
-  align-items: flex-start;
-}
-
-.cta-band p,
-.cta-band h2 {
-  text-align: left;
-  margin-left: 0;
-}
-
-.cta-band .btn {
-  margin-top: 0.75rem;
-}
 /* ===== BUSINESS LINE POLISH (Header + Footer) ===== */
-
-/* Header phone number style */
-.header .nav-right span {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.95rem;
-  letter-spacing: 0.01em;
-  margin-right: 0.75rem;
-  white-space: nowrap;
+.header .nav-right span{
+  color:rgba(255,255,255,.85); font-size:.95rem; letter-spacing:.01em; margin-right:.75rem; white-space:nowrap;
 }
-
-.header .nav-right span a {
-  color: #9b8df2;
-  text-decoration: none;
-  transition: color 0.2s ease;
+.header .nav-right span a{ color:#9b8df2; text-decoration:none; transition:color .2s ease; }
+.header .nav-right span a:hover{ color:#c8bfff; }
+.footer-cta span{ font-size:.95rem; opacity:.9; margin-bottom:.35rem; display:block; }
+.footer-cta span a{ color:#9b8df2; text-decoration:none; transition:color .2s ease; }
+.footer-cta span a:hover{ color:#c8bfff; }
+@media (max-width:900px){
+  .header .nav-right span{ font-size:.9rem; margin-right:.5rem; }
+  .footer-cta span{ font-size:.9rem; text-align:center; }
 }
-
-.header .nav-right span a:hover {
-  color: #c8bfff;
-}
-
-/* Footer phone number */
-.footer-cta span {
-  font-size: 0.95rem;
-  opacity: 0.9;
-  margin-bottom: 0.35rem;
-  display: block;
-}
-
-.footer-cta span a {
-  color: #9b8df2;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.footer-cta span a:hover {
-  color: #c8bfff;
-}
-
-/* Mobile adjustments */
-@media (max-width: 900px) {
-  .header .nav-right span {
-    font-size: 0.9rem;
-    margin-right: 0.5rem;
-  }
-
-  .footer-cta span {
-    font-size: 0.9rem;
-    text-align: center;
-  }
-}
-/* ===== ABOUT PAGE SPACING FIX (Match Site Rhythm) ===== */
-.page-about .card {
-  margin-bottom: 1.25rem; /* Consistent with other sections */
-}
-
-.page-about .card.full {
-  margin-bottom: 1.4rem; /* Slightly more space after full-width cards */
-}
-
-.page-about .card + .card {
-  margin-top: 0; /* Prevent stacking gaps from doubling */
-}
-
-.page-about .section {
-  padding-top: 4rem;
-  padding-bottom: 4rem; /* Match the vertical breathing of Services/Advisory */
-}
-
-.page-about .container {
-  padding: 2rem;
-  max-width: 86rem;
-}
-
-/* Optional: subtle visual cohesion for long-form sections */
-.page-about .card p {
-  line-height: 1.65;
-  opacity: 0.92;
-}
-
-
-
-
