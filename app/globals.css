@@ -262,6 +262,16 @@ li{margin:.5rem 0; line-height:1.6}
 .list-tight{margin:.2rem 0 0 1.25rem}
 .list-tight li{margin:.4rem 0; line-height:1.55}
 
+/* ======= Services page spacing polish (match Home rhythm) ======= */
+.page-services .card.full { margin-bottom: 1.25rem; }             /* space after header card */
+.page-services .service-card { padding-top: 1.35rem; margin-bottom: 1.1rem; }
+.page-services .service-card + .service-card { margin-top: 0.2rem; }
+.page-services .legend-row { margin-top: .85rem; margin-bottom: .25rem; }
+.page-services .two-col { gap: 1.25rem; }
+.page-services .subhead { margin: .05rem 0 .4rem; }
+.page-services .list-tight li { margin: .42rem 0; line-height: 1.58; }
+.page-services .price-pill { transform: translateY(1px); }
+
 /* =========  Optional: soft fade-in for proof cards ========= */
 .proofgrid div{opacity:0; animation:fadeIn .6s ease forwards}
 .proofgrid div:nth-child(2){animation-delay:.05s}
