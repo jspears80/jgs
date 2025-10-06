@@ -413,5 +413,57 @@ li{margin:.5rem 0; line-height:1.6}
 .cta-band .btn {
   margin-top: 0.75rem;
 }
+/* ===== BUSINESS LINE POLISH (Header + Footer) ===== */
+
+/* Header phone number style */
+.header .nav-right span {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  margin-right: 0.75rem;
+  white-space: nowrap;
+}
+
+.header .nav-right span a {
+  color: #9b8df2;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.header .nav-right span a:hover {
+  color: #c8bfff;
+}
+
+/* Footer phone number */
+.footer-cta span {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.footer-cta span a {
+  color: #9b8df2;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-cta span a:hover {
+  color: #c8bfff;
+}
+
+/* Mobile adjustments */
+@media (max-width: 900px) {
+  .header .nav-right span {
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+  }
+
+  .footer-cta span {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
+
 
 
