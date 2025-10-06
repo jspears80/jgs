@@ -5,7 +5,7 @@ export default function AdvisoryPage() {
   const [open, setOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement | null>(null);
 
-  // Basic focus & ESC handling for accessibility
+  // Focus, ESC, and scroll lock
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === 'Escape') setOpen(false);
@@ -47,7 +47,7 @@ export default function AdvisoryPage() {
         </div>
       </div>
 
-      {/* ===== Tier 1 ===== */}
+      {/* ===== Advisory Access ===== */}
       <div id="advisory-access" className="card service-card">
         <div className="service-head">
           <h2 className="title-xl">💧 Resolution &amp; Assurance Advisor</h2>
@@ -56,7 +56,7 @@ export default function AdvisoryPage() {
 
         <p>
           When you want guaranteed access to expert judgment — but can handle the light lifting internally.
-          This tier gives your firm a direct line to your Principal Consultant for incident guidance, technical validation,
+          This level gives your firm a direct line to your Principal Consultant for incident guidance, technical validation,
           and written proof that every issue was resolved correctly.
         </p>
 
@@ -68,7 +68,7 @@ export default function AdvisoryPage() {
               <li>Rapid analysis, research, and guided remediation for Microsoft 365 issues.</li>
               <li>Validation of fixes performed by your MSP or internal IT.</li>
               <li>Priority response for authentication, mail-flow, and configuration problems.</li>
-              <li>Written summaries formatted for leadership, auditors, or insurers.</li>
+              <li>Leadership-ready summaries formatted for executives, auditors, or insurers.</li>
             </ul>
           </div>
           <div>
@@ -81,16 +81,16 @@ export default function AdvisoryPage() {
         </div>
       </div>
 
-      {/* ===== Tier 2 ===== */}
+      {/* ===== Full Remote Support ===== */}
       <div id="advisory-remote" className="card service-card">
         <div className="service-head">
           <h2 className="title-xl">📘 Resolution &amp; Assurance — Full Remote Support</h2>
-        <span className="price-pill" aria-label="Price: $995 per month">$995 / month</span>
+          <span className="price-pill" aria-label="Price: $995 per month">$995 / month</span>
         </div>
 
         <p>
           When you want the same assurance — handled directly, end-to-end.
-          This tier provides full remote execution from your Principal Consultant: every issue diagnosed, corrected,
+          This level provides full remote execution from your Principal Consultant: every issue diagnosed, corrected,
           and documented by JGS itself.
         </p>
 
@@ -143,7 +143,7 @@ export default function AdvisoryPage() {
         </div>
 
         <p className="lead" style={{ marginTop: '.75rem' }}>
-          Both tiers deliver <strong>Resolution + Assurance</strong> — the same senior judgment and the same proof standard.
+          Both levels deliver <strong>Resolution + Assurance</strong> — the same senior judgment and the same proof standard.
           The difference is simply how far you want us to go: <strong>$495 — We guide and verify.</strong> · <strong>$995 — We handle and prove.</strong>
         </p>
       </div>
@@ -155,8 +155,14 @@ export default function AdvisoryPage() {
           JGS provides senior-level support focused on Microsoft 365 — where your firm’s security, operations, and compliance intersect.
           Our role isn’t general IT; it’s to maintain the integrity of the systems that protect your clients, your data, and your evidence of control.
         </p>
-        <button className="btn sm" onClick={() => setOpen(true)} aria-haspopup="dialog" aria-expanded={open}>
-          📄 View full scope (opens popup)
+        {/* Label corrected: no "View Scope" and no "(opens popup)" */}
+        <button
+          className="btn sm"
+          onClick={() => setOpen(true)}
+          aria-haspopup="dialog"
+          aria-expanded={open}
+        >
+          📄 See Full Resolution Process
         </button>
       </div>
 
@@ -196,7 +202,7 @@ export default function AdvisoryPage() {
             ref={modalRef}
           >
             <div className="modal-head">
-              <h3 id="scopeTitle" className="title-xl">Scope of Support — Resolution &amp; Assurance</h3>
+              <h3 id="scopeTitle" className="title-xl">Resolution &amp; Assurance — Full Scope</h3>
               <button className="btn sm" onClick={() => setOpen(false)} aria-label="Close">
                 ✕
               </button>
@@ -204,60 +210,15 @@ export default function AdvisoryPage() {
 
             <div className="modal-body">
               <p>
-                Resolution &amp; Assurance covers issues that affect business continuity, data integrity, access control,
-                and regulatory defensibility. Every engagement ends with a verified fix and written documentation suitable
-                for leadership, insurers, or auditors.
+                Handles incidents that threaten business continuity, data integrity, access control, or compliance posture.
+                Every engagement concludes with a verified resolution and written documentation that leadership, insurers, or auditors can rely on.
               </p>
 
               <div className="two-col">
                 <div>
-                  <p className="subhead">Included (All Tiers)</p>
+                  <p className="subhead">Included (All Engagements)</p>
                   <ul className="list-tight">
                     <li>Incident triage and root-cause diagnosis.</li>
-                    <li>Guided or direct remediation for security, identity, and operational failures.</li>
+                    <li>Guided or direct remediation of Microsoft 365 configuration, identity, and access issues.</li>
                     <li>Correction of Conditional Access, MFA, mail-flow, and retention policies.</li>
-                    <li>Validation and documentation of results with leadership summaries.</li>
-                    <li>Coordination with your MSP or internal IT for aligned closure.</li>
-                    <li>Microsoft 365 assurance consulting and insurer questionnaire support.</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="subhead">Tier 2 Adds</p>
-                  <ul className="list-tight">
-                    <li>Direct administrative access — JGS executes changes and policy updates.</li>
-                    <li>Advanced troubleshooting across Exchange Online, SharePoint, Teams, Entra ID.</li>
-                    <li>System-level corrective work (access, auth, mail transport, backup, retention).</li>
-                    <li>Post-resolution validation confirming controls remain enforced and auditable.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <p className="subhead" style={{ marginTop: '.75rem' }}>Out of Scope</p>
-              <ul className="list-tight">
-                <li>End-user helpdesk (passwords, desktops, personal devices).</li>
-                <li>Network hardware, printers, on-prem servers.</li>
-                <li>Non-Microsoft SaaS platforms.</li>
-                <li>Migrations, rollouts, or large deployments (delivered as projects).</li>
-                <li>Custom development unrelated to remediation or control assurance.</li>
-              </ul>
-
-              <p className="subhead" style={{ marginTop: '.75rem' }}>Response &amp; Engagement</p>
-              <ul className="list-tight">
-                <li><strong>Business-critical:</strong> Immediate or same-day engagement.</li>
-                <li><strong>Standard incidents:</strong> Addressed within one business day.</li>
-                <li><strong>Documentation:</strong> Closure summary delivered within 48 hours of resolution.</li>
-                <li><strong>Access channels:</strong> Tier 1 — Email &amp; Phone · Tier 2 — Email &amp; Phone + Remote Support.</li>
-              </ul>
-
-              <p style={{ marginTop: '.75rem' }}>
-                <strong>Operating principle:</strong> JGS support is assurance-driven, not ticket-driven. Every engagement ends
-                with a measurable result: the issue is identified and resolved, the remediation is verified and documented, and the
-                firm is ready to prove control.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
-    </section>
-  );
-}
+                    <li>Verification and lea
