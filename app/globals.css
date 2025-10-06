@@ -312,3 +312,42 @@ li{margin:.5rem 0; line-height:1.6}
 .page-advisory .subhead { margin: 0.15rem 0 0.45rem; }
 .page-advisory .list-tight li { margin: 0.45rem 0; line-height: 1.58; }
 .page-advisory .price-pill { transform: translateY(1px); }
+
+/* ========= ABOUT PAGE STYLE ========= */
+.page-about .about-card {
+  text-align: center;
+  padding: 3.5rem 2.5rem;
+  max-width: 68ch;
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(10,10,10,.85), rgba(8,8,8,.8));
+  box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 1.1rem;
+}
+
+.page-about .about-title {
+  font-size: 2.1rem;
+  line-height: 1.25;
+  font-weight: 700;
+  margin-bottom: 1.75rem;
+  background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(180,180,255,0.9));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-about .about-text {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  opacity: 0.9;
+  margin: 1.25rem 0;
+}
+
+@media (max-width: 600px) {
+  .page-about .about-title {
+    font-size: 1.7rem;
+  }
+  .page-about .about-text {
+    font-size: 1.05rem;
+  }
+}
+
