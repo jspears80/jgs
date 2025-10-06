@@ -45,7 +45,12 @@ export default function ContactPage() {
           </a>
         </p>
         <p>
-          <strong>Availability:</strong> 24 hours a day, 7 days a week.<br />
+          <p>
+          <strong>Office:</strong> <a href="tel:+16192021105">(619) 202-1105</a>
+          <br />
+                Available 24/7 for advisory and support.
+          </p>
+
           <strong>Coverage:</strong> Remote consulting for law and accounting firms nationwide.
         </p>
       </div>
@@ -81,3 +86,4 @@ export default function ContactPage() {
     </section>
   );
 }
+
