@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function ServicesPage() {
   return (
-    <section className="section container">
+    <section className="section container page-services">
       {/* ===== Header — context, not a pitch ===== */}
       <div className="card full">
         <span className="eyebrow">Secure = Projects</span>
@@ -24,10 +24,10 @@ export default function ServicesPage() {
       </div>
 
       {/* ===== Service: Security Retrofit ===== */}
-      <div className="card service-card">
+      <div id="security-retrofit" className="card service-card">
         <div className="service-head">
           <h2 className="title-xl">🛠 Security Retrofit</h2>
-          <span className="price-pill" aria-label="Price">$1,995</span>
+          <span className="price-pill" aria-label="Price: $1,995">$1,995</span>
         </div>
 
         <p>
@@ -62,10 +62,10 @@ export default function ServicesPage() {
       </div>
 
       {/* ===== Service: Email Security Retrofit ===== */}
-      <div className="card service-card">
+      <div id="email-security-retrofit" className="card service-card">
         <div className="service-head">
           <h2 className="title-xl">📧 Email Security Retrofit</h2>
-          <span className="price-pill" aria-label="Price">$995</span>
+          <span className="price-pill" aria-label="Price: $995">$995</span>
         </div>
 
         <p>
@@ -99,10 +99,10 @@ export default function ServicesPage() {
       </div>
 
       {/* ===== Service: Backup & Recovery Retrofit ===== */}
-      <div className="card service-card">
+      <div id="backup-recovery-retrofit" className="card service-card">
         <div className="service-head">
           <h2 className="title-xl">🔁 Backup &amp; Recovery Retrofit</h2>
-          <span className="price-pill" aria-label="Price">$995</span>
+          <span className="price-pill" aria-label="Price: $995">$995</span>
         </div>
 
         <p>
