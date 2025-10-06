@@ -303,4 +303,12 @@ li{margin:.5rem 0; line-height:1.6}
   padding:1rem 1.25rem 1.25rem 1.25rem;
 }
 
-
+/* ===== Advisory Page Spacing Fix (Match Services Rhythm) ===== */
+.page-advisory .card { margin-bottom: 1.25rem; }
+.page-advisory .card.full { margin-bottom: 1.4rem; }
+.page-advisory .service-card + .service-card { margin-top: 0; }
+.page-advisory .legend-row { margin-top: 1rem; margin-bottom: 0.75rem; }
+.page-advisory .two-col { gap: 1.25rem; }
+.page-advisory .subhead { margin: 0.15rem 0 0.45rem; }
+.page-advisory .list-tight li { margin: 0.45rem 0; line-height: 1.58; }
+.page-advisory .price-pill { transform: translateY(1px); }
