@@ -31,7 +31,37 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           name="description"
           content="Secure and Support — Microsoft 365 for Law & CPA Firms. Projects secure it. Retainers support it."
         />
-        <link rel="icon" href="/favicon.ico" />
+
+        {/* Favicons / Touch Icons (with cache-busting) */}
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=3" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png?v=3" />
+        <link rel="shortcut icon" href="/favicon.ico?v=3" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-180.png?v=3" />
+        <meta name="theme-color" content="#0b0b0b" />
+
+        {/* Open Graph / Social */}
+        <meta property="og:title" content="JGS Cloud Compliance — Secure and Support" />
+        <meta
+          property="og:description"
+          content="Secure Microsoft 365 for law and accounting firms — flat-fee projects that harden access, email and recovery, plus advisory retainers that keep it that way."
+        />
+        <meta property="og:image" content="/social-800.png?v=3" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.cloudjgs.com" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="JGS Cloud Compliance — Secure and Support" />
+        <meta
+          name="twitter:description"
+          content="Microsoft 365 security and advisory for law & CPA firms — secure it, support it."
+        />
+        <meta name="twitter:image" content="/social-800.png?v=3" />
+
+        {/* (Optional) PWA Manifest */}
+        {/* <link rel="manifest" href="/manifest.json" /> */}
       </head>
       <body>
         {/* ===== Header ===== */}
@@ -57,7 +87,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
             {/* Right CTA + Office line */}
             <div className="nav-right">
-              <span style={{ color: 'rgba(255,255,255,.85)', fontSize: '.95rem', whiteSpace: 'nowrap', marginRight: '.75rem' }}>
+              <span
+                style={{
+                  color: 'rgba(255,255,255,.85)',
+                  fontSize: '.95rem',
+                  whiteSpace: 'nowrap',
+                  marginRight: '.75rem',
+                }}
+              >
                 Office:&nbsp;
                 <a href="tel:+16192021105" style={{ color: '#9b8df2', textDecoration: 'none' }}>
                   (619) 202-1105
@@ -84,7 +121,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {/* Brand (logo only) */}
             <div className="footer-brand">
               <img src="/Logo.png" alt="JGS logo" className="footer-logo" />
-              {/* Optional accessibility label (hidden visually if you add an .sr-only class in CSS) */}
               <span className="sr-only">JGS Cloud Compliance</span>
             </div>
 
@@ -99,7 +135,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
             {/* Contact / CTA */}
             <div className="footer-cta">
-              <a href="mailto:support@cloudjgs.com" className="footer-link">support@cloudjgs.com</a>
+              <a href="mailto:support@cloudjgs.com" className="footer-link">
+                support@cloudjgs.com
+              </a>
               <span style={{ opacity: '.9' }}>
                 Office:&nbsp;
                 <a href="tel:+16192021105" style={{ color: '#9b8df2', textDecoration: 'none' }}>
@@ -130,6 +168,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="subfooter">
             <div className="container subfooter-row">
               <span>© {new Date().getFullYear()} JGS Cloud Compliance, LLC</span>
+              <span className="dot">•</span>
+              <span>Registered in California — EIN 39-4459407 — State ID B20250301108</span>
+              <span className="dot">•</span>
+              <a
+                href="https://portal.encinitasca.gov/customerservice#/business/96b53966-5edc-47c6-b0f0-177df517b854"
+                target="_blank"
+                rel="noopener"
+                style={{ color: '#9b8df2', textDecoration: 'none' }}
+              >
+                Verify Registration
+              </a>
               <span className="dot">•</span>
               <span>Secure • Support • Prove</span>
             </div>
