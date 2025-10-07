@@ -170,16 +170,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <span>© {new Date().getFullYear()} JGS Cloud Compliance, LLC</span>
               <span className="dot">•</span>
               <span>Registered in California — EIN 39-4459407 — State ID B20250301108</span>
-              <span className="dot">•</span>
-              <a
-                href="https://portal.encinitasca.gov/customerservice#/business/96b53966-5edc-47c6-b0f0-177df517b854"
-                target="_blank"
-                rel="noopener"
-                style={{ color: '#9b8df2', textDecoration: 'none' }}
-              >
-                Verify Registration
-              </a>
-              <span className="dot">•</span>
+             
               <span>Secure • Support • Prove</span>
             </div>
           </div>
@@ -188,3 +179,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
