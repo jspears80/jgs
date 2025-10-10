@@ -36,8 +36,8 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* ===== PROOF GRID (Four-Card) ===== */}
-         # <div className="proofgrid">
+          {/* ===== PROOF GRID (Four-Card) ===== */
+          <div className="proofgrid">
             <div>
               🛠 <strong>Security Retrofit</strong> — Protect client data, keep operations moving, and hold audit-ready proof of control.
             </div>
@@ -49,10 +49,10 @@ export default function HomePage() {
             </div>
             <div>
               📄 <strong>Senior Expertise &amp; Support</strong> — Direct access to your Principal Consultant, continuous oversight, and confidence your firm stays secure year-round.
-        #    </div>
-         # </div>
-
-       #   {/* ===== CTA BAND ===== */}
+            </div>
+          </div>}
+          
+          {/* ===== CTA BAND ===== */}
           <div className="cta-band" style={{ marginTop: '1.75rem' }}>
             <p className="lead" style={{ margin: 0, textAlign: 'center' }}>
               Projects secure it. Retainers support it. That’s Secure → Support — the JGS model that gives professional
@@ -107,4 +107,5 @@ export default function HomePage() {
     </section>
   );
 }
+
 
