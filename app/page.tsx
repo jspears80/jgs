@@ -1,12 +1,16 @@
-'use client';
-import React from 'react';
-
-export default function BackgroundOnly() {
+export default function Page() {
   return (
-    <div className="background-container">
-      {/* This component renders only the background visuals, no content */}
-      <div className="background-grid" />
-      <div className="background-overlay" />
-    </div>
+    <main
+      style={{
+        minHeight: '100vh',
+        width: '100%',
+        background:
+          'radial-gradient(circle at 50% 20%, rgba(0,255,200,0.12), transparent 60%), radial-gradient(circle at 50% 100%, rgba(0,150,255,0.18), transparent 60%)',
+        backgroundColor: '#050505',
+        backgroundImage:
+          'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)',
+        backgroundSize: '48px 48px, 48px 48px',
+      }}
+    />
   );
 }
