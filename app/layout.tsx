@@ -1,7 +1,10 @@
 // app/layout.tsx
-import '../globals.css'; // adjust if your globals.css lives elsewhere
-import React from 'react';
-import Nav from '../Nav'; // adjust path to wherever your Nav.tsx actually is
+
+- import '../globals.css';
+- import Nav from '../Nav';
++ import './globals.css';
++ import Nav from './Nav';
+
 
 export const metadata = {
   metadataBase: new URL('https://www.cloudjgs.com'),
@@ -124,3 +127,4 @@ export default function RootLayout({
     </html>
   );
 }
+
