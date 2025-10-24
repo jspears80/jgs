@@ -7,12 +7,12 @@ export default function HomePage() {
       <div className="page home-grid">
         {/* ===== LEFT COLUMN — HERO / SUMMARY ===== */}
         <div>
-          <span className="eyebrow">Microsoft 365 • Security & Advisory</span>
-          <h1 className="hero">Secure and sustain Microsoft&nbsp;365 for professional firms</h1>
+          <span className="eyebrow">Consulting • Microsoft 365</span>
+          <h1 className="hero">Secure and Support — Microsoft 365 for Law &amp; CPA Firms</h1>
 
           <p className="lead" style={{ maxWidth: '68ch' }}>
-            JGS Cloud Compliance secures each tenant against evolving threats, preserves client-data integrity,
-            and provides continuing advisory support that strengthens <strong>trust, efficiency, and reputation</strong>.
+            JGS Cloud Compliance protects client data, delivers trusted communication, and preserves business
+            continuity — all with audit-ready proof and senior expertise that keeps firms confident year-round.
           </p>
 
           <div
@@ -28,50 +28,52 @@ export default function HomePage() {
               href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
               target="_blank"
               rel="noopener"
-              aria-label="Book a 30-minute consultation"
             >
-              🔒 Book a 30-minute consultation
+              🔒 Book a 30-Minute Consultation
             </a>
-            <a className="btn" href="/services" aria-label="View services">
-              📘 View services
+            <a className="btn" href="/services">
+              📘 View Services
             </a>
           </div>
 
-          {/* ===== PROOF GRID (four cards) ===== */}
+          {/* ===== PROOF GRID (Four-Card) ===== */}
           <div className="proofgrid">
             <div>
-              🛠 <strong>Security Retrofit</strong> — Close quiet gaps, restore control of access and configuration,
-              and deliver a defensible baseline.
+              🛠 <strong>Security Retrofit</strong> — Protect client data, keep operations moving, and hold audit-ready proof of control.
             </div>
             <div>
-              📧 <strong>Email Security Retrofit</strong> — Authenticate mail, block impostors and hidden rules,
-              and make delivery reliable and trusted.
+              📧 <strong>Email Security Retrofit</strong> — Deliver trust with every message: verified, protected, and accepted the first time.
             </div>
             <div>
-              🔁 <strong>Backup &amp; Recovery Retrofit</strong> — Prove recovery with timed drills, documented
-              outcomes, and insurer-ready evidence.
+              🔁 <strong>Backup &amp; Recovery Retrofit</strong> — Preserve every file, rehearse recovery, and stay in business no matter what happens.
             </div>
             <div>
-              💧 <strong>Resolution &amp; Assurance</strong> — Senior advisory that keeps Microsoft&nbsp;365 stable,
-              responsive, and documented month after month.
+              📄 <strong>Senior Expertise &amp; Support</strong> — Direct access to your Principal Consultant, continuous oversight, and confidence your firm stays secure year-round.
             </div>
           </div>
 
           {/* ===== CTA BAND ===== */}
           <div className="cta-band" style={{ marginTop: '1.75rem' }}>
             <p className="lead" style={{ margin: 0, textAlign: 'center' }}>
-              <strong>Secure → Support → Prove.</strong> Projects establish the baseline. Retainers keep it resilient.
-              Every outcome is captured as clear, verifiable documentation.
+              Projects secure it. Retainers support it. That’s Secure → Support — the JGS model that gives professional
+              firms proof, continuity, and senior expertise on demand.
             </p>
           </div>
         </div>
 
         {/* ===== RIGHT COLUMN — FOUNDER CARD ===== */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
           <div className="founder" style={{ textAlign: 'center', alignItems: 'center' }}>
             <img
               src="/founder.jpg"
-              alt="Jeremiah Spears — Founder & Principal Consultant"
+              alt="Founder headshot"
               className="founder-img"
               width={720}
               height={720}
@@ -82,8 +84,8 @@ export default function HomePage() {
             </div>
 
             <p style={{ fontSize: '.95rem', opacity: 0.9, marginTop: '.25rem', maxWidth: '60ch' }}>
-              “Professional firms deserve enterprise-grade security without enterprise friction. Our job is to harden
-              Microsoft&nbsp;365, support it with judgment, and hand you proof you can stand behind.”
+              “I’ve seen too many firms run on bare-bones Microsoft 365, told they’re secure when they’re not.
+              I built JGS to fix that — to deliver security you can prove, not just assume.”
             </p>
 
             <div className="founder-actions" style={{ justifyContent: 'center', marginTop: '.5rem' }}>
@@ -92,11 +94,10 @@ export default function HomePage() {
                 href="https://www.linkedin.com/in/jspears80/"
                 target="_blank"
                 rel="noopener"
-                aria-label="Open LinkedIn profile"
               >
                 🔗 LinkedIn
               </a>
-              <a className="btn sm" href="/contact" aria-label="Contact JGS Cloud Compliance">
+              <a className="btn sm" href="/contact">
                 ✉️ Contact
               </a>
             </div>
