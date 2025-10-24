@@ -1,9 +1,9 @@
 // app/layout.tsx
 
-- import '../globals.css';
-- import Nav from '../Nav';
-+ import './globals.css';
-+ import Nav from './Nav';
+import './globals.css';
+import React from 'react';
+import Nav from './Nav';
+
 
 
 export const metadata = {
@@ -127,4 +127,5 @@ export default function RootLayout({
     </html>
   );
 }
+
 
