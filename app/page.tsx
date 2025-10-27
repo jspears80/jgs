@@ -8,11 +8,13 @@ export default function HomePage() {
         {/* ===== LEFT COLUMN — HERO / SUMMARY ===== */}
         <div>
           <span className="eyebrow">Consulting • Microsoft 365</span>
-          <h1 className="hero">Secure and Support — Microsoft 365 for Law &amp; CPA Firms</h1>
+          <h1 className="hero">Secure • Support • Prove</h1>
 
           <p className="lead" style={{ maxWidth: '68ch' }}>
-            JGS Cloud Compliance protects client data, delivers trusted communication, and preserves business
-            continuity — all with audit-ready proof and senior expertise that keeps firms confident year-round.
+            Professional firms run on trust — between partners, clients, and insurers.
+            JGS Cloud Compliance protects that trust by securing Microsoft 365, maintaining it day-to-day,
+            and proving it’s governed to professional standards. Each service below is designed to make your firm’s
+            digital operations clear, defensible, and dependable.
           </p>
 
           <div
@@ -36,19 +38,31 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* ===== PROOF GRID (Four-Card) ===== */}
+          {/* ===== SERVICE GRID (Four-Card) ===== */}
           <div className="proofgrid">
+            {/* SECURE */}
             <div>
-              🛠 <strong>Security Retrofit</strong> — Protect client data, keep operations moving, and hold audit-ready proof of control.
+              🛡️ <strong>SECURE — $1,495 Flat-Fee Engagement</strong> — Bring control, clarity, and confidence back to your Microsoft 365.
+              The Secure engagement hardens identity, access, and email so your environment is clean, closed, and compliant —
+              stable, protected, and aligned with insurer expectations.
             </div>
+
+            {/* SUPPORT */}
             <div>
-              📧 <strong>Email Security Retrofit</strong> — Deliver trust with every message: verified, protected, and accepted the first time.
+              🤝 <strong>SUPPORT — $995 / Month Advisory + Helpdesk</strong> — The ongoing partnership that keeps your firm steady and supported.
+              We handle user issues, policy changes, and compliance upkeep — respond fast, and document every action so you’re always audit-ready.
             </div>
+
+            {/* PROVE */}
             <div>
-              🔁 <strong>Backup &amp; Recovery Retrofit</strong> — Preserve every file, rehearse recovery, and stay in business no matter what happens.
+              📊 <strong>PROVE — $495 Audit Data Package</strong> — Show proof, not promises.
+              Exportable evidence straight from Microsoft 365 — no interpretation, just organized facts ready for insurers, clients, or auditors.
             </div>
+
+            {/* CUSTOM */}
             <div>
-              📄 <strong>Senior Expertise &amp; Support</strong> — Direct access to your Principal Consultant, continuous oversight, and confidence your firm stays secure year-round.
+              ⚙️ <strong>CUSTOM SOLUTIONS — from $495+</strong> — Turn Microsoft 365 into the system that fits your firm.
+              Automate workflows, improve efficiency, and preserve governance at every step — security and productivity in one motion.
             </div>
           </div>
 
