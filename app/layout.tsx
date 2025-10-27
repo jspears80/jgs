@@ -39,14 +39,8 @@ export default function RootLayout({
               </a>
             </div>
 
-            {/* Main Nav */}
-            <nav className="nav-links unified-nav" aria-label="Main navigation">
-              <a href="/">Home</a>
-              <a href="/services">Services</a>
-              <a href="/advisory">Advisory</a>
-              <a href="/about">About</a>
-              <a href="/contact">Contact</a>
-            </nav>
+            {/* Main Nav (now Secure • Support • Proof • Custom • About • Contact) */}
+            <Nav />
 
             {/* CTA */}
             <div className="nav-right" style={{ display: 'flex', justifyContent: 'flex-end' }}>
@@ -62,7 +56,7 @@ export default function RootLayout({
           {children}
         </main>
 
-        {/* =================== Footer =================== */}
+        {/* =================== Footer (matching nav) =================== */}
         <footer className="footer" role="contentinfo">
           <div
             className="container"
@@ -86,11 +80,12 @@ export default function RootLayout({
               <span style={{ fontWeight: 600 }}>JGS Cloud Compliance</span>
             </div>
 
-            {/* Footer Nav */}
-            <nav className="footer-links unified-nav" aria-label="Footer navigation">
-              <a href="/">Home</a>
-              <a href="/services">Services</a>
-              <a href="/advisory">Advisory</a>
+            {/* Footer Nav (IDENTICAL to header order/labels) */}
+            <nav className="footer-links unified-nav" aria-label="Footer navigation" style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+              <a href="/services">Secure</a>
+              <a href="/advisory">Support</a>
+              <a href="/proof">Proof</a>
+              <a href="/custom">Custom</a>
               <a href="/about">About</a>
               <a href="/contact">Contact</a>
             </nav>
@@ -128,10 +123,12 @@ export default function RootLayout({
             </div>
           </div>
 
-         
+          {/* Copyright */}
+          <div className="container" style={{ textAlign: 'center', marginTop: '.9rem', opacity: 0.85, fontSize: '.9rem', paddingBottom: '1rem' }}>
+            © {new Date().getFullYear()} JGS Cloud Compliance, LLC
+          </div>
         </footer>
       </body>
     </html>
   );
 }
-
