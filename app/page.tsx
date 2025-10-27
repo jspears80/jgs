@@ -42,13 +42,13 @@ export default function HomePage() {
               🛠 <strong>Secure</strong> — Flat-fee Microsoft 365 hardening that restores trust, compliance, and peace of mind.
             </div>
             <div>
-              📧 <strong>Email Security Retrofit</strong> — Deliver trust with every message: verified, protected, and accepted the first time.
+              📧 <strong>Support</strong> — Your Microsoft 365 helpdesk and advisor — steady support, fast fixes, full accountability.
             </div>
             <div>
-              🔁 <strong>Backup &amp; Recovery Retrofit</strong> — Preserve every file, rehearse recovery, and stay in business no matter what happens.
+              🔁 <strong>Prove</strong> — Deliver audit-ready Microsoft 365 proof your clients, auditors, and insurers believe.
             </div>
             <div>
-              📄 <strong>Senior Expertise &amp; Support</strong> — Direct access to your Principal Consultant, continuous oversight, and confidence your firm stays secure year-round.
+              📄 <strong>Custom</strong> — Extend Microsoft 365 beyond security — streamline operations with built-in governance and ease.
             </div>
           </div>
 
@@ -106,6 +106,7 @@ JGS Cloud Compliance gives Law & CPA Firms visible control, reliable support, an
     </section>
   );
 }
+
 
 
 
