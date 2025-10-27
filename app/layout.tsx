@@ -22,21 +22,39 @@ export default function RootLayout({
       <body>
         {/* =================== Header =================== */}
         <header className="header" role="banner">
-          <div className="container header-row" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', gap: '1rem' }}>
+          <div
+            className="container header-row"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr auto 1fr',
+              alignItems: 'center',
+              gap: '1rem',
+            }}
+          >
             {/* Brand (left) */}
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <a href="/" className="brand" aria-label="JGS Cloud Compliance — Home">
+              <a
+                href="/"
+                className="brand"
+                aria-label="JGS Cloud Compliance — Home"
+              >
                 <img src="/Logo.png" alt="" className="logo" />
               </a>
             </div>
 
             {/* Nav (center) */}
-            <nav aria-label="Main navigation" style={{ display: 'flex', justifyContent: 'center' }}>
+            <nav
+              aria-label="Main navigation"
+              style={{ display: 'flex', justifyContent: 'center' }}
+            >
               <Nav />
             </nav>
 
             {/* CTA (right) */}
-            <div className="nav-right" style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <div
+              className="nav-right"
+              style={{ display: 'flex', justifyContent: 'flex-end' }}
+            >
               <a className="btn btn-cta" href="/contact">
                 Book Consultation
               </a>
@@ -50,81 +68,103 @@ export default function RootLayout({
         </main>
 
         {/* =================== Footer =================== */}
-      <footer className="footer" role="contentinfo">
-  <div
-    className="container"
-    style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      textAlign: 'center',
-      gap: '0.75rem',
-      padding: '2rem 0',
-    }}
-  >
-    {/* Brand */}
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '.6rem',
-        justifyContent: 'center',
-      }}
-    >
-      <img
-        src="/Logo.png"
-        alt="JGS Cloud Compliance"
-        className="footer-logo"
-        style={{ height: '44px', opacity: '.95' }}
-      />
-      <span style={{ fontWeight: 600 }}>JGS Cloud Compliance</span>
-    </div>
+        <footer className="footer" role="contentinfo">
+          <div
+            className="container"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+              gap: '0.75rem',
+              padding: '2rem 0',
+            }}
+          >
+            {/* Brand */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '.6rem',
+                justifyContent: 'center',
+              }}
+            >
+              <img
+                src="/Logo.png"
+                alt="JGS Cloud Compliance"
+                className="footer-logo"
+                style={{ height: '44px', opacity: '.95' }}
+              />
+              <span style={{ fontWeight: 600 }}>JGS Cloud Compliance</span>
+            </div>
 
-    {/* Navigation */}
-    <nav
-      className="footer-links"
-      aria-label="Footer navigation"
-      style={{
-        display: 'flex',
-        gap: '1.25rem',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-      }}
-    >
-      <a href="/">Home</a>
-      <a href="/services">Services</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
-    </nav>
+            {/* Navigation */}
+            <nav
+              className="footer-links"
+              aria-label="Footer navigation"
+              style={{
+                display: 'flex',
+                gap: '1.25rem',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+              }}
+            >
+              <a href="/">Home</a>
+              <a href="/services">Services</a>
+              <a href="/about">About</a>
+              <a href="/contact">Contact</a>
+            </nav>
 
-    {/* Contact */}
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '.4rem',
-      }}
-    >
+            {/* Contact */}
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '.4rem',
+              }}
+            >
+              <a href="mailto:support@cloudjgs.com" className="footer-link">
+                support@cloudjgs.com
+              </a>
+              <a
+                href="tel:+16192021105"
+                className="footer-link"
+                style={{ opacity: '.9' }}
+              >
+                (619) 202-1105
+              </a>
+              <div
+                className="footer-actions"
+                style={{ display: 'flex', gap: '.5rem', marginTop: '.4rem' }}
+              >
+                <a
+                  className="btn sm"
+                  href="https://www.linkedin.com/in/jspears80/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  LinkedIn
+                </a>
+                <a className="btn sm" href="/contact">
+                  Book Consultation
+                </a>
+              </div>
+            </div>
 
-
-    {/* Copyright */}
-    <p
-      style={{
-        marginTop: '1rem',
-        opacity: '.8',
-        fontSize: '.9rem',
-      }}
-    >
-      © {new Date().getFullYear()} JGS Cloud Compliance, LLC
-    </p>
-  </div>
-</footer>
-
+            {/* Copyright */}
+            <p
+              style={{
+                marginTop: '1rem',
+                opacity: '.8',
+                fontSize: '.9rem',
+              }}
+            >
+              © {new Date().getFullYear()} JGS Cloud Compliance, LLC
+            </p>
+          </div>
+        </footer>
       </body>
     </html>
   );
 }
-
-
-
