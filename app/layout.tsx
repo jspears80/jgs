@@ -29,32 +29,27 @@ export default function RootLayout({
               gridTemplateColumns: '1fr auto 1fr',
               alignItems: 'center',
               gap: '1rem',
+              padding: '.9rem 1.25rem',
             }}
           >
-            {/* Brand (left) */}
+            {/* Brand */}
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <a
-                href="/"
-                className="brand"
-                aria-label="JGS Cloud Compliance — Home"
-              >
-                <img src="/Logo.png" alt="" className="logo" />
+              <a href="/" className="brand" aria-label="JGS Cloud Compliance — Home">
+                <img src="/Logo.png" alt="JGS Cloud Compliance" className="logo" style={{ height: 48 }} />
               </a>
             </div>
 
-            {/* Nav (center) */}
-            <nav
-              aria-label="Main navigation"
-              style={{ display: 'flex', justifyContent: 'center' }}
-            >
-              <Nav />
+            {/* Main Nav */}
+            <nav className="nav-links unified-nav" aria-label="Main navigation">
+              <a href="/">Home</a>
+              <a href="/services">Services</a>
+              <a href="/advisory">Advisory</a>
+              <a href="/about">About</a>
+              <a href="/contact">Contact</a>
             </nav>
 
-            {/* CTA (right) */}
-            <div
-              className="nav-right"
-              style={{ display: 'flex', justifyContent: 'flex-end' }}
-            >
+            {/* CTA */}
+            <div className="nav-right" style={{ display: 'flex', justifyContent: 'flex-end' }}>
               <a className="btn btn-cta" href="/contact">
                 Book Consultation
               </a>
@@ -72,72 +67,52 @@ export default function RootLayout({
           <div
             className="container"
             style={{
-              display: 'flex',
-              flexDirection: 'column',
+              display: 'grid',
+              gridTemplateColumns: '1fr auto 1fr',
               alignItems: 'center',
+              gap: '1rem',
               textAlign: 'center',
-              gap: '0.75rem',
-              padding: '2rem 0',
+              padding: '2rem 0 1rem',
             }}
           >
             {/* Brand */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '.6rem',
-                justifyContent: 'center',
-              }}
-            >
+            <div className="footer-brand" style={{ display: 'flex', alignItems: 'center', gap: '.6rem' }}>
               <img
                 src="/Logo.png"
                 alt="JGS Cloud Compliance"
                 className="footer-logo"
-                style={{ height: '44px', opacity: '.95' }}
+                style={{ height: 40, opacity: 0.95 }}
               />
               <span style={{ fontWeight: 600 }}>JGS Cloud Compliance</span>
             </div>
 
-            {/* Navigation */}
-            <nav
-              className="footer-links"
-              aria-label="Footer navigation"
-              style={{
-                display: 'flex',
-                gap: '1.25rem',
-                flexWrap: 'wrap',
-                justifyContent: 'center',
-              }}
-            >
+            {/* Footer Nav */}
+            <nav className="footer-links unified-nav" aria-label="Footer navigation">
               <a href="/">Home</a>
               <a href="/services">Services</a>
+              <a href="/advisory">Advisory</a>
               <a href="/about">About</a>
               <a href="/contact">Contact</a>
             </nav>
 
             {/* Contact */}
             <div
+              className="footer-contact"
               style={{
                 display: 'flex',
-                flexDirection: 'column',
                 alignItems: 'center',
-                gap: '.4rem',
+                justifyContent: 'flex-end',
+                gap: '.9rem',
+                flexWrap: 'wrap',
               }}
             >
               <a href="mailto:support@cloudjgs.com" className="footer-link">
                 support@cloudjgs.com
               </a>
-              <a
-                href="tel:+16192021105"
-                className="footer-link"
-                style={{ opacity: '.9' }}
-              >
+              <a href="tel:+16192021105" className="footer-link" style={{ opacity: 0.9 }}>
                 (619) 202-1105
               </a>
-              <div
-                className="footer-actions"
-                style={{ display: 'flex', gap: '.5rem', marginTop: '.4rem' }}
-              >
+              <div className="footer-actions" style={{ display: 'flex', gap: '.5rem' }}>
                 <a
                   className="btn sm"
                   href="https://www.linkedin.com/in/jspears80/"
@@ -151,17 +126,20 @@ export default function RootLayout({
                 </a>
               </div>
             </div>
+          </div>
 
-            {/* Copyright */}
-            <p
-              style={{
-                marginTop: '1rem',
-                opacity: '.8',
-                fontSize: '.9rem',
-              }}
-            >
-              © {new Date().getFullYear()} JGS Cloud Compliance, LLC
-            </p>
+          {/* Copyright */}
+          <div
+            className="container"
+            style={{
+              textAlign: 'center',
+              marginTop: '.9rem',
+              opacity: 0.85,
+              fontSize: '.9rem',
+              paddingBottom: '1rem',
+            }}
+          >
+            © {new Date().getFullYear()} JGS Cloud Compliance, LLC
           </div>
         </footer>
       </body>
