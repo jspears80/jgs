@@ -8,9 +8,10 @@ export default function Nav() {
 
   const items = [
     { href: '/', label: 'Home' },
-    { href: '/services', label: 'Services' },
-    { href: '/advisory', label: 'Advisory' },
-    { href: '/about', label: 'About' },
+    { href: '/services', label: 'Secure' },
+    { href: '/advisory', label: 'Support' },
+    { href: '/about', label: 'Prove' },
+    { href: '/custom', label: 'Custom' },
     { href: '/contact', label: 'Contact' },
   ];
 
