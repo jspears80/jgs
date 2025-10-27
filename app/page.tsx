@@ -39,7 +39,7 @@ export default function HomePage() {
           {/* ===== PROOF GRID (Four-Card) ===== */}
           <div className="proofgrid">
             <div>
-              🛠 <strong>Security Retrofit</strong> — Protect client data, keep operations moving, and hold audit-ready proof of control.
+              🛠 <strong>Secure</strong> — Flat-fee Microsoft 365 hardening that restores trust, compliance, and peace of mind.
             </div>
             <div>
               📧 <strong>Email Security Retrofit</strong> — Deliver trust with every message: verified, protected, and accepted the first time.
@@ -106,6 +106,7 @@ JGS Cloud Compliance gives Law & CPA Firms visible control, reliable support, an
     </section>
   );
 }
+
 
 
 
