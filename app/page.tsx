@@ -56,8 +56,7 @@ export default function HomePage() {
           {/* ===== CTA BAND ===== */}
           <div className="cta-band" style={{ marginTop: '1.75rem' }}>
             <p className="lead" style={{ margin: 0, textAlign: 'center' }}>
-              Projects secure it. Retainers support it. That’s Secure → Support — the JGS model that gives professional
-              firms proof, continuity, and senior expertise on demand.
+JGS Cloud Compliance gives professional firms visible control, reliable support, and undeniable proof their Microsoft 365 is governed right.
             </p>
           </div>
         </div>
@@ -108,3 +107,4 @@ export default function HomePage() {
     </section>
   );
 }
+
