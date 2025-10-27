@@ -1,23 +1,29 @@
 'use client';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 
-export default function Nav() {
-  const path = usePathname();
+const NAV_ITEMS = [
+  { href: '/', label: 'Home' },
+  { href: '/secure', label: 'Secure' },
+  { href: '/support', label: 'Support' },
+  { href: '/prove', label: 'Prove' },
+  { href: '/custom', label: 'Custom' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
 
-  const items = [
-    { href: '/', label: 'Home' },
-    { href: '/services', label: 'Services' },
-    { href: '/advisory', label: 'Advisory' },
-    { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' },
-  ];
+export default function Nav() {
+  const pathname = usePathname();
 
   return (
-    <nav className="nav-links">
-      {items.map(({ href, label }) => {
-        const active = path === href;
+    <nav className="nav-links" aria-label="Primary">
+      {NAV_ITEMS.map(({ href, label }) => {
+        const active =
+          pathname === href ||
+          (href !== '/' && pathname?.startsWith(href + '/'));
+
         return (
           <Link
             key={href}
