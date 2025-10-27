@@ -42,17 +42,17 @@ export default function HomePage() {
           {/* ===== CONCISE SERVICE GRID ===== */}
           <div className="proofgrid">
             <div>
-              🛡️ <strong>Secure — $1,495 Flat-Fee</strong> — Reclaim control of your
+              🛡️ <strong>Secure</strong> — Reclaim control of your
               Microsoft 365 tenant. We close exposure points, lock down access, and
               deliver an auditable, insurer-ready baseline.
             </div>
             <div>
-              🤝 <strong>Support — $995/mo Advisory + Helpdesk</strong> — Stay secure
+              🤝 <strong>Support> — Stay secure
               year-round. We manage updates, handle user issues, and document every action
               so you remain audit-ready.
             </div>
             <div>
-              📊 <strong>Prove — $495 Audit Data Package</strong> — Show proof, not
+              📊 <strong>Prove</strong> — Show proof, not
               promises. Exportable Microsoft 365 evidence—no opinions, just organized data
               you can hand to an insurer or client.
             </div>
@@ -119,3 +119,4 @@ export default function HomePage() {
     </section>
   );
 }
+
