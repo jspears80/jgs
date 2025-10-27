@@ -128,21 +128,10 @@ export default function RootLayout({
             </div>
           </div>
 
-          {/* Copyright */}
-          <div
-            className="container"
-            style={{
-              textAlign: 'center',
-              marginTop: '.9rem',
-              opacity: 0.85,
-              fontSize: '.9rem',
-              paddingBottom: '1rem',
-            }}
-          >
-            © {new Date().getFullYear()} JGS Cloud Compliance, LLC
-          </div>
+         
         </footer>
       </body>
     </html>
   );
 }
+
