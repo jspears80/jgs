@@ -15,7 +15,7 @@ export default function HomePage() {
             Professional firms run on trust. We secure your Microsoft 365, keep it clean, and deliver the proof that your data—and reputation—are protected.
           </p>
 
-          <div
+          <div>
             style={{
               display: 'flex',
               gap: '.75rem',
@@ -107,4 +107,5 @@ export default function HomePage() {
     </section>
   );
 }
+
 
