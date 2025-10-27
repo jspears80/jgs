@@ -55,7 +55,7 @@ export default function HomePage() {
           {/* ===== CTA BAND ===== */}
           <div className="cta-band" style={{ marginTop: '1.75rem' }}>
             <p className="lead" style={{ margin: 0, textAlign: 'center' }}>
-JGS Cloud Compliance gives professional firms visible control, reliable support, and undeniable proof their Microsoft 365 is governed right.
+JGS Cloud Compliance gives Law & CPA Firms visible control, reliable support, and undeniable proof their Microsoft 365 is governed right.
             </p>
           </div>
         </div>
@@ -106,6 +106,7 @@ JGS Cloud Compliance gives professional firms visible control, reliable support,
     </section>
   );
 }
+
 
 
 
