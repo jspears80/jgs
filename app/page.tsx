@@ -1,3 +1,4 @@
+// app/page.tsx
 'use client';
 import React from 'react';
 
@@ -5,16 +6,16 @@ export default function HomePage() {
   return (
     <section className="section container">
       <div className="page home-grid">
-        {/* ===== LEFT COLUMN — HERO / SUMMARY ===== */}
+        {/* ===== LEFT COLUMN — HERO ===== */}
         <div>
           <span className="eyebrow">Consulting • Microsoft 365</span>
           <h1 className="hero">Secure • Support • Prove</h1>
 
           <p className="lead" style={{ maxWidth: '68ch' }}>
-            Professional firms run on trust — between partners, clients, and insurers.
-            JGS Cloud Compliance protects that trust by securing Microsoft 365, maintaining it day-to-day,
-            and proving it’s governed to professional standards. Each service below is designed to make your firm’s
-            digital operations clear, defensible, and dependable.
+            JGS Cloud Compliance secures Microsoft 365 for professional firms—CPAs, law
+            practices, and consultants who rely on it every day. We harden your
+            environment, keep it maintained, and deliver the proof your clients, partners,
+            and insurers expect.
           </p>
 
           <div
@@ -38,39 +39,35 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* ===== SERVICE GRID (Four-Card) ===== */}
+          {/* ===== CONCISE SERVICE GRID ===== */}
           <div className="proofgrid">
-            {/* SECURE */}
             <div>
-              🛡️ <strong>SECURE — $1,495 Flat-Fee Engagement</strong> — Bring control, clarity, and confidence back to your Microsoft 365.
-              The Secure engagement hardens identity, access, and email so your environment is clean, closed, and compliant —
-              stable, protected, and aligned with insurer expectations.
+              🛡️ <strong>Secure — $1,495 Flat-Fee</strong> — Reclaim control of your
+              Microsoft 365 tenant. We close exposure points, lock down access, and
+              deliver an auditable, insurer-ready baseline.
             </div>
-
-            {/* SUPPORT */}
             <div>
-              🤝 <strong>SUPPORT — $995 / Month Advisory + Helpdesk</strong> — The ongoing partnership that keeps your firm steady and supported.
-              We handle user issues, policy changes, and compliance upkeep — respond fast, and document every action so you’re always audit-ready.
+              🤝 <strong>Support — $995/mo Advisory + Helpdesk</strong> — Stay secure
+              year-round. We manage updates, handle user issues, and document every action
+              so you remain audit-ready.
             </div>
-
-            {/* PROVE */}
             <div>
-              📊 <strong>PROVE — $495 Audit Data Package</strong> — Show proof, not promises.
-              Exportable evidence straight from Microsoft 365 — no interpretation, just organized facts ready for insurers, clients, or auditors.
+              📊 <strong>Prove — $495 Audit Data Package</strong> — Show proof, not
+              promises. Exportable Microsoft 365 evidence—no opinions, just organized data
+              you can hand to an insurer or client.
             </div>
-
-            {/* CUSTOM */}
             <div>
-              ⚙️ <strong>CUSTOM SOLUTIONS — from $495+</strong> — Turn Microsoft 365 into the system that fits your firm.
-              Automate workflows, improve efficiency, and preserve governance at every step — security and productivity in one motion.
+              ⚙ <strong>Custom Solutions — from $495+</strong> — Operate smarter inside
+              Microsoft 365. We automate workflows and streamline collaboration without
+              losing governance.
             </div>
           </div>
 
-          {/* ===== CTA BAND ===== */}
+          {/* ===== STRAPLINE ===== */}
           <div className="cta-band" style={{ marginTop: '1.75rem' }}>
             <p className="lead" style={{ margin: 0, textAlign: 'center' }}>
-              Projects secure it. Retainers support it. That’s Secure → Support — the JGS model that gives professional
-              firms proof, continuity, and senior expertise on demand.
+              Security isn’t a guess — it’s a record. JGS makes Microsoft 365 secure,
+              supported, and provable — so your firm can work with confidence.
             </p>
           </div>
         </div>
@@ -98,8 +95,9 @@ export default function HomePage() {
             </div>
 
             <p style={{ fontSize: '.95rem', opacity: 0.9, marginTop: '.25rem', maxWidth: '60ch' }}>
-              “I’ve seen too many firms run on bare-bones Microsoft 365, told they’re secure when they’re not.
-              I built JGS to fix that — to deliver security you can prove, not just assume.”
+              “I’ve seen too many firms run on bare-bones Microsoft 365, told they’re
+              secure when they’re not. I built JGS to fix that — to deliver security you
+              can prove, not just assume.”
             </p>
 
             <div className="founder-actions" style={{ justifyContent: 'center', marginTop: '.5rem' }}>
