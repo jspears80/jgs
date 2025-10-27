@@ -57,7 +57,7 @@ export default function HomePage() {
               you can hand to an insurer or client.
             </div>
             <div>
-              ⚙ <strong>Custom Solutions — from $495+</strong> — Operate smarter inside
+              ⚙ <strong>Custom Solutions</strong> — Operate smarter inside
               Microsoft 365. We automate workflows and streamline collaboration without
               losing governance.
             </div>
@@ -119,4 +119,5 @@ export default function HomePage() {
     </section>
   );
 }
+
 
