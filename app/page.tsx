@@ -47,7 +47,7 @@ export default function HomePage() {
               deliver an auditable, insurer-ready baseline.
             </div>
             <div>
-              🤝 <strong>Support> — Stay secure
+              🤝 <strong>Support</strong> — Stay secure
               year-round. We manage updates, handle user issues, and document every action
               so you remain audit-ready.
             </div>
