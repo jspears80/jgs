@@ -1,17 +1,16 @@
 // app/layout.tsx
+'use client';
 
 import './globals.css';
 import React from 'react';
 import Nav from './Nav';
 
-
-
 export const metadata = {
   metadataBase: new URL('https://www.cloudjgs.com'),
   title:
-    'Secure and Support — Microsoft 365 for Law & CPA Firms | JGS Cloud Compliance',
+    'Secure • Support • Prove — Microsoft 365 for Professional Firms | JGS Cloud Compliance',
   description:
-    'JGS Cloud Compliance helps law and accounting firms operate securely and confidently on Microsoft 365. Projects fix risks. Retainers keep systems supported and defensible.',
+    'JGS Cloud Compliance secures Microsoft 365, maintains it day-to-day, and delivers audit-ready proof for law, CPA, and consulting firms.',
 };
 
 export default function RootLayout({
@@ -26,9 +25,7 @@ export default function RootLayout({
           <div className="header-row container">
             <div className="brand">
               <img src="/Logo.png" alt="JGS Cloud Compliance" className="logo" />
-              <span className="tagline" aria-hidden="true">
-                {/* hidden by CSS */}
-              </span>
+              <span className="sr-only">JGS Cloud Compliance</span>
             </div>
             <Nav />
             <div className="nav-right">
@@ -41,7 +38,7 @@ export default function RootLayout({
 
         <main className="main container">{children}</main>
 
-        {/* ---- Footer (your existing JSX dropped in place) ---- */}
+        {/* ---- Footer ---- */}
         <footer className="footer">
           <div className="container footer-grid">
             <div className="footer-brand">
@@ -102,7 +99,7 @@ export default function RootLayout({
               >
                 📄 View Certificate of Insurance
               </a>
-              <span>🔐 Microsoft 365 E3 + Teams Infrastructure</span>
+              <span>🔐 Microsoft 365 E5 + Teams Infrastructure</span>
               <span>🧾 Registered California LLC — Entity ID B20250301108</span>
             </div>
           </div>
@@ -127,5 +124,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-
