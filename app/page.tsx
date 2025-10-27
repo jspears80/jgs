@@ -8,15 +8,13 @@ export default function HomePage() {
         {/* ===== LEFT COLUMN — HERO / SUMMARY ===== */}
         <div>
           <span className="eyebrow">Consulting • Microsoft 365</span>
-          <h1 className="hero">Secure • Support • Prove</h1>
-          <h2>Microsoft 365 for Law &amp; CPA Firms</h2>
+          <h1 className="hero">Secure and Support — Microsoft 365 for Law &amp; CPA Firms</h1>
 
           <p className="lead" style={{ maxWidth: '68ch' }}>
-            Professional firms run on trust. JGS Cloud Compliance secures Microsoft 365, maintains it day-to-day, and delivers
-            verifiable proof that your firm’s systems meet professional, client, and insurer expectations.
+            JGS Cloud Compliance protects client data, delivers trusted communication, and preserves business
+            continuity — all with audit-ready proof and senior expertise that keeps firms confident year-round.
           </p>
 
-          {/* ===== CTA BUTTONS ===== */}
           <div
             style={{
               display: 'flex',
@@ -38,29 +36,27 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* ===== FOUR LINKED SERVICE CARDS ===== */}
+          {/* ===== PROOF GRID (Four-Card) ===== */}
           <div className="proofgrid">
-            <a href="/services" className="card-link">
-              <strong>🛡️ Secure</strong> — Flat-fee Microsoft 365 hardening that restores trust, compliance, and peace of mind.
-            </a>
-
-            <a href="/advisory" className="card-link">
-              <strong>🤝 Support</strong> — Ongoing Microsoft 365 helpdesk and advisory partnership — steady support, fast fixes, full accountability.
-            </a>
-
-            <a href="/proof" className="card-link">
-              <strong>📊 Prove</strong> — Deliver audit-ready documentation and evidence that clients, insurers, and regulators can verify.
-            </a>
-
-            <a href="/custom" className="card-link">
-              <strong>⚙️ Custom</strong> — Extend Microsoft 365 beyond security — streamline operations with built-in governance and ease.
-            </a>
+            <div>
+              🛠 <strong>Security Retrofit</strong> — Protect client data, keep operations moving, and hold audit-ready proof of control.
+            </div>
+            <div>
+              📧 <strong>Email Security Retrofit</strong> — Deliver trust with every message: verified, protected, and accepted the first time.
+            </div>
+            <div>
+              🔁 <strong>Backup &amp; Recovery Retrofit</strong> — Preserve every file, rehearse recovery, and stay in business no matter what happens.
+            </div>
+            <div>
+              📄 <strong>Senior Expertise &amp; Support</strong> — Direct access to your Principal Consultant, continuous oversight, and confidence your firm stays secure year-round.
+            </div>
           </div>
 
-          {/* ===== CLOSING CTA BAND ===== */}
+          {/* ===== CTA BAND ===== */}
           <div className="cta-band" style={{ marginTop: '1.75rem' }}>
             <p className="lead" style={{ margin: 0, textAlign: 'center' }}>
-              JGS Cloud Compliance gives professional firms visible control, reliable support, and undeniable proof that their Microsoft 365 is governed right.
+              Projects secure it. Retainers support it. That’s Secure → Support — the JGS model that gives professional
+              firms proof, continuity, and senior expertise on demand.
             </p>
           </div>
         </div>
@@ -77,7 +73,7 @@ export default function HomePage() {
           <div className="founder" style={{ textAlign: 'center', alignItems: 'center' }}>
             <img
               src="/founder.jpg"
-              alt="Jeremiah Spears, Founder & Principal Consultant"
+              alt="Founder headshot"
               className="founder-img"
               width={720}
               height={720}
@@ -88,7 +84,7 @@ export default function HomePage() {
             </div>
 
             <p style={{ fontSize: '.95rem', opacity: 0.9, marginTop: '.25rem', maxWidth: '60ch' }}>
-              “I’ve seen too many firms run on bare-bones Microsoft 365 — told they’re secure when they’re not.
+              “I’ve seen too many firms run on bare-bones Microsoft 365, told they’re secure when they’re not.
               I built JGS to fix that — to deliver security you can prove, not just assume.”
             </p>
 

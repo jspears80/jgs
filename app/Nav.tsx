@@ -5,21 +5,26 @@ import React from 'react';
 
 export default function Nav() {
   const path = usePathname();
+
   const items = [
-    { href: '/services', label: 'Secure' },
-    { href: '/advisory', label: 'Support' },
-    { href: '/proof', label: 'Proof' },
-    { href: '/custom', label: 'Custom' },
+    { href: '/', label: 'Home' },
+    { href: '/services', label: 'Services' },
+    { href: '/advisory', label: 'Advisory' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ];
 
   return (
-    <nav className="nav-links unified-nav" aria-label="Main navigation">
+    <nav className="nav-links">
       {items.map(({ href, label }) => {
         const active = path === href;
         return (
-          <Link key={href} href={href} className={active ? 'nav-active' : undefined} aria-current={active ? 'page' : undefined}>
+          <Link
+            key={href}
+            href={href}
+            className={active ? 'nav-active' : undefined}
+            aria-current={active ? 'page' : undefined}
+          >
             {label}
           </Link>
         );
