@@ -70,15 +70,27 @@ export default function RootLayout({
             }}
           >
             {/* Brand */}
-            <div className="footer-brand" style={{ display: 'flex', alignItems: 'center', gap: '.6rem' }}>
-              <img
-                src="/Logo.png"
-                alt="JGS Cloud Compliance"
-                className="footer-logo"
-                style={{ height: 40, opacity: 0.95 }}
-              />
-              <span style={{ fontWeight: 600 }}>JGS Cloud Compliance</span>
-            </div>
+{/* Brand (linked to Home) */}
+<a
+  href="/"
+  className="footer-brand"
+  style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '.6rem',
+    textDecoration: 'none',
+  }}
+  aria-label="JGS Cloud Compliance — Home"
+>
+  <img
+    src="/Logo.png"
+    alt="JGS Cloud Compliance logo"
+    className="footer-logo"
+    style={{ height: 40, opacity: 0.95 }}
+  />
+  <span style={{ fontWeight: 600 }}>JGS Cloud Compliance</span>
+</a>
+
 
             {/* Footer Nav (IDENTICAL to header order/labels) */}
             <nav className="footer-links unified-nav" aria-label="Footer navigation" style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -132,3 +144,4 @@ export default function RootLayout({
     </html>
   );
 }
+
