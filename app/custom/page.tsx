@@ -1,18 +1,20 @@
 'use client';
 import React from 'react';
 
-export default function HomePage() {
+export default function CustomSolutionsPage() {
   return (
-    <section className="section container">
+    <section className="section container page-services">
       <div className="page home-grid">
         {/* ===== LEFT COLUMN — HERO / SUMMARY ===== */}
         <div>
           <span className="eyebrow">Consulting • Microsoft 365</span>
-          <h1 className="hero">Secure • Support • Prove </h1>
-          <h2>Microsoft 365 for Law &amp; CPA Firms</h2>
+          <h1 className="hero">⚙️ Custom Solutions — from $495+</h1>
+          <h2>Make Microsoft 365 fit your firm</h2>
 
           <p className="lead" style={{ maxWidth: '68ch' }}>
-            Professional firms run on trust. We secure your Microsoft 365, keep it clean, and deliver the proof that your data—and reputation—are protected.
+            Your tools should work the way your team does. JGS Custom Solutions extend Microsoft 365
+            beyond security — automating workflows, improving efficiency, and ensuring governance at every
+            step. Operate smarter inside Microsoft 365 — security and productivity in one motion.
           </p>
 
           <div
@@ -32,36 +34,136 @@ export default function HomePage() {
               🔒 Book a 30-Minute Consultation
             </a>
             <a className="btn" href="/services">
-              📘 View Services
+              📘 Back to Services
             </a>
           </div>
 
-          {/* ===== PROOF GRID (Four-Card) ===== */}
+          {/* ===== VALUE SUMMARY (concise) ===== */}
           <div className="proofgrid">
             <div>
-             <strong>🛡️ Secure</strong> — Flat-fee Microsoft 365 hardening that restores trust, compliance, and peace of mind.
+              <strong>🧩 Built for your workflow</strong> — We shape Microsoft 365 around how your firm
+              actually works — not the other way around.
             </div>
             <div>
-             <strong>🤝 Support</strong> — Your Microsoft 365 helpdesk and advisor — steady support, fast fixes, full accountability.
+              <strong>🔁 Automate routine tasks</strong> — Reduce clicks and context switching with
+              Power Automate, approvals, and templated actions.
             </div>
             <div>
-             <strong>📊 Prove</strong> — Deliver audit-ready Microsoft 365 proof your clients, auditors, and insurers believe.
+              <strong>📂 Govern as you go</strong> — Every solution preserves labeling, retention, and
+              access discipline — compliance baked in.
             </div>
             <div>
-             <strong>⚙️ Custom</strong> — Extend Microsoft 365 beyond security — streamline operations with built-in governance and ease.
+              <strong>📈 Measurable efficiency</strong> — Time saved, steps removed, mistakes prevented —
+              we document the impact so leadership can see the gain.
             </div>
+          </div>
+
+          {/* ===== WHAT WE BUILD (examples) ===== */}
+          <div className="card full service-card">
+            <div className="service-head">
+              <h3 className="title-xl">What we build</h3>
+              <span className="price-pill">From $495+</span>
+            </div>
+            <div className="two-col">
+              <div>
+                <div className="subhead">SharePoint &amp; OneDrive</div>
+                <ul className="list-tight">
+                  <li>Client/matter workspace templates with governed folders</li>
+                  <li>Metadata &amp; views for fast search and sorting</li>
+                  <li>Checklists, binders, and “close-out” packages on demand</li>
+                </ul>
+              </div>
+              <div>
+                <div className="subhead">Power Automate &amp; Teams</div>
+                <ul className="list-tight">
+                  <li>Intake → review → approval flows with audit trail</li>
+                  <li>Auto-filing of emails/attachments to the right library</li>
+                  <li>Notifications that keep partners informed — not spammed</li>
+                </ul>
+              </div>
+              <div>
+                <div className="subhead">Email &amp; Docs</div>
+                <ul className="list-tight">
+                  <li>Standardized signatures &amp; disclaimers with routing rules</li>
+                  <li>Document templates with auto-naming and versioning</li>
+                  <li>Retention that follows the document, not the user</li>
+                </ul>
+              </div>
+              <div>
+                <div className="subhead">Dashboards &amp; Proof</div>
+                <ul className="list-tight">
+                  <li>Lightweight status boards for work-in-progress</li>
+                  <li>Activity logs that satisfy client and insurer questions</li>
+                  <li>Before/after evidence that shows time saved and steps removed</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* ===== HOW IT WORKS (5-step) ===== */}
+          <div className="card full service-card">
+            <div className="service-head">
+              <h3 className="title-xl">How it works</h3>
+            </div>
+            <div className="two-col">
+              <div>
+                <div className="subhead">1) Discovery</div>
+                <p className="list-tight">
+                  Short working session to map the current workflow, pain points, and the “done right” outcome.
+                </p>
+              </div>
+              <div>
+                <div className="subhead">2) Design</div>
+                <p className="list-tight">
+                  We draft the flow and guardrails — labeling, access, retention — so governance is built-in.
+                </p>
+              </div>
+              <div>
+                <div className="subhead">3) Build</div>
+                <p className="list-tight">
+                  Implement in Microsoft 365 using SharePoint, Teams, and Power Automate — minimal change, max reuse.
+                </p>
+              </div>
+              <div>
+                <div className="subhead">4) Pilot</div>
+                <p className="list-tight">
+                  Trial with a small group. We tune the steps, remove friction, and finalize user prompts.
+                </p>
+              </div>
+              <div>
+                <div className="subhead">5) Prove</div>
+                <p className="list-tight">
+                  We deliver the “before/after” evidence — time saved, steps reduced, and the documentation to back it.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* ===== BUSINESS VALUE (explicit bullets) ===== */}
+          <div className="card full">
+            <h3 className="title-xl">Business Value</h3>
+            <ul className="list-tight">
+              <li>Simplifies collaboration and everyday operations</li>
+              <li>Reduces manual effort without adding IT overhead</li>
+              <li>Increases efficiency while preserving governance and security</li>
+            </ul>
+            <p style={{ marginTop: '.5rem', opacity: .95 }}>
+              <em>“Operate smarter inside Microsoft 365 — security and productivity in one motion.”</em>
+            </p>
           </div>
 
           {/* ===== CTA BAND ===== */}
           <div className="cta-band" style={{ marginTop: '1.75rem' }}>
-            <p className="lead" style={{ margin: 0, textAlign: 'center' }}>
-JGS Cloud Compliance gives Law & CPA Firms visible control, reliable support, and undeniable proof their Microsoft 365 is governed right.
+            <p className="lead" style={{ margin: 0 }}>
+              Ready to turn busywork into a governed workflow? Book a consultation and we’ll scope a focused,
+              high-impact build for your team.
             </p>
           </div>
         </div>
 
-        {/* ===== RIGHT COLUMN — FOUNDER CARD ===== */}
-        <div
+        {/* ===== RIGHT COLUMN — FOUNDER CARD (optional reuse) ===== */}
+        <aside
+          aria-label="Principal consultant"
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -72,7 +174,7 @@ JGS Cloud Compliance gives Law & CPA Firms visible control, reliable support, an
           <div className="founder" style={{ textAlign: 'center', alignItems: 'center' }}>
             <img
               src="/founder.jpg"
-              alt="Founder headshot"
+              alt="Jeremiah Spears — Founder & Principal Consultant"
               className="founder-img"
               width={720}
               height={720}
@@ -83,8 +185,8 @@ JGS Cloud Compliance gives Law & CPA Firms visible control, reliable support, an
             </div>
 
             <p style={{ fontSize: '.95rem', opacity: 0.9, marginTop: '.25rem', maxWidth: '60ch' }}>
-              “I’ve seen too many firms run on bare-bones Microsoft 365, told they’re secure when they’re not.
-              I built JGS to fix that — to deliver security you can prove, not just assume.”
+              “We build flows that teams actually use — because they’re fast, obvious, and governed.
+              The best automation removes steps and adds proof.”
             </p>
 
             <div className="founder-actions" style={{ justifyContent: 'center', marginTop: '.5rem' }}>
@@ -101,18 +203,8 @@ JGS Cloud Compliance gives Law & CPA Firms visible control, reliable support, an
               </a>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
   );
 }
-
-
-
-
-
-
-
-
-
-
