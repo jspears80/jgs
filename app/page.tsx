@@ -39,16 +39,16 @@ export default function HomePage() {
           {/* ===== PROOF GRID (Four-Card) ===== */}
           <div className="proofgrid">
             <div>
-              🛠 <strong>Secure</strong> — Flat-fee Microsoft 365 hardening that restores trust, compliance, and peace of mind.
+              🛠 <strong>🛡️Secure</strong> — Flat-fee Microsoft 365 hardening that restores trust, compliance, and peace of mind.
             </div>
             <div>
-              📧 <strong>Support</strong> — Your Microsoft 365 helpdesk and advisor — steady support, fast fixes, full accountability.
+              📧 <strong>🤝Support</strong> — Your Microsoft 365 helpdesk and advisor — steady support, fast fixes, full accountability.
             </div>
             <div>
-              🔁 <strong>Prove</strong> — Deliver audit-ready Microsoft 365 proof your clients, auditors, and insurers believe.
+              🔁 <strong>📊Prove</strong> — Deliver audit-ready Microsoft 365 proof your clients, auditors, and insurers believe.
             </div>
             <div>
-              📄 <strong>Custom</strong> — Extend Microsoft 365 beyond security — streamline operations with built-in governance and ease.
+              📄 <strong>⚙️Custom</strong> — Extend Microsoft 365 beyond security — streamline operations with built-in governance and ease.
             </div>
           </div>
 
@@ -106,6 +106,7 @@ JGS Cloud Compliance gives Law & CPA Firms visible control, reliable support, an
     </section>
   );
 }
+
 
 
 
