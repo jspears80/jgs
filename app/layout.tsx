@@ -1,16 +1,47 @@
 // app/layout.tsx
-'use client';
-
 import './globals.css';
 import React from 'react';
+import type { Metadata } from 'next';
 import Nav from './Nav';
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL('https://www.cloudjgs.com'),
   title:
     'Secure • Support • Prove — Microsoft 365 for Professional Firms | JGS Cloud Compliance',
   description:
     'JGS Cloud Compliance secures Microsoft 365, maintains it day-to-day, and delivers audit-ready proof for law, CPA, and consulting firms.',
+  openGraph: {
+    title:
+      'Secure • Support • Prove — Microsoft 365 for Professional Firms | JGS Cloud Compliance',
+    description:
+      'Security isn’t a guess — it’s a record. JGS makes Microsoft 365 secure, supported, and provable for professional firms.',
+    url: 'https://www.cloudjgs.com',
+    siteName: 'JGS Cloud Compliance',
+    type: 'website',
+  },
+  keywords: [
+    'Microsoft 365 security',
+    'M365 hardening',
+    'CPA security',
+    'law firm security',
+    'email security',
+    'DMARC DKIM SPF',
+    'audit evidence',
+    'compliance proof',
+  ],
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@cloudjgs',
+    title:
+      'Secure • Support • Prove — Microsoft 365 for Professional Firms | JGS Cloud Compliance',
+    description:
+      'We harden your Microsoft 365, keep it maintained, and deliver audit-ready proof.',
+  },
 };
 
 export default function RootLayout({
@@ -19,15 +50,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
+        {/* ===== Header / Site Navigation ===== */}
         <header className="header">
           <div className="header-row container">
-            <div className="brand">
-              <img src="/Logo.png" alt="JGS Cloud Compliance" className="logo" />
-              <span className="sr-only">JGS Cloud Compliance</span>
-            </div>
+            <a className="brand" href="/" aria-label="JGS Cloud Compliance">
+              <img
+                src="/Logo.png"
+                alt="JGS Cloud Compliance"
+                className="logo"
+                width={28}
+                height={28}
+              />
+              <span className="brand-text">JGS Cloud Compliance</span>
+            </a>
+
+            {/* Nav is a client component; safe to render here */}
             <Nav />
+
             <div className="nav-right">
               <a className="btn btn-cta" href="/contact">
                 Book Consultation
@@ -36,17 +77,27 @@ export default function RootLayout({
           </div>
         </header>
 
+        {/* ===== Main ===== */}
         <main className="main container">{children}</main>
 
-        {/* ---- Footer ---- */}
+        {/* ===== Footer ===== */}
         <footer className="footer">
           <div className="container footer-grid">
             <div className="footer-brand">
-              <img src="/Logo.png" alt="JGS logo" className="footer-logo" />
+              <img
+                src="/Logo.png"
+                alt="JGS logo"
+                className="footer-logo"
+                width={28}
+                height={28}
+              />
               <span className="sr-only">JGS Cloud Compliance</span>
+              <p className="footer-tag">
+                Secure • Support • Prove — Professional trust, verified.
+              </p>
             </div>
 
-            <nav className="footer-links" aria-label="Footer">
+            <nav className="footer-links" aria-label="Footer navigation">
               <a href="/">Home</a>
               <a href="/services">Services</a>
               <a href="/advisory">Advisory</a>
@@ -58,11 +109,12 @@ export default function RootLayout({
               <a href="mailto:support@cloudjgs.com" className="footer-link">
                 support@cloudjgs.com
               </a>
-              <span style={{ opacity: '.9' }}>
-                Office:&nbsp;
+              <span className="footer-text">
+                Office:{' '}
                 <a
                   href="tel:+16192021105"
-                  style={{ color: '#9b8df2', textDecoration: 'none' }}
+                  className="footer-link alt"
+                  aria-label="Call our office"
                 >
                   (619) 202-1105
                 </a>
@@ -76,21 +128,17 @@ export default function RootLayout({
                 >
                   🔗 LinkedIn
                 </a>
-                <a
-                  className="btn sm footer-book"
-                  href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
-                  target="_blank"
-                  rel="noopener"
-                >
+                <a className="btn sm footer-book" href="/contact">
                   🔒 Book Consultation
                 </a>
               </div>
             </div>
           </div>
 
+          {/* Trust / Compliance row */}
           <div className="trust-row">
             <div className="container trust-items">
-              <span>✅ Fully Insured — Technology & Cyber Liability Coverage</span>
+              <span>✅ Technology &amp; Cyber Liability Insured</span>
               <a
                 href="https://portal.nextinsurance.com/public/certificates/live-certificate/9d9860207b4a4a69bec692ceab81979f"
                 target="_blank"
@@ -104,6 +152,7 @@ export default function RootLayout({
             </div>
           </div>
 
+          {/* Legal row */}
           <div className="subfooter">
             <div className="container subfooter-row">
               <span>© {new Date().getFullYear()} JGS Cloud Compliance, LLC</span>
