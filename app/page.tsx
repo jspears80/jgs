@@ -1,125 +1,127 @@
-// app/layout.tsx
-import './globals.css';
+// app/page.tsx
 import React from 'react';
-import type { Metadata } from 'next';
-import Nav from './Nav';
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://www.cloudjgs.com'),
-  title:
-    'Secure • Support • Prove — Microsoft 365 for Professional Firms | JGS Cloud Compliance',
-  description:
-    'JGS Cloud Compliance secures Microsoft 365 for professional firms, maintains it day-to-day, and delivers audit-ready proof.',
-  openGraph: {
-    title:
-      'Secure • Support • Prove — Microsoft 365 for Professional Firms | JGS Cloud Compliance',
-    description:
-      'Security isn’t a guess — it’s a record. JGS makes Microsoft 365 secure, supported, and provable for professional firms.',
-    url: 'https://www.cloudjgs.com',
-    siteName: 'JGS Cloud Compliance',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title:
-      'Secure • Support • Prove — Microsoft 365 for Professional Firms | JGS Cloud Compliance',
-    description:
-      'We harden Microsoft 365, keep it maintained, and deliver audit-ready proof.',
-  },
-  keywords: [
-    'Microsoft 365 security',
-    'law firm Microsoft 365',
-    'CPA Microsoft 365',
-    'DMARC DKIM SPF',
-    'M365 hardening',
-    'audit evidence',
-    'compliance proof',
-  ],
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function HomePage() {
   return (
-    <html lang="en">
-      <body>
-        {/* ======================= Header (quiet) ======================= */}
-        <header className="header" role="banner">
-          <div className="container header-row">
-            <a href="/" className="brand" aria-label="JGS Cloud Compliance — Home">
-              <img
-                src="/Logo.png"
-                alt="JGS Cloud Compliance"
-                className="logo"
-                width={32}
-                height={32}
-              />
+    <section className="section container">
+      <div className="page home-grid">
+        {/* ===== LEFT COLUMN — HERO ===== */}
+        <div>
+          <span className="eyebrow">Consulting • Microsoft 365</span>
+          <h1 className="hero">Secure • Support • Prove</h1>
+
+          <p className="lead" style={{ maxWidth: '68ch' }}>
+            JGS Cloud Compliance secures Microsoft 365 for professional firms—CPAs, law
+            practices, and consultants who rely on it every day. We harden your
+            environment, keep it maintained, and deliver the proof your clients, partners,
+            and insurers expect.
+          </p>
+
+          <div
+            style={{
+              display: 'flex',
+              gap: '.75rem',
+              margin: '.9rem 0 1.25rem',
+              flexWrap: 'wrap',
+            }}
+          >
+            <a
+              className="btn primary"
+              href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
+              target="_blank"
+              rel="noopener"
+            >
+              🔒 Book a 30-Minute Consultation
             </a>
-
-            {/* Client Nav component (can be a client component) */}
-            <Nav />
-
-            <a className="btn btn-cta" href="/contact">
-              Book Consultation
+            <a className="btn" href="/services">
+              📘 View Services
             </a>
           </div>
-        </header>
 
-        {/* ========================= Main ========================= */}
-        <main className="main container" role="main">
-          {children}
-        </main>
-
-        {/* ======================= Footer (minimal) ======================= */}
-        <footer className="footer" role="contentinfo">
-          {/* Top row: brand + nav + contact */}
-          <div className="container footer-main">
-            <div className="footer-brand">
-              <img
-                src="/Logo.png"
-                alt="JGS Cloud Compliance"
-                className="footer-logo"
-                width={28}
-                height={28}
-              />
-              <span className="brand-name">JGS Cloud Compliance</span>
+          {/* ===== CONCISE SERVICE GRID ===== */}
+          <div className="proofgrid">
+            <div>
+              🛡️ <strong>Secure — $1,495 Flat-Fee</strong> — Reclaim control of your
+              Microsoft 365 tenant. We close exposure points, lock down access, and
+              deliver an auditable, insurer-ready baseline.
             </div>
-
-            <nav className="footer-links" aria-label="Footer navigation">
-              <a href="/">Home</a>
-              <a href="/services">Services</a>
-              <a href="/advisory">Advisory</a>
-              <a href="/about">About</a>
-              <a href="/contact">Contact</a>
-            </nav>
-
-            <div className="footer-contact" aria-label="Contact">
-              <a href="mailto:support@cloudjgs.com" className="footer-link">
-                support@cloudjgs.com
-              </a>
-              <a href="tel:+16192021105" className="footer-link">
-                (619) 202-1105
-              </a>
+            <div>
+              🤝 <strong>Support — $995/mo Advisory + Helpdesk</strong> — Stay secure
+              year-round. We manage updates, handle user issues, and document every action
+              so you remain audit-ready.
+            </div>
+            <div>
+              📊 <strong>Prove — $495 Audit Data Package</strong> — Show proof, not
+              promises. Exportable Microsoft 365 evidence — no opinions, just organized
+              data you can hand to an insurer or client.
+            </div>
+            <div>
+              ⚙ <strong>Custom Solutions — from $495+</strong> — Operate smarter inside
+              Microsoft 365. We automate workflows and streamline collaboration without
+              losing governance.
             </div>
           </div>
 
-          {/* Bottom row: legal / trust (muted, single place) */}
-          <div className="container footer-bottom">
-            <p className="footer-legal">
-              © {new Date().getFullYear()} JGS Cloud Compliance, LLC • Registered
-              California LLC • City Business No. 013999-2025
+          {/* ===== STRAPLINE ===== */}
+          <div className="cta-band" style={{ marginTop: '1.75rem' }}>
+            <p className="lead" style={{ margin: 0, textAlign: 'left' }}>
+              Security isn’t a guess — it’s a record. JGS makes Microsoft 365 secure,
+              supported, and provable — so your firm can work with confidence.
             </p>
-            <p className="footer-trust">
-              Technology &amp; Cyber Liability Insured • Microsoft 365 E5 Infrastructure
-            </p>
-            <nav className="footer-legal-links" aria-label="Legal">
-              <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-            </nav>
           </div>
-        </footer>
-      </body>
-    </html>
+        </div>
+
+        {/* ===== RIGHT COLUMN — FOUNDER CARD ===== */}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <div className="founder" style={{ textAlign: 'center', alignItems: 'center' }}>
+            <img
+              src="/founder.jpg"
+              alt="Founder headshot"
+              className="founder-img"
+              width={720}
+              height={720}
+            />
+            <div className="founder-meta">
+              <div className="founder-name">Jeremiah Spears</div>
+              <div className="founder-title">Founder &amp; Principal Consultant</div>
+            </div>
+
+            <p
+              style={{
+                fontSize: '.95rem',
+                opacity: 0.9,
+                marginTop: '.25rem',
+                maxWidth: '60ch',
+              }}
+            >
+              “I’ve seen too many firms run on bare-bones Microsoft 365, told they’re
+              secure when they’re not. I built JGS to fix that — to deliver security you
+              can prove, not just assume.”
+            </p>
+
+            <div className="founder-actions" style={{ justifyContent: 'center', marginTop: '.5rem' }}>
+              <a
+                className="btn sm"
+                href="https://www.linkedin.com/in/jspears80/"
+                target="_blank"
+                rel="noopener"
+              >
+                🔗 LinkedIn
+              </a>
+              <a className="btn sm" href="/contact">
+                ✉️ Contact
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
