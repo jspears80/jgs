@@ -1,20 +1,18 @@
-// app/page.tsx
+'use client';
 import React from 'react';
 
 export default function HomePage() {
   return (
     <section className="section container">
       <div className="page home-grid">
-        {/* ===== LEFT COLUMN — HERO ===== */}
+        {/* ===== LEFT COLUMN — HERO / SUMMARY ===== */}
         <div>
           <span className="eyebrow">Consulting • Microsoft 365</span>
-          <h1 className="hero">Secure • Support • Prove</h1>
+          <h1 className="hero">Secure and Support — Microsoft 365 for Law &amp; CPA Firms</h1>
 
           <p className="lead" style={{ maxWidth: '68ch' }}>
-            JGS Cloud Compliance secures Microsoft 365 for professional firms—CPAs, law
-            practices, and consultants who rely on it every day. We harden your
-            environment, keep it maintained, and deliver the proof your clients, partners,
-            and insurers expect.
+            JGS Cloud Compliance protects client data, delivers trusted communication, and preserves business
+            continuity — all with audit-ready proof and senior expertise that keeps firms confident year-round.
           </p>
 
           <div
@@ -38,35 +36,27 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* ===== CONCISE SERVICE GRID ===== */}
+          {/* ===== PROOF GRID (Four-Card) ===== */}
           <div className="proofgrid">
             <div>
-              🛡️ <strong>Secure — $1,495 Flat-Fee</strong> — Reclaim control of your
-              Microsoft 365 tenant. We close exposure points, lock down access, and
-              deliver an auditable, insurer-ready baseline.
+              🛠 <strong>Security Retrofit</strong> — Protect client data, keep operations moving, and hold audit-ready proof of control.
             </div>
             <div>
-              🤝 <strong>Support — $995/mo Advisory + Helpdesk</strong> — Stay secure
-              year-round. We manage updates, handle user issues, and document every action
-              so you remain audit-ready.
+              📧 <strong>Email Security Retrofit</strong> — Deliver trust with every message: verified, protected, and accepted the first time.
             </div>
             <div>
-              📊 <strong>Prove — $495 Audit Data Package</strong> — Show proof, not
-              promises. Exportable Microsoft 365 evidence — no opinions, just organized
-              data you can hand to an insurer or client.
+              🔁 <strong>Backup &amp; Recovery Retrofit</strong> — Preserve every file, rehearse recovery, and stay in business no matter what happens.
             </div>
             <div>
-              ⚙ <strong>Custom Solutions — from $495+</strong> — Operate smarter inside
-              Microsoft 365. We automate workflows and streamline collaboration without
-              losing governance.
+              📄 <strong>Senior Expertise &amp; Support</strong> — Direct access to your Principal Consultant, continuous oversight, and confidence your firm stays secure year-round.
             </div>
           </div>
 
-          {/* ===== STRAPLINE ===== */}
+          {/* ===== CTA BAND ===== */}
           <div className="cta-band" style={{ marginTop: '1.75rem' }}>
-            <p className="lead" style={{ margin: 0, textAlign: 'left' }}>
-              Security isn’t a guess — it’s a record. JGS makes Microsoft 365 secure,
-              supported, and provable — so your firm can work with confidence.
+            <p className="lead" style={{ margin: 0, textAlign: 'center' }}>
+              Projects secure it. Retainers support it. That’s Secure → Support — the JGS model that gives professional
+              firms proof, continuity, and senior expertise on demand.
             </p>
           </div>
         </div>
@@ -93,17 +83,9 @@ export default function HomePage() {
               <div className="founder-title">Founder &amp; Principal Consultant</div>
             </div>
 
-            <p
-              style={{
-                fontSize: '.95rem',
-                opacity: 0.9,
-                marginTop: '.25rem',
-                maxWidth: '60ch',
-              }}
-            >
-              “I’ve seen too many firms run on bare-bones Microsoft 365, told they’re
-              secure when they’re not. I built JGS to fix that — to deliver security you
-              can prove, not just assume.”
+            <p style={{ fontSize: '.95rem', opacity: 0.9, marginTop: '.25rem', maxWidth: '60ch' }}>
+              “I’ve seen too many firms run on bare-bones Microsoft 365, told they’re secure when they’re not.
+              I built JGS to fix that — to deliver security you can prove, not just assume.”
             </p>
 
             <div className="founder-actions" style={{ justifyContent: 'center', marginTop: '.5rem' }}>
