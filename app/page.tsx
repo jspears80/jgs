@@ -12,8 +12,7 @@ export default function HomePage() {
           <h2>Microsoft 365 for Law &amp; CPA Firms</h2>
 
           <p className="lead" style={{ maxWidth: '68ch' }}>
-            JGS Cloud Compliance protects client data, delivers trusted communication, and preserves business
-            continuity — all with audit-ready proof and senior expertise that keeps firms confident year-round.
+            Professional firms run on trust. We secure your Microsoft 365, keep it clean, and deliver the proof that your data—and reputation—are protected.
           </p>
 
           <div
@@ -108,5 +107,6 @@ export default function HomePage() {
     </section>
   );
 }
+
 
 
