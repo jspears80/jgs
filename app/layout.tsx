@@ -91,21 +91,6 @@ export default function RootLayout({
             </div>
           </div>
 
-          <div className="trust-row">
-            <div className="container trust-items">
-              <span>✅ Fully Insured — Technology & Cyber Liability Coverage</span>
-              <a
-                href="https://portal.nextinsurance.com/public/certificates/live-certificate/9d9860207b4a4a69bec692ceab81979f"
-                target="_blank"
-                rel="noopener"
-                className="trust-link"
-              >
-                📄 View Certificate of Insurance
-              </a>
-              <span>🔐 Microsoft 365 E3 + Teams Infrastructure</span>
-              <span>🧾 Registered California LLC — Entity ID B20250301108</span>
-            </div>
-          </div>
 
           <div className="subfooter">
             <div className="container subfooter-row">
@@ -127,5 +112,6 @@ export default function RootLayout({
     </html>
   );
 }
+
 
 
