@@ -147,16 +147,9 @@ export default function RootLayout({
   </div>
 </footer>
 
-
-          {/* Bottom line: copyright only */}
-          <div className="container footer-bottom" style={{ textAlign: 'center', marginTop: '1rem', opacity: '.9', fontSize: '.9rem' }}>
-            <p style={{ margin: '.25rem 0' }}>
-              © {new Date().getFullYear()} JGS Cloud Compliance, LLC
-            </p>
-          </div>
-        </footer>
       </body>
     </html>
   );
 }
+
 
