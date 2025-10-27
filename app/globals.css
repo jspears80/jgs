@@ -65,6 +65,55 @@ p.lead{opacity:.9; margin:.25rem 0 1rem; font-size:1.1rem; line-height:1.5}
 }
 
 /* =========  HEADER & NAV  ========= */
+
+/* ========= UNIFIED NAV HOVER STYLE ========= */
+.unified-nav a {
+  position: relative;
+  font-weight: 500;
+  opacity: 0.9;
+  transition: opacity 0.25s ease;
+}
+
+.unified-nav a:hover {
+  opacity: 1;
+}
+
+.unified-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(139,92,246,0.9), rgba(56,189,248,0.85));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+  border-radius: 2px;
+}
+
+.unified-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Subtle difference for footer */
+.footer-links.unified-nav a::after {
+  bottom: -4px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(139,92,246,0.75), rgba(56,189,248,0.65));
+}
+
+/* Responsive tweak */
+@media (max-width: 900px) {
+  .unified-nav a::after {
+    display: none;
+  }
+}
+
+
+
+
+
 .header{
   position:sticky; top:0; z-index:1000;
   background:rgba(0,0,0,.75); backdrop-filter:blur(8px);
