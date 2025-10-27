@@ -8,7 +8,7 @@ export default function HomePage() {
         {/* ===== LEFT COLUMN — HERO / SUMMARY ===== */}
         <div>
           <span className="eyebrow">Consulting • Microsoft 365</span>
-          <h1 className="hero">Secure and Support — Microsoft 365 for Law &amp; CPA Firms</h1>
+          <h1 className="hero">Secure • Support • Prove — Microsoft 365 for Law &amp; CPA Firms</h1>
 
           <p className="lead" style={{ maxWidth: '68ch' }}>
             JGS Cloud Compliance protects client data, delivers trusted communication, and preserves business
@@ -107,3 +107,4 @@ export default function HomePage() {
     </section>
   );
 }
+
