@@ -1,11 +1,9 @@
-// /app/robots.txt/route.ts
-export async function GET() {
-  const body = `User-agent: *
-Allow: /
+import { NextResponse } from 'next/server';
 
-Sitemap: https://www.cloudjgs.com/sitemap.xml
-`;
-  return new Response(body, {
-    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
-  });
+export function middleware(request: Request) {
+  return NextResponse.next();
 }
+
+export const config = {
+  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+};
