@@ -95,16 +95,7 @@ export default function RootLayout({
           <div className="subfooter">
             <div className="container subfooter-row">
               <span>© {new Date().getFullYear()} JGS Cloud Compliance, LLC</span>
-              <span className="dot">•</span>
-              <span>City Business No. 013999-2025</span>
-              <span className="dot">•</span>
-              <a href="/privacy" className="subfooter-link">
-                Privacy
-              </a>
-              <span className="dot">•</span>
-              <a href="/terms" className="subfooter-link">
-                Terms
-              </a>
+                         
             </div>
           </div>
         </footer>
@@ -112,6 +103,7 @@ export default function RootLayout({
     </html>
   );
 }
+
 
 
 
