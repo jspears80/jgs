@@ -8,14 +8,15 @@ export default function HomePage() {
         {/* ===== LEFT COLUMN — HERO / SUMMARY ===== */}
         <div>
           <span className="eyebrow">Consulting • Microsoft 365</span>
+
           <h1 className="hero">Secure • Support • Prove</h1>
-          <h1 className="hero">Microsoft 365 for Law &amp; CPA Firms</h2> 
+          <h2 className="hero">Microsoft 365 for Law &amp; CPA Firms</h2>
 
           <p className="lead" style={{ maxWidth: '68ch' }}>
             Professional firms run on trust. We secure your Microsoft 365, keep it clean, and deliver the proof that your data—and reputation—are protected.
           </p>
 
-          <div>
+          <div
             style={{
               display: 'flex',
               gap: '.75rem',
@@ -27,7 +28,7 @@ export default function HomePage() {
               className="btn primary"
               href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
             >
               🔒 Book a 30-Minute Consultation
             </a>
@@ -93,7 +94,7 @@ export default function HomePage() {
                 className="btn sm"
                 href="https://www.linkedin.com/in/jspears80/"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
               >
                 🔗 LinkedIn
               </a>
@@ -107,5 +108,3 @@ export default function HomePage() {
     </section>
   );
 }
-
-
