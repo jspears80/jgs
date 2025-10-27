@@ -5,13 +5,11 @@ import React from 'react';
 
 export default function Nav() {
   const path = usePathname();
-
-  // New site navigation
   const items = [
-    { href: '/services', label: 'Secure' },   // formerly "Services"
-    { href: '/advisory', label: 'Support' },  // formerly "Advisory"
-    { href: '/proof', label: 'Proof' },       // new page
-    { href: '/custom', label: 'Custom' },     // new page
+    { href: '/services', label: 'Secure' },
+    { href: '/advisory', label: 'Support' },
+    { href: '/proof', label: 'Proof' },
+    { href: '/custom', label: 'Custom' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ];
@@ -21,12 +19,7 @@ export default function Nav() {
       {items.map(({ href, label }) => {
         const active = path === href;
         return (
-          <Link
-            key={href}
-            href={href}
-            className={active ? 'nav-active' : undefined}
-            aria-current={active ? 'page' : undefined}
-          >
+          <Link key={href} href={href} className={active ? 'nav-active' : undefined} aria-current={active ? 'page' : undefined}>
             {label}
           </Link>
         );
