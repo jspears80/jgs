@@ -106,33 +106,7 @@ export default function RootLayout({
         gap: '.4rem',
       }}
     >
-      <a href="mailto:support@cloudjgs.com" className="footer-link">
-        support@cloudjgs.com
-      </a>
-      <a
-        href="tel:+16192021105"
-        className="footer-link"
-        style={{ opacity: '.9' }}
-      >
-        (619) 202-1105
-      </a>
-      <div
-        className="footer-actions"
-        style={{ display: 'flex', gap: '.5rem', marginTop: '.4rem' }}
-      >
-        <a
-          className="btn sm"
-          href="https://www.linkedin.com/in/jspears80/"
-          target="_blank"
-          rel="noopener"
-        >
-          LinkedIn
-        </a>
-        <a className="btn sm" href="/contact">
-          Book Consultation
-        </a>
-      </div>
-    </div>
+
 
     {/* Copyright */}
     <p
@@ -151,5 +125,6 @@ export default function RootLayout({
     </html>
   );
 }
+
 
 
