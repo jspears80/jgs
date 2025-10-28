@@ -73,6 +73,26 @@ export default function RootLayout({
               <a href="/about">About</a>
               <a href="/contact">Contact</a>
             </nav>
+
+            {/* ---- Contact Info (Right side) ---- */}
+            <div className="footer-contact" style={{ textAlign: 'right' }}>
+              <a
+                href="mailto:support@cloudjgs.com"
+                className="footer-link"
+                style={{ display: 'block', color: '#9b8df2' }}
+              >
+                support@cloudjgs.com
+              </a>
+              <span style={{ opacity: 0.9 }}>
+                Office:{' '}
+                <a
+                  href="tel:+16192021105"
+                  style={{ color: '#9b8df2', textDecoration: 'none' }}
+                >
+                  (619) 202-1105
+                </a>
+              </span>
+            </div>
           </div>
 
           {/* ---- Closing Line ---- */}
