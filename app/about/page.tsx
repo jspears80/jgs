@@ -35,7 +35,7 @@ export default function AboutPage() {
 
       {/* ===== The Model, Plainly ===== */}
       <section className={styles.card}>
-        <h3>⚙️ The Model, Plainly</h3>
+        <h3>⚙️ Our Services — Plain and Simple</h3>
 
         <article className={styles.block}>
           <h4>🛡️ Secure brings control, clarity, and confidence back to Microsoft 365.</h4>
@@ -116,4 +116,5 @@ export default function AboutPage() {
     </section>
   );
 }
+
 
