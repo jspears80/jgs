@@ -403,3 +403,24 @@ img {
     padding-top: 1.5rem;
   }
 }
+
+/* ====== Sticky Footer Fix ====== */
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Ensures the page content fills space before footer */
+main {
+  flex: 1;
+}
+
+/* Keeps footer locked to bottom only when content is short */
+.footer {
+  margin-top: auto;
+}
