@@ -25,24 +25,16 @@ export default function RootLayout({
           <div className="header-row container">
             {/* ---- Brand ---- */}
             <div className="brand">
-              <img
-                src="/Logo.png"
-                alt="JGS Cloud Compliance"
-                className="logo"
-              />
-              <span className="tagline" aria-hidden="true">
-                {/* hidden by CSS */}
-              </span>
+              <img src="/Logo.png" alt="JGS Cloud Compliance" className="logo" />
+              <span className="tagline" aria-hidden="true">{/* hidden by CSS */}</span>
             </div>
 
-            {/* ---- Navigation ---- */}
+            {/* ---- Navigation (center) ---- */}
             <Nav />
 
-            {/* ---- CTA ---- */}
+            {/* ---- CTA (right) ---- */}
             <div className="nav-right">
-              <a className="btn btn-cta" href="/contact">
-                🔒 Book Consultation
-              </a>
+              <a className="btn btn-cta" href="/contact">🔒 Book Consultation</a>
             </div>
           </div>
         </header>
@@ -51,44 +43,29 @@ export default function RootLayout({
         <main className="main container">{children}</main>
 
         {/* ================= FOOTER ================= */}
+        {/* Use the SAME grid classnames as header to guarantee identical alignment */}
         <footer className="footer">
-          <div className="container footer-row" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center' }}>
-            
-            {/* ---- Brand ---- */}
+          <div className="header-row container">
+            {/* ---- Brand (left) ---- */}
             <div className="brand">
-              <img
-                src="/Logo.png"
-                alt="JGS Cloud Compliance"
-                className="logo"
-              />
+              <img src="/Logo.png" alt="JGS Cloud Compliance" className="logo" />
             </div>
 
-            {/* ---- Navigation ---- */}
-            <nav className="footer-links" aria-label="Footer">
-              <a href="/">Home</a>
-              <a href="/secure">Secure</a>
-              <a href="/support">Support</a>
-              <a href="/prove">Prove</a>
-              <a href="/custom">Custom</a>
-              <a href="/about">About</a>
-              <a href="/contact">Contact</a>
-            </nav>
+            {/* ---- Navigation (center) — reuse Nav for identical spacing/centering ---- */}
+            <Nav />
 
-            {/* ---- Contact Info ---- */}
-            <div className="footer-contact" style={{ textAlign: 'right' }}>
+            {/* ---- Contact (right) ---- */}
+            <div className="nav-right" style={{ textAlign: 'right' }}>
               <a
                 href="mailto:support@cloudjgs.com"
                 className="footer-link"
-                style={{ display: 'block', color: '#9b8df2' }}
+                style={{ display: 'block' }}
               >
                 support@cloudjgs.com
               </a>
               <span style={{ opacity: 0.9 }}>
                 Office:{' '}
-                <a
-                  href="tel:+16192021105"
-                  style={{ color: '#9b8df2', textDecoration: 'none' }}
-                >
+                <a href="tel:+16192021105" style={{ textDecoration: 'none' }}>
                   (619) 202-1105
                 </a>
               </span>
