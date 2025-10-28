@@ -52,15 +52,15 @@ export default function RootLayout({
 
         {/* ================= FOOTER ================= */}
         <footer className="footer">
-          <div className="container footer-grid">
+          <div className="container footer-row" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center' }}>
+            
             {/* ---- Brand ---- */}
-            <div className="footer-brand">
+            <div className="brand">
               <img
                 src="/Logo.png"
-                alt="JGS Cloud Compliance logo"
-                className="footer-logo"
+                alt="JGS Cloud Compliance"
+                className="logo"
               />
-              <span className="sr-only">JGS Cloud Compliance</span>
             </div>
 
             {/* ---- Navigation ---- */}
@@ -74,7 +74,7 @@ export default function RootLayout({
               <a href="/contact">Contact</a>
             </nav>
 
-            {/* ---- Contact Info (Right side) ---- */}
+            {/* ---- Contact Info ---- */}
             <div className="footer-contact" style={{ textAlign: 'right' }}>
               <a
                 href="mailto:support@cloudjgs.com"
@@ -92,29 +92,6 @@ export default function RootLayout({
                   (619) 202-1105
                 </a>
               </span>
-            </div>
-          </div>
-
-          {/* ---- Closing Line ---- */}
-          <div className="footer-close">
-            <div className="container" style={{ textAlign: 'center' }}>
-              <p className="lead" style={{ margin: 0 }}>
-                Questions? Email{' '}
-                <a
-                  href="mailto:support@cloudjgs.com"
-                  style={{ color: '#9b8df2', textDecoration: 'none' }}
-                >
-                  support@cloudjgs.com
-                </a>{' '}
-                or call{' '}
-                <a
-                  href="tel:+16192021105"
-                  style={{ color: '#9b8df2', textDecoration: 'none' }}
-                >
-                  (619) 202-1105
-                </a>
-                .
-              </p>
             </div>
           </div>
         </footer>
