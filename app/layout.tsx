@@ -39,7 +39,7 @@ export default function RootLayout({
 
             {/* Right — CTA only (no phone) */}
             <div style={{ textAlign: "right" }}>
-              <a href="/contact" className={styles.btnCta}>
+              <a href="https://outlook.office.com/book/JGSCloudCompliance@cloudjgs.com/?ismsaljsauthenabled" className={styles.btnCta}>
                 🔒 Book Consultation
               </a>
             </div>
@@ -90,3 +90,4 @@ export default function RootLayout({
     </html>
   );
 }
+
