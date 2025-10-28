@@ -50,7 +50,7 @@ export default function ContactPage() {
           </ul>
           <p>This first call lays the groundwork for long-term trust.</p>
           <p className={styles.ctaWrap}>
-            <a className={styles.ctaLink} href="/contact">🔒 Schedule a Consultation →</a>
+            <a className={styles.ctaLink} href="https://outlook.office.com/book/JGSCloudCompliance@cloudjgs.com/?ismsaljsauthenabled">🔒 Schedule a Consultation →</a>
           </p>
         </div>
       </section>
@@ -97,3 +97,4 @@ export default function ContactPage() {
     </section>
   );
 }
+
