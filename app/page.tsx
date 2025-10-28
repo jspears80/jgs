@@ -19,7 +19,7 @@ export default function HomePage() {
           <div style={{ display: 'flex', gap: '.75rem', margin: '.9rem 0 1.25rem', flexWrap: 'wrap' }}>
             <a
               className="btn primary"
-              href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
+              href="https://outlook.office.com/book/JGSCloudCompliance@cloudjgs.com/?ismsaljsauthenabled"
               target="_blank"
               rel="noopener noreferrer"
             >
