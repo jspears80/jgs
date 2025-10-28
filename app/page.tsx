@@ -32,8 +32,8 @@ export default function HomePage() {
             >
               🔒 Book a 30-Minute Consultation
             </a>
-            <a className="btn" href="/services">
-              📘 View Services
+            <a className="btn" href="/about">
+              📘 Why JGS?
             </a>
           </div>
 
@@ -107,5 +107,6 @@ JGS Cloud Compliance gives professional firms visible control, reliable support,
     </section>
   );
 }
+
 
 
