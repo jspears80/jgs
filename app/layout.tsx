@@ -23,7 +23,7 @@ export default function RootLayout({
         {/* ================= HEADER ================= */}
         <header className="header">
           <div className="header-row container">
-            {/* ---- Brand / Logo ---- */}
+            {/* ---- Brand ---- */}
             <div className="brand">
               <img
                 src="/Logo.png"
@@ -38,7 +38,7 @@ export default function RootLayout({
             {/* ---- Navigation ---- */}
             <Nav />
 
-            {/* ---- Call-to-Action ---- */}
+            {/* ---- CTA ---- */}
             <div className="nav-right">
               <a className="btn btn-cta" href="/contact">
                 🔒 Book Consultation
@@ -47,7 +47,7 @@ export default function RootLayout({
           </div>
         </header>
 
-        {/* ================= MAIN CONTENT ================= */}
+        {/* ================= MAIN ================= */}
         <main className="main container">{children}</main>
 
         {/* ================= FOOTER ================= */}
@@ -73,43 +73,6 @@ export default function RootLayout({
               <a href="/about">About</a>
               <a href="/contact">Contact</a>
             </nav>
-
-            {/* ---- Contact / CTA ---- */}
-            <div className="footer-cta">
-              <a
-                href="mailto:support@cloudjgs.com"
-                className="footer-link"
-              >
-                support@cloudjgs.com
-              </a>
-              <span style={{ opacity: '.9' }}>
-                Office:&nbsp;
-                <a
-                  href="tel:+16192021105"
-                  style={{ color: '#9b8df2', textDecoration: 'none' }}
-                >
-                  (619) 202-1105
-                </a>
-              </span>
-              <div className="footer-actions">
-                <a
-                  className="btn sm"
-                  href="https://www.linkedin.com/in/jspears80/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  🔗 LinkedIn
-                </a>
-                <a
-                  className="btn sm footer-book"
-                  href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  🔒 Book Consultation
-                </a>
-              </div>
-            </div>
           </div>
 
           {/* ---- Closing Line ---- */}
