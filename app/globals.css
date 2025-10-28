@@ -345,3 +345,43 @@ li{margin:.5rem 0; line-height:1.6}
   .header .nav-right span{ font-size:.9rem; margin-right:.5rem; }
   .footer-cta span{ font-size:.9rem; text-align:center; }
 }
+
+/* Hover highlight for Secure • Support • Prove • Custom tiles */
+.proofgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.proofgrid .card-link {
+  display: block;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #e9ecf8;
+  text-decoration: none;
+  transition:
+    transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.proofgrid .card-link:hover {
+  transform: translateY(-3px);
+  background: rgba(155, 141, 242, 0.12);
+  border-color: rgba(155, 141, 242, 0.35);
+  box-shadow: 0 6px 18px rgba(155, 141, 242, 0.25);
+  color: #fff;
+}
+
+.proofgrid .card-link strong {
+  color: #fff;
+  transition: color 0.25s ease;
+}
+
+.proofgrid .card-link:hover strong {
+  color: #b6aaf8;
+}
