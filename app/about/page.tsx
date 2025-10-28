@@ -13,25 +13,12 @@ export default function AboutPage() {
     <section className={styles.wrap}>
       {/* ===== Intro Card ===== */}
       <section className={`${styles.card} ${styles.accent}`}>
-        <h2>🧱 About — Secure • Support • Prove</h2>
+        <h2>🧱 About</h2>
 
+        <p>🏢 Enterprise consultants speak in frameworks and five-figure retainers.</p>
         <p>
-          Professional firms run on trust — between partners, clients, and insurers.
-        </p>
-        <p>
-          JGS Cloud Compliance protects that trust by securing Microsoft 365,
-          maintaining it day-to-day, and proving it’s governed to professional standards.
-        </p>
-        <p>
-          Our work makes your firm’s digital operations clear, defensible, and dependable.
-        </p>
-        <p>
-          For years, small professional practices were stuck between two bad options.
-        </p>
-        <p>🏢 Enterprise consultants spoke in frameworks and five-figure retainers.</p>
-        <p>
-          🧰 Generic MSPs kept the lights on but rarely fixed the weaknesses that cause
-          compromise and sleepless nights.
+          🧰 Generic MSPs keep the lights on but rarely fixe the weaknesses that result
+          in compromise and sleepless nights.
         </p>
         <p>
           In the middle are firms like yours — law and accounting teams of ten to twenty-five
@@ -43,7 +30,7 @@ export default function AboutPage() {
         <p>
           You also shouldn’t have to pay enterprise prices just to feel secure.
         </p>
-        <p>We built JGS Cloud Compliance to change that equation.</p>
+        <p>We built JGS Cloud Compliance so you don't have too.</p>
       </section>
 
       {/* ===== The Model, Plainly ===== */}
@@ -129,3 +116,4 @@ export default function AboutPage() {
     </section>
   );
 }
+
