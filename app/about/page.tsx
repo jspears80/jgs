@@ -1,112 +1,131 @@
-'use client';
-import React from 'react';
+// app/about/page.tsx
+import React from "react";
+import styles from "./about.module.css";
+
+export const metadata = {
+  title: "About — Secure • Support • Prove | JGS Cloud Compliance",
+  description:
+    "Professional firms run on trust. JGS Cloud Compliance secures Microsoft 365, maintains it day-to-day, and proves it’s governed to professional standards.",
+};
 
 export default function AboutPage() {
   return (
-    <section className="section container page-about">
-      {/* ===== Intro ===== */}
-      <div className="card full">
-        <span className="eyebrow">About</span>
-        <h1 className="hero">The Price of Security — and Why We’re Fixing the Gap</h1>
-        <p className="lead" style={{ maxWidth: '75ch' }}>
-          For years, professional firms have been trapped between two bad options.
-        </p>
-        <p style={{ maxWidth: '75ch' }}>
-          On one side are large enterprise consultants — firms that speak in frameworks, charge five-figure retainers, and treat
-          small practices like an afterthought. On the other side are generic MSPs — providers who keep systems online but rarely
-          fix the real weaknesses that lead to compromise, lost trust, and sleepless nights.
-        </p>
-        <p style={{ maxWidth: '75ch' }}>
-          Somewhere in between those two extremes are the people like you — law and accounting firms with 10 to 25 professionals,
-          who rely completely on Microsoft 365 to do their work. You handle confidential information, court filings, and financial
-          data every day. You can’t afford downtime or uncertainty. But you also shouldn’t have to pay enterprise prices just to feel secure.
-        </p>
-      </div>
+    <section className={styles.wrap}>
+      {/* ===== Intro Card ===== */}
+      <section className={`${styles.card} ${styles.accent}`}>
+        <h2>🧱 About — Secure • Support • Prove</h2>
 
-      {/* ===== The Gap ===== */}
-      <div className="card">
-        <h2 className="title-xl">The Gap</h2>
-        <p style={{ maxWidth: '75ch' }}>Most security services are priced for someone else’s reality:</p>
-        <ul className="list-tight" style={{ marginTop: '.25rem', maxWidth: '75ch' }}>
-          <li>Hourly consultants bill unpredictably and disappear after a few fixes.</li>
-          <li>MSPs add “security bundles” that monitor problems instead of solving them.</li>
-          <li>Enterprise firms charge for 60-page reports that never get implemented.</li>
-        </ul>
-        <p style={{ marginTop: '.75rem', maxWidth: '75ch' }}>
-          What’s missing is affordable, senior-level security work that produces measurable results — not more dashboards,
-          not more promises, and not more jargon.
+        <p>
+          Professional firms run on trust — between partners, clients, and insurers.
         </p>
-      </div>
+        <p>
+          JGS Cloud Compliance protects that trust by securing Microsoft 365,
+          maintaining it day-to-day, and proving it’s governed to professional standards.
+        </p>
+        <p>
+          Our work makes your firm’s digital operations clear, defensible, and dependable.
+        </p>
+        <p>
+          For years, small professional practices were stuck between two bad options.
+        </p>
+        <p>🏢 Enterprise consultants spoke in frameworks and five-figure retainers.</p>
+        <p>
+          🧰 Generic MSPs kept the lights on but rarely fixed the weaknesses that cause
+          compromise and sleepless nights.
+        </p>
+        <p>
+          In the middle are firms like yours — law and accounting teams of ten to twenty-five
+          people who live inside Microsoft 365.
+        </p>
+        <p>
+          You handle confidential information every day. You can’t afford downtime or uncertainty.
+        </p>
+        <p>
+          You also shouldn’t have to pay enterprise prices just to feel secure.
+        </p>
+        <p>We built JGS Cloud Compliance to change that equation.</p>
+      </section>
 
-      {/* ===== How JGS Changes the Equation ===== */}
-      <div className="card">
-        <h2 className="title-xl">How JGS Cloud Compliance Changes the Equation</h2>
-        <p style={{ maxWidth: '75ch' }}>
-          We built JGS Cloud Compliance to bridge that price-to-performance gap. Our model is simple: flat-fee projects that secure
-          your environment, and retainers that keep it that way.
-        </p>
+      {/* ===== The Model, Plainly ===== */}
+      <section className={styles.card}>
+        <h3>⚙️ The Model, Plainly</h3>
 
-        <table>
-          <thead>
-            <tr>
-              <th style={{ width: '38%' }}>Category</th>
-              <th>What It Does</th>
-              <th style={{ width: '18%' }}>Flat Fee</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>🛠 Microsoft 365 Security Retrofit</td>
-              <td>Closes internal access gaps, enforces MFA, restores visibility</td>
-              <td><strong>$1,995</strong></td>
-            </tr>
-            <tr>
-              <td>📧 Email Security Retrofit</td>
-              <td>Authenticates messages, stops impostors, ensures reliable delivery</td>
-              <td><strong>$995</strong></td>
-            </tr>
-            <tr>
-              <td>🔁 Backup &amp; Recovery Retrofit</td>
-              <td>Tests your recovery process and proves you can restore quickly</td>
-              <td><strong>$995</strong></td>
-            </tr>
-          </tbody>
-        </table>
+        <article className={styles.block}>
+          <h4>🛡️ Secure brings control, clarity, and confidence back to Microsoft 365.</h4>
+          <p>
+            Over time, permissions drift and risks pile up until no one’s sure who can see what.
+          </p>
+          <p>
+            Secure resets everything — hardening identity, access, and email so your environment
+            is clean, closed, and compliant.
+          </p>
+          <p>
+            You leave with a tenant that’s stable, protected, and aligned with insurer expectations.
+          </p>
+          <p><strong>Flat fee — $1,495</strong></p>
+        </article>
 
-        <p style={{ marginTop: '.75rem', maxWidth: '75ch' }}>
-          Once those projects are complete, our <strong>Resolution &amp; Assurance Advisory</strong> plans provide ongoing access
-          to a senior consultant for rapid response, technical validation, and documented closure — starting at <strong>$495 / month</strong>.
-        </p>
-        <p style={{ maxWidth: '75ch' }}>
-          No hourly surprises. No stacked fees. Just clear pricing for real security work that leadership can understand and rely on.
-        </p>
-      </div>
+        <article className={styles.block}>
+          <h4>🤝 Support keeps that posture steady.</h4>
+          <p>Once secure, systems should stay that way.</p>
+          <p>
+            Our Support plan provides a dedicated Microsoft 365 advisor and helpdesk that
+            handles user issues, policy changes, and compliance upkeep while you focus on clients.
+          </p>
+          <p>We respond fast and document every action so you’re always audit-ready.</p>
+          <p><strong>$995 / month</strong></p>
+        </article>
+
+        <article className={styles.block}>
+          <h4>📊 Prove answers the evidence question without the scramble.</h4>
+          <p>
+            When an insurer, client, or auditor asks for proof, Prove delivers exportable
+            Microsoft 365 data — organized facts, not interpretation — ready to hand off.
+          </p>
+          <p><strong>$495 one-time</strong></p>
+        </article>
+
+        <article className={styles.block}>
+          <h4>⚙️ Custom is where you bring the idea that would make your firm work better.</h4>
+          <p>
+            If it touches Microsoft 365, we can design it, build it, or automate it — portals,
+            intake flows, review and approval, lifecycle and retention — all inside your tenant,
+            governed by policy.
+          </p>
+          <p><strong>From $495+, scoped upfront and fixed per deliverable</strong></p>
+        </article>
+      </section>
 
       {/* ===== Why Flat-Fee Matters ===== */}
-      <div className="card">
-        <h2 className="title-xl">Why Flat-Fee Matters</h2>
-        <p style={{ maxWidth: '75ch' }}>
-          Flat pricing forces discipline — on us. We scope the problem, fix it, and prove it works. You know exactly what you’re paying
-          for, and we know exactly what we have to deliver.
+      <section className={styles.card}>
+        <h3>💰 Why Flat-Fee Matters</h3>
+        <p>Flat pricing forces discipline — on us.</p>
+        <p>We scope the problem, fix it, and prove it works.</p>
+        <p>
+          You know exactly what you’re paying for, and we know exactly what we have to deliver.
         </p>
-        <p style={{ maxWidth: '75ch' }}>
-          That transparency is what small professional firms have been missing in cybersecurity. It’s how trust is built — and how good
-          relationships stay that way.
+        <p>
+          That transparency is what small professional firms have been missing in cybersecurity.
         </p>
-      </div>
+        <p>It’s how trust is built — and how it stays that way.</p>
+      </section>
 
       {/* ===== In Plain English ===== */}
-      <div className="card">
-        <h2 className="title-xl">In Plain English</h2>
-        <p style={{ maxWidth: '75ch' }}>
-          You shouldn’t have to choose between being overcharged or under-protected. Your firm deserves the same security discipline big
-          enterprises have, delivered at a price and pace that make sense for the way you actually work.
+      <section className={styles.card}>
+        <h3>✉️ In Plain English</h3>
+        <p>
+          You shouldn’t have to choose between being overcharged or under-protected.
         </p>
-        <p style={{ maxWidth: '75ch' }}>
-          That’s the space JGS Cloud Compliance was created to fill. <strong>We secure it. We support it.</strong> So you can stay focused
-          on your clients — not your IT.
+        <p>
+          Your firm deserves the same security discipline big enterprises have, delivered at a
+          price and pace that fit the way you actually work.
         </p>
-      </div>
+        <p>That’s why JGS Cloud Compliance exists:</p>
+        <p>
+          we secure it, we support it, we prove it — so you can stay focused on your clients,
+          not your IT.
+        </p>
+      </section>
     </section>
   );
 }
