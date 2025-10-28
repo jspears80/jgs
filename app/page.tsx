@@ -34,7 +34,7 @@ export default function HomePage() {
               🔒 Book a 30-Minute Consultation
             </a>
             <Link className="btn" href="/about">
-              📘 Why JGS?
+              💡 Why Firms Choose JGS
             </Link>
           </div>
 
@@ -137,3 +137,4 @@ export default function HomePage() {
     </section>
   );
 }
+
