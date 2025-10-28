@@ -1,88 +1,99 @@
-'use client';
-import React from 'react';
+// app/contact/page.tsx
+import React from "react";
+import styles from "./contact.module.css";
+
+export const metadata = {
+  title: "Contact — Start the Conversation | JGS Cloud Compliance",
+  description:
+    "Every great engagement begins with understanding. A consultation with JGS Cloud Compliance isn’t a pitch — it’s a conversation.",
+};
 
 export default function ContactPage() {
   return (
-    <section className="section container page-contact">
-      {/* ===== Page Header ===== */}
-      <div className="card full">
-        <span className="eyebrow">Book • Contact</span>
-        <h1 className="hero">Get in Touch</h1>
-        <p className="lead" style={{ maxWidth: '70ch' }}>
-          Every engagement begins with a focused conversation about your firm’s goals, insurer requirements,
-          and Microsoft 365 environment. Whether it’s a planned consultation or an active incident, JGS is always available to respond.
-        </p>
-      </div>
+    <section className={styles.wrap}>
+      {/* ===== Intro / Hero Card ===== */}
+      <section className={`${styles.card} ${styles.accent}`}>
+        <h2>📅 Contact — Start the Conversation</h2>
+        <p className={styles.tag}>Every great engagement begins with understanding.</p>
 
-      {/* ===== What to Expect ===== */}
-      <div className="card">
-        <h2 className="title-xl">What to Expect</h2>
-        <ul className="list-tight" style={{ marginTop: '.25rem' }}>
-          <li><strong>Clarity:</strong> A quick but detailed review of your environment and immediate goals.</li>
-          <li><strong>Assessment:</strong> Identification of gaps in security, compliance, and recoverability.</li>
-          <li><strong>Next steps:</strong> A simple, prioritized plan to secure what matters first — no jargon, no delay.</li>
-        </ul>
-        <p style={{ marginTop: '.9rem', opacity: .9 }}>
-          <strong>Urgent issue?</strong> JGS operates <strong>24/7</strong> for clients experiencing outages,
-          account compromise, or mail disruption.  
-          Email <a href="mailto:support@cloudjgs.com">support@cloudjgs.com</a> with “URGENT” in the subject line, and you’ll receive a direct response from Jeremiah within minutes.
-        </p>
-      </div>
-
-      {/* ===== Direct Contact ===== */}
-      <div className="card">
-        <h2 className="title-xl">Contact Information</h2>
+        <h3>Microsoft 365 for Law &amp; CPA Firms</h3>
         <p>
-          <strong>Email:</strong>{' '}
-          <a href="mailto:support@cloudjgs.com">support@cloudjgs.com</a><br />
-          <strong>Website:</strong>{' '}
-          <a href="https://www.cloudjgs.com" target="_blank" rel="noopener">
-            www.cloudjgs.com
-          </a><br />
-          <strong>LinkedIn:</strong>{' '}
-          <a href="https://www.linkedin.com/in/jspears80/" target="_blank" rel="noopener">
-            linkedin.com/in/jspears80
-          </a>
+          A consultation with JGS Cloud Compliance isn’t a pitch — it’s a conversation.
         </p>
         <p>
-          <p>
-          <strong>Office:</strong> <a href="tel:+16192021105">(619) 202-1105</a>
-          <br />
-                Available 24/7 for advisory and support.
+          We start by learning how your firm actually works: what’s smooth, what’s slowing you down,
+          and where Microsoft 365 can serve you better.
+        </p>
+        <p>
+          This first meeting is about connection, clarity, and charting a sensible path forward — not signing anything.
+        </p>
+      </section>
+
+      {/* ===== What the Consultation Is ===== */}
+      <section className={styles.card}>
+        <h3>What the Consultation Is</h3>
+        <p>
+          It’s a short, focused discussion designed to give you perspective.
+        </p>
+        <p>
+          We’ll review your current Microsoft 365 environment, listen to your firm’s goals, and highlight
+          where better configuration, automation, or governance could immediately help.
+        </p>
+        <p>No jargon. No pressure. Just insight and a simple next step.</p>
+
+        <div className={styles.listBlock}>
+          <p>You’ll leave with:</p>
+          <ul className={styles.list}>
+            <li>A clearer picture of how Microsoft 365 supports (or limits) your workflow</li>
+            <li>A practical plan for what to secure, streamline, or prove next</li>
+            <li>A sense of what partnership with JGS feels like — direct, senior-level, and transparent</li>
+          </ul>
+          <p>This first call lays the groundwork for long-term trust.</p>
+          <p className={styles.ctaWrap}>
+            <a className={styles.ctaLink} href="/contact">🔒 Schedule a Consultation →</a>
           </p>
+        </div>
+      </section>
 
-          <strong>Coverage:</strong> Remote consulting for law and accounting firms nationwide.
-        </p>
-      </div>
+      {/* ===== How to Reach Us ===== */}
+      <section className={styles.card}>
+        <h3>How to Reach Us</h3>
+        <div className={styles.kv}>
+          <div className={styles.k}><strong>Email:</strong></div>
+          <div className={styles.v}><a href="mailto:support@cloudjgs.com">support@cloudjgs.com</a></div>
+
+          <div className={styles.k}><strong>Office:</strong></div>
+          <div className={styles.v}><a href="tel:+16192021105">(619) 202-1105</a></div>
+
+          <div className={styles.k}><strong>Availability:</strong></div>
+          <div className={styles.v}>Monday – Friday · 8 AM – 6 PM PT for consultations · 24/7 for emergencies</div>
+
+          <div className={styles.k}><strong>Coverage:</strong></div>
+          <div className={styles.v}>Remote consulting for law and accounting firms nationwide</div>
+
+          <div className={styles.k}><strong>LinkedIn:</strong></div>
+          <div className={styles.v}><a href="https://linkedin.com/in/jspears80">linkedin.com/in/jspears80</a></div>
+
+          <div className={styles.k}><strong>Website:</strong></div>
+          <div className={styles.v}><a href="https://www.cloudjgs.com">www.cloudjgs.com</a></div>
+        </div>
+      </section>
 
       {/* ===== Founder Note ===== */}
-      <div className="card">
-        <h2 className="title-xl">A Note from the Founder</h2>
-        <p style={{ fontStyle: 'italic', opacity: .92 }}>
-          “I built JGS Cloud Compliance so small professional firms could access senior Microsoft 365 expertise without
-          layers of tickets or delay. Whether it’s 2 PM or 2 AM, if something breaks or feels off — you should have someone you trust to call.”
-        </p>
-        <p style={{ fontWeight: 600, marginTop: '.5rem' }}>
-          — Jeremiah Spears, Founder &amp; Principal Consultant
-        </p>
-      </div>
-
-      {/* ===== Secondary CTA ===== */}
-      <div className="card full book-cta">
-        <h2 className="title-xl">Let’s Secure and Support Your Firm</h2>
-        <p className="lead" style={{ marginBottom: '.9rem' }}>
-          Book your consultation and take the first step toward Microsoft 365 that’s <strong>secure, documented, and trusted — day or night</strong>.
-        </p>
-        <a
-          className="btn primary"
-          href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
-          target="_blank"
-          rel="noopener"
-          aria-label="Schedule a consultation"
-        >
-          📅 Schedule Now
-        </a>
-      </div>
+      <section className={styles.card}>
+        <h3>A Note from the Founder</h3>
+        <blockquote className={styles.note}>
+          <p>
+            “I built JGS Cloud Compliance so professional firms could reach senior Microsoft 365 expertise
+            without layers of tickets or delay.
+          </p>
+          <p>
+            This first conversation isn’t about selling services — it’s about understanding what your firm
+            actually needs and earning your confidence.”
+          </p>
+          <footer>— <strong>Jeremiah Spears, Founder &amp; Principal Consultant</strong></footer>
+        </blockquote>
+      </section>
     </section>
   );
 }
