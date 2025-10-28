@@ -1,206 +1,190 @@
-// app/proof/page.tsx
-'use client';
-import React from 'react';
+// app/prove/page.tsx
+import React from "react";
 
-export default function ProofPage() {
+export const metadata = {
+  title:
+    "Prove — Audit-Ready Microsoft 365 Evidence | JGS Cloud Compliance",
+  description:
+    "Clear, verified Microsoft 365 evidence for insurance renewals, client reviews, and audits — organized and ready to share without the scramble.",
+};
+
+export default function ProvePage() {
   return (
-    <section className="section container page-services">
-      <div className="page home-grid">
-        {/* ===== LEFT COLUMN — HERO ===== */}
-        <div>
-          <span className="eyebrow">Consulting • Microsoft 365</span>
-          <h1 className="hero">📊 PROVE — $495 Audit Data Package</h1>
-          <h2>Show proof — not promises</h2>
+    <section className="section container">
+      <div className="page service-grid">
+        {/* ===== HERO SECTION ===== */}
+        <div className="hero-block">
+          <h1 className="hero">📊 Prove — Audit-Ready Microsoft 365 Evidence</h1>
+          <h2 className="subhero">
+            When insurers or clients ask for proof, you shouldn’t have to scramble.
+          </h2>
 
-          <p className="lead" style={{ maxWidth: '68ch' }}>
-            When an insurer, client, or auditor asks for evidence, this is the answer.
-            PROVE delivers clear, exportable data straight from Microsoft 365 — no interpretation,
-            just organized facts in a ready-to-share report.
+          <p className="lead">Microsoft 365 for Law &amp; CPA Firms</p>
+
+          <p className="body-text">
+            Every year, firms face renewal forms, questionnaires, and client
+            due-diligence requests that all ask the same thing:{" "}
+            <em>Show us proof your Microsoft 365 is secure.</em>{" "}
+            <strong>Prove</strong> delivers that documentation — clear,
+            verified, and formatted for auditors and insurers. No stress, no
+            tech talk — just organized evidence you can send immediately.
           </p>
 
-          <div
-            style={{
-              display: 'flex',
-              gap: '.75rem',
-              margin: '.9rem 0 1.25rem',
-              flexWrap: 'wrap',
-            }}
-          >
-            <a
-              className="btn primary"
-              href="https://outlook.office.com/book/JGSConsulting@cloudjgs.com/?ismsaljsauthenabled"
-              target="_blank"
-              rel="noopener"
-            >
-              🔒 Book a 30-Minute Consultation
-            </a>
-            <a className="btn" href="/services">
-              📘 Back to Services
-            </a>
-          </div>
-
-          {/* ===== VALUE HIGHLIGHTS ===== */}
-          <div className="proofgrid">
-            <div>
-              <strong>✅ Factual</strong> — Evidence exported directly from Microsoft 365 — not summaries, not opinions.
-            </div>
-            <div>
-              <strong>🧾 Auditor-ready</strong> — Organized sections, clear labels, and checksum integrity where applicable.
-            </div>
-            <div>
-              <strong>⏱ Fast</strong> — 24-hour turnaround for standard tenants; delivered as a signed PDF + data bundle.
-            </div>
-            <div>
-              <strong>🔐 Governed</strong> — Collected under least-privilege accounts and retained in your Evidence library.
-            </div>
-          </div>
-
-          {/* ===== WHAT YOU GET ===== */}
-          <div className="card full service-card">
-            <div className="service-head">
-              <h3 className="title-xl">What you get (deliverables)</h3>
-              <span className="price-pill">$495</span>
-            </div>
-            <div className="two-col">
-              <div>
-                <div className="subhead">Configuration Evidence</div>
-                <ul className="list-tight">
-                  <li>Secure Score snapshot with control breakdown</li>
-                  <li>Admin roles &amp; privileged access inventory</li>
-                  <li>Conditional Access &amp; MFA status summary</li>
-                </ul>
-              </div>
-              <div>
-                <div className="subhead">Messaging &amp; Sharing</div>
-                <ul className="list-tight">
-                  <li>Mail flow trust posture (SPF, DKIM, DMARC)</li>
-                  <li>Auto-forwarding &amp; legacy auth checks</li>
-                  <li>External sharing visibility (SharePoint/OneDrive)</li>
-                </ul>
-              </div>
-              <div>
-                <div className="subhead">Licensing &amp; Activity</div>
-                <ul className="list-tight">
-                  <li>License allocation overview</li>
-                  <li>Basic sign-in or change events as available</li>
-                  <li>Notes on material gaps for re-run guidance</li>
-                </ul>
-              </div>
-              <div>
-                <div className="subhead">Package Format</div>
-                <ul className="list-tight">
-                  <li>Signed PDF summary for leadership/insurers</li>
-                  <li>CSV/JSON evidence bundle (where applicable)</li>
-                  <li>Delivery log &amp; optional checksum list</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* ===== HOW IT WORKS ===== */}
-          <div className="card full service-card">
-            <div className="service-head">
-              <h3 className="title-xl">How it works</h3>
-            </div>
-            <div className="two-col">
-              <div>
-                <div className="subhead">1) Initiate</div>
-                <p className="list-tight">
-                  You approve the scope and secure access. We schedule a quick window to pull the data.
-                </p>
-              </div>
-              <div>
-                <div className="subhead">2) Collect</div>
-                <p className="list-tight">
-                  We export evidence from Microsoft 365 using controlled, least-privilege methods.
-                </p>
-              </div>
-              <div>
-                <div className="subhead">3) Assemble</div>
-                <p className="list-tight">
-                  We package the data into a clean PDF summary and an optional CSV/JSON bundle.
-                </p>
-              </div>
-              <div>
-                <div className="subhead">4) Deliver</div>
-                <p className="list-tight">
-                  You receive the evidence via a secure link, ready to hand off to any third party.
-                </p>
-              </div>
-              <div>
-                <div className="subhead">5) Re-run (optional)</div>
-                <p className="list-tight">
-                  Need updates after remediation? Re-run the package to show progress and closure.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* ===== BUSINESS VALUE (anchor bullets) ===== */}
-          <div className="card full">
-            <h3 className="title-xl">Business Value</h3>
-            <ul className="list-tight">
-              <li>Provides credible, third-party-ready documentation on demand</li>
-              <li>Speeds up renewals, reviews, and compliance questionnaires</li>
-              <li>Builds trust through transparency and accuracy</li>
-            </ul>
-            <p style={{ marginTop: '.5rem', opacity: 0.95 }}>
-              <em>“The evidence — clearly organized and ready to hand off.”</em>
-            </p>
-          </div>
-
-          {/* ===== CTA BAND ===== */}
-          <div className="cta-band" style={{ marginTop: '1.75rem' }}>
-            <p className="lead" style={{ margin: 0 }}>
-              Need proof for an insurer or client review? Book a consultation and we’ll prepare your
-              Microsoft 365 PROVE package.
-            </p>
-          </div>
+          <p className="price">
+            <strong>$495 one-time.</strong>
+            <br />
+            Fast turnaround. Ready to share.
+          </p>
         </div>
 
-        {/* ===== RIGHT COLUMN — FOUNDER CARD (optional reuse) ===== */}
-        <aside
-          aria-label="Principal consultant"
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <div className="founder" style={{ textAlign: 'center', alignItems: 'center' }}>
-            <img
-              src="/founder.jpg"
-              alt="Jeremiah Spears — Founder & Principal Consultant"
-              className="founder-img"
-              width={720}
-              height={720}
-            />
-            <div className="founder-meta">
-              <div className="founder-name">Jeremiah Spears</div>
-              <div className="founder-title">Founder &amp; Principal Consultant</div>
-            </div>
+        <hr className="divider" />
 
-            <p style={{ fontSize: '.95rem', opacity: 0.9, marginTop: '.25rem', maxWidth: '60ch' }}>
-              “Proof turns security into confidence. We export what matters so leadership, insurers,
-              and auditors can verify it.”
+        {/* ===== BUSINESS VALUE ===== */}
+        <section className="business-value">
+          <h2>The Business Value</h2>
+
+          <ul className="value-list">
+            <li>
+              <strong>Get through renewals and reviews quickly.</strong>
+              <br />
+              Provide professional, third-party evidence of your Microsoft 365
+              controls — exactly what auditors and underwriters need.
+            </li>
+            <li>
+              <strong>Reduce the compliance scramble.</strong>
+              <br />
+              Stop chasing screenshots and explanations. Your documentation is
+              built, organized, and ready to hand off.
+            </li>
+            <li>
+              <strong>Strengthen client and insurer confidence.</strong>
+              <br />
+              Transparent proof shows your firm takes data protection seriously —
+              without adding another project.
+            </li>
+            <li>
+              <strong>Save internal time and effort.</strong>
+              <br />
+              We handle the evidence gathering, formatting, and packaging so your
+              staff stays focused on client work.
+            </li>
+          </ul>
+        </section>
+
+        <hr className="divider" />
+
+        {/* ===== WHAT YOU GET ===== */}
+        <section className="deliverables">
+          <h2>What You Get</h2>
+
+          <div className="deliverable">
+            <h3>1️⃣ Microsoft 365 Evidence Report</h3>
+            <p>
+              A plain-English summary of your environment and controls, written
+              for non-technical reviewers.
             </p>
-
-            <div className="founder-actions" style={{ justifyContent: 'center', marginTop: '.5rem' }}>
-              <a
-                className="btn sm"
-                href="https://www.linkedin.com/in/jspears80/"
-                target="_blank"
-                rel="noopener"
-              >
-                🔗 LinkedIn
-              </a>
-              <a className="btn sm" href="/contact">
-                ✉️ Contact
-              </a>
-            </div>
           </div>
-        </aside>
+
+          <div className="deliverable">
+            <h3>2️⃣ Audit Data Package</h3>
+            <p>
+              Exports and snapshots of key Microsoft 365 settings — access,
+              permissions, and protection — formatted for insurance and compliance
+              documentation.
+            </p>
+          </div>
+
+          <div className="deliverable">
+            <h3>3️⃣ Validation Artifacts</h3>
+            <p>
+              Timestamped screenshots and configuration exports that verify the
+              evidence in your report.
+            </p>
+          </div>
+
+          <div className="deliverable">
+            <h3>4️⃣ Share-Ready Delivery</h3>
+            <p>
+              Delivered as a clean, labeled zip or PDF bundle — easy to email,
+              upload, or store for next year’s renewal.
+            </p>
+          </div>
+        </section>
+
+        <hr className="divider" />
+
+        {/* ===== WHO IT’S FOR ===== */}
+        <section className="business-value">
+          <h2>Who It’s For</h2>
+
+          <ul className="value-list">
+            <li>
+              Firms preparing for <strong>cyber-insurance renewals</strong> or
+              policy underwriting.
+            </li>
+            <li>
+              Firms answering <strong>client due-diligence or vendor-security
+              questionnaires.</strong>
+            </li>
+            <li>
+              <strong>Practice administrators</strong> responsible for gathering
+              compliance documentation.
+            </li>
+            <li>
+              <strong>Auditors, brokers, and consultants</strong> who need
+              verifiable Microsoft 365 evidence for their clients.
+            </li>
+          </ul>
+        </section>
+
+        <hr className="divider" />
+
+        {/* ===== HOW IT WORKS ===== */}
+        <section className="deliverables">
+          <h2>How It Works</h2>
+
+          <div className="deliverable">
+            <h3>Step 1 — Access &amp; Scope</h3>
+            <p>
+              Grant lightweight, read-only access and confirm what evidence you
+              need produced.
+            </p>
+          </div>
+
+          <div className="deliverable">
+            <h3>Step 2 — Evidence Collection</h3>
+            <p>
+              We extract configuration data and screenshots directly from
+              Microsoft 365 — verified and timestamped.
+            </p>
+          </div>
+
+          <div className="deliverable">
+            <h3>Step 3 — Delivery</h3>
+            <p>
+              You receive a ready-to-share package and a short walkthrough of how
+              to present it to your insurer, client, or auditor.
+            </p>
+          </div>
+        </section>
+
+        <hr className="divider" />
+
+        {/* ===== CTA ===== */}
+        <section className="service-cta">
+          <p>
+            Make renewals easy and reviews effortless.
+            <br />
+            <strong>Request your PROVE package</strong> or email{" "}
+            <a
+              href="mailto:support@cloudjgs.com"
+              style={{ color: "#9b8df2", textDecoration: "none" }}
+            >
+              support@cloudjgs.com
+            </a>{" "}
+            to get your audit-ready Microsoft 365 evidence delivered this week.
+          </p>
+        </section>
       </div>
     </section>
   );
