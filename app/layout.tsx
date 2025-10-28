@@ -20,18 +20,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        {/* ===== HEADER ===== */}
         <header className={styles.header}>
           <div className={`${styles.headerRow} container`}>
+            {/* Left — Brand */}
             <div>
               <a href="/" aria-label="JGS Cloud Compliance — Home">
-                <img src="/Logo.png" alt="JGS Cloud Compliance" className={styles.logo} />
+                <img
+                  src="/Logo.png"
+                  alt="JGS Cloud Compliance"
+                  className={styles.logo}
+                />
               </a>
             </div>
+
+            {/* Center — Nav */}
             <Nav />
+
+            {/* Right — CTA only (no phone) */}
             <div style={{ textAlign: "right" }}>
-              <span className={styles.navPhone}>
-                <a href="tel:+16192021105">📞 (619) 202-1105</a>
-              </span>
               <a href="/contact" className={styles.btnCta}>
                 🔒 Book Consultation
               </a>
@@ -39,15 +46,25 @@ export default function RootLayout({
           </div>
         </header>
 
+        {/* ===== MAIN ===== */}
         <main className="main container">{children}</main>
 
+        {/* ===== FOOTER ===== */}
         <footer className={styles.footer}>
           <div className={`${styles.footerRow} container`}>
+            {/* Left — Brand */}
             <div>
               <a href="/" aria-label="Home">
-                <img src="/Logo.png" alt="JGS logo" className="footer-logo" />
+                <img
+                  src="/Logo.png"
+                  alt="JGS logo"
+                  className="footer-logo"
+                  style={{ maxHeight: "32px" }}
+                />
               </a>
             </div>
+
+            {/* Center — Links */}
             <nav className={styles.footerLinks} aria-label="Footer">
               <a href="/">Home</a>
               <a href="/secure">Secure</a>
@@ -57,6 +74,8 @@ export default function RootLayout({
               <a href="/about">About</a>
               <a href="/contact">Contact</a>
             </nav>
+
+            {/* Right — Contact Info */}
             <div className={styles.footerContact}>
               <div>
                 <a href="mailto:support@cloudjgs.com">support@cloudjgs.com</a>
