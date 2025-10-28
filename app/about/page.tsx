@@ -28,10 +28,9 @@ export default function AboutPage() {
           You handle confidential information every day. You can’t afford downtime or uncertainty.
         </p>
         <p>
-          You also shouldn’t have to pay enterprise prices just to feel secure.
+          You also shouldn’t have to pay enterprise prices just to feel secure. We built JGS Cloud Compliance so you don't have too.
         </p>
-        <p>We built JGS Cloud Compliance so you don't have too.</p>
-      </section>
+        </section>
 
       {/* ===== The Model, Plainly ===== */}
       <section className={styles.card}>
@@ -116,5 +115,6 @@ export default function AboutPage() {
     </section>
   );
 }
+
 
 
