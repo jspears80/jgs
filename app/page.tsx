@@ -14,9 +14,8 @@ export default function HomePage() {
 
           <p className="lead" style={{ maxWidth: '68ch' }}>
 Small professional firms depend on Microsoft 365 for every deadline, filing, and client exchange — yet most tenants remain insecure by default.
-JGS Cloud Compliance hardens your environment, proves its security with real evidence, and keeps it that way year-round.
-
-Founder-led. Evidence-driven. Built for firms that can’t afford uncertainty.
+<br>JGS Cloud Compliance hardens your environment, proves its security with real evidence, and keeps it that way year-round.</br>
+<br>Founder-led. Evidence-driven. Built for firms that can’t afford uncertainty.</br>
           </p>
 
           <div style={{ display: 'flex', gap: '.75rem', margin: '.9rem 0 1.25rem', flexWrap: 'wrap' }}>
@@ -55,7 +54,7 @@ But Microsoft 365 ships insecure by default — and insurers, auditors, and clie
           <div className="cta-band" style={{ marginTop: '1.75rem' }}>
             <p className="lead" style={{ margin: 0, textAlign: 'center' }}>
               We harden your Microsoft 365, assess it with real evidence, and keep it compliant quarter after quarter.
-Founder-led. Flat-fee. Audit-ready.
+<br>Founder-led. Flat-fee. Audit-ready.</br>
             </p>
           </div>
         </div>
@@ -87,6 +86,7 @@ Founder-led. Flat-fee. Audit-ready.
     </section>
   );
 }
+
 
 
 
