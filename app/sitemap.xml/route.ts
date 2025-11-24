@@ -1,7 +1,7 @@
 // /app/sitemap.xml/route.ts
 export async function GET() {
   const base = 'https://www.cloudjgs.com';
-  const urls = ['/', '/secure', '/prove', '/assure', '/about', /contact'];
+  const urls = ['/', '/about', '/services', '/advisory', '/contact'];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

@@ -69,7 +69,7 @@ export default function RootLayout({
               <a href="/">Home</a>
               <a href="/secure">Secure</a>
               <a href="/prove">Prove</a>
-              <a href="/assure">Assure</a>
+              <a href="/support">Assure</a>
               <a href="/about">About</a>
               <a href="/contact">Contact</a>
             </nav>
@@ -89,7 +89,6 @@ export default function RootLayout({
     </html>
   );
 }
-
 
 
 

@@ -8,7 +8,7 @@ const NAV_ITEMS = [
   { href: '/', label: 'Home' },
   { href: '/secure', label: 'Secure' },
   { href: '/prove', label: 'Prove' },
-  { href: '/assure', label: 'Assure' },
+  { href: '/support', label: 'Assure' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];

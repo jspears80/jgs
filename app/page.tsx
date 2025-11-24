@@ -14,8 +14,9 @@ export default function HomePage() {
 
           <p className="lead" style={{ maxWidth: '68ch' }}>
 Small professional firms depend on Microsoft 365 for every deadline, filing, and client exchange — yet most tenants remain insecure by default.
-<br>JGS Cloud Compliance hardens your environment, proves its security with real evidence, and keeps it that way year-round.</br>
-<br>Founder-led. Evidence-driven. Built for firms that can’t afford uncertainty.</br>
+JGS Cloud Compliance hardens your environment, proves its security with real evidence, and keeps it that way year-round.
+
+Founder-led. Evidence-driven. Built for firms that can’t afford uncertainty.
           </p>
 
           <div style={{ display: 'flex', gap: '.75rem', margin: '.9rem 0 1.25rem', flexWrap: 'wrap' }}>
@@ -40,11 +41,11 @@ Small professional firms depend on Microsoft 365 for every deadline, filing, and
             <Link href="/prove" className="card-link hover-card">
               📘 <strong>Prove — Microsoft 365 Audit Binder</strong> — A full evidence-driven assessment of your Microsoft 365 environment, producing a polished, audit-ready binder that insurers, auditors, and clients accept as proof of security and compliance.
             </Link>
-            <Link href="/assure"   className="card-link hover-card">
+            <Link href="/support"   className="card-link hover-card">
               🔄 <strong>Assure — Annual Security Program</strong> — SECURE + PROVE + quarterly refreshes + leadership advisory.
 A year-round assurance program that keeps your Microsoft 365 locked down, documented, and ready for insurers and clients at all times.
             </Link>
-            <Link href=""  className="card-link hover-card">
+            <Link href="/custom"  className="card-link hover-card">
               🏢 <strong>CPA & Law Firms</strong> — Small professional firms run on trust, deadlines, and confidentiality.
 But Microsoft 365 ships insecure by default — and insurers, auditors, and clients increasingly demand proof.
             </Link>
@@ -54,7 +55,7 @@ But Microsoft 365 ships insecure by default — and insurers, auditors, and clie
           <div className="cta-band" style={{ marginTop: '1.75rem' }}>
             <p className="lead" style={{ margin: 0, textAlign: 'center' }}>
               We harden your Microsoft 365, assess it with real evidence, and keep it compliant quarter after quarter.
-<br>Founder-led. Flat-fee. Audit-ready.</br>
+Founder-led. Flat-fee. Audit-ready.
             </p>
           </div>
         </div>
@@ -86,8 +87,6 @@ But Microsoft 365 ships insecure by default — and insurers, auditors, and clie
     </section>
   );
 }
-
-
 
 
 
