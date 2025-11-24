@@ -6,9 +6,9 @@ import React from 'react';
 
 const NAV_ITEMS = [
   { href: '/', label: 'Home' },
-  { href: '/secure', label: 'SECURE' },
-  { href: '/prove', label: 'PROVE' },
-  { href: '/support', label: 'ASSURE' },
+  { href: '/secure', label: 'Secure' },
+  { href: '/prove', label: 'Prove' },
+  { href: '/support', label: 'Assure' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
