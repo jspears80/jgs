@@ -7,7 +7,7 @@ import Nav from "./Nav";
 export const metadata = {
   metadataBase: new URL("https://www.cloudjgs.com"),
   title:
-    "Secure • Support • Prove — Microsoft 365 for Law & CPA Firms | JGS Cloud Compliance",
+    "SECURE • PROVE • ASSURE — Microsoft 365 for Law & CPA Firms | JGS Cloud Compliance",
   description:
     "JGS Cloud Compliance helps law and accounting firms operate securely and confidently on Microsoft 365.",
 };
@@ -67,9 +67,9 @@ export default function RootLayout({
             {/* Center — Links */}
             <nav className={styles.footerLinks} aria-label="Footer">
               <a href="/">Home</a>
-              <a href="/secure">Secure</a>
-              <a href="/support">Support</a>
-              <a href="/prove">Prove</a>
+              <a href="/secure">SECURE</a>
+              <a href="/support">PROVE</a>
+              <a href="/prove">ASSURE</a>
               <a href="/custom">Custom</a>
               <a href="/about">About</a>
               <a href="/contact">Contact</a>
@@ -90,4 +90,5 @@ export default function RootLayout({
     </html>
   );
 }
+
 
