@@ -68,9 +68,8 @@ export default function RootLayout({
             <nav className={styles.footerLinks} aria-label="Footer">
               <a href="/">Home</a>
               <a href="/secure">SECURE</a>
-              <a href="/support">PROVE</a>
-              <a href="/prove">ASSURE</a>
-              <a href="/custom">Custom</a>
+              <a href="/prove">PROVE</a>
+              <a href="/support">ASSURE</a>
               <a href="/about">About</a>
               <a href="/contact">Contact</a>
             </nav>
@@ -90,5 +89,6 @@ export default function RootLayout({
     </html>
   );
 }
+
 
 
