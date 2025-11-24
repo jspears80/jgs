@@ -9,7 +9,7 @@ export default function HomePage() {
         {/* LEFT column */}
         <div>
           <span className="eyebrow">Consulting • Microsoft 365</span>
-          <h1 className="hero">SECURE • PROVE • ASSURE</h1>
+          <h1 className="hero">Secure • Prove • Assure</h1>
           <h2 className="hero">Microsoft 365 Security for CPA & Law Firms</h2>
 
           <p className="lead" style={{ maxWidth: '68ch' }}>
@@ -36,13 +36,13 @@ Founder-led. Evidence-driven. Built for firms that can’t afford uncertainty.
           {/* PROOF GRID */}
           <div className="proofgrid">
             <Link href="/secure"  className="card-link hover-card">
-              🛡️ <strong>SECURE — Microsoft 365 Hardening</strong> — We lock down your Microsoft 365 tenant with modern authentication, Conditional Access, secure mailflow, device compliance, and data governance — all delivered as a flat-fee hardening project designed for CPA & Law firms.
+              🛡️ <strong>Secure — Microsoft 365 Hardening</strong> — We lock down your Microsoft 365 tenant with modern authentication, Conditional Access, secure mailflow, device compliance, and data governance — all delivered as a flat-fee hardening project designed for CPA & Law firms.
             </Link>
             <Link href="/prove" className="card-link hover-card">
-              📘 <strong>PROVE — Microsoft 365 Audit Binder</strong> — A full evidence-driven assessment of your Microsoft 365 environment, producing a polished, audit-ready binder that insurers, auditors, and clients accept as proof of security and compliance.
+              📘 <strong>Prove — Microsoft 365 Audit Binder</strong> — A full evidence-driven assessment of your Microsoft 365 environment, producing a polished, audit-ready binder that insurers, auditors, and clients accept as proof of security and compliance.
             </Link>
             <Link href="/support"   className="card-link hover-card">
-              🔄 <strong>ASSURE — Annual Security Program</strong> — SECURE + PROVE + quarterly refreshes + leadership advisory.
+              🔄 <strong>Assure — Annual Security Program</strong> — SECURE + PROVE + quarterly refreshes + leadership advisory.
 A year-round assurance program that keeps your Microsoft 365 locked down, documented, and ready for insurers and clients at all times.
             </Link>
             <Link href="/custom"  className="card-link hover-card">
@@ -87,6 +87,7 @@ Founder-led. Flat-fee. Audit-ready.
     </section>
   );
 }
+
 
 
 
