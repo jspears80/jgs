@@ -1,6 +1,6 @@
 // app/support/page.tsx
 import React from "react";
-import styles from "./support.module.css";
+import styles from "./assure.module.css";
 
 export const metadata = {
   title: "Support — Microsoft 365 Helpdesk & Advisory | JGS Cloud Compliance",
@@ -108,3 +108,4 @@ export default function SupportPage() {
     </section>
   );
 }
+
