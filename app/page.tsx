@@ -9,11 +9,14 @@ export default function HomePage() {
         {/* LEFT column */}
         <div>
           <span className="eyebrow">Consulting • Microsoft 365</span>
-          <h1 className="hero">Secure • Support • Prove</h1>
-          <h2 className="hero">Microsoft 365 for Law &amp; CPA Firms</h2>
+          <h1 className="hero">SECURE • PROVE • ASSURE</h1>
+          <h2 className="hero">Microsoft 365 Security for CPA & Law Firms</h2>
 
           <p className="lead" style={{ maxWidth: '68ch' }}>
-            Professional firms run on trust. We secure your Microsoft 365, keep it clean, and deliver the proof that your data—and reputation—are protected.
+Small professional firms depend on Microsoft 365 for every deadline, filing, and client exchange — yet most tenants remain insecure by default.
+JGS Cloud Compliance hardens your environment, proves its security with real evidence, and keeps it that way year-round.
+
+Founder-led. Evidence-driven. Built for firms that can’t afford uncertainty.
           </p>
 
           <div style={{ display: 'flex', gap: '.75rem', margin: '.9rem 0 1.25rem', flexWrap: 'wrap' }}>
@@ -33,23 +36,26 @@ export default function HomePage() {
           {/* PROOF GRID */}
           <div className="proofgrid">
             <Link href="/secure"  className="card-link hover-card">
-              🛡️ <strong>SECURE</strong> — Flat-fee Microsoft 365 hardening that restores trust, compliance, and peace of mind.
+              🛡️ <strong>SECURE — Microsoft 365 Hardening</strong> — We lock down your Microsoft 365 tenant with modern authentication, Conditional Access, secure mailflow, device compliance, and data governance — all delivered as a flat-fee hardening project designed for CPA & Law firms.
             </Link>
             <Link href="/support" className="card-link hover-card">
-              🤝 <strong>SUPPORT</strong> — Your Microsoft 365 helpdesk and advisor — steady support, fast fixes, full accountability.
+              🤝 <strong>PROVE — Microsoft 365 Audit Binder</strong> — A full evidence-driven assessment of your Microsoft 365 environment, producing a polished, audit-ready binder that insurers, auditors, and clients accept as proof of security and compliance.
             </Link>
             <Link href="/prove"   className="card-link hover-card">
-              📊 <strong>PROVE</strong> — Deliver audit-ready Microsoft 365 proof your clients, auditors, and insurers believe.
+              📊 <strong>ASSURE — Annual Security Program</strong> — SECURE + PROVE + quarterly refreshes + leadership advisory.
+A year-round assurance program that keeps your Microsoft 365 locked down, documented, and ready for insurers and clients at all times.
             </Link>
             <Link href="/custom"  className="card-link hover-card">
-              ⚙️ <strong>CUSTOM</strong> — Design Microsoft 365 around your firm — efficient, compliant, and uniquely yours.
+              ⚙️ <strong>CPA & Law Firms</strong> — Small professional firms run on trust, deadlines, and confidentiality.
+But Microsoft 365 ships insecure by default — and insurers, auditors, and clients increasingly demand proof.
             </Link>
           </div>
 
           {/* CTA band */}
           <div className="cta-band" style={{ marginTop: '1.75rem' }}>
             <p className="lead" style={{ margin: 0, textAlign: 'center' }}>
-              JGS Cloud Compliance gives professional firms visible control, reliable support, and undeniable proof their Microsoft 365 is governed right.
+              We harden your Microsoft 365, assess it with real evidence, and keep it compliant quarter after quarter.
+Founder-led. Flat-fee. Audit-ready.
             </p>
           </div>
         </div>
@@ -81,4 +87,5 @@ export default function HomePage() {
     </section>
   );
 }
+
 
