@@ -46,7 +46,7 @@ Founder-led. Evidence-driven. Built for firms that can’t afford uncertainty.
 A year-round assurance program that keeps your Microsoft 365 locked down, documented, and ready for insurers and clients at all times.
             </Link>
             <Link href="/custom"  className="card-link hover-card">
-              ⚙️ <strong>TRUST — CPA & Law Firms</strong> — Small professional firms run on trust, deadlines, and confidentiality.
+              ⚙️ <strong>CPA & Law Firms</strong> — Small professional firms run on trust, deadlines, and confidentiality.
 But Microsoft 365 ships insecure by default — and insurers, auditors, and clients increasingly demand proof.
             </Link>
           </div>
@@ -87,6 +87,7 @@ Founder-led. Flat-fee. Audit-ready.
     </section>
   );
 }
+
 
 
 
