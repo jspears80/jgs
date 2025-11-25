@@ -20,15 +20,13 @@ export default function SecurePage() {
 
         <div className={styles.twoCol}>
           <div>
-            <h3>Microsoft 365 for Law &amp; CPA Firms</h3>
+            <h3>Microsoft 365 for CPA & Law Firms</h3>
             <p>Your firm runs on trust — between partners, clients, and insurers.</p>
-            <p>Over time, access drifts, risks pile up, and confidence erodes.</p>
-            <p>
-              Secure resets your Microsoft 365 so it’s organized, protected, and
-              defensible — restoring clarity to who has what, where, and why.
-            </p>
+            <p>But Microsoft 365 ships insecure by default: weak authentication, open sharing, risky defaults, and silent configuration drift.</p>
+            <p></p>
+            <p>Secure is our one-time hardening engagement that locks down your tenant with modern authentication, Conditional Access, secure mailflow, device compliance, and data governance — all built specifically for CPA & Law firms.</p>
             <p className={styles.price}>
-              <strong>$1,495 flat fee.</strong>
+              <strong>$3,000 flat fee.</strong>
               <br />
               One engagement. Permanent peace of mind.
             </p>
@@ -45,17 +43,17 @@ export default function SecurePage() {
               <li>
                 <strong>Reduce exposure and uncertainty.</strong>
                 <br />
-                No more “who can see what” confusion. You’ll know — and be able to show — exactly how access is governed.
+               Eliminate weak defaults, hidden admins, insecure sharing, legacy authentication, and configuration drift — risks that quietly accumulate over years.
               </li>
               <li>
-                <strong>Preserve your reputation.</strong>
+                <strong>Protect your reputation.</strong>
                 <br />
-                Stay compliant with insurer expectations, renewals, and client due diligence.
+                A hardened Microsoft 365 environment preserves confidentiality, prevents compromise, and aligns with insurer and regulatory expectations.
               </li>
               <li>
                 <strong>Operate with confidence.</strong>
                 <br />
-                A stable, governed Microsoft 365 means less noise, fewer surprises, and more trust in every exchange.
+                Stable, governed systems mean fewer surprises, fewer disruptions, and more trust in every exchange..
               </li>
             </ul>
           </aside>
