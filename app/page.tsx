@@ -57,7 +57,7 @@ export default function HomePage() {
               compliance.
             </Link>
 
-            <Link href="/assure" className="card-link hover-card">
+            <Link href="/support" className="card-link hover-card">
               🔄 <strong>Assure — Annual Security Program</strong> — Secure + Prove + quarterly
               evidence refreshes + leadership advisory. A year-round assurance program that keeps your Microsoft 365 hardened, documented, and renewal-ready at all times.
             </Link>
@@ -140,3 +140,4 @@ export default function HomePage() {
     </section>
   );
 }
+
