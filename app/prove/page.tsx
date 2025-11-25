@@ -20,19 +20,22 @@ export default function ProvePage() {
         <div className={styles.twoCol}>
           <div>
             <h3>Microsoft 365 for Law &amp; CPA Firms</h3>
-            <p>
-              Every year, firms face renewal forms, questionnaires, and client due-diligence
-              requests that all ask the same thing: Show us proof your Microsoft 365 is secure.
-            </p>
-            <p>
-              Prove delivers that documentation — clear, verified, and formatted for auditors and
-              insurers.
-            </p>
-            <p>No stress, no tech talk — just organized evidence you can send immediately.</p>
+<p>Every year, firms face renewal forms, security questionnaires, and client due-diligence requests that all demand the same thing: </p>
+
+<p>“Show us proof your Microsoft 365 is secure.”</p>
+
+<p>Most tenants can’t — because screenshots and assumptions don’t count.</p>
+
+<p>PROVE™ delivers modern, evidence-driven documentation built directly from your Microsoft 365 tenant: real data, verified controls, and an audit-ready binder written for insurers and auditors.</p>
+<p>
+No stress. No guesswork.
+<br />
+Just organized, defensible evidence your firm can hand off immediately.
+</p>
             <p className={styles.price}>
-              <strong>$495 one-time.</strong>
+              <strong>$3,000 — one-time.</strong>
               <br />
-              Fast turnaround. Ready to share.
+              Fast turnaround. Audit-grade. Insurer-ready.
             </p>
           </div>
 
