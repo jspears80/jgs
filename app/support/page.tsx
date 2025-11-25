@@ -1,36 +1,48 @@
 // app/support/page.tsx
 import React from "react";
-import styles from "./support.module.css";
+import styles from "./support.module.css"; // same CSS — layout unchanged
 
 export const metadata = {
-  title: "Support — Microsoft 365 Helpdesk & Advisory | JGS Cloud Compliance",
+  title: "Assure — Annual Microsoft 365 Security Program | JGS Cloud Compliance",
   description:
-    "Because your firm shouldn’t have to wait for answers. Dedicated Microsoft 365 helpdesk and advisor in one predictable monthly plan.",
+    "The JGS Assurance Program keeps your Microsoft 365 secure, documented, and audit-ready all year with quarterly refreshes, advisory, and real evidence.",
 };
 
-export default function SupportPage() {
+export default function AssurePage() {
   return (
     <section className={styles.wrap}>
       <section className={`${styles.card} ${styles.accent}`}>
-        <h2>🤝 Support — Microsoft 365 Helpdesk &amp; Advisory</h2>
-        <p className={styles.tag}>Because your firm shouldn’t have to wait for answers.</p>
+        <h2>🔒 Assure — Annual Microsoft 365 Security Program</h2>
+        <p className={styles.tag}>
+          The reliability of Secure + the proof of Prove — kept accurate all year.
+        </p>
 
         <div className={styles.twoCol}>
           <div>
             <h3>Microsoft 365 for Law &amp; CPA Firms</h3>
-            <p>Your team depends on Microsoft 365 every hour of every day.</p>
             <p>
-              When something breaks, stalls, or confuses, you need more than a ticket number — you
-              need someone who knows your system, understands your staff, and responds fast.
+              Your Microsoft 365 doesn’t stay secure just because it was hardened once.  
+              Accounts change. Permissions drift. Microsoft updates features silently.  
+              Insurers, clients, and regulators ask for proof at unpredictable times.
             </p>
+
             <p>
-              Support gives your firm a dedicated Microsoft 365 helpdesk and advisor in one
-              predictable monthly plan.
+              The <strong>Assure Program</strong> keeps your environment secure, documented, and
+              defensible all year — combining <strong>SECURE</strong> hardening, a full
+              <strong> PROVE</strong> audit binder, quarterly evidence refreshes, and leadership-only
+              advisory.
             </p>
+
+            <p>
+              When a renewal, audit, or client questionnaire appears,  
+              <strong>your proof is already done.</strong>
+            </p>
+
             <p className={styles.price}>
-              <strong>$995 per month.</strong>
+              <strong>$5,000 per year</strong>  
+              or <strong>$425/month</strong> (annual commitment)
               <br />
-              Fast response. Clear accountability.
+              A full year of security, documentation, and continuity.
             </p>
           </div>
 
@@ -38,27 +50,31 @@ export default function SupportPage() {
             <h4>The Business Value</h4>
             <ul>
               <li>
-                <strong>Keep your firm productive.</strong>
+                <strong>Stay audit-ready year-round.</strong>
                 <br />
-                Quick, direct help when Outlook, OneDrive, Teams, or permissions act up — no
-                tier-1 queue, no run-around.
+                Quarterly evidence refreshes keep your PROVE binder accurate for insurers, auditors,
+                or high-value clients — no scrambling, no guesswork.
               </li>
+
               <li>
-                <strong>Get senior-level answers.</strong>
+                <strong>Maintain a hardened, compliant tenant.</strong>
                 <br />
-                Every request is handled by the same Microsoft 365 consultant who secured your
-                tenant — not a random tech who’s learning on the job.
+                Silent drift, permission creep, forgotten admins, and insecure settings are corrected
+                before they become liabilities.
               </li>
+
               <li>
-                <strong>Document every fix.</strong>
+                <strong>Leadership-only advisory.</strong>
                 <br />
-                Each change, update, or resolution is logged and summarized so you can prove
-                continuity and control.
+                Direct access to senior judgment — for security questions, configuration decisions,
+                client questionnaires, or insurer follow-ups.
               </li>
+
               <li>
-                <strong>Simplify your operations.</strong>
+                <strong>Peace of mind every quarter.</strong>
                 <br />
-                One email or call — issues resolved, staff supported, compliance maintained.
+                Your Microsoft 365 never falls behind. Controls remain enforced. Documentation stays
+                accurate. Proof stays defensible.
               </li>
             </ul>
           </aside>
@@ -70,37 +86,38 @@ export default function SupportPage() {
         <div className={styles.steps}>
           <article className={styles.step}>
             <div className={styles.badge}>1️⃣</div>
-            <h5>Responsive Helpdesk</h5>
+            <h5>Full SECURE Hardening</h5>
             <p>
-              Fast, friendly, expert support for Outlook, SharePoint, Teams, OneDrive, licensing,
-              and user access — with quick response guaranteed.
+              Your tenant is rebuilt and locked down with modern authentication, Conditional Access,
+              secure mailflow, device compliance, and governed sharing — a clean, modern baseline
+              aligned to professional standards.
             </p>
           </article>
 
           <article className={styles.step}>
             <div className={styles.badge}>2️⃣</div>
-            <h5>Advisory Access</h5>
+            <h5>The PROVE Binder</h5>
             <p>
-              Ask policy questions, plan rollouts, or confirm configuration changes before they
-              happen. You get a trusted advisor, not just a break-fix service.
+              A complete, evidence-driven Microsoft 365 audit binder — reviewed by leadership and
+              accepted by insurers, auditors, and major clients as proof of security and compliance.
             </p>
           </article>
 
           <article className={styles.step}>
             <div className={styles.badge}>3️⃣</div>
-            <h5>Managed Accountability</h5>
+            <h5>Quarterly Evidence Refreshes</h5>
             <p>
-              Every month you receive a Support Report showing what was handled, what was updated,
-              and what risks were prevented.
+              Every quarter we re-run your evidence collectors, update your binder, correct drift,
+              and re-verify critical controls — keeping your proof accurate all year long.
             </p>
           </article>
 
           <article className={styles.step}>
             <div className={styles.badge}>4️⃣</div>
-            <h5>Microsoft 365 Kept in Shape</h5>
+            <h5>Leadership Advisory</h5>
             <p>
-              We maintain permissions, alerts, and best-practice settings so your environment stays
-              as secure and reliable as the day it was hardened.
+              Direct access for security questions, insurer or client questionnaires, renewal
+              follow-ups, and decision support — without becoming a helpdesk or MSP.
             </p>
           </article>
         </div>
