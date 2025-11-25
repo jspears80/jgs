@@ -39,7 +39,7 @@ export default function AssurePage() {
             </p>
 
             <p className={styles.price}>
-              <strong>$5,000 per year</strong>  
+              <strong>$5,000 per year </strong>  
               or <strong> $425/month</strong> (annual commitment)
               <br />
               A full year of security, documentation, and continuity.
@@ -125,4 +125,5 @@ export default function AssurePage() {
     </section>
   );
 }
+
 
