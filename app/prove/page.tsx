@@ -20,18 +20,31 @@ export default function ProvePage() {
         <div className={styles.twoCol}>
           <div>
             <h3>Microsoft 365 for Law &amp; CPA Firms</h3>
-<p>Every year, firms face renewal forms, security questionnaires, and client due-diligence requests that all demand the same thing: </p>
 
-<p>“Show us proof your Microsoft 365 is secure.”</p>
+            <p>
+              Every year, firms face renewal forms, security questionnaires, and client
+              due-diligence requests that all demand the same thing:
+            </p>
 
-<p>Most tenants can’t — because screenshots and assumptions don’t count.</p>
+            <p><strong>“Show us proof your Microsoft 365 is secure.”</strong></p>
 
-<p>PROVE™ delivers modern, evidence-driven documentation built directly from your Microsoft 365 tenant: real data, verified controls, and an audit-ready binder written for insurers and auditors.</p>
-<p>
-No stress. No guesswork.
-<br />
-Just organized, defensible evidence your firm can hand off immediately.
-</p>
+            <p>
+              Most tenants can’t — because screenshots, assumptions, and MSP explanations don’t
+              count. Auditors, insurers, and large clients expect **real, verifiable evidence**.
+            </p>
+
+            <p>
+              PROVE™ delivers modern, evidence-driven documentation built directly from your
+              Microsoft 365 tenant — real data, verified controls, and an audit-ready binder designed
+              for insurers, auditors, and leadership review.
+            </p>
+
+            <p>
+              No stress. No guesswork.
+              <br />
+              Just organized, defensible evidence your firm can hand off immediately.
+            </p>
+
             <p className={styles.price}>
               <strong>$3,000 — one-time.</strong>
               <br />
@@ -45,26 +58,28 @@ Just organized, defensible evidence your firm can hand off immediately.
               <li>
                 <strong>Get through renewals and reviews quickly.</strong>
                 <br />
-                Provide professional, third-party evidence of your Microsoft 365 controls — exactly
-                what auditors and underwriters need.
+                A polished, third-party evidence binder built from actual tenant data — exactly what
+                underwriters and auditors expect.
               </li>
+
               <li>
                 <strong>Reduce the compliance scramble.</strong>
                 <br />
-                Stop chasing screenshots and explanations. Your documentation is built, organized,
-                and ready to hand off.
+                No more hunting screenshots or explaining settings. PROVE delivers organized,
+                ready-to-send documentation.
               </li>
+
               <li>
                 <strong>Strengthen client and insurer confidence.</strong>
                 <br />
-                Transparent proof shows your firm takes data protection seriously — without adding
-                another project.
+                Clear, evidence-backed controls show your firm takes data protection seriously.
               </li>
+
               <li>
                 <strong>Save internal time and effort.</strong>
                 <br />
-                We handle the evidence gathering, formatting, and packaging so your staff stays
-                focused on client work.
+                We handle collection, analysis, and formatting so your team stays focused on client
+                work.
               </li>
             </ul>
           </aside>
@@ -73,13 +88,14 @@ Just organized, defensible evidence your firm can hand off immediately.
         <div className={styles.divider} />
 
         <h4>What You Get</h4>
+
         <div className={styles.steps}>
           <article className={styles.step}>
             <div className={styles.badge}>1️⃣</div>
             <h5>Microsoft 365 Evidence Report</h5>
             <p>
-              A plain-English summary of your environment and controls, written for non-technical
-              reviewers.
+              A plain-English summary of your identity, email, data, device, and collaboration
+              posture — written for non-technical leadership, auditors, and insurers.
             </p>
           </article>
 
@@ -87,8 +103,9 @@ Just organized, defensible evidence your firm can hand off immediately.
             <div className={styles.badge}>2️⃣</div>
             <h5>Audit Data Package</h5>
             <p>
-              Exports and snapshots of key Microsoft 365 settings — access, permissions, and
-              protection — formatted for insurance and compliance documentation.
+              Real evidence pulled directly from your tenant: authentication, Conditional Access,
+              domain security, Purview retention &amp; DLP, device compliance, email authentication,
+              collaboration settings, and more — formatted for audit and insurance documentation.
             </p>
           </article>
 
@@ -96,8 +113,8 @@ Just organized, defensible evidence your firm can hand off immediately.
             <div className={styles.badge}>3️⃣</div>
             <h5>Validation Artifacts</h5>
             <p>
-              Timestamped screenshots and configuration exports that verify the evidence in your
-              report.
+              Timestamps, screenshots, and configuration exports verifying the findings in your
+              report — proof, not assumptions.
             </p>
           </article>
 
@@ -105,8 +122,8 @@ Just organized, defensible evidence your firm can hand off immediately.
             <div className={styles.badge}>4️⃣</div>
             <h5>Share-Ready Delivery</h5>
             <p>
-              Delivered as a clean, labeled zip or PDF bundle — easy to email, upload, or store for
-              next year’s renewal.
+              Delivered as a clean, labeled PDF + ZIP bundle — easy to email to insurers,
+              underwriters, auditors, or major clients, and ready to reuse next year.
             </p>
           </article>
         </div>
