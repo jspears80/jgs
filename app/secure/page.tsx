@@ -68,23 +68,28 @@ export default function SecurePage() {
           <article className={styles.step}>
             <div className={styles.badge}>1️⃣</div>
             <h5>Reset &amp; Rebuild</h5>
-            <p>We rebuild the foundation of your Microsoft 365 tenant — identity, authentication, Conditional Access, mailflow, device compliance, and data governance.</p>
-            <p>We strip away drift, close dangerous defaults, and re-establish a secure, modern baseline.</p>            
+            <p>
+We rebuild the foundation of your Microsoft 365 tenant — identity, authentication, Conditional Access, mailflow, device compliance, and data governance.
+We strip away drift, close dangerous defaults, and re-establish a secure, modern baseline.
+            </p>
           </article>
 
           <article className={styles.step}>
             <div className={styles.badge}>2️⃣</div>
             <h5>Proof You Can Hand Off</h5>
-            <p>You leave with clear, plain-English documentation showing exactly what was secured, what protections are in place, and how access is governed.</p>
-            <p>A professional, third-party security hardening report you can provide to insurers, auditors, and clients.</p>            
+            <p>
+You leave with clear, plain-English documentation showing exactly what was secured, what protections are in place, and how access is governed.
+A professional, third-party security hardening report you can provide to insurers, auditors, and clients.
+            </p>
           </article>
 
           <article className={styles.step}>
             <div className={styles.badge}>3️⃣</div>
             <h5>Renewed Confidence</h5>
-            <p>Everything works the way it should.</p>
-            <p>Your systems become clean, compliant, predictable, and aligned to professional standards</p> 
-            <p>— ready for filings, deadlines, reviews, renewals, or anything that comes next.</p>
+            <p>
+Everything works the way it should.
+Your systems become clean, compliant, predictable, and aligned to professional standards — ready for filings, deadlines, reviews, renewals, or anything that comes next.
+            </p>
            </article>
         
         </div>
