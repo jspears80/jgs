@@ -24,7 +24,7 @@ export default function SecurePage() {
             <p>Your firm runs on trust — between partners, clients, and insurers.</p>
             <p>But Microsoft 365 ships insecure by default: weak authentication, open sharing, risky defaults, and silent configuration drift.</p>
             <p></p>
-            <p>Secure is our one-time hardening engagement that locks down your tenant with modern authentication, Conditional Access, secure mailflow, device compliance, and data governance — all built specifically for CPA & Law firms.</p>
+            <p><strong>Secure</strong> is our <strong>one-time</strong> hardening engagement that locks down your tenant with modern authentication, Conditional Access, secure mailflow, device compliance, and data governance — all built specifically for CPA & Law firms.</p>
             <p className={styles.price}>
               <strong>$3,000 flat fee.</strong>
               <br />
