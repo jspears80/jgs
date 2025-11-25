@@ -3,9 +3,9 @@ import React from "react";
 import styles from "./secure.module.css";
 
 export const metadata = {
-  title: "Secure — Flat-Fee Microsoft 365 Hardening | JGS Cloud Compliance",
+  title: "Secure — Microsoft 365 Hardening for CPA & Law Firms | JGS Cloud Compliance",
   description:
-    "Because trust isn’t something you assume — it’s something you prove. Secure resets Microsoft 365 so it’s organized, protected, and defensible.",
+    "Secure is a one-time Microsoft 365 hardening engagement that locks down identity, email, data, and devices with modern, defensible controls.",
 };
 
 export default function SecurePage() {
@@ -13,22 +13,36 @@ export default function SecurePage() {
     <section className={styles.wrap}>
       {/* ===== Secure Only ===== */}
       <section className={`${styles.card} ${styles.accent}`}>
-        <h2>🛡️ Secure — Flat-Fee Microsoft 365 Hardening</h2>
+        <h2>🛡️ Secure — Microsoft 365 Hardening</h2>
         <p className={styles.tag}>
-          Because trust isn’t something you assume — it’s something you prove.
+          Because trust isn't something you assume — it's something you prove.
         </p>
 
         <div className={styles.twoCol}>
           <div>
-            <h3>Microsoft 365 for CPA & Law Firms</h3>
-            <p>Your firm runs on trust — between partners, clients, and insurers.</p>
-            <p>But Microsoft 365 ships insecure by default: weak authentication, open sharing, risky defaults, and silent configuration drift.</p>
-            <p></p>
-            <p><strong>Secure</strong> is our <strong>one-time</strong> hardening engagement that locks down your tenant with modern authentication, Conditional Access, secure mailflow, device compliance, and data governance — all built specifically for CPA & Law firms.</p>
+            <h3>Microsoft 365 for CPA &amp; Law Firms</h3>
+
+            <p>
+              Your firm relies on Microsoft 365 for deadlines, filings, client communication,
+              privileged records, and day-to-day continuity.
+            </p>
+
+            <p>
+              But Microsoft 365 ships insecure by default — weak authentication, legacy protocols,
+              open sharing, stale permissions, and years of silent configuration drift.
+            </p>
+
+            <p>
+              <strong>Secure</strong> is our <strong>one-time hardening engagement</strong> that
+              locks your environment down properly: modern authentication, Conditional Access,
+              hardened mailflow, device compliance, and data governance — designed specifically for
+              CPA and Law practices that cannot afford uncertainty.
+            </p>
+
             <p className={styles.price}>
               <strong>$3,000 flat fee.</strong>
               <br />
-              One engagement. Permanent peace of mind.
+              One engagement. A clean, compliant, defensible Microsoft 365 tenant.
             </p>
           </div>
 
@@ -38,22 +52,30 @@ export default function SecurePage() {
               <li>
                 <strong>Reassure your clients and insurers.</strong>
                 <br />
-                Prove your firm takes data protection seriously — with measurable, documented controls.
+                Demonstrate documented, third-party security controls that satisfy underwriters,
+                regulators, and large clients.
               </li>
+
               <li>
                 <strong>Reduce exposure and uncertainty.</strong>
                 <br />
-               Eliminate weak defaults, hidden admins, insecure sharing, legacy authentication, and configuration drift — risks that quietly accumulate over years.
+                Eliminate hidden admins, insecure sharing, legacy authentication, weak defaults,
+                unmonitored access, and years of drift — risks that quietly accumulate in most
+                tenants.
               </li>
+
               <li>
                 <strong>Protect your reputation.</strong>
                 <br />
-                A hardened Microsoft 365 environment preserves confidentiality, prevents compromise, and aligns with insurer and regulatory expectations.
+                A hardened Microsoft 365 environment preserves confidentiality, prevents compromise,
+                and aligns your firm with insurer and professional-standard expectations.
               </li>
+
               <li>
                 <strong>Operate with confidence.</strong>
                 <br />
-                Stable, governed systems mean fewer surprises, fewer disruptions, and more trust in every exchange..
+                Stable, governed systems mean fewer surprises, fewer disruptions, and a
+                predictable foundation your firm can rely on.
               </li>
             </ul>
           </aside>
@@ -62,15 +84,16 @@ export default function SecurePage() {
         <div className={styles.divider} />
 
         <h4>What You Get</h4>
-        
+
         <div className={styles.steps}>
-            
           <article className={styles.step}>
             <div className={styles.badge}>1️⃣</div>
             <h5>Reset &amp; Rebuild</h5>
             <p>
-We rebuild the foundation of your Microsoft 365 tenant — identity, authentication, Conditional Access, mailflow, device compliance, and data governance.
-We strip away drift, close dangerous defaults, and re-establish a secure, modern baseline.
+              We rebuild the core of your Microsoft 365 tenant — identity, authentication,
+              Conditional Access, mailflow protection, device compliance, and data governance.
+              Dangerously loose defaults are removed, drift is corrected, and a secure modern
+              baseline is re-established.
             </p>
           </article>
 
@@ -78,8 +101,9 @@ We strip away drift, close dangerous defaults, and re-establish a secure, modern
             <div className={styles.badge}>2️⃣</div>
             <h5>Proof You Can Hand Off</h5>
             <p>
-You leave with clear, plain-English documentation showing exactly what was secured, what protections are in place, and how access is governed.
-A professional, third-party security hardening report you can provide to insurers, auditors, and clients.
+              You receive clear, plain-English documentation detailing exactly what was secured,
+              which protections are in place, and how access is governed. A professional, third-party
+              hardening report you can present to insurers, auditors, or major clients.
             </p>
           </article>
 
@@ -87,13 +111,12 @@ A professional, third-party security hardening report you can provide to insurer
             <div className={styles.badge}>3️⃣</div>
             <h5>Renewed Confidence</h5>
             <p>
-Everything works the way it should.
-Your systems become clean, compliant, predictable, and aligned to professional standards — ready for filings, deadlines, reviews, renewals, or anything that comes next.
+              Everything begins working the way it should. Your Microsoft 365 becomes clean,
+              compliant, predictable, and aligned with professional and insurer expectations — ready
+              for filings, deadlines, renewals, or anything that comes next.
             </p>
-           </article>
-        
+          </article>
         </div>
-        
       </section>
     </section>
   );
